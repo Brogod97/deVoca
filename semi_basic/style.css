@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--gray30);
+    font-family: 'Pretendard-Regular';
+    display: flex;
+    flex-direction: column;
+}
+
+/* header 영역 */
+
+header {
+    box-shadow: var(--header-shadow);
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header > div:nth-child(1) { 
+    flex: 2;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+header > div:nth-child(2) { 
+    flex: 2; 
+   
+}
+
+header > div:nth-child(3) { 
+    display: flex;
+}
+
+.google-search {
+    display: flex;
+    align-items: center;
+}
+
+
+.google-search-right > a {
+    padding: 12px;  
+    text-decoration: none;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.google-search-right > a:hover {
+    text-decoration: underline;
+}
+
+.reading-glasses {
+    position: relative;
+    left: 260px;
+    bottom: 18px;
+    height: 35px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+input::-ms-clear,
+input::-ms-reveal{
+	display:none;width:0;height:0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+	display:none;
+}
+
+
+
+.google-img {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+
+
+
+.google-search-right button {
+    font-size: 16px;
+    font-weight: 700;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--primary);
+    margin-right: 8px;
+}
+
+.google-search-right button:hover {
+    background-color: var(--secondary);
+    color: var(--gray30);
+}
+
+
+.google-search-img {
+    width: 16px;
+    height: 16px;
+    
+}
+
+.google-search fieldset {
+   width: 300px;
+   height: 38px;
+   border-radius: 80.18px;
+   background-color: var(--google);
+   border: 0;
+  position: relative;
+  top: 18px;
+}
+
+#google-search-input {
+    width: 240px;
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    position: relative;
+    top: 2px;
+    left: 8px;
+    
+}
+
+
+#google-search-input::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray200);
+    width: 95px;
+    height: 17px;
+}
+
+#google-search-input::-webkit-input-placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray200);
+    width: 95px;
+    height: 17px;
+}
+#google-search-input::-ms-input-placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray200);
+    width: 95px;
+    height: 17px;
+}
+
+
+
+section {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+footer {
+    width: 100vw;
+    height: 80px;
+    background-color: var(--footer);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--footer-color);
+}
+
+footer > div:first-child {
+    display: flex;
+    width: 22vw;
+    justify-content: space-between;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--footer-color);
+
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
