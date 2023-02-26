@@ -1,0 +1,56 @@
+:root {
+  /* 포인트 색상 */
+  --primary : #FFC759; /* 1순위 */
+  --secondary : #FFD27A; /* 2순위 */
+  --tertiary : #FFDD9B; /* 3순위 */
+  --red : #FF3939; /* 삭제, 탈퇴 등 강조 빨간색 */
+  --quiz-wrong : #FFBEBE; /* 퀴즈 오답 선택 시 */
+
+  /* 폰트 컬러 */
+  --dark : #525050; /* 대부분의 검은 글씨들 */
+  --footer-color : #6A6A6A; /* 푸터에 쓰인 글씨들 */
+
+  /* 메인_네비게이션 바 */
+  --button-active : #475a80;
+
+  /* 모달 뒷배경 */
+  --modal-background :  rgba(0, 0, 0, 0.5);
+
+  /* 그레이 스케일 */
+  /* 여러 곳에서 쓰이므로 따로 구분함 */
+  --black : #000;
+  --gray500 : #838E9E;
+  --gray300 : #B4BBC5;
+  --gray250 : #E1E1E1;
+  --gray200 : #CDD2D8;
+  --gray100 : #E6E8EC;
+  --gray50 : #F5F6F7;
+  --gray30 : #FAFAFA;
+  --google : #F3F3F3;
+  --tag : #ECECEC;
+  --white : #fff;
+
+  /* 일자선 */
+  --line : 1px solid #b4bbc5;
+
+  /* 내부 검색창 */
+  --voca-search : 1px solid #e1e1e1;
+
+  /* 호버 */
+  --line-hover : 1px solid #FFC759;
+  --icon-hover : invert(40%) sepia(50%) saturate(500%) hue-rotate(345deg) brightness(150%) contrast(103%);
+
+  /* 그림자 */
+  --category-shadow: 0px 6px 12px 0px rgb(148, 163, 184, 0.15);
+  --header-shadow: 0px 1px 15px 0px rgba(0,0,0,0.06);
+  --side-shadow: 1px 0px 2px 0px rgba(0,0,0,0.15);
+  --login-shadow: 2px 6px 12px 0px rgb(148, 163, 184, 0.35);
+  --menu-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+  --word-modal-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+  --nav-inner-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2) inset;
+
+
+
+  
+}
+

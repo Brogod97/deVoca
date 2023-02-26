@@ -1,0 +1,414 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--gray30);
+    font-family: 'Pretendard-Regular';
+    
+}
+
+/* header 영역 */
+
+header {
+    box-shadow: var(--header-shadow);
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    position: absolute;
+    z-index: 4;
+    
+}
+
+header > div:nth-child(1) { 
+    flex-basis: 20%;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+header > div:nth-child(2) { 
+    flex-basis: 60%; 
+}
+
+header > div:nth-child(3) { 
+    flex-basis: 20%; 
+}
+
+
+.reading-glasses {
+    position: relative;
+    left: 260px;
+    bottom: 36px;
+    height: 35px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+
+
+.google-img {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+.google-search {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    padding-right: 24px;
+}
+
+
+.google-search-img {
+    width: 16px;
+    height: 16px;
+}
+
+.google-search fieldset {
+   width: 300px;
+   height: 38px;
+   border-radius: 80.18px;
+   background-color: var(--google);
+   border: 0;
+}
+
+#google-search-input {
+    width: 240px;
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    position: relative;
+    top: 2px;
+    left: 10px;
+}
+
+
+#google-search-input::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray200);
+    width: 95px;
+    height: 17px;
+}
+
+#google-search-input::-webkit-input-placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray200);
+    width: 95px;
+    height: 17px;
+}
+#google-search-input::-ms-input-placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray200);
+    width: 95px;
+    height: 17px;
+}
+
+input::-ms-clear,
+input::-ms-reveal{
+	display:none;width:0;height:0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+	display:none;
+}
+  
+/* 몸통 */
+.container {
+    display: flex;
+    position: absolute;
+    height: 100vh;
+}
+
+/* nav 영역 */
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    margin-top: 80px;
+    background-color: var(--gray100);
+    z-index: 3;
+}
+
+nav > section:nth-child(1),
+nav > section:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+nav > section:nth-child(1) {
+    flex-basis: 90%;
+}
+
+nav > section:nth-child(2) {
+    flex-basis: 10%;
+    margin-bottom: 40px;
+   
+}
+
+nav a {
+    padding-top: 40px;
+    text-align: center;
+    
+
+}
+
+nav a:nth-child(1) {
+   margin-top: 10px;
+}
+
+
+
+
+nav a:nth-child(1):hover, 
+nav a:nth-child(2):hover, 
+nav a:nth-child(3):hover, 
+nav a:nth-child(4):hover, 
+nav a:nth-child(5):hover {
+    filter: var(--icon-hover);
+  
+}
+
+
+
+
+
+
+
+/* 단어 서치바 영역 */
+.side-bar {
+    width: 370px;
+    margin-top: 80px;
+    background-color: var(--gray50);
+    box-shadow: var(--side-shadow);
+    border-radius: 0px 0px 30px 0px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.side-1 {
+    flex-basis: 15%;
+    
+}
+
+.side-1 button {
+    position: relative;
+    top: 35px;
+    right: 10px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+
+.voca-search-img {
+    width: 16px;
+    height: 16px;
+    position: relative;
+}
+
+#voca-search-input {
+    width: 310px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: var(--voca-search);
+    outline: 0;
+    position: relative;
+    top: 33px;
+    left: 30px;
+    padding-left: 20px;
+    
+}
+
+#voca-search-input:focus {
+    border: var(--line-hover);
+    background-color: var(--gray30);
+    
+}
+
+#voca-search-input::placeholder {
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray200);
+}
+
+#voca-search-input::-webkit-input-placeholder {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray200);
+}
+
+#voca-search-input::-ms-input-placeholder {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray200);
+}
+
+.line-1 {
+    border-bottom: var(--line);
+    width: 310px;
+    height: 7vh;
+    margin: auto;
+}
+
+
+
+/* 카테고리 영역 */
+
+.category-container {
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+    
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    width: 290px;
+    height: 4px;
+    align-items: center;
+}
+
+.category-header button {
+   margin-bottom: 30px;
+    
+}
+
+.category-container button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border-radius: 80%;
+}
+
+.category-btn:hover {
+    background-color: var(--gray250);
+}
+
+.category-container a {
+    position: relative;
+    top: 13px;
+    left: 16px; 
+    text-decoration: none;
+    color: var(--black);
+    width: 220px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 700;
+ }
+
+ .category-container div:nth-child(2),
+ .category-container div:nth-child(3),
+ .category-container div:nth-child(4),
+ .category-container div:nth-child(5) {
+    display: flex;
+    justify-content: space-between;
+    
+    height: 52px;
+    margin-bottom: 35px;
+    width: 284px;
+    box-shadow: var(--category-shadow);
+    border-radius: 8px;
+    
+ }
+
+
+.category-container button:nth-child(2),
+.category-container button:nth-child(3),
+.category-container button:nth-child(4),
+.category-container button:nth-child(5) {
+    
+    position: relative;
+    right: 16px;
+    top: 15px;
+}
+
+.category-container > div:nth-child(2):hover, 
+.category-container > div:nth-child(3):hover,
+.category-container > div:nth-child(4):hover, 
+.category-container > div:nth-child(5):hover {
+    background-color: var(--primary);
+}
+
+
+
+
+
+
+
+
+
+/* 태그영역 */
+.category-footer {
+    display: flex;
+    flex-direction: column;
+   flex-basis: 15%;
+}
+
+.line-2 {
+    border-bottom: var(--line);
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.tag {
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tag button {
+    cursor: pointer;
+    width: 100px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--tag);
+    margin: 0 0 8px 12px;
+   
+}
+
+.tag button:hover {
+    border: var(--line-hover);
+}
+
+
+
