@@ -729,3 +729,41 @@ p {
 }
 
 
+.tagify {
+    --tags-disabled-bg: #F1F1F1;
+    --tags-border-color: none !important;
+    --tags-hover-border-color: var(--gray50) !important;
+    --tags-focus-border-color: none !important;
+    --tag-border-radius: 3px;
+    --tag-bg: var(--gray50) !important;
+    --tag-hover: var(--tertiary) !important;
+    --tag-text-color: var(--dark) !important;
+    --tag-text-color--edit: var(--dark) !important;
+    --tag-pad: 0.3em 0.5em;
+    --tag-inset-shadow-size: 1.1em;
+    --tag-invalid-color: #ffcdd2 !important;
+    --tag-invalid-bg: #ffcdd2 !important;
+    --tag-remove-bg: #ffcdd2 !important;
+    --tag-remove-btn-color: black;
+    --tag-remove-btn-bg: none;
+    --tag-remove-btn-bg--hover: var(--red) !important;
+    --input-color: inherit;
+    --tag--min-width: 1ch;
+    --tag--max-width: auto;
+    --tag-hide-transition: 0.3s;
+    --placeholder-color: rgba(0, 0, 0, 0.4);
+    --placeholder-color-focus: rgba(0, 0, 0, 0.25);
+    --loader-size: 0.8em;
+    --readonly-striped: 1;
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    line-height: 0;
+    cursor: text;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid var(--tags-border-color);
+    padding: 0px;
+    outline: 0px;
+    transition: all 0.1s ease 0s;
+}

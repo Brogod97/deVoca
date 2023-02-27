@@ -1,2 +1,10 @@
 @import './variables.css';
-
+@import './basic-temp1.css';
+@import './basic-temp2.css';
+@import './component.css';
+@import './non-member.css';
+@import './quiz-game.css';
+@import './quiz-main.css';
+@import './reuse.css';
+@import './word-category.css';
+@import './landing.css';
