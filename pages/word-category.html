@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="/variables.css">
     <link rel="stylesheet" href="/component.css">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- 소스 다운 -->
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <!-- 폴리필 (구버젼 브라우저 지원) -->
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+    
     <title>deVoca</title>
 </head>
 <body>
@@ -200,7 +207,7 @@
                                     <input type="text" placeholder="메소드명을 입력해주세요" name="voca-title" required/>
                                 </div>
                                 <div class="voca-category3">
-                                    <input type="text" placeholder="#태그를 입력하세요" name="voca-tag" required/>
+                                    <input type="text" placeholder="#태그를 입력하세요" name="basic" required/>
                                 </div>
                                 <div class="voca-category4">
                                     <img src="../images/Icon.svg" alt="">
@@ -221,7 +228,9 @@
                                     코드블럭
                                 </div>
                                 <div>
-        
+                                    
+
+
                                 </div>
                                 <div class="voca-modal-btn">
                                     <button onclick="addClose()" class="devoca-btn1">나가기</button>
@@ -267,6 +276,8 @@
             </section>
         </section>  
     </main>
+
+
 
     <script src="main.js"></script>
 </body>

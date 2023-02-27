@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/5d7e6e936d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/variables.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/component.css">
     <title>deVoca</title>
 </head>
 <body>
@@ -44,7 +45,7 @@
                     <a href="#">
                         <img src="../images/Profile.svg">
                     </a>
-                    <a href="#" class="openBtn">
+                    <a href="#">
                         <img src="../images/Paper.svg">
                     </a>
                     <a href="#">
@@ -63,36 +64,32 @@
 
             
             <!-- 메인화면 -->
-            <section class="container-main">
-                <!-- 모달창 메뉴-->
-                    <div class="modal hidden">
-                    <div class="bg"></div>
-                    <div class="voca-menu-modalBox">
-                        <div>즐겨찾기</div>
-                        <div>체크된 단어</div>
-                        <div>미체크된 단어</div>
-                    </div>
-                    </div>
-                <!-- 모달창 메뉴끝 -->
-            </section>
+            <section class="voca-quiz">
+                
+                <div>
+                    <progress id="quiz-pro" min="1" max="100" value="1"></progress>
+                    <span class="quiz-res">1 / 100</span>
+                </div>
+                <div>
+                    <h3>INSTR(컬럼명 | 문자열, '찾을 문자열' [, 찾기 시작할 위치] [, 순번])</h3>
+                </div>
+                <div class="quiz-line"></div>
+                <div class="quiz-four-menu">
+                    <div>지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환</div>
+                    <div>컬럼이나 문자열에서 지정한 위치부터 지정된 길이만
+                        문자열을 잘라서 반환</div>
+                    <div>주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거</div>
+                    <div>소수점 첫째 자리에서 올림 처리</div>
+                </div>
+                <div>
+                    <button onclick="skillUp()" class="devoca-btn2">Next</button>
+                </div>
 
+                
+            </section>
         </section>
     </main>
 
-    <!-- 모달창 JS-->
-    <script>
-        const open = () => {
-          document.querySelector(".modal").classList.remove("hidden");
-        }
-      
-        const close = () => {
-          document.querySelector(".modal").classList.add("hidden");
-        }
-      
-        document.querySelector(".openBtn").addEventListener("click", open);
-        document.querySelector(".bg").addEventListener("click", close);
-      
-      </script>
-   
+    <script src="main.js"></script>
 </body>
 </html>
