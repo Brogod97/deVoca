@@ -35,3 +35,13 @@ const menuClose = () => {
 
 document.querySelector(".menu-openBtn").addEventListener("click", menuOpen);
 document.querySelector(".voca-menu-bg").addEventListener("click", menuClose);
+
+
+// 태그
+const input = document.querySelector('input[name=basic]');
+let tagify = new Tagify(input); // initialize Tagify
+
+// 태그가 추가되면 이벤트 발생
+tagify.on('add', function() {
+    console.log(tagify.value); // 입력된 태그 정보 객체
+})
