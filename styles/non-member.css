@@ -12,7 +12,6 @@
 body {
     margin: 0;
     width: 100vw;
-    height: 100vh;
     background-color: var(--gray30);
     font-family: 'Pretendard-Regular';
     
@@ -22,7 +21,7 @@ body {
 
 header {
     box-shadow: var(--header-shadow);
-    width: 100vw;
+    width: 100%;
     height: 80px;
     display: flex;
     position: absolute;
@@ -171,8 +170,14 @@ input::-webkit-search-results-decoration{
 /* 몸통 */
 .container {
     display: flex;
-    position: absolute;
+    width: 100vw;
     height: 100vh;
+}
+
+/* nav&카테고리바 */
+.left-bar {
+    display: flex;
+    margin-top: 80px;
 }
 
 /* nav 영역 */
@@ -180,7 +185,6 @@ nav {
     display: flex;
     flex-direction: column;
     width: 80px;
-    margin-top: 80px;
     background-color: var(--gray100);
     z-index: 3;
 }
@@ -228,7 +232,6 @@ nav a:nth-child(5):hover {
 /* 단어 서치바 영역 */
 .side-bar {
     width: 370px;
-    margin-top: 80px;
     background-color: var(--gray50);
     box-shadow: var(--side-shadow);
     border-radius: 0px 0px 30px 0px;
@@ -443,4 +446,10 @@ h3 {
 }
 
 
+
+/* 메인영역 */
+.content {
+    margin-top: 80px;
+    width: 100vw;
+}
 
