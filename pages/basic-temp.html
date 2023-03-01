@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/basic.css" />
+    <script
+      src="https://kit.fontawesome.com/5d7e6e936d.js"
+      crossorigin="anonymous"
+    ></script>
     <title>deVoca</title>
   </head>
   <body>
@@ -45,103 +49,106 @@
 
       <!-- 바디 -->
       <section class="container">
-        <!-- nav바 -->
-        <nav>
-          <section>
-            <a href="#">
-              <img src="/assets/images/Profile.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/images/Paper.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/images/Edit.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/images/3 User.svg" />
-            </a>
-          </section>
-          <section>
-            <a href="#">
-              <img src="/assets/images/Logout.svg" />
-            </a>
-          </section>
-        </nav>
+        <!-- nav&카테고리바 -->
+        <section class="left-bar">
+          <!-- nav바 -->
+          <nav>
+            <section>
+              <a href="#">
+                <img src="/assets/images/Profile.svg" />
+              </a>
+              <a href="#">
+                <img src="/assets/images/Paper.svg" />
+              </a>
+              <a href="#">
+                <img src="/assets/images/Edit.svg" />
+              </a>
+              <a href="#">
+                <img src="/assets/images/3 User.svg" />
+              </a>
+            </section>
+            <section>
+              <a href="#">
+                <img src="/assets/images/Logout.svg" />
+              </a>
+            </section>
+          </nav>
 
-        <!-- 서치&카테고리 -->
-        <section class="side-bar">
-          <!-- 단어장 서치바 -->
-          <section class="side-1">
-            <div>
-              <form action="#" name="voca-search-form">
-                <input
-                  type="search"
-                  id="voca-search-input"
-                  name="voca-search-input"
-                  placeholder="검색어 입력"
-                  autocomplete="off"
-                />
-                <button>
-                  <img
-                    src="/assets/images/search.svg"
-                    class="voca-search-img"
+          <!-- 서치&카테고리 -->
+          <section class="side-bar">
+            <!-- 단어장 서치바 -->
+            <section class="side-1">
+              <div>
+                <form action="#" name="voca-search-form">
+                  <input
+                    type="search"
+                    id="voca-search-input"
+                    name="voca-search-input"
+                    placeholder="검색어 입력"
+                    autocomplete="off"
                   />
+                  <button>
+                    <img
+                      src="/assets/images/search.svg"
+                      class="voca-search-img"
+                    />
+                  </button>
+                </form>
+              </div>
+              <!-- 선1 -->
+              <div class="line-1"></div>
+            </section>
+            <!-- 카테고리 -->
+            <section class="category-container">
+              <div class="category-header">
+                <h3>카테고리</h3>
+                <button class="category-btn">
+                  <i class="fa-solid fa-ellipsis"></i>
                 </button>
-              </form>
-            </div>
-            <!-- 선1 -->
-            <div class="line-1"></div>
-          </section>
-          <!-- 카테고리 -->
-          <section class="category-container">
-            <div class="category-header">
-              <h3>카테고리</h3>
-              <button class="category-btn">
-                <i class="fa-solid fa-ellipsis"></i>
-              </button>
-            </div>
-            <div>
-              <a href="#">JAVA</a>
-              <button><i class="fa-solid fa-x"></i></button>
-            </div>
-            <div>
-              <a href="#">DB</a>
-              <button><i class="fa-solid fa-x"></i></button>
-            </div>
-            <div>
-              <a href="#">JavaScript</a>
-              <button><i class="fa-solid fa-x"></i></button>
-            </div>
-            <div>
-              <a href="#">Python</a>
-              <button><i class="fa-solid fa-x"></i></button>
-            </div>
-          </section>
-          <!-- 태그 -->
-          <section class="category-footer">
-            <!-- 선2 -->
-            <div class="line-2"></div>
-            <div class="tag">
-              <a href="#">
-                <button>#DB</button>
-              </a>
-              <a href="#">
-                <button>#Python</button>
-              </a>
-              <a href="#">
-                <button>#CSS</button>
-              </a>
-              <a href="#">
-                <button>#Java</button>
-              </a>
-              <a href="#">
-                <button>#JavaScript</button>
-              </a>
-            </div>
+              </div>
+              <div>
+                <a href="#">JAVA</a>
+                <button><i class="fa-solid fa-x"></i></button>
+              </div>
+              <div>
+                <a href="#">DB</a>
+                <button><i class="fa-solid fa-x"></i></button>
+              </div>
+              <div>
+                <a href="#">JavaScript</a>
+                <button><i class="fa-solid fa-x"></i></button>
+              </div>
+              <div>
+                <a href="#">Python</a>
+                <button><i class="fa-solid fa-x"></i></button>
+              </div>
+            </section>
+            <!-- 태그 -->
+            <section class="category-footer">
+              <!-- 선2 -->
+              <div class="line-2"></div>
+              <div class="tag">
+                <a href="#">
+                  <button>#DB</button>
+                </a>
+                <a href="#">
+                  <button>#Python</button>
+                </a>
+                <a href="#">
+                  <button>#CSS</button>
+                </a>
+                <a href="#">
+                  <button>#Java</button>
+                </a>
+                <a href="#">
+                  <button>#JavaScript</button>
+                </a>
+              </div>
+            </section>
           </section>
         </section>
         <!-- 메인화면 -->
-        <section></section>
+        <section class="content"></section>
       </section>
     </main>
   </body>
