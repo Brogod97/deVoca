@@ -1,9 +1,9 @@
 :root {
   /* 사이즈 */
   --header-height: 60px;
-  --nav-width: 80px;
-  --nav-icon-size: 40px;
-  --sidebar-width: 370px;
+  --nav-width: 60px;
+  --nav-icon-size: 36px;
+  --sidebar-width: 320px;
 
   /* 포인트 색상 */
   --primary: #ffc759; /* 1순위 */

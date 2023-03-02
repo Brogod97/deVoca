@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/template-2.css" />
+
+    <script
+      src="https://kit.fontawesome.com/5d7e6e936d.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>단어장 서비스 계열 기본 template - header, nav, sidebar</title>
   </head>
   <body>
@@ -57,9 +63,10 @@
       </header>
 
       <!-- 바디 -->
+      <!-- nav + sidebar 컨테이너 -->
       <section class="container">
         <!-- nav바 -->
-        <nav>
+        <nav class="nav-bar">
           <section>
             <a href="#">
               <img src="/assets/images/Profile.svg" />
@@ -84,8 +91,8 @@
         <!-- 서치&카테고리 -->
         <section class="side-bar">
           <!-- 단어장 서치바 -->
-          <section class="side-1">
-            <div>
+          <section class="sidebar-search-area">
+            <div class="sidebar-search">
               <form action="#" name="voca-search-form">
                 <input
                   type="search"
@@ -103,7 +110,7 @@
               </form>
             </div>
             <!-- 선1 -->
-            <div class="line-1"></div>
+            <div class="line"></div>
           </section>
           <!-- 카테고리 -->
           <section class="category-container">
@@ -113,49 +120,105 @@
                 <i class="fa-solid fa-ellipsis"></i>
               </button>
             </div>
-            <div>
-              <a href="#">JAVA</a>
-              <button><i class="fa-solid fa-x"></i></button>
-            </div>
-            <div>
-              <a href="#">DB</a>
-              <button><i class="fa-solid fa-x"></i></button>
-            </div>
-            <div>
-              <a href="#">JavaScript</a>
-              <button><i class="fa-solid fa-x"></i></button>
-            </div>
-            <div>
-              <a href="#">Python</a>
-              <button><i class="fa-solid fa-x"></i></button>
+
+            <!-- TODO: 동적으로 리스트 생성되도록 작성 -->
+            <div class="category-list">
+              <ul>
+                <li>
+                  <a href="#">JAVA</a>
+                  <button>
+                    <i class="fa-solid fa-x"></i>
+                  </button>
+                </li>
+                <li>
+                  <a href="#">DB</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">JavaScript</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+                <li>
+                  <a href="#">Python</a>
+                  <button><i class="fa-solid fa-x"></i></button>
+                </li>
+              </ul>
             </div>
           </section>
+
           <!-- 태그 -->
+          <!-- 선2 -->
+          <div class="line"></div>
           <section class="category-footer">
-            <!-- 선2 -->
-            <div class="line-2"></div>
-            <div class="tag">
-              <a href="#">
-                <button>#DB</button>
-              </a>
-              <a href="#">
-                <button>#Python</button>
-              </a>
-              <a href="#">
-                <button>#CSS</button>
-              </a>
-              <a href="#">
-                <button>#Java</button>
-              </a>
-              <a href="#">
-                <button>#JavaScript</button>
-              </a>
+            <div class="tag-area">
+              <button class="tag">
+                <a href="#">#DB</a>
+              </button>
+              <button class="tag">
+                <a href="#">#Python</a>
+              </button>
+              <button class="tag">
+                <a href="#">#CSS</a>
+              </button>
+              <button class="tag">
+                <a href="#">#Java</a>
+              </button>
+              <button class="tag">
+                <a href="#">#JavaScript</a>
+              </button>
+              <button class="tag">
+                <a href="#">#JavaScript</a>
+              </button>
+              <button class="tag">
+                <a href="#">#JavaScript</a>
+              </button>
+              <button class="tag">
+                <a href="#">#JavaScript</a>
+              </button>
             </div>
           </section>
         </section>
-        <!-- 메인화면 -->
-        <section></section>
       </section>
     </main>
+
+    <!-- 메인 콘텐츠 영역 -->
+    <section class="main-content-area">
+      <div class="div">각자 작업할 내용 여기서부터 시작</div>
+    </section>
+    <!-- 헤더 그림자용 -->
+    <aside class="header-shadow"></aside>
+    <script src="/js/google-search.js"></script>
   </body>
 </html>

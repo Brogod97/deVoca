@@ -170,13 +170,13 @@ input::-webkit-search-results-decoration {
 }
 
 /* 바디 영역 */
-section {
+.main-content-area {
   width: 100vw;
   height: 100vh;
 }
 
 /* 푸터 영역 */
-footer {
+.footer {
   width: 100vw;
   height: 80px;
   background-color: var(--footer);
@@ -188,29 +188,29 @@ footer {
 }
 
 /* 이용약관 / 도움말 / contact */
-footer > div:first-child {
+.footer > div:first-child {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-footer > div:first-child > a:nth-child(2) {
+.footer > div:first-child > a:nth-child(2) {
   margin: 0 40px;
 }
 
-footer a {
+.footer a {
   font-size: 14px;
   color: var(--footer-color);
 
   text-decoration: none;
 }
 
-footer a:hover {
+.footer a:hover {
   text-decoration: underline;
 }
 
 /* copyright 부분 */
-footer > div:last-child {
+.footer > div:last-child {
   margin-top: 8px;
   font-size: 14px;
   color: var(--footer-color);
