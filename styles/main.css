@@ -1,3 +1,7 @@
 @import "./variables.css";
 @import "./fonts.css";
-@import "./component.css";
+@import "/styles/component.css";
+
+* {
+  box-sizing: border-box;
+}

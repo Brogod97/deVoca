@@ -1,35 +1,80 @@
 .signUp {
-    font-size: 16px;
-    font-weight: 700;
-    width: 80px;
-    height: 35px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: var(--white);
-    background-color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  width: 80px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--primary);
 }
 
 .devoca-btn1 {
-    font-size: 16px;
-    font-weight: 700;
-    width: 100px;
-    height: 35px;
-    border-radius: 5px;
-    border: 1px solid var(--primary);
-    cursor: pointer;
-    color: var(--primary);
-    background-color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  color: var(--primary);
+  background-color: var(--white);
 }
 
 .devoca-btn2 {
-    font-size: 16px;
-    font-weight: 700;
-    width: 100px;
-    height: 35px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: var(--white);
-    background-color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.btn-primary-line {
+  width: 100px;
+  height: 35px;
+  padding: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+
+  color: var(--primary);
+  background-color: var(--white);
+
+  cursor: pointer;
+}
+
+.btn-primary-fill {
+  width: 100px;
+  height: 35px;
+  /* padding: 8px; */
+
+  /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+  font-size: 16px;
+  font-weight: 700;
+
+  border-radius: 5px;
+
+  color: var(--white);
+  background-color: var(--primary);
+
+  cursor: pointer;
+}
+
+.btn-long {
+  width: 300px;
 }
