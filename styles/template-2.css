@@ -363,7 +363,7 @@ input::-webkit-search-results-decoration {
 .category-list {
   /* FIXME: category-list의 영역만 100%로 먹을 수 없을까 */
   overflow: auto;
-  height: 40vh;
+  height: 55vh;
 }
 
 /* 스크롤바 스타일*/
