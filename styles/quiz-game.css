@@ -22,6 +22,7 @@ header {
   height: 80px;
   display: flex;
   position: absolute;
+  background-color: var(--gray30);
   z-index: 4;
 }
 
@@ -126,7 +127,7 @@ input::-webkit-search-results-decoration {
 /* 몸통 */
 .container {
   display: flex;
-  position: absolute;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -135,7 +136,7 @@ nav {
   display: flex;
   flex-direction: column;
   width: 80px;
-  margin-top: 80px;
+  height: 100vh;
   background-color: var(--gray100);
   z-index: 3;
 }
@@ -147,6 +148,7 @@ nav > section:nth-child(2) {
 }
 
 nav > section:nth-child(1) {
+  margin-top: 80px;
   flex-basis: 90%;
 }
 
@@ -174,106 +176,29 @@ nav a:nth-child(5):hover {
 
 /* 메인화면 */
 
-.container-main {
-  display: flex;
+.content {
+  width: 100vw;
   margin-top: 80px;
-  width: 94vw;
-  text-align: center;
-}
-
-.container-main > div:nth-child(1) {
-  flex-basis: 20%;
-}
-
-.container-main > div:nth-child(2) {
-  flex-basis: 60%;
-}
-
-.container-main > div:nth-child(3) {
-  flex-basis: 20%;
-}
-
-.container-main h1 {
-  font-size: 62px;
-  font-weight: 800;
-  color: var(--dark);
-  margin: 0;
-  padding-top: 80px;
-}
-
-.container-main h2 {
-  color: var(--dark);
-  font-size: 30px;
-  margin: 0;
-  padding: 20px 0 40px 0;
-}
-
-.container-main-btn {
-  margin-bottom: 30px;
-  width: 110px;
-  height: 40px;
-  background-color: var(--primary);
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  color: var(--dark);
-}
-
-.container-main-btn:hover {
-  background-color: var(--secondary);
-}
-
-.container-main-content {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.container-main-content > button {
-  width: 190px;
-  height: 130px;
-  border-radius: 20px;
-  margin: 15px;
-  border: none;
-  background-color: white;
-  box-shadow: var(--category-shadow);
-  cursor: pointer;
-}
-
-.container-main-content > button:hover {
-  border: 1px solid var(--primary);
-}
-
-.container-main-content > button:active {
-  background-color: var(--primary);
-}
-
-.container-main-img1 {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  top: 55vh;
-}
-
-.container-main-img2 {
-  width: 380px;
-  height: 380px;
+  position: absolute;
 }
 
 /* 퀴즈 */
 .voca-quiz {
-  width: 94.4vw;
-  margin-top: 80px;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.quiz-progress-bar {
+  position: relative;
+  top: 80px;
 }
 
 #quiz-pro {
   appearance: none;
   width: 800px;
-  margin-top: 50px;
 }
 #quiz-pro::-webkit-progress-bar {
   background: var(--gray100);
@@ -284,18 +209,27 @@ nav a:nth-child(5):hover {
   background: var(--primary);
 }
 
-.voca-quiz h3 {
+.quiz-title {
+  position: relative;
+  top: 100px;
+}
+
+.quiz-title > h3 {
   font-size: 24px;
   margin-top: 50px;
 }
 
 .quiz-line {
+  position: relative;
+  top: 120px;
   width: 700px;
   border-bottom: 1px solid var(--gray200);
   margin-bottom: 20px;
 }
 
 .quiz-four-menu {
+  position: relative;
+  top: 180px;
   display: flex;
   flex-direction: column;
 }
@@ -323,7 +257,8 @@ nav a:nth-child(5):hover {
 }
 
 .devoca-btn2 {
-  margin-top: 20px;
+  position: relative;
+  top: 300px;
 }
 
 .devoca-btn2:hover {
