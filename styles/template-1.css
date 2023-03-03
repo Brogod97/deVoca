@@ -1,0 +1,223 @@
+body {
+  width: 100vw;
+  height: 100vh;
+
+  margin: 0;
+
+  background-color: var(--gray30);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* 헤더 영역 */
+header {
+  width: 100vw;
+  height: var(--header-height);
+  min-height: var(--header-height);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: var(--header-shadow);
+}
+
+/* 로고 영역 */
+/* TODO: 로고 좌 영역, 80px 좀 큰 것 같아서 임의로 40px로 조정 */
+/* 필요 시 아래 값 조정 */
+header > div:nth-child(1) {
+  margin-left: 40px;
+}
+
+/* 공백 영역 */
+header > div:nth-child(2) {
+}
+
+/* 헤더 우측 영역 */
+header > div:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* 구글-검색창 */
+/* TODO: margin-right == google-search 우측 영역이므로 필요시 수정 */
+.google-search {
+  height: 30px;
+  margin-right: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+/* input 입력 시 나타나는 남색 X 표시 없애기 */
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
+
+.google-search fieldset {
+  width: 300px;
+  height: 30px;
+
+  border: 0;
+  border-radius: 80.18px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--google);
+}
+
+.google-img {
+  width: 16px;
+  height: 16px;
+}
+
+#google-search-input {
+  width: 240px;
+  margin-left: 8px;
+
+  border: none;
+  outline: 0;
+
+  background-color: transparent;
+}
+
+/* placeholder 스타일 수정 설정 */
+#google-search-input::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gray200);
+  width: 95px;
+  height: 16px;
+}
+#google-search-input::-webkit-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gray200);
+  width: 95px;
+  height: 16px;
+}
+#google-search-input::-ms-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gray200);
+  width: 95px;
+  height: 16px;
+}
+
+.google-search-btn {
+  height: 30px;
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  position: absolute;
+  right: 8px;
+  top: 1px;
+}
+
+.google-search-img {
+  width: 16px;
+  height: 16px;
+}
+
+/* FAQ / 로그인 / 회원가입 */
+.faq-login-signup > a {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+
+  text-decoration: none;
+}
+
+.faq-login-signup > a:nth-child(2) {
+  padding: 0 16px;
+}
+
+.faq-login-signup > a:hover {
+  text-decoration: underline;
+}
+
+.faq-login-signup button {
+  border: none;
+  cursor: pointer;
+  width: 90px;
+}
+
+.faq-login-signup button:hover {
+  background-color: var(--secondary);
+  color: var(--gray30);
+}
+
+/* 바디 영역 */
+.main-content-area {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 푸터 영역 */
+.footer {
+  width: 100vw;
+  height: 80px;
+  background-color: var(--footer);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--footer-color);
+}
+
+/* 이용약관 / 도움말 / contact */
+.footer > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer > div:first-child > a:nth-child(2) {
+  margin: 0 40px;
+}
+
+.footer a {
+  font-size: 14px;
+  color: var(--footer-color);
+
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* copyright 부분 */
+.footer > div:last-child {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--footer-color);
+}
+
+/* 클래스명 추가 시 display : none 부여 */
+/* 예) <div class="faq-login-signup displayNone"> */
+.displayNone {
+  display: none;
+}

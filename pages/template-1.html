@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/template-1.css" />
+
+    <title>Header, Footer 템플릿 페이지 - 랜딩 계열</title>
+  </head>
+  <body>
+    <body>
+      <!-- 헤더 -->
+      <header>
+        <!-- 로고 -->
+        <div>
+          <a href="#">
+            <img src="/assets/images/Group 323.svg" />
+          </a>
+        </div>
+        <!-- 공백 -->
+        <div></div>
+        <!-- 헤더 우측 영역 -->
+        <div>
+          <!-- 구글-검색창 -->
+          <div class="google-search">
+            <fieldset>
+              <img
+                src="/assets/images/KakaoTalk_Image_2023-02-20-13-39-41.png"
+                class="google-img"
+              />
+              <input
+                type="search"
+                id="google-search-input"
+                name="google-search-input"
+                autocomplete="off"
+                placeholder="Google Search"
+              />
+            </fieldset>
+            <button
+              type="button"
+              class="google-search-btn"
+              id="google-search-btn"
+            >
+              <img src="/assets/images/search.svg" class="google-search-img" />
+            </button>
+          </div>
+          <!-- FAQ / 로그인 / 회원가입 -->
+          <div class="faq-login-signup">
+            <a href="#">FAQ</a>
+            <a href="#">로그인</a>
+            <a href="#">
+              <button class="btn-primary-fill">회원가입</button>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- 바디 -->
+      <section class="main-content-area"></section>
+
+      <!-- 푸터 -->
+      <footer class="footer">
+        <div>
+          <a href="#">이용약관</a>
+          <a href="#">도움말</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
+      </footer>
+
+      <script src="/js/google-search.js"></script>
+    </body>
+  </body>
+</html>

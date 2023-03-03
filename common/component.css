@@ -1,0 +1,44 @@
+.btn-primary-line {
+  width: 100px;
+  height: 35px;
+  padding: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+
+  color: var(--primary);
+  background-color: var(--white);
+
+  cursor: pointer;
+}
+
+.btn-primary-fill {
+  width: 100px;
+  height: 35px;
+  /* padding: 8px; */
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  font-size: 16px;
+  font-weight: 700;
+
+  border-radius: 5px;
+
+  color: var(--white);
+  background-color: var(--primary);
+
+  cursor: pointer;
+}
+
+.btn-long {
+  width: 300px;
+}
