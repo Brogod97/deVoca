@@ -17,102 +17,51 @@ body {
   font-family: "Pretendard-Regular";
 }
 
-/* header 영역 */
-
+/* 헤더 */
 header {
-  box-shadow: var(--header-shadow);
   width: 100%;
-  height: 80px;
+  height: 70px;
+  background-color: var(--gray30);
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--header-shadow);
   position: absolute;
+  background-color: var(--gray30);
   z-index: 4;
 }
 
+/* 로고 영역 */
+/* TODO: 로고 좌 영역, 80px 좀 큰 것 같아서 임의로 40px로 조정 */
+/* 필요 시 아래 값 조정 */
 header > div:nth-child(1) {
-  flex-basis: 20%;
-  margin-left: 80px;
-  margin-top: 20px;
+  margin-left: 40px;
 }
 
-header > div:nth-child(2) {
-  flex-basis: 60%;
-}
+/* 공백 영역 */
 
+/* 헤더 우측 영역 */
 header > div:nth-child(3) {
-  flex-basis: 20%;
-}
-
-.reading-glasses {
-  position: relative;
-  left: 260px;
-  bottom: 36px;
-  height: 35px;
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-}
-
-.google-img {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 5px;
-  left: 5px;
-}
-
-.google-search {
   display: flex;
-  justify-content: flex-end;
-  padding-top: 20px;
-  padding-right: 24px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 }
 
-.google-search-img {
-  width: 16px;
-  height: 16px;
-}
+/* 구글-검색창 */
+/* TODO: margin-right == google-search 우측 영역이므로 필요시 수정 */
+.google-search {
+  height: 30px;
+  margin-right: 24px;
 
-.google-search fieldset {
-  width: 300px;
-  height: 38px;
-  border-radius: 80.18px;
-  background-color: var(--google);
-  border: 0;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-#google-search-input {
-  width: 240px;
-  border: none;
-  background-color: transparent;
-  outline: 0;
   position: relative;
-  top: 2px;
-  left: 10px;
 }
 
-#google-search-input::placeholder {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--gray200);
-  width: 95px;
-  height: 17px;
-}
-
-#google-search-input::-webkit-input-placeholder {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--gray200);
-  width: 95px;
-  height: 17px;
-}
-#google-search-input::-ms-input-placeholder {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--gray200);
-  width: 95px;
-  height: 17px;
-}
-
+/* input 입력 시 나타나는 남색 X 표시 없애기 */
 input::-ms-clear,
 input::-ms-reveal {
   display: none;
@@ -126,6 +75,83 @@ input::-webkit-search-results-decoration {
   display: none;
 }
 
+.google-search fieldset {
+  width: 300px;
+  height: 30px;
+
+  border: 0;
+  border-radius: 80.18px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--google);
+}
+
+.google-img {
+  width: 16px;
+  height: 16px;
+}
+
+#google-search-input {
+  width: 240px;
+  margin-left: 8px;
+
+  border: none;
+  outline: 0;
+
+  background-color: transparent;
+}
+
+/* placeholder 스타일 수정 설정 */
+#google-search-input::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gray200);
+  width: 95px;
+  height: 16px;
+}
+#google-search-input::-webkit-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gray200);
+  width: 95px;
+  height: 16px;
+}
+#google-search-input::-ms-input-placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gray200);
+  width: 95px;
+  height: 16px;
+}
+
+/* TODO: 클래스명 변경 reading-glasses -> google-search-btn */
+.google-search-btn {
+  height: 30px;
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  position: absolute;
+  right: 8px;
+  top: 1px;
+}
+
+.google-search-img {
+  width: 16px;
+  height: 16px;
+}
+
+
+
+
+
 /* 몸통 */
 .container {
   display: flex;
@@ -136,7 +162,7 @@ input::-webkit-search-results-decoration {
 /* nav&카테고리 */
 .left-bar {
   display: flex;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 /* nav 영역 */
@@ -258,12 +284,12 @@ nav a:nth-child(5):hover {
 /* 카테고리 영역 */
 
 .category-container {
-  padding: 45px;
   display: flex;
   flex-direction: column;
   flex-basis: 70%;
-  position: relative;
-  bottom: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+  
 }
 
 h3 {
@@ -274,7 +300,6 @@ h3 {
 .category-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 35px;
   width: 290px;
   align-items: center;
 }
@@ -312,12 +337,11 @@ h3 {
 .category-container div:nth-child(3),
 .category-container div:nth-child(4),
 .category-container div:nth-child(5) {
+  height: 52px;
+  width: 284px;
   display: flex;
   justify-content: space-between;
 
-  height: 52px;
-  margin-bottom: 35px;
-  width: 284px;
   box-shadow: var(--category-shadow);
   border-radius: 8px;
 }
@@ -348,7 +372,6 @@ h3 {
 .line-2 {
   border-top: var(--line);
   width: 310px;
-  height: 80px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -360,8 +383,7 @@ h3 {
   padding: 10px;
   flex-wrap: wrap;
   align-items: center;
-  position: relative;
-  bottom: 50px;
+  
 }
 
 .tag button {

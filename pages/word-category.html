@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/word-category.css" />
 
+    <script
+    src="https://kit.fontawesome.com/5d7e6e936d.js"
+    crossorigin="anonymous"
+  ></script>
+
     <!-- 소스 다운 -->
     <script src="https://unpkg.com/@yaireo/tagify"></script>
     <!-- 폴리필 (구버젼 브라우저 지원) -->
@@ -21,7 +26,7 @@
   </head>
   <body>
     <main>
-      <!-- 머리 -->
+      <!-- 헤더 -->
       <header>
         <!-- 로고 -->
         <div>
@@ -31,9 +36,10 @@
         </div>
         <!-- 공백 -->
         <div></div>
-        <!-- 검색창 -->
-        <div class="google-search">
-          <form action="#" name="google-search-form">
+        <!-- 헤더 우측 영역 -->
+        <div>
+          <!-- 구글-검색창 -->
+          <div class="google-search">
             <fieldset>
               <img
                 src="/assets/images/KakaoTalk_Image_2023-02-20-13-39-41.png"
@@ -47,11 +53,15 @@
                 placeholder="Google Search"
               />
             </fieldset>
-            <button class="reading-glasses">
+            <button
+              type="button"
+              class="google-search-btn"
+              id="google-search-btn"
+            >
               <img src="/assets/images/search.svg" class="google-search-img" />
             </button>
-          </form>
-        </div>
+          </div>
+         
       </header>
 
       <!-- 몸통 -->
@@ -152,7 +162,7 @@
           </section>
         </section>
         <!-- 메인화면 -->
-        <section>
+        <section class="content-main-section">
           <div class="content-main">
             <!-- 모달창조회 -->
             <div class="modal hidden">
@@ -172,15 +182,15 @@
                   <h1>PRIMARY KEY</h1>
                 </div>
                 <div class="voca-category3">
-                  <p>#SQL</p>
-                  <p>#제약조건</p>
+                  <span>#SQL</span>
+                  <span>#제약조건</span>
                 </div>
                 <div class="voca-category4">
                   <img src="/assets/images/Icon.svg" alt="" />
                   정의
                 </div>
                 <div class="voca-content1">
-                  <p>테이블의 식별에 이용되는 제약조건</p>
+                  <span>테이블의 식별에 이용되는 제약조건</span>
                 </div>
                 <div class="voca-category5">
                   <img src="/assets/images/Icon (1).svg" alt="" />
@@ -188,8 +198,7 @@
                 </div>
                 <div class="voca-content2">
                   <p>1.NOT NULL 허용X</p>
-                  <p>2.중복 허용X</p>
-                  <p>3.고유식별자 역할</p>
+                  
                 </div>
                 <div class="voca-category6">
                   <img src="/assets/images/Vector.svg" alt="" />
@@ -259,7 +268,7 @@
                     <button onclick="addClose()" class="devoca-btn1">
                       나가기
                     </button>
-                    <button type="submit" class="devoca-btn2">저장</button>
+                    <button type="submit" class="devoca-btn2" id="voca-save">저장</button>
                   </div>
                 </form>
               </div>
@@ -276,33 +285,36 @@
                   src="/assets/images/SlidersHorizontal.svg"
                   class="menu-openBtn"
                 />
-              </button>
-              <button class="content-main-btn2">
-                <img src="/assets/images/Icon3.svg" class="addOpenBtn" />
-              </button>
+                </button>
+                <button class="content-main-btn2">
+                  <img src="/assets/images/Icon3.svg" class="addOpenBtn" />
+                </button>
             </div>
-          </div>
-          <div class="content-main-line"></div>
-          <div class="content-main-text">
-            <div>
-              <button>
-                <img src="/assets/images/v.svg" alt="" />
-              </button>
-              <button class="openBtn">ALTER()</button>
             </div>
-            <div>
-              <button>
-                <img src="/assets/images/star.svg" alt="" />
-              </button>
-              <button>
-                <img src="/assets/images/arrow.svg" alt="" />
-              </button>
-            </div>
+            <div class="content-main-line"></div>
+            <div class="content-main-text">
+              <div class="content-main-text-flex">
+                <div>
+                  <button>
+                    <img src="/assets/images/v.svg" alt="" />
+                  </button>
+                  <button class="openBtn">ALTER()</button>
+                </div>
+                <div> 
+                  <button>
+                    <img src="/assets/images/star.svg" alt="" />
+                  </button>
+                  <button>
+                    <img src="/assets/images/arrow.svg" alt="" />
+                  </button>
+              </div>
+              </div>
           </div>
         </section>
       </section>
     </main>
 
+    <script src="../js/google-search.js"></script>
     <script src="/js/word-category.js"></script>
   </body>
 </html>

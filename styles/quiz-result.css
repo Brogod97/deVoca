@@ -10,19 +10,18 @@ body {
   font-family: "Pretendard-Regular";
 }
 
-main {
-  display: flex;
-}
+
 
 /* 헤더 */
 header {
   width: 100%;
-  height: 80px;
+  height: 70px;
   background-color: var(--gray30);
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--header-shadow);
+  min-height: 80px;
   position: absolute;
   z-index: 3;
 }
@@ -149,6 +148,7 @@ input::-webkit-search-results-decoration {
   display: flex;
   width: 100vw;
   height: 100vh;
+  
   z-index: 2;
 }
 
@@ -159,7 +159,7 @@ nav {
   width: 80px;
   height: 100vh;
   background-color: var(--gray100);
-  position: absolute;
+  min-width: 80px;
   z-index: 1;
 }
 
@@ -201,15 +201,13 @@ nav a:nth-child(5):hover {
 
 /* 메인화면 */
 
-.content {
-  display: flex;
-  width: 100%;
-}
+
 
 .quiz-result {
   width: 100vw;
   margin-top: 80px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -217,8 +215,8 @@ nav a:nth-child(5):hover {
 /* 원형프로그레스바 */
 .wrap {
   position: relative;
-  bottom: 300px;
-  left: 630px;
+  bottom: 50px;
+  right: 50px;
 }
 .progress {
   position: relative;
@@ -272,8 +270,8 @@ nav a:nth-child(5):hover {
   align-items: center;
   justify-content: center;
   position: relative;
-  bottom: 80px;
-  right: 190px;
+  bottom: 50px;
+  right: 120px;
 }
 
 .rotate-a {
@@ -298,7 +296,7 @@ nav a:nth-child(5):hover {
 
 .result-line {
   border: var(--line);
-  width: 1300px;
+  width: 1000px;
   position: relative;
   top: 30px;
   left: 100px;
