@@ -468,7 +468,7 @@ input::-webkit-search-results-decoration {
   padding: 4px 20px;
   margin: 0 8px 8px 0;
 
-  border: none;
+  border: 1px solid var(--tag);
   border-radius: 8px;
 
   cursor: pointer;

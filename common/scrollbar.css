@@ -1,3 +1,5 @@
+/* 스크롤바 스타일 옵션 */
+
 *::-webkit-scrollbar {
   width: 8px;
 }
