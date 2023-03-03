@@ -1,6 +1,9 @@
 :root {
-  /* header 사이즈 */
+  /* 사이즈 */
   --header-height: 60px;
+  --nav-width: 60px;
+  --nav-icon-size: 36px;
+  --sidebar-width: 320px;
 
   /* 포인트 색상 */
   --primary: #ffc759; /* 1순위 */
@@ -33,7 +36,7 @@
   --tag: #ececec;
   --white: #fff;
 
-  /* 일자선 */
+  /* border */
   --line: 1px solid #b4bbc5;
 
   /* 내부 검색창 */
