@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/template-2.css" />
+    <link rel="stylesheet" href="/common/component.css" />
+    <link rel="stylesheet" href="/styles/member-profile.css" />
 
     <script
       src="https://kit.fontawesome.com/5d7e6e936d.js"
@@ -215,10 +217,114 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <div class="div">각자 작업할 내용 여기서부터 시작</div>
+      <!-- content-container -->
+      <div class="content-container">
+        <!-- 페이지 타이틀 영역 -->
+        <div class="page-title-area">
+          <p>회원 정보 수정</p>
+        </div>
+        <form action="#">
+          <!-- 회원 정보 영역 -->
+          <div class="user-info-area">
+            <!-- 프로필사진 영역 -->
+            <div class="user-img">
+              <div>
+                <img src="../assets/images/default-user-image.png" alt="" />
+              </div>
+              <div><i class="fa-solid fa-camera"></i></div>
+            </div>
+            <!-- 정보 입력 영역 -->
+            <div class="user-info-input">
+              <!-- 영역잡기용 div -->
+              <div>
+                <!-- 아이디 인풋 영역 -->
+                <div class="id-input-area">
+                  <label>
+                    아이디
+                    <br />
+                    <input type="text" id="id-input" />
+                  </label>
+                </div>
+                <!-- 비밀번호 인풋 영역 -->
+                <div class="pw-input-area">
+                  <div class="pw-input-box">
+                    <label>
+                      비밀번호
+                      <input type="password" id="pw-input" />
+                    </label>
+                  </div>
+                  <div class="pwcheck-input-box">
+                    <label>
+                      비밀번호 확인
+                      <input type="password" id="pwcheck-input" />
+                    </label>
+                  </div>
+                </div>
+                <!-- 이메일 인풋 영역 -->
+                <div class="email-input-area">
+                  이메일
+                  <input type="email" id="email-input" />
+                </div>
+                <!-- 닉네임 인풋 영역 -->
+                <div class="nm-input-area">
+                  닉네임
+                  <input type="text" id="nm-inpu" />
+                </div>
+                <!-- 회원탈퇴 인풋 영역 -->
+                <div class="withdrawal-area">
+                  <p id="withdrawal-btn">회원탈퇴</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 완료 버튼 영역 -->
+          <div class="button-area">
+            <button
+              type="submit"
+              class="btn-primary-fill btn-primary-line"
+              id="submit-btn"
+            >
+              완료
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 모달창 -->
+      <div class="modal-window">
+        <div class="modal-box">
+          <!-- 영역잡기 div -->
+          <div class="modal-inner-box">
+            <div id="modal-title-box">
+              <h3 id="modal-title-text">회원 탈퇴</h3>
+            </div>
+            <div id="check-sentence-box">
+              <h4 id="check-sentence-text">정말로 탈퇴 하시겠습니까?</h4>
+            </div>
+            <form action="#">
+              <div id="now-pw-box">
+                <label>
+                  <p id="now-pw-text">현재 비밀번호입력</p>
+                  <input type="password" id="now-pw-input" />
+                </label>
+              </div>
+              <div id="cancle-accept-btn-box">
+                <button class="btn-primary-line" id="cancle-btn">아니오</button>
+                <button
+                  class="btn-primary-line btn-primary-fill"
+                  id="accept-btn"
+                >
+                  네, 삭제할게요
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
     <script src="/js/google-search.js"></script>
+    <script src="/js/member-profile.js"></script>
   </body>
 </html>
