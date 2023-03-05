@@ -1,15 +1,11 @@
+// 모달창 추가할때 입력한 값 들고오기
+const categoryTagName = document.querySelector(".voca-category-tag");
+const vocaTitle = document.querySelector("input[name='voca-title']");
+const vocaTag = document.querySelector("input[name='basic']");
+const vocaContent1 = document.querySelector("input[name='voca-definition']");
+const vocaContent2 = document.querySelector("#voca-memo");
+
 // 모달창
-// 조회 모달창
-const open = () => {
-  document.querySelector(".modal").classList.remove("hidden");
-};
-
-const close = () => {
-  document.querySelector(".modal").classList.add("hidden");
-};
-
-document.querySelector(".openBtn").addEventListener("click", open);
-document.querySelector(".bg").addEventListener("click", close);
 
 // 추가 모달창
 const addOpen = () => {
@@ -48,11 +44,23 @@ tagify.on("add", function () {
 const vocaSave = document.getElementById("voca-save");
 const vocaInput = document.querySelector("input[name='voca-title']");
 
+const vocaModify = document.createElement("button");
+vocaModify.classList.add("voca-modify");
+const vocaModifyText = document.createTextNode("수정");
+const vocaDelete = document.createElement("button");
+vocaDelete.classList.add("voca-delete");
+const vocaDeleteText = document.createTextNode("삭제");
+
+vocaModify.append(vocaModifyText);
+vocaDelete.append(vocaDeleteText);
+
+document.querySelector(".voca-category-btns").append(vocaModify, vocaDelete);
+
 vocaSave.addEventListener("click", function () {
   const div1 = document.createElement("div");
   div1.classList.add("content-main-add-line");
-  const div2 = document.createElement("div");
-  div2.classList.add("content-main-add-text");
+  // const div2 = document.createElement("div");
+  // div2.classList.add("content-main-add-text");
   const div3 = document.createElement("div");
   div3.classList.add("content-main-text-flex");
   const div4 = document.createElement("div");
@@ -73,7 +81,7 @@ vocaSave.addEventListener("click", function () {
   const img3 = document.createElement("img");
   img3.setAttribute("src", "/assets/images/arrow.svg");
 
-  div2.append(div3);
+  // div2.append(div3);
   div3.append(div4, div5);
   div4.append(button1, button2);
   button1.append(img1);
@@ -82,64 +90,155 @@ vocaSave.addEventListener("click", function () {
   div5.append(button3, button4);
   button3.append(img2);
   button4.append(img3);
-  document.querySelector(".content-main-text").append(div1, div2);
+  document.querySelector(".content-main-text").append(div3, div1);
+
+  const open = () => {
+    document.querySelector(".modal").classList.remove("hidden");
+
+    document.querySelector("h1").innerText = vocaTitle.value;
+
+    document.querySelector(".voca-category3 > span").innerText = vocaTag.value;
+
+    document.querySelector(".voca-content1 > span").innerText =
+      vocaContent1.value;
+    document.querySelector(".voca-content2 > p").innerText = vocaContent2.value;
+  };
+
+  const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+  };
+
+  document.querySelector(".openBtn").addEventListener("click", open);
+  document.querySelector(".bg").addEventListener("click", close);
+
+  // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
+  let flag = true;
+  button1.addEventListener("click", function () {
+    if (flag) {
+      img1.style.filter =
+        "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
+      button2.style.textDecoration = "line-through";
+      flag = false;
+    } else {
+      img1.style.filter =
+        "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
+      button2.style.textDecoration = "none";
+      flag = true;
+    }
+  });
 
   button2.addEventListener("click", function () {
-    const div1 = document.createElement("div");
-    div1.classList.add("modal hidden");
-    const div2 = document.createElement("div");
-    div2.classList.add("bg");
-    const div3 = document.createElement("div");
-    div3.classList.add("voca-modalBox");
-    const div4 = document.createElement("div");
-    div4.classList.add("voca-category1");
-    const div5 = document.createElement("div");
-    div5.classList.add("voca-category-tag");
-    const div6 = document.createElement("div");
-    const button1 = document.createElement("button");
-    button1.classList.add("voca-modify");
-    button1.setAttribute("onclick", "addOpen()");
-    const button2 = document.createElement("button");
-    button2.classList.add("voca-delete");
-    const div7 = document.createElement("div");
-    div7.classList.add("voca-category2");
-    const input = document.createElement("input");
-    input.setAttribute("type", "hidden");
-    const h1 = document.createElement("h1");
-    const div8 = document.createElement("div");
-    div8.classList.add("voca-category3");
-    const span1 = document.createElement("span");
-    const div9 = document.createElement("div");
-    div9.classList.add("voca-category4");
-    const img1 = document.createElement("img");
-    img1.setAttribute("src", "/assets/images/Icon.svg");
-    const div10 = document.createElement("div");
-    div10.classList.add("voca-content1");
-    const span2 = document.createElement("span");
-    const div11 = document.createElement("div");
-    div11.classList.add("voca-category5");
-    const img2 = document.createElement("img");
-    img2.setAttribute("src", "/assets/images/Icon (1).svg");
-    const div12 = document.createElement("div");
-    div12.classList.add("voca-content2");
-    const p = document.createElement("p");
-    const div13 = document.createElement("div");
-    div13.classList.add("voca-category6");
-    const img3 = document.createElement("img");
-    img3.setAttribute("src", "/assets/images/Vector.svg");
+    open();
+  });
 
-    div1.append(div2, div3);
-    div3.append(div4, div7, div8, div9, div10, div11, div12, div13);
-    div4.append(div5, div6);
-    div6.append(button1, button2);
-    div7.append(input, h1);
-    div8.append(span1);
-    div9.append(img1);
-    div10.append(span2);
-    div11.append(img2);
-    div12.append(p);
-    div13.append(img3);
+  button3.addEventListener("click", function () {
+    if (flag) {
+      img2.setAttribute("src", "/assets/images/star2.svg");
+      flag = false;
+    } else {
+      img2.setAttribute("src", "/assets/images/star.svg");
+      flag = true;
+    }
+  });
+
+  button4.addEventListener("click", function () {
+    open();
+  });
+
+  vocaDelete.addEventListener("click", function () {
+    div1.remove();
+    div3.remove();
   });
 
   addClose();
 });
+
+// 카테고리 옆 ... 메뉴
+const categoryBtn = document.getElementById("category-btn");
+const categoryAdd = document.querySelector(".category-add");
+const categoryEdit = document.querySelector(".category-edit");
+const categoryMenuWrapper = document.getElementById("category-menu-wrapper");
+const categoryMenuOveray = document.getElementById("category-menu-overlay");
+
+// 카테고리 메뉴 버튼 클릭시 표시 / 닫기
+categoryBtn.addEventListener("click", function () {
+  categoryMenuWrapper.classList.toggle("invisible");
+});
+
+// 카테고리 메뉴 - 추가 버튼 클릭 시 동작
+categoryAdd.addEventListener("click", function () {
+  const categoryLi = document.createElement("li");
+  const categoryA = document.createElement("a");
+  categoryA.setAttribute("href", "#");
+  const categoryInput = document.createElement("input");
+  $(function () {
+    categoryInput.focus();
+  });
+
+  // 카테고리 추가시 만들어지는 요소들
+  const categoryBtn = document.createElement("button");
+  categoryBtn.classList.add("invisible");
+  categoryBtn.classList.add("category-delete");
+  categoryBtn.setAttribute("type", "submit");
+  const categoryI = document.createElement("i");
+  categoryI.classList.add("fa-solid");
+  categoryI.classList.add("fa-x");
+
+  categoryLi.append(categoryA, categoryBtn);
+  categoryA.append(categoryInput);
+  categoryBtn.append(categoryI);
+
+  document.querySelector(".category-list > ul").append(categoryLi);
+
+  // 인풋창에 엔터키를 누르면 내가 입력한 값이 그대로 나옴
+  categoryInput.addEventListener("keyup", function () {
+    if (window.event.keyCode == "13") {
+      this.setAttribute("readonly", "true");
+      this.style.border = "none";
+      this.style.outline = "none";
+      this.style.backgroundColor = "transparent";
+      this.style.fontSize = "16px";
+      this.style.fontWeight = "700";
+      this.style.cursor = "pointer";
+      categoryA.append = this.value;
+    }
+  });
+
+  // 편집시 카테고리 제목 바꿀수 있게 하는 이벤트
+  categoryEdit.addEventListener("click", function () {
+    categoryInput.removeAttribute("readonly");
+    categoryInput.focus();
+  });
+
+  // x 누르면 삭제 하는 이벤트
+  categoryBtn.addEventListener("click", function () {
+    categoryLi.remove();
+  });
+
+  closeCategoryMenu();
+});
+
+// 카테고리 메뉴 - 편집 버튼 클릭 시 동작
+categoryEdit.addEventListener("click", function () {
+  closeCategoryMenu(); // 카테고리 메뉴 닫기
+  showDeleteBtn(); // X (삭제) 버튼 표시
+});
+
+// 카테고리 메뉴 외부 영역 클릭 시 닫기
+categoryMenuOveray.addEventListener("click", function () {
+  closeCategoryMenu();
+});
+
+// 카테고리 메뉴 close 함수
+function closeCategoryMenu() {
+  categoryMenuWrapper.classList.add("invisible");
+}
+
+// x 표시 보이게 변경하는 함수
+function showDeleteBtn() {
+  const categoryXbtnAll = document.querySelectorAll(".category-list button");
+
+  for (let i = 0; i < categoryXbtnAll.length; i++) {
+    categoryXbtnAll[i].classList.remove("invisible");
+  }
+}
