@@ -1,3 +1,18 @@
+/* 클래스명 추가 시 display : none 부여 */
+.displayNone {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* FIXME: 메인 콘텐츠 영역 높이를 크게 줘보면, 가로 스크롤이 찔끔 생김 */
+
+/* ------------------------------- */
+
 body {
   width: 100vw;
   height: 100vh;
@@ -24,6 +39,21 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  width: 100vw;
+  height: var(--header-height);
+  min-height: var(--header-height);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--header-z-index);
+
+  background-color: var(--gray30);
 }
 
 /* 헤더 그림자용 */
@@ -35,7 +65,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: var(--header-shadow-z-index);
 
   background-color: transparent;
   box-shadow: var(--header-shadow);
@@ -175,7 +205,9 @@ input::-webkit-search-results-decoration {
 }
 
 .faq-login-signup > a:hover {
-  text-decoration: underline;
+  color: var(--gray500);
+
+  transition: all ease-in-out 0.2s;
 }
 
 .faq-login-signup button {
@@ -184,17 +216,14 @@ input::-webkit-search-results-decoration {
   width: 90px;
 }
 
-.faq-login-signup button:hover {
-  background-color: var(--secondary);
-  color: var(--gray30);
-}
-
-/* FIXME: 바디 영역 */
 /* 바디 영역 */
 .container {
-  display: flex;
-  position: fixed;
   height: calc(100vh - var(--header-height));
+
+  display: flex;
+
+  position: fixed;
+  margin-top: var(--header-height);
 }
 
 /* nav 영역 */
@@ -225,6 +254,7 @@ input::-webkit-search-results-decoration {
 
 .nav-bar a:hover {
   filter: var(--icon-hover);
+  transition: all ease-in-out 0.15s;
 }
 
 .nav-bar a img {
@@ -250,7 +280,7 @@ input::-webkit-search-results-decoration {
 
 /* 사이드바 검색창 영역 */
 .sidebar-search-area {
-  flex-basis: 10%;
+  flex-basis: 10vh; /* FIXME: 태그 높이 수정 */
 }
 
 .sidebar-search {
@@ -315,15 +345,19 @@ input::-webkit-search-results-decoration {
 
 .line {
   border-bottom: var(--line);
-  margin: 30px 0;
+  margin: 30px 0 10px 0;
 }
 
 /* 카테고리 영역 */
 /* 카테고리 헤더 영역 */
 .category-container {
+  height: 0; /* 제거하면 태그 영역이 밀림 */
+
   display: flex;
   flex-direction: column;
-  flex-basis: 85%;
+  flex-basis: 65vh;
+
+  position: relative;
 }
 
 .category-header {
@@ -355,13 +389,79 @@ input::-webkit-search-results-decoration {
   background-color: transparent;
 }
 
-.category-btn:hover {
+#category-btn:hover {
   background-color: var(--gray250);
+
+  transition: all ease-in-out 0.2s;
+}
+
+/* 카테고리 메뉴 (추가/편집) */
+
+#category-menu-wrapper {
+  position: absolute;
+  top: 25px;
+  right: 63px;
+
+  transition: all ease-in-out 0.2s;
+}
+
+#category-menu-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: var(--modal-background-z-index);
+}
+
+.category-menu-content {
+  width: 100px;
+
+  position: absolute;
+  z-index: var(--modal-z-index);
+
+  border-radius: 15px;
+
+  background: #fff;
+  border: 1px solid var(--gray200);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.category-add,
+.category-edit {
+  padding: 12px;
+}
+
+.category-add:hover,
+.category-edit:hover {
+  background-color: var(--gray200);
+  cursor: pointer;
+
+  transition: all ease-in-out 0.2s;
+}
+
+.category-add {
+  border-bottom: 1px solid var(--gray300);
+}
+
+.category-add:hover {
+  border-radius: 15px 15px 0 0;
+}
+
+.category-edit {
+  color: red;
+}
+
+.category-edit:hover {
+  border-radius: 0 0 15px 15px;
 }
 
 /* 카테고리 리스트 영역 */
 .category-list {
-  /* FIXME: category-list의 영역만 100%로 먹을 수 없을까 */
   overflow: auto;
   height: 55vh;
 }
@@ -401,6 +501,8 @@ input::-webkit-search-results-decoration {
 
 .category-list li:hover {
   background-color: var(--primary);
+
+  transition: all ease-in-out 0.2s;
 }
 
 .category-list a {
@@ -416,7 +518,7 @@ input::-webkit-search-results-decoration {
 
 /* TODO: 카테고리 편집/삭제를 눌렀을 때만 display 표시 */
 .category-list button {
-  display: none;
+  transition: all ease-in-out 0.2s;
 }
 
 .category-list i {
@@ -427,14 +529,16 @@ input::-webkit-search-results-decoration {
 .category-list i:hover {
   color: var(--red);
   font-weight: bold;
+
+  transition: all ease-in-out 0.2s;
 }
 
-/* FIXME: 작은 화면에서 보면 아래 영역이 짤림 */
 /* 태그영역 */
 .category-footer {
   display: flex;
   flex-direction: column;
-  flex-basis: 15%;
+  justify-content: center;
+  flex-basis: 15vh;
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -468,7 +572,8 @@ input::-webkit-search-results-decoration {
   padding: 4px 20px;
   margin: 0 8px 8px 0;
 
-  border: 1px solid var(--tag);
+  /* border: 1px solid var(--tag); */
+  border: none;
   border-radius: 8px;
 
   cursor: pointer;
@@ -482,20 +587,19 @@ input::-webkit-search-results-decoration {
 }
 
 .tag:hover {
-  border: var(--line-hover);
-}
+  /* border: var(--line-hover); */
+  background-color: var(--tertiary);
 
-/* 클래스명 추가 시 display : none 부여 */
-/* 예) <div class="faq-login-signup displayNone"> */
-.displayNone {
-  display: none;
+  transition: all ease-in-out 0.2s;
 }
 
 /* 메인 콘텐츠 영역 */
-
 .main-content-area {
   width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
-  margin-left: calc((var(--sidebar-width) + var(--nav-width)));
   height: 100%;
+
+  margin-top: var(--header-height);
+  margin-left: calc((var(--sidebar-width) + var(--nav-width)));
+
   background-color: var(--gray30);
 }

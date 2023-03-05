@@ -1,3 +1,10 @@
+/* 클래스명 추가 시 display : none 부여 */
+.displayNone {
+  display: none;
+}
+
+/* ----------------------------------------- */
+
 body {
   width: 100vw;
   height: 100vh;
@@ -20,6 +27,9 @@ header {
   justify-content: space-between;
   align-items: center;
 
+  position: fixed;
+
+  background-color: var(--gray30);
   box-shadow: var(--header-shadow);
 }
 
@@ -172,19 +182,22 @@ input::-webkit-search-results-decoration {
 /* 바디 영역 */
 .main-content-area {
   width: 100vw;
-  height: 100vh;
 }
 
 /* 푸터 영역 */
 .footer {
   width: 100vw;
   height: 80px;
-  background-color: var(--footer);
+
+  padding: 10px 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   color: var(--footer-color);
+  background-color: var(--footer);
 }
 
 /* 이용약관 / 도움말 / contact */
@@ -216,8 +229,11 @@ input::-webkit-search-results-decoration {
   color: var(--footer-color);
 }
 
-/* 클래스명 추가 시 display : none 부여 */
-/* 예) <div class="faq-login-signup displayNone"> */
-.displayNone {
-  display: none;
+/* FIXME: template-2와 마찬가지로 메인 영역 커지면 가로 스크롤 찔끔 생기는 문제 있음 */
+.main-content-area {
+  padding-top: var(--header-height);
+}
+
+.main-content-area .test-delete-this-div {
+  height: 1000px;
 }
