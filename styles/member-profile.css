@@ -1,0 +1,239 @@
+* {
+  color: var(--dark);
+}
+.main-content-area {
+  display: flex;
+}
+.content-container {
+  width: 1400px;
+  height: 850px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 페이지 제목 시작*/
+.page-title-area {
+  width: 1400px;
+  height: 96px;
+  border-bottom: var(--line);
+  line-height: 100px;
+}
+
+.page-title-area > p {
+  font-size: 24px;
+  margin: 0 0 0 30px;
+}
+/* 페이지 제목 끝 */
+
+/* 유저 정보 시작 */
+.user-info-area {
+  width: 1400px;
+  height: 450px;
+  display: flex;
+  margin-top: 100px;
+}
+
+/* 프로필사진 시작  */
+.user-img {
+  flex-basis: 30%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: var(--line);
+}
+/* 프로필사진 프리뷰 */
+.user-img > div:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-img img {
+  width: 220px;
+}
+
+/* 이미지 편집버튼 */
+.user-img > div:nth-child(2) {
+  width: 45px;
+  height: 45px;
+  border-radius: 40px;
+  background-color: white;
+  position: relative;
+  top: -65px;
+  left: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: var(--dark);
+  box-shadow: var(--login-shadow);
+  cursor: pointer;
+}
+
+/* 프로필사진 종료 */
+
+/* 정보입력창 시작 */
+.user-info-input {
+  flex-basis: 70%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+/* 영역잡기 div */
+.user-info-input > div {
+  width: 800px;
+  height: 400px;
+  margin: auto;
+}
+
+/* 전체 인풋창 디자인 */
+.user-info-input input {
+  margin: 10px 0;
+  width: 800px;
+  height: 40px;
+  border: var(--line);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.user-info-input input:focus {
+  outline: none;
+  border: var(--line-hover);
+}
+
+/* 비밀번호 영역 */
+.pw-input-area {
+  display: flex;
+}
+
+.pw-input-area input {
+  width: 380px;
+}
+
+.pwcheck-input-box {
+  margin-left: 40px;
+}
+
+/* 회원탈퇴 영역 */
+.withdrawal-area {
+  display: flex;
+  justify-content: end;
+}
+.withdrawal-area > p {
+  font-size: 16px;
+  color: var(--red);
+  cursor: pointer;
+}
+
+/* 정보입력 끝 */
+/* 유저 정보 끝 */
+
+/* 완료 버튼 */
+
+.button-area {
+  width: 1400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit-btn {
+  background-color: var(--secondary);
+}
+
+#submit-btn:hover {
+  background-color: var(--primary);
+}
+
+/* 회원 탈퇴 모달창 */
+.modal-window {
+  width: 1500px;
+  height: 850px;
+  backdrop-filter: blur(2px);
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  box-shadow: var(--word-modal-shadow);
+  border-radius: 10px;
+  display: flex;
+}
+/* 영역잡기 div */
+.modal-inner-box {
+  margin: auto;
+  width: 350px;
+  height: 150px;
+}
+
+/* 회원탈퇴 글씨 */
+#modal-title-text {
+  margin: 0 0 5px 0;
+}
+/* 정말로 탈퇴 하시겠습니까 글씨 */
+#check-sentence-text {
+  margin: 0 0 5px 0;
+}
+
+/* 현재 비밀번호입력 글씨 */
+#now-pw-text {
+  margin: 0 0 5px 0;
+}
+
+#now-pw-input {
+  width: 350px;
+  height: 30px;
+  border: var(--line);
+  border-radius: 5px;
+}
+
+#now-pw-input:focus {
+  outline: none;
+  border: var(--line-hover);
+}
+/* 버튼 감싼 div */
+#cancle-accept-btn-box {
+  margin-top: 14px;
+  display: flex;
+  justify-content: end;
+}
+
+#cancle-btn {
+  width: 80px;
+  height: 30px;
+  border: var(--line);
+  color: var(--footer-color);
+}
+
+#cancle-btn:hover {
+  background-color: var(--footer-color);
+  border-color: var(--footer-color);
+  color: white;
+}
+
+#accept-btn {
+  margin-left: 15px;
+  width: 120px;
+  height: 30px;
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+#accept-btn:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
