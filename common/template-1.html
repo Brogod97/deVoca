@@ -17,7 +17,7 @@
         <!-- 로고 -->
         <div>
           <a href="#">
-            <img src="/assets/images/Group 323.svg" />
+            <img src="/assets/deVoca-logo.svg" />
           </a>
         </div>
         <!-- 공백 -->
@@ -27,10 +27,7 @@
           <!-- 구글-검색창 -->
           <div class="google-search">
             <fieldset>
-              <img
-                src="/assets/images/KakaoTalk_Image_2023-02-20-13-39-41.png"
-                class="google-img"
-              />
+              <img src="/assets/google-logo.png" class="google-img" />
               <input
                 type="search"
                 id="google-search-input"
@@ -44,7 +41,7 @@
               class="google-search-btn"
               id="google-search-btn"
             >
-              <img src="/assets/images/search.svg" class="google-search-img" />
+              <img src="/assets/icon/search.svg" class="google-search-img" />
             </button>
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
@@ -59,7 +56,22 @@
       </header>
 
       <!-- 바디 -->
-      <section class="main-content-area"></section>
+      <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
+      <section class="main-content-area">
+        <div class="test-delete-this-div">
+          이 div는 삭제하시고, main-content-area 여기부터 각자 작업 시작하시면
+          됩니다.
+          <br />
+          현재 이 div가 height을 적용하지 않아서 붙어보이는 것
+
+          <pre>
+            main-content-area 영역 적용 값 (css) 
+
+            - padding-top: var(--header-height);
+            - overflow-x: hidden;
+          </pre>
+        </div>
+      </section>
 
       <!-- 푸터 -->
       <footer class="footer">

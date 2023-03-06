@@ -1,15 +1,3 @@
-body {
-  width: 100vw;
-  height: 100vh;
-
-  margin: 0;
-
-  background-color: var(--gray30);
-
-  display: flex;
-  flex-direction: column;
-}
-
 /* 헤더 영역 */
 header {
   width: 100vw;
@@ -20,11 +8,13 @@ header {
   justify-content: space-between;
   align-items: center;
 
+  position: fixed;
+
+  background-color: var(--gray30);
   box-shadow: var(--header-shadow);
 }
 
 /* 로고 영역 */
-/* TODO: 로고 좌 영역, 80px 좀 큰 것 같아서 임의로 40px로 조정 */
 /* 필요 시 아래 값 조정 */
 header > div:nth-child(1) {
   margin-left: 40px;
@@ -155,7 +145,9 @@ input::-webkit-search-results-decoration {
 }
 
 .faq-login-signup > a:hover {
-  text-decoration: underline;
+  color: var(--gray500);
+
+  transition: all ease-in-out 0.2s;
 }
 
 .faq-login-signup button {
@@ -172,19 +164,22 @@ input::-webkit-search-results-decoration {
 /* 바디 영역 */
 .main-content-area {
   width: 100vw;
-  height: 100vh;
 }
 
 /* 푸터 영역 */
 .footer {
   width: 100vw;
   height: 80px;
-  background-color: var(--footer);
+
+  padding: 10px 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   color: var(--footer-color);
+  background-color: var(--footer);
 }
 
 /* 이용약관 / 도움말 / contact */
@@ -216,8 +211,7 @@ input::-webkit-search-results-decoration {
   color: var(--footer-color);
 }
 
-/* 클래스명 추가 시 display : none 부여 */
-/* 예) <div class="faq-login-signup displayNone"> */
-.displayNone {
-  display: none;
+.main-content-area {
+  padding-top: var(--header-height);
+  overflow-x: hidden;
 }
