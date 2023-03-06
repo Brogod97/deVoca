@@ -1,11 +1,4 @@
-// 모달창 추가할때 입력한 값 들고오기
-const categoryTagName = document.querySelector(".voca-category-tag");
-const vocaTitle = document.querySelector("input[name='voca-title']");
-const vocaTag = document.querySelector("input[name='basic']");
-const vocaContent1 = document.querySelector("input[name='voca-definition']");
-const vocaContent2 = document.querySelector("#voca-memo");
-
-// 모달창
+//모달창;
 
 // 추가 모달창
 const addOpen = () => {
@@ -40,119 +33,6 @@ tagify.on("add", function () {
   console.log(tagify.value); // 입력된 태그 정보 객체
 });
 
-// 단어 추가
-const vocaSave = document.getElementById("voca-save");
-const vocaInput = document.querySelector("input[name='voca-title']");
-
-const vocaModify = document.createElement("button");
-vocaModify.classList.add("voca-modify");
-const vocaModifyText = document.createTextNode("수정");
-const vocaDelete = document.createElement("button");
-vocaDelete.classList.add("voca-delete");
-const vocaDeleteText = document.createTextNode("삭제");
-
-vocaModify.append(vocaModifyText);
-vocaDelete.append(vocaDeleteText);
-
-document.querySelector(".voca-category-btns").append(vocaModify, vocaDelete);
-
-vocaSave.addEventListener("click", function () {
-  const div1 = document.createElement("div");
-  div1.classList.add("content-main-add-line");
-  // const div2 = document.createElement("div");
-  // div2.classList.add("content-main-add-text");
-  const div3 = document.createElement("div");
-  div3.classList.add("content-main-text-flex");
-  const div4 = document.createElement("div");
-
-  const button1 = document.createElement("button");
-  const img1 = document.createElement("img");
-  img1.setAttribute("src", "/assets/images/v.svg");
-
-  const button2 = document.createElement("button");
-  button2.classList.add("openBtn");
-
-  const div5 = document.createElement("div");
-  const button3 = document.createElement("button");
-  const img2 = document.createElement("img");
-  img2.setAttribute("src", "/assets/images/star.svg");
-
-  const button4 = document.createElement("button");
-  const img3 = document.createElement("img");
-  img3.setAttribute("src", "/assets/images/arrow.svg");
-
-  // div2.append(div3);
-  div3.append(div4, div5);
-  div4.append(button1, button2);
-  button1.append(img1);
-  button2.append(vocaInput.value);
-
-  div5.append(button3, button4);
-  button3.append(img2);
-  button4.append(img3);
-  document.querySelector(".content-main-text").append(div3, div1);
-
-  const open = () => {
-    document.querySelector(".modal").classList.remove("hidden");
-
-    document.querySelector("h1").innerText = vocaTitle.value;
-
-    document.querySelector(".voca-category3 > span").innerText = vocaTag.value;
-
-    document.querySelector(".voca-content1 > span").innerText =
-      vocaContent1.value;
-    document.querySelector(".voca-content2 > p").innerText = vocaContent2.value;
-  };
-
-  const close = () => {
-    document.querySelector(".modal").classList.add("hidden");
-  };
-
-  document.querySelector(".openBtn").addEventListener("click", open);
-  document.querySelector(".bg").addEventListener("click", close);
-
-  // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
-  let flag = true;
-  button1.addEventListener("click", function () {
-    if (flag) {
-      img1.style.filter =
-        "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
-      button2.style.textDecoration = "line-through";
-      flag = false;
-    } else {
-      img1.style.filter =
-        "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
-      button2.style.textDecoration = "none";
-      flag = true;
-    }
-  });
-
-  button2.addEventListener("click", function () {
-    open();
-  });
-
-  button3.addEventListener("click", function () {
-    if (flag) {
-      img2.setAttribute("src", "/assets/images/star2.svg");
-      flag = false;
-    } else {
-      img2.setAttribute("src", "/assets/images/star.svg");
-      flag = true;
-    }
-  });
-
-  button4.addEventListener("click", function () {
-    open();
-  });
-
-  vocaDelete.addEventListener("click", function () {
-    div1.remove();
-    div3.remove();
-  });
-
-  addClose();
-});
-
 // 카테고리 옆 ... 메뉴
 const categoryBtn = document.getElementById("category-btn");
 const categoryAdd = document.querySelector(".category-add");
@@ -174,6 +54,10 @@ categoryAdd.addEventListener("click", function () {
   $(function () {
     categoryInput.focus();
   });
+
+  categoryInput.style.border = "none";
+  categoryInput.style.outline = "none";
+  categoryInput.style.backgroundColor = "transparent";
 
   // 카테고리 추가시 만들어지는 요소들
   const categoryBtn = document.createElement("button");
@@ -201,6 +85,16 @@ categoryAdd.addEventListener("click", function () {
       this.style.fontWeight = "700";
       this.style.cursor = "pointer";
       categoryA.append = this.value;
+
+      if (!showDeleteBtn()) {
+        const categoryXbtnAll = document.querySelectorAll(
+          ".category-list button"
+        );
+
+        for (let i = 0; i < categoryXbtnAll.length; i++) {
+          categoryXbtnAll[i].classList.add("invisible");
+        }
+      }
     }
   });
 
@@ -242,3 +136,93 @@ function showDeleteBtn() {
     categoryXbtnAll[i].classList.remove("invisible");
   }
 }
+
+const vocaSave = document.getElementById("voca-save");
+const vocaInput = document.querySelector("input[name='voca-title']");
+const vocaTag = document.querySelector("input[name='basic']");
+const vocadefinition = document.querySelector(".voca-definition");
+const vocaMemo = document.querySelector("#voca-memo");
+
+vocaSave.addEventListener("click", function () {
+  const div1 = document.createElement("div");
+  div1.classList.add("content-main-add-line");
+
+  const div2 = document.createElement("div");
+  div2.classList.add("content-main-text-flex");
+  const div3 = document.createElement("div");
+
+  const button1 = document.createElement("button");
+  const img1 = document.createElement("img");
+  img1.setAttribute("src", "/assets/images/v.svg");
+
+  const button2 = document.createElement("button");
+  button2.classList.add("openBtn");
+
+  const div4 = document.createElement("div");
+  const button3 = document.createElement("button");
+  const img2 = document.createElement("img");
+  img2.setAttribute("src", "/assets/images/star.svg");
+
+  const button4 = document.createElement("button");
+  const img3 = document.createElement("img");
+  img3.setAttribute("src", "/assets/images/arrow.svg");
+
+  div2.append(div3, div4);
+  div3.append(button1, button2);
+  button1.append(img1);
+  button2.append(vocaInput.value);
+
+  div4.append(button3, button4);
+  button3.append(img2);
+  button4.append(img3);
+  document.querySelector(".content-main-text").append(div2, div1);
+
+  // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
+  let flag = true;
+  button1.addEventListener("click", function () {
+    if (flag) {
+      img1.style.filter =
+        "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
+      button2.style.textDecoration = "line-through";
+      flag = false;
+    } else {
+      img1.style.filter =
+        "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
+      button2.style.textDecoration = "none";
+      flag = true;
+    }
+  });
+
+  button2.addEventListener("click", function () {
+    open(event);
+  });
+  const open = () => {
+    document.querySelector(".modal").classList.remove("hidden");
+    const vocaSelect = event.target.parentElement.lastElementChild;
+    document.querySelector("h1").innerText = vocaSelect.innerText;
+    console.log(event.target.parentElement.lastElementChild);
+  };
+
+  button3.addEventListener("click", function () {
+    if (flag) {
+      img2.setAttribute("src", "/assets/images/star2.svg");
+      flag = false;
+    } else {
+      img2.setAttribute("src", "/assets/images/star.svg");
+      flag = true;
+    }
+  });
+
+  button4.addEventListener("click", function () {
+    open();
+  });
+
+  const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+  };
+
+  document.querySelector(".openBtn").addEventListener("click", open);
+  document.querySelector(".bg").addEventListener("click", close);
+
+  addClose();
+});
