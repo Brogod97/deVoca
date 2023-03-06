@@ -32,7 +32,7 @@
           <!-- 구글-검색창 -->
           <div class="google-search">
             <fieldset>
-              <img src="/assets/icon/img-google-logo.png" class="google-img" />
+              <img src="/assets/google-logo.png" class="google-img" />
               <input
                 type="search"
                 id="google-search-input"
@@ -46,7 +46,7 @@
               class="google-search-btn"
               id="google-search-btn"
             >
-              <img src="/assets/icon/ic-search.svg" class="google-search-img" />
+              <img src="/assets/icon/search.svg" class="google-search-img" />
             </button>
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
@@ -67,21 +67,21 @@
         <nav class="nav-bar">
           <section>
             <a href="#">
-              <img src="/assets/icon/ic-profile.svg" />
+              <img id="profile-icon" src="/assets/icon/profile.svg" />
             </a>
             <a href="#">
-              <img src="/assets/icon/ic-voca.svg" />
+              <img src="/assets/icon/voca.svg" />
             </a>
             <a href="#">
-              <img src="/assets/icon/ic-quiz.svg" />
+              <img src="/assets/icon/quiz.svg" />
             </a>
             <a href="#">
-              <img src="/assets/icon/ic-shared.svg" />
+              <img src="/assets/icon/shared.svg" />
             </a>
           </section>
           <section>
             <a href="#">
-              <img src="/assets/icon/ic-logout.svg" />
+              <img src="/assets/icon/logout.svg" />
             </a>
           </section>
         </nav>
@@ -100,10 +100,7 @@
                   autocomplete="off"
                 />
                 <button>
-                  <img
-                    src="/assets/icon/ic-search.svg"
-                    class="voca-search-img"
-                  />
+                  <img src="/assets/icon/search.svg" class="voca-search-img" />
                 </button>
               </form>
             </div>
@@ -127,7 +124,6 @@
               </div>
             </div>
 
-            <!-- TODO: 동적으로 리스트 생성되도록 작성 -->
             <div class="category-list">
               <ul>
                 <li>
@@ -243,7 +239,22 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <div class="div">각자 작업할 내용 여기서부터 시작</div>
+      <div class="test-delete-this-div">
+        이 div는 삭제하시고, main-content-area 여기부터 각자 작업 시작하시면
+        됩니다.
+        <br />
+        <pre>
+          main-content-area 영역 적용 값 (css) 
+          
+          - width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
+
+          - height: 100%;
+
+          - margin-top: var(--header-height);
+
+          - margin-left: calc((var(--sidebar-width) + var(--nav-width)));
+        </pre>
+      </div>
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>

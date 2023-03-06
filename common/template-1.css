@@ -15,7 +15,6 @@ header {
 }
 
 /* 로고 영역 */
-/* TODO: 로고 좌 영역, 80px 좀 큰 것 같아서 임의로 40px로 조정 */
 /* 필요 시 아래 값 조정 */
 header > div:nth-child(1) {
   margin-left: 40px;
@@ -146,7 +145,9 @@ input::-webkit-search-results-decoration {
 }
 
 .faq-login-signup > a:hover {
-  text-decoration: underline;
+  color: var(--gray500);
+
+  transition: all ease-in-out 0.2s;
 }
 
 .faq-login-signup button {
@@ -213,8 +214,4 @@ input::-webkit-search-results-decoration {
 .main-content-area {
   padding-top: var(--header-height);
   overflow-x: hidden;
-}
-
-.main-content-area .test-delete-this-div {
-  height: 1000px;
 }

@@ -15,7 +15,7 @@
 
 /* ------------------------------------ */
 
-/* body 영역에 깔린 연회색 배경 및 규격 */
+/* body 영역에 깔린 연회색 배경 및 규격 + font-family */
 body {
   width: 100vw;
   height: 100vh;
@@ -26,4 +26,6 @@ body {
 
   display: flex;
   flex-direction: column;
+
+  font-family: "Pretendard-Regular", "devoca";
 }

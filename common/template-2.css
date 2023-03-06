@@ -231,6 +231,12 @@ input::-webkit-search-results-decoration {
   height: var(--nav-icon-size);
 }
 
+/* profile-icon 사이즈가 혼자만 큰 느낌이라 조정 */
+#profile-icon {
+  width: 30px;
+  height: 30px;
+}
+
 /* 단어 서치바 영역 */
 .side-bar {
   width: var(--sidebar-width);
