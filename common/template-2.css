@@ -1,33 +1,5 @@
-/* 클래스명 추가 시 display : none 부여 */
-.displayNone {
-  display: none;
-}
-
-.invisible {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
-}
-
-/* FIXME: 메인 콘텐츠 영역 높이를 크게 줘보면, 가로 스크롤이 찔끔 생김 */
-
-/* ------------------------------- */
-
-body {
-  width: 100vw;
-  height: 100vh;
-
-  margin: 0;
-
-  background-color: var(--gray30);
-
-  display: flex;
-  flex-direction: column;
-}
-
 main {
   width: 100%;
-  /* height: 100%; */
 }
 
 /* 헤더 영역 */
@@ -74,8 +46,6 @@ header {
 }
 
 /* 로고 영역 */
-/* TODO: 로고 좌 영역, 80px 좀 큰 것 같아서 임의로 40px로 조정 */
-/* 필요 시 아래 값 조정 */
 header > div:nth-child(1) {
   margin-left: 40px;
 }
@@ -93,7 +63,6 @@ header > div:nth-child(3) {
 }
 
 /* 구글-검색창 */
-/* TODO: margin-right == google-search 우측 영역이므로 필요시 수정 */
 .google-search {
   height: 30px;
   margin-right: 24px;
@@ -262,7 +231,6 @@ input::-webkit-search-results-decoration {
   height: var(--nav-icon-size);
 }
 
-/* FIXME: 서치바 */
 /* 단어 서치바 영역 */
 .side-bar {
   width: var(--sidebar-width);
@@ -280,7 +248,7 @@ input::-webkit-search-results-decoration {
 
 /* 사이드바 검색창 영역 */
 .sidebar-search-area {
-  flex-basis: 10vh; /* FIXME: 태그 높이 수정 */
+  flex-basis: 10vh;
 }
 
 .sidebar-search {
@@ -330,7 +298,7 @@ input::-webkit-search-results-decoration {
 
   cursor: pointer;
 
-  /* 돋보기 아이콘 : input height 조절 시 여기도 값 조정 */
+  /* 검색(돋보기 아이콘) */
   position: absolute;
   top: 10px;
   right: 16px;
@@ -396,7 +364,6 @@ input::-webkit-search-results-decoration {
 }
 
 /* 카테고리 메뉴 (추가/편집) */
-
 #category-menu-wrapper {
   position: absolute;
   top: 25px;
@@ -516,7 +483,6 @@ input::-webkit-search-results-decoration {
   text-decoration: none;
 }
 
-/* TODO: 카테고리 편집/삭제를 눌렀을 때만 display 표시 */
 .category-list button {
   transition: all ease-in-out 0.2s;
 }
@@ -587,7 +553,6 @@ input::-webkit-search-results-decoration {
 }
 
 .tag:hover {
-  /* border: var(--line-hover); */
   background-color: var(--tertiary);
 
   transition: all ease-in-out 0.2s;
@@ -602,4 +567,6 @@ input::-webkit-search-results-decoration {
   margin-left: calc((var(--sidebar-width) + var(--nav-width)));
 
   background-color: var(--gray30);
+
+  overflow-x: hidden;
 }
