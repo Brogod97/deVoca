@@ -1,0 +1,174 @@
+/* 배경 이미지 */
+body {
+  background: url("/assets/images/background.svg") no-repeat;
+  background-position: center;
+}
+
+/* 회원가입 상자 */
+#join-box {
+  width: 650px;
+  height: 600px;
+  border-radius: 30px;
+  border: none;
+  background-color: white;
+  box-shadow: var(--login-shadow);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 회원가입 색, 위치 지정 */
+#title {
+  color: var(--primary);
+
+  position: relative;
+  text-align: center;
+}
+
+/* 확인 */
+#ok {
+  margin-bottom: 30px;
+  width: 110px;
+  height: 40px;
+  background-color: var(--primary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  color: var(--white);
+
+  position: relative;
+  left: 270px;
+  top: 1px;
+  text-align: center;
+}
+
+#ok:hover {
+  background-color: var(--secondary);
+}
+
+#login {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* or 선 */
+#line {
+  border: 1px solid var(--primary);
+  width: 500px;
+  position: relative;
+  top: -20px;
+}
+
+#or {
+  width: 100px;
+  height: 45px;
+  background-color: white;
+  color: var(--primary);
+  font-size: 16px;
+  text-align: center;
+
+  position: relative;
+  left: 270px;
+  top: -40px;
+}
+/* 카카오 버튼 */
+
+#kakao {
+  width: 250px;
+  height: 45px;
+  border: none;
+  border-radius: 10;
+
+  background-image: url("/assets/images/kakao1.svg");
+}
+
+#kakao:hover {
+  width: 250px;
+  height: 45px;
+  border: none;
+
+  background-image: url("/assets/images/kakao2.svg");
+}
+
+#kakao:active {
+  width: 250px;
+  height: 45px;
+  border: none;
+
+  background-image: url("/assets/images/kakao3.svg");
+}
+
+/* 구글 버튼 */
+#google {
+  width: 250px;
+  height: 45px;
+  border: none;
+
+  background-image: url("/assets/images/google1.svg");
+}
+
+#google:hover {
+  width: 250px;
+  height: 45px;
+  border: none;
+
+  background-image: url("/assets/images/google2.svg");
+}
+
+#google:active {
+  width: 250px;
+  height: 45px;
+  border: none;
+
+  background-image: url("/assets/images/google3.svg");
+}
+
+input {
+  width: 539px;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+
+input:focus {
+  width: 539px;
+  height: 48px;
+  outline: 2px solid var(--primary);
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+
+img {
+  margin-right: 24px;
+}
+
+#join-us {
+  position: relative;
+  left: 30px;
+  top: 10px;
+}
+
+input[type="text"] {
+  text-indent: 24px;
+}
+input[type="password"] {
+  text-indent: 24px;
+}
+
+#dd {
+  color: var(--gray500);
+  position: relative;
+  top: -25px;
+  text-align: center;
+}
+
+#sns {
+  position: relative;
+  left: 55px;
+  top: -30px;
+}
