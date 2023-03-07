@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/common/template-1.css" />
+
+    <title>Header, Footer 템플릿 페이지 - 랜딩 계열</title>
+  </head>
+  <body>
+    <body>
+      <!-- 헤더 -->
+      <header>
+        <!-- 로고 -->
+        <div>
+          <a href="#">
+            <img src="/assets/deVoca-logo.svg" />
+          </a>
+        </div>
+        <!-- 공백 -->
+        <div></div>
+        <!-- 헤더 우측 영역 -->
+        <div>
+          <!-- 구글-검색창 -->
+          <div class="google-search">
+            <fieldset>
+              <img src="/assets/google-logo.png" class="google-img" />
+              <input
+                type="search"
+                id="google-search-input"
+                name="google-search-input"
+                autocomplete="off"
+                placeholder="Google Search"
+              />
+            </fieldset>
+            <button
+              type="button"
+              class="google-search-btn"
+              id="google-search-btn"
+            >
+              <img src="/assets/search.svg" class="google-search-img" />
+            </button>
+          </div>
+          <!-- FAQ / 로그인 / 회원가입 -->
+          <div class="faq-login-signup">
+            <a href="#">FAQ</a>
+            <a href="#">로그인</a>
+            <a href="#">
+              <button class="btn-primary-fill">회원가입</button>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- 바디 -->
+      <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
+      <section class="main-content-area">
+        <div class="test-delete-this-div">
+          이 div는 삭제하시고, main-content-area 여기부터 각자 작업 시작하시면
+          됩니다.
+          <br />
+          현재 이 div가 height을 적용하지 않아서 붙어보이는 것
+
+          <pre>
+            main-content-area 영역 적용 값 (css) 
+
+            - padding-top: var(--header-height);
+            - overflow-x: hidden;
+          </pre>
+        </div>
+      </section>
+
+      <!-- 푸터 -->
+      <footer class="footer">
+        <div>
+          <a href="#">이용약관</a>
+          <a href="#">도움말</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
+      </footer>
+
+      <script src="/js/google-search.js"></script>
+    </body>
+  </body>
+</html>
