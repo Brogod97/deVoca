@@ -1,8 +1,0 @@
-@import "/common/component.css";
-@import "/common/fonts.css";
-@import "/common/scrollbar.css";
-@import "/common/variables.css";
-
-* {
-  box-sizing: border-box;
-}
