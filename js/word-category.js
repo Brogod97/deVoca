@@ -1,4 +1,15 @@
-//모달창;
+// 모달창
+// 조회 모달창
+const open = () => {
+  document.querySelector(".modal").classList.remove("hidden");
+};
+
+const close = () => {
+  document.querySelector(".modal").classList.add("hidden");
+};
+
+document.querySelector(".openBtn").addEventListener("click", open);
+document.querySelector(".bg").addEventListener("click", close);
 
 // 추가 모달창
 const addOpen = () => {
