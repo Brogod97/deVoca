@@ -1,0 +1,331 @@
+* {
+  color: var(--dark);
+}
+.main-content-area {
+  display: flex;
+}
+.content-container {
+  width: 90%;
+  height: 850px;
+  margin: auto;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 페이지 제목 시작*/
+.page-title-area {
+  width: 100%;
+  height: 100px;
+  border-bottom: var(--line);
+  line-height: 100px;
+}
+
+.page-title-area > p {
+  font-size: 24px;
+  margin: 0 0 0 30px;
+}
+/* 페이지 제목 끝 */
+
+/* 유저 정보 시작 */
+.user-info-area {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  margin-top: 100px;
+}
+
+/* 프로필사진 시작  */
+.user-img {
+  flex-basis: 40%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: var(--line);
+}
+/* 프로필사진 프리뷰 */
+#img-prev {
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-img img {
+  width: 220px;
+}
+
+/* 이미지 편집버튼 */
+#img-edit {
+  width: 45px;
+  height: 45px;
+  border-radius: 40px;
+  background-color: white;
+  position: relative;
+  top: -65px;
+  left: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: var(--dark);
+  box-shadow: var(--login-shadow);
+  cursor: pointer;
+}
+
+/* 이미지 편집버튼 호버 */
+#img-edit:hover {
+  background-color: var(--primary);
+}
+
+/* 프로필사진 종료 */
+
+/* 정보입력창 시작 */
+.user-info-input {
+  flex-basis: 60%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+/* 영역잡기 div */
+.user-info-input > div {
+  width: 100%;
+  height: 400px;
+  margin: auto;
+}
+
+/* 전체 인풋창 디자인 */
+.user-info-input input {
+  margin: 10px 0;
+  width: 600px;
+  height: 40px;
+  border: var(--line);
+  border-radius: 5px;
+  font-size: 16px;
+  text-indent: 0.5em;
+}
+
+/* 인풋 포커스 */
+.user-info-input input:focus {
+  outline: none;
+  border: var(--line-hover);
+}
+
+.user-info-input p {
+  margin: 0;
+}
+
+/* 비밀번호 영역 */
+.pw-input-area {
+  display: flex;
+}
+
+.pw-input-area input {
+  width: 290px;
+}
+
+.pwcheck-input-box {
+  margin-left: 20px;
+}
+
+/* 회원탈퇴 영역 & 비밀번호 변경 영역*/
+.withdrawal-area {
+  display: flex;
+  width: 600px;
+  justify-content: end;
+  margin-top: 20px;
+}
+#withdrawal-btn {
+  margin-left: 20px;
+  font-size: 16px;
+  color: var(--red);
+  cursor: pointer;
+}
+#pw-change {
+  font-size: 16px;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+/* 정보입력 끝 */
+/* 유저 정보 끝 */
+
+/* 완료 버튼 & 편집 취소 버튼*/
+
+.button-area {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-area > button {
+  margin: 10px;
+}
+
+#update-cancle-btn {
+  border-color: var(--footer-color);
+  color: var(--footer-color);
+  display: none;
+}
+#update-cancle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+#submit-btn:hover {
+  background-color: var(--secondary);
+}
+
+/* 회원 탈퇴 모달창 */
+.withdrawal-modal-window {
+  width: calc(100% - 380px);
+  height: calc(100% - 60px);
+  backdrop-filter: blur(2px);
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.withdrawal-modal-box {
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  box-shadow: var(--word-modal-shadow);
+  border-radius: 10px;
+  display: flex;
+}
+
+/* 박스 내부 영역잡기 div */
+.withdrawal-modal-inner-box {
+  margin: auto;
+  width: 350px;
+  height: 150px;
+}
+
+#withdrawal-modal-title-box {
+  display: felx;
+  flex-basis: 30%;
+  background-color: green;
+}
+/* 회원탈퇴 글씨 */
+#withdrawal-modal-title-text {
+  margin: 0 0 5px 0;
+}
+
+#check-sentence-box {
+  flex-basis: 30%;
+  background-color: red;
+}
+/* 정말로 탈퇴 하시겠습니까 글씨 */
+#check-sentence-text {
+  margin: 0 0 5px 0;
+}
+
+/* 현재 비밀번호입력  */
+#now-pw-text {
+  margin: 0 0 5px 0;
+}
+
+#now-pw-input {
+  width: 350px;
+  height: 30px;
+  border: var(--line);
+  border-radius: 5px;
+  text-indent: 0.5em;
+}
+
+#now-pw-input:focus {
+  outline: none;
+  border: var(--line-hover);
+}
+/* 버튼 감싼 div */
+#cancle-accept-btn-box {
+  margin-top: 14px;
+  display: flex;
+  justify-content: end;
+}
+
+#cancle-btn {
+  width: 80px;
+  height: 30px;
+  border: var(--line);
+  color: var(--footer-color);
+}
+
+#cancle-btn:hover {
+  background-color: var(--footer-color);
+  border-color: var(--footer-color);
+  color: white;
+}
+
+#accept-btn {
+  margin-left: 15px;
+  width: 120px;
+  height: 30px;
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+#accept-btn:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* 프로필 사진 편집 모달 */
+
+.update-img-modal-window {
+  width: calc(100% - 380px);
+  height: calc(100% - 60px);
+  backdrop-filter: blur(2px);
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-img-modal-box {
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  box-shadow: var(--word-modal-shadow);
+  border-radius: 10px;
+  display: flex;
+}
+
+.update-img-modal-inner-box {
+  margin: auto;
+  width: 350px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+#update-img-modal-title-text {
+  margin: 0;
+}
+
+.update-img-modal-title-text-box {
+  flex-basis: 30%;
+}
+.update-img-file-input-box {
+  flex-basis: 40%;
+}
+.update-img-cancle-accept-btn-box {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-img-cancle-accept-btn-box > button {
+  display: inline;
+  margin: 5px;
+}
