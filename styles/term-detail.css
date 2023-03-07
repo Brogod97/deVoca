@@ -4,26 +4,24 @@
 
 /*이용약관 제목 설정*/
 .term {
-  font-size: 4em;
+  font-size: 3em;
   color: #f9be28;
   text-align: center;
-  text-decoration-line: underline;
   text-decoration-color: #f9be28;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 20px;
-  flex-basis: 10%;
-  height: 8vh;
-  margin-left: 50px;
-  margin-right: 100px;
+position: absolute;
+width: 1700px;
+
+
+
+  
 }
 
 /* 버튼 부문*/
 .navCenter {
-  display: inline;
   height: 10vh;
   width: 100vh;
-  left: 360px;
-  position: absolute;
+  margin-left: 360px;
+  margin-top: 150px;
 }
 
 .navCenter > ul {
@@ -80,5 +78,5 @@
   overflow: auto;
   border: 1px solid white;
   padding: 0 0.5em;
-  margin: 80px 0px 100px 400px;
+  margin: -30px 400px 10px 400px;
 }

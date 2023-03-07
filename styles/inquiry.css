@@ -4,7 +4,7 @@
 /*배경*/
 section{
     background-color: white;
-    background-image: url(/assets/images/백그라운드\ 디자인\ 요소\ \(1\).jpg);
+    background-image: url(/assets/contact-background.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1000px;
@@ -15,7 +15,7 @@ section{
     background-color: white;
     margin: 100px 400px;
     width: 900px;
-    height: 600px;
+    height: 620px;
     border-radius: 25px;
     box-shadow: 1px 1px 10px 1px #dcdcdc;
    
@@ -23,7 +23,7 @@ section{
 
 /*문의하기 제목*/
 #quetitle {
-    position: absolute;
+
     font-size: 3em; 
     color: #F9BE28;
     text-decoration-color:#F9BE28;
@@ -40,7 +40,7 @@ section{
 
 /* 밑에 글씨*/
 #quetext{
-    margin: 45px 50px 80px;
+    margin: -120px 50px 80px;
     width: 800px;
     height: 100px;
     display: flex;
@@ -50,40 +50,6 @@ section{
 }
 
 
-
-/*메세지 설정*/
-#message {
-    margin: -235px  1000px  0px 450px;
-    width: 500px;
-    height: 240px;
-    display: flex;
-    
-    
-}
-/*메세지 글자*/
-#messagetitle {
-    position: absolute;
-    top: 375px; 
-    
-    
-}
-
-/*메세지 내용*/
-#textarea{
-    resize: none;
-    border: 0px;
-    background-color: #F5F5F5;
-    box-shadow: none;
-    border-radius: 10px;
-}
-/*버튼*/
-.btn {
-    position: absolute;
-    top: 700px;
-    left: 800px;
-
-
-}
 /*메세지항목 제외한 테이블 */
 #table {
     width: 500px;
@@ -128,4 +94,48 @@ section{
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none; 
+}
+
+/*메세지 설정*/
+#message {
+    margin: -260px 00px  0px 450px;
+    width: 500px;
+    height: 240px;
+   
+    
+    
+}
+/*메세지 글자*/
+#messagetitle {
+    height: 30px;
+    width: 100px;
+   
+   
+}
+
+/*메세지 내용*/
+#textarea{
+    resize: none;
+    border: 0px;
+    background-color: #F5F5F5;
+    box-shadow: none;
+    border-radius: 10px;
+}
+/*버튼*/
+.btn {
+    position: absolute;
+    top: 30px;
+ left: 380px;
+  width: 110px;
+  height: 40px;
+  background-color: var(--primary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  color: var(--white);
+  position: relative;
+  text-align: center;
+
 }
