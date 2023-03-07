@@ -1,0 +1,12 @@
+/* 스크롤바 스타일 옵션 */
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gray250);
+  border-radius: 30px;
+}
