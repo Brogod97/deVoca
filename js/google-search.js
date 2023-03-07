@@ -1,6 +1,8 @@
 const googleSearchBtn = document.querySelector(".google-search-btn");
 const googleSearchInput = document.getElementById("google-search-input");
 
+// temp
+
 // 구글 검색용 URL
 const queryUrl = "https://www.google.com/search?q=";
 
