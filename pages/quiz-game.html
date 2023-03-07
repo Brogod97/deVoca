@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/quiz-game.css" />
     <title>deVoca</title>
+
+    
+
   </head>
   <body>
-    <!-- 헤더 -->
+
+    <main>
+      <!-- 헤더 -->
     <header>
       <!-- 로고 -->
       <div>
@@ -44,34 +49,44 @@
             <img src="/assets/images/search.svg" class="google-search-img" />
           </button>
         </div>
-       
+        <!-- FAQ / 로그인 / 회원가입 -->
+        <div class="faq-login-signup">
+          <a href="#">FAQ</a>
+          <a href="#">로그인</a>
+          <a href="#">
+            <button class="btn-primary-fill">회원가입</button>
+          </a>
+        </div>
+      </div>
     </header>
 
-
-      <!-- 몸통 -->
-      <section class="container">
-        <!-- nav바 -->
-        <nav>
-          <section>
-            <a href="#">
-              <img src="/assets/images/Profile.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/images/Paper.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/images/Edit.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/images/3 User.svg" />
-            </a>
-          </section>
-          <section>
-            <a href="#">
-              <img src="/assets/images/Logout.svg" />
-            </a>
-          </section>
-        </nav>
+    <!-- 바디 -->
+    <!-- nav + sidebar 컨테이너 -->
+    <section class="container">
+      <!-- nav바 -->
+      <nav class="nav-bar">
+        <section>
+          <a href="#">
+            <img src="/assets/images/Profile.svg" />
+          </a>
+          <a href="#">
+            <img src="/assets/images/Paper.svg" />
+          </a>
+          <a href="#">
+            <img src="/assets/images/Edit.svg" />
+          </a>
+          <a href="#">
+            <img src="/assets/images/3 User.svg" />
+          </a>
+        </section>
+        <section>
+          <a href="#">
+            <img src="/assets/images/Logout.svg" />
+          </a>
+        </section>
+      </nav>
+    </main>
+    
 
         <!-- 메인화면 -->
         <section class="content">
@@ -80,26 +95,121 @@
               <progress id="quiz-pro" min="1" max="100" value="1"></progress>
               <span class="quiz-res">1 / 100</span>
             </div>
-            <div class="quiz-title">
-              <h3>
-                INSTR(컬럼명 | 문자열, '찾을 문자열' [, 찾기 시작할 위치] [,
-                순번])
-              </h3>
+
+            <div class="slide slide_wrap">
+              <div class="slide_item">
+                <div class="quiz-title">
+                  <h3>
+                    INSTR(컬럼명 | 문자열, '찾을 문자열' [, 찾기 시작할 위치] [,
+                    순번])
+                  </h3>
+                </div>
+                <div class="quiz-line"></div>
+                <div class="quiz-four-menu">
+                  <div>
+                    지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
+                  </div>
+                  <div>
+                    컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
+                    잘라서 반환
+                  </div>
+                  <div>
+                    주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
+                  </div>
+                  <div>소수점 첫째 자리에서 올림 처리</div>
+                </div>
+              </div>
+              <div class="slide_item">
+                <div class="quiz-title">
+                  <h3>
+                    2번입니다
+                  </h3>
+                </div>
+                <div class="quiz-line"></div>
+                <div class="quiz-four-menu">
+                  <div>
+                    지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
+                  </div>
+                  <div>
+                    컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
+                    잘라서 반환
+                  </div>
+                  <div>
+                    주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
+                  </div>
+                  <div>소수점 첫째 자리에서 올림 처리</div>
+                </div>
+              </div>
+              <div class="slide_item">
+                <div class="quiz-title">
+                  <h3>
+                    3번입니다
+                  </h3>
+                </div>
+                <div class="quiz-line"></div>
+                <div class="quiz-four-menu">
+                  <div>
+                    지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
+                  </div>
+                  <div>
+                    컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
+                    잘라서 반환
+                  </div>
+                  <div>
+                    주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
+                  </div>
+                  <div>소수점 첫째 자리에서 올림 처리</div>
+                </div>
+              </div>
+              <div class="slide_item">
+                <div class="quiz-title">
+                  <h3>
+                    4번입니다
+                  </h3>
+                </div>
+                <div class="quiz-line"></div>
+                <div class="quiz-four-menu">
+                  <div>
+                    지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
+                  </div>
+                  <div>
+                    컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
+                    잘라서 반환
+                  </div>
+                  <div>
+                    주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
+                  </div>
+                  <div>소수점 첫째 자리에서 올림 처리</div>
+                </div>
+              </div>
+              <div class="slide_item">
+                <div class="quiz-title">
+                  <h3>
+                   5번입니다
+                  </h3>
+                </div>
+                <div class="quiz-line"></div>
+                <div class="quiz-four-menu">
+                  <div>
+                    지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
+                  </div>
+                  <div>
+                    컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
+                    잘라서 반환
+                  </div>
+                  <div>
+                    주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
+                  </div>
+                  <div>소수점 첫째 자리에서 올림 처리</div>
+                </div>
+              </div>
+              <div class="slide_prev_button slide_button">◀</div>
+              <div class="slide_next_button slide_button">▶</div>
+              <ul class="slide_pagination"></ul>
             </div>
-            <div class="quiz-line"></div>
-            <div class="quiz-four-menu">
-              <div>
-                지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
-              </div>
-              <div>
-                컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
-                잘라서 반환
-              </div>
-              <div>
-                주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
-              </div>
-              <div>소수점 첫째 자리에서 올림 처리</div>
-            </div>
+          
+
+            
             <div>
               <button onclick="skillUp()" class="devoca-btn2">Next</button>
             </div>

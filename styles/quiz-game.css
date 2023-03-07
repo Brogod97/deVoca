@@ -1,27 +1,72 @@
-* {
-  box-sizing: border-box;
+/* 클래스명 추가 시 display : none 부여 */
+.displayNone {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
 }
 
 body {
-  margin: 0;
   width: 100vw;
   height: 100vh;
+
+  margin: 0;
+
   background-color: var(--gray30);
-  font-family: "Pretendard-Regular";
+
+  display: flex;
+  flex-direction: column;
 }
 
-/* 헤더 */
-header {
+main {
   width: 100%;
-  height: 70px;
-  background-color: var(--gray30);
+  /* height: 100%; */
+}
+
+/* 헤더 영역 */
+header {
+  width: 100vw;
+  height: var(--header-height);
+  min-height: var(--header-height);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--header-shadow);
-  position: absolute;
+
+  width: 100vw;
+  height: var(--header-height);
+  min-height: var(--header-height);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--header-z-index);
+
   background-color: var(--gray30);
-  z-index: 4;
+}
+
+/* 헤더 그림자용 */
+.header-shadow {
+  width: 100vw;
+  height: var(--header-height);
+  min-height: var(--header-height);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--header-shadow-z-index);
+
+  background-color: transparent;
+  box-shadow: var(--header-shadow);
+
+  pointer-events: none;
 }
 
 /* 로고 영역 */
@@ -32,6 +77,8 @@ header > div:nth-child(1) {
 }
 
 /* 공백 영역 */
+header > div:nth-child(2) {
+}
 
 /* 헤더 우측 영역 */
 header > div:nth-child(3) {
@@ -122,7 +169,6 @@ input::-webkit-search-results-decoration {
   height: 16px;
 }
 
-/* TODO: 클래스명 변경 reading-glasses -> google-search-btn */
 .google-search-btn {
   height: 30px;
 
@@ -141,64 +187,83 @@ input::-webkit-search-results-decoration {
   height: 16px;
 }
 
+/* FAQ / 로그인 / 회원가입 */
+.faq-login-signup > a {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
 
-/* 몸통 */
+  text-decoration: none;
+}
+
+.faq-login-signup > a:nth-child(2) {
+  padding: 0 16px;
+}
+
+.faq-login-signup > a:hover {
+  color: var(--gray500);
+
+  transition: all ease-in-out 0.2s;
+}
+
+.faq-login-signup button {
+  border: none;
+  cursor: pointer;
+  width: 90px;
+}
+
+/* 바디 영역 */
 .container {
+  height: calc(100vh - var(--header-height));
+
   display: flex;
-  
+
+  position: fixed;
+  margin-top: var(--header-height);
 }
 
 /* nav 영역 */
-nav {
+.nav-bar {
   display: flex;
   flex-direction: column;
-  width: 80px;
-  height: 100vh;
-  min-width: 80px;
+  align-items: center;
+  width: var(--nav-width);
   background-color: var(--gray100);
-  z-index: 3;
 }
 
-nav > section:nth-child(1),
-nav > section:nth-child(2) {
+/* nav-bar 위 아이콘 4개 모음 */
+.nav-bar > section:nth-child(1) {
+  flex-basis: 90%;
+
   display: flex;
   flex-direction: column;
 }
 
-nav > section:nth-child(1) {
-  margin-top: 70px;
-  flex-basis: 90%;
-}
-
-nav > section:nth-child(2) {
+.nav-bar > section:nth-child(2) {
   flex-basis: 10%;
-  margin-bottom: 40px;
 }
 
-nav a {
-  padding-top: 40px;
+.nav-bar a {
+  padding-top: 30px;
   text-align: center;
 }
 
-nav a:nth-child(1) {
-  margin-top: 10px;
+.nav-bar a:hover {
+  filter: var(--icon-hover);
+  transition: all ease-in-out 0.15s;
 }
 
-nav a:nth-child(1):hover,
-nav a:nth-child(2):hover,
-nav a:nth-child(3):hover,
-nav a:nth-child(4):hover,
-nav a:nth-child(5):hover {
-  filter: var(--icon-hover);
+.nav-bar a img {
+  width: var(--nav-icon-size);
+  height: var(--nav-icon-size);
 }
 
 /* 메인화면 */
 
 .content {
-  width: 100vw;
-  margin-top: 70px;
+  margin-top: var(--header-height);
+  margin-left: var(--nav-width);
   display: flex;
-  
 }
 
 /* 퀴즈 */
@@ -208,7 +273,6 @@ nav a:nth-child(5):hover {
   align-items: center;
   margin: auto;
 }
-
 
 #quiz-pro {
   appearance: none;
@@ -223,52 +287,81 @@ nav a:nth-child(5):hover {
   background: var(--primary);
 }
 
+/* ----------- */
+.slide {
+  /* layout */
+  display: flex;
+  flex-wrap: nowrap;
+  /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+  overflow: hidden;
 
+  /* position */
+  /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+  position: relative;
 
-.quiz-title > h3 {
-  font-size: 24px;
+  /* size */
+  width: 100%;
+
+  border: 1px solid red;
 }
-
-.quiz-line {
-  
-  width: 700px;
-  border-bottom: 1px solid var(--gray200);
-  margin-bottom: 20px;
-}
-
-.quiz-four-menu {
-  
+.slide_item {
+  /* layout */
   display: flex;
   flex-direction: column;
-}
-
-.quiz-four-menu > div:nth-child(1),
-.quiz-four-menu > div:nth-child(2),
-.quiz-four-menu > div:nth-child(3),
-.quiz-four-menu > div:nth-child(4) {
-  width: 500px;
-  height: 80px;
-  border-radius: 30px;
-  box-shadow: var(--category-shadow);
-  padding: 30px;
-  margin: 15px;
-  display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.quiz-four-menu > div:nth-child(1):hover,
-.quiz-four-menu > div:nth-child(2):hover,
-.quiz-four-menu > div:nth-child(3):hover,
-.quiz-four-menu > div:nth-child(4):hover {
-  border: 1px solid var(--primary);
-}
-
-.devoca-btn2 {
+  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
   position: relative;
-  top: 30px;
+  left: 0px;
+
+  /* size */
+  width: 100%;
+  height: 100%;
+  /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+  flex-shrink: 0;
+
+  /* transition */
+  transition: left 0.15s;
+}
+.slide_button {
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position */
+  position: absolute;
+  /* 버튼이 중앙에 위치하게 하기위해 계산 */
+  top: calc(50% - 16px);
+
+  /* size */
+  width: 32px;
+  height: 32px;
+
+  /* style */
+  border-radius: 100%;
+  cursor: pointer;
 }
 
-.devoca-btn2:hover {
-  background-color: var(--secondary);
+.slide_prev_button {
+  left: 10px;
+}
+.slide_next_button {
+  right: 10px;
+}
+
+/* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
+
+.slide_item:nth-child(2) {
+  background-color: aqua;
+}
+.slide_item:nth-child(3) {
+  background-color: blueviolet;
+}
+.slide_item:nth-child(4) {
+  background-color: burlywood;
+}
+.slide_item:nth-child(5) {
+  background-color: cornflowerblue;
 }
