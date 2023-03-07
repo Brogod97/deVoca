@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+/*배경*/
+section{
+    background-color: white;
+    background-image: url(/assets/images/백그라운드\ 디자인\ 요소\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 1000px;
+}
+/*메뉴*/
+.menu {
+    border: 1px solid white;
+    background-color: white;
+    margin: 100px 400px;
+    width: 900px;
+    height: 600px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 10px 1px #dcdcdc;
+   
+}
+
+/*문의하기 제목*/
+#quetitle {
+    position: absolute;
+    font-size: 3em; 
+    color: #F9BE28;
+    text-decoration-color:#F9BE28;
+    text-underline-offset : 20px;
+    margin: 35px 50px;
+    width: 800px;
+    height: 100px;
+  
+    display: flex;
+    justify-content: center;
+    
+      
+}
+
+/* 밑에 글씨*/
+#quetext{
+    margin: 45px 50px 80px;
+    width: 800px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
+}
+
+
+
+/*메세지 설정*/
+#message {
+    margin: -235px  1000px  0px 450px;
+    width: 500px;
+    height: 240px;
+    display: flex;
+    
+    
+}
+/*메세지 글자*/
+#messagetitle {
+    position: absolute;
+    top: 375px; 
+    
+    
+}
+
+/*메세지 내용*/
+#textarea{
+    resize: none;
+    border: 0px;
+    background-color: #F5F5F5;
+    box-shadow: none;
+    border-radius: 10px;
+}
+/*버튼*/
+.btn {
+    position: absolute;
+    top: 700px;
+    left: 800px;
+
+
+}
+/*메세지항목 제외한 테이블 */
+#table {
+    width: 500px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;   
+
+}
+/*이름*/
+.titlename {
+    text-align: left;
+    margin: 20px 0px 10px;
+}
+
+
+#name {
+    width: 300px;
+    height: 40px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    box-shadow: none;
+}
+
+/*이메일*/
+#email {
+    width: 300px;
+    height: 40px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    box-shadow: none;
+}
+
+/*문의 유형*/
+#selc {
+    width: 300px;
+    height: 40px; 
+    border: 0px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    box-shadow: none; 
+}
