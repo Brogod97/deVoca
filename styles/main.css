@@ -1,7 +1,0 @@
-@import "/common/variables.css";
-@import "/common/fonts.css";
-@import "/common/component.css";
-
-* {
-  box-sizing: border-box;
-}
