@@ -1,5 +1,3 @@
-// temp
-
 $(function () {
   $("#fullpage").fullpage({
     autoScrolling: true,

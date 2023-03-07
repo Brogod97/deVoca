@@ -106,11 +106,13 @@ input::-webkit-search-results-decoration {
   height: 16px;
 }
 #google-search-input::-ms-input-placeholder {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--gray200);
   width: 95px;
   height: 16px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: var(--gray200);
 }
 
 .google-search-btn {
@@ -212,6 +214,8 @@ input::-webkit-search-results-decoration {
 }
 
 .main-content-area {
+  height: 100%;
+
   padding-top: var(--header-height);
   overflow-x: hidden;
 }
