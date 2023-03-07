@@ -1,0 +1,7 @@
+//TEST
+
+{
+  "dependencies": {
+    "highlight.js": "^11.7.0"
+  }
+}
