@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-2.css" />
 
+    <!-- font-awesome -->
     <script
       src="https://kit.fontawesome.com/5d7e6e936d.js"
       crossorigin="anonymous"
@@ -21,7 +22,7 @@
         <!-- 로고 -->
         <div>
           <a href="#">
-            <img src="/assets/images/Group 323.svg" />
+            <img src="/assets/deVoca-logo.svg" />
           </a>
         </div>
         <!-- 공백 -->
@@ -31,10 +32,7 @@
           <!-- 구글-검색창 -->
           <div class="google-search">
             <fieldset>
-              <img
-                src="/assets/images/KakaoTalk_Image_2023-02-20-13-39-41.png"
-                class="google-img"
-              />
+              <img src="/assets/google-logo.png" class="google-img" />
               <input
                 type="search"
                 id="google-search-input"
@@ -48,7 +46,7 @@
               class="google-search-btn"
               id="google-search-btn"
             >
-              <img src="/assets/images/search.svg" class="google-search-img" />
+              <img src="/assets/search.svg" class="google-search-img" />
             </button>
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
@@ -69,21 +67,21 @@
         <nav class="nav-bar">
           <section>
             <a href="#">
-              <img src="/assets/images/Profile.svg" />
+              <img id="profile-icon" src="/assets/profile.svg" />
             </a>
             <a href="#">
-              <img src="/assets/images/Paper.svg" />
+              <img src="/assets/voca.svg" />
             </a>
             <a href="#">
-              <img src="/assets/images/Edit.svg" />
+              <img src="/assets/quiz.svg" />
             </a>
             <a href="#">
-              <img src="/assets/images/3 User.svg" />
+              <img src="/assets/shared.svg" />
             </a>
           </section>
           <section>
             <a href="#">
-              <img src="/assets/images/Logout.svg" />
+              <img src="/assets/logout.svg" />
             </a>
           </section>
         </nav>
@@ -102,10 +100,7 @@
                   autocomplete="off"
                 />
                 <button>
-                  <img
-                    src="/assets/images/search.svg"
-                    class="voca-search-img"
-                  />
+                  <img src="/assets/search.svg" class="voca-search-img" />
                 </button>
               </form>
             </div>
@@ -116,63 +111,92 @@
           <section class="category-container">
             <div class="category-header">
               <h3>카테고리</h3>
-              <button class="category-btn">
+              <button id="category-btn" type="button">
                 <i class="fa-solid fa-ellipsis"></i>
               </button>
+              <!-- 카테고리 메뉴 모달 -->
+              <div id="category-menu-wrapper" class="invisible">
+                <div id="category-menu-overlay"></div>
+                <div class="category-menu-content">
+                  <div class="category-add">추가</div>
+                  <div class="category-edit">편집</div>
+                </div>
+              </div>
             </div>
 
-            <!-- TODO: 동적으로 리스트 생성되도록 작성 -->
             <div class="category-list">
               <ul>
                 <li>
                   <a href="#">JAVA</a>
-                  <button>
+                  <button type="submit" class="invisible">
                     <i class="fa-solid fa-x"></i>
                   </button>
                 </li>
                 <li>
                   <a href="#">DB</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">JavaScript</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
                 <li>
                   <a href="#">Python</a>
-                  <button><i class="fa-solid fa-x"></i></button>
+                  <button type="submit" class="invisible">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -215,10 +239,26 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <div class="div">각자 작업할 내용 여기서부터 시작</div>
+      <div class="test-delete-this-div">
+        이 div는 삭제하시고, main-content-area 여기부터 각자 작업 시작하시면
+        됩니다.
+        <br />
+        <pre>
+          main-content-area 영역 적용 값 (css) 
+          
+          - width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
+
+          - height: 100%;
+
+          - margin-top: var(--header-height);
+
+          - margin-left: calc((var(--sidebar-width) + var(--nav-width)));
+        </pre>
+      </div>
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
     <script src="/js/google-search.js"></script>
+    <script src="/common/template-2.js"></script>
   </body>
 </html>

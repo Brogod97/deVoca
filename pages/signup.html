@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-1.css" />
+    <link rel="stylesheet" href="/styles/signup.css" />
 
     <title>Header, Footer 템플릿 페이지 - 랜딩 계열</title>
   </head>
@@ -58,19 +59,43 @@
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
-        <div class="test-delete-this-div">
-          이 div는 삭제하시고, main-content-area 여기부터 각자 작업 시작하시면
-          됩니다.
-          <br />
-          현재 이 div가 height을 적용하지 않아서 붙어보이는 것
+        <form id="join-box">
+          <h1 id="title">회원 가입</h1>
 
-          <pre>
-            main-content-area 영역 적용 값 (css) 
+          <div id="join-us">
+            <img id="one" src="/assets/images/동글.svg" />
+            <input id="nn" type="text" placeholder="NICKNAME" />
+            <br /><br />
+            <img id="one" src="/assets/images/동글.svg" />
+            <input id="uid" type="text" placeholder="ID" /> <br /><br />
+            <img id="one" src="/assets/images/동글.svg" />
+            <input id="upw" type="password" placeholder="PASSWORD" />
+            <br /><br />
+            <img id="one" src="/assets/images/동글.svg" />
+            <input
+              id="upw2"
+              type="password"
+              placeholder="PASSWORD CHECK"
+            /><br /><br />
+          </div>
 
-            - padding-top: var(--header-height);
-            - overflow-x: hidden;
-          </pre>
-        </div>
+          <p>
+            <input id="ok" type="submit" value="확인" />
+          </p>
+          <div>
+            <p id="dd">
+              이미 계정이 있으신가요? &nbsp; <a href="#" id="login">로그인</a>
+            </p>
+          </div>
+
+          <hr id="line" />
+          <div id="or">OR</div>
+
+          <div id="sns">
+            <button id="kakao"></button> &emsp;&emsp;
+            <button id="google"></button>
+          </div>
+        </form>
       </section>
 
       <!-- 푸터 -->

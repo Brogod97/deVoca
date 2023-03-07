@@ -1,3 +1,4 @@
+/* 눈누 web-font : pretendard */
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
@@ -6,6 +7,219 @@
   font-style: normal;
 }
 
-body {
-  font-family: "Pretendard-Regular";
+/* font-icon */
+@font-face {
+  font-family: "devoca";
+  src: url("/assets/fonts/devoca.eot?");
+  src: url("/assets/fonts/devoca.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/devoca.ttf?") format("truetype"),
+    url("/assets/fonts/devoca.woff?") format("woff"),
+    url("/assets/fonts/devoca.svg?#devoca") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "devoca" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-camera .path1:before {
+  content: "\e900";
+  color: rgb(131, 142, 158);
+}
+.ic-camera .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-check:before {
+  content: "\e902";
+  color: #cdd2d8;
+}
+.ic-check-active:before {
+  content: "\e903";
+  color: #525050;
+}
+.ic-chevron:before {
+  content: "\e904";
+  color: #838e9e;
+}
+.ic-close:before {
+  content: "\e905";
+  color: #525050;
+}
+.ic-code:before {
+  content: "\e906";
+  color: #525050;
+}
+.ic-coding .path1:before {
+  content: "\e907";
+  color: rgb(255, 255, 255);
+  opacity: 0.7;
+}
+.ic-coding .path2:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-coding .path3:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-coding .path4:before {
+  content: "\e90a";
+  margin-left: -1em;
+  color: rgb(70, 149, 222);
+}
+.ic-coding .path5:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-coding .path6:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-coding .path7:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(249, 118, 118);
+}
+.ic-coding .path8:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(249, 190, 40);
+}
+.ic-coding .path9:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-coding .path10:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(249, 118, 118);
+}
+.ic-coding .path11:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-coding .path12:before {
+  content: "\e912";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-coding .path13:before {
+  content: "\e913";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.ic-globe:before {
+  content: "\e914";
+  color: #fff;
+}
+.ic-hive:before {
+  content: "\e915";
+  color: #8f8f8f;
+}
+.ic-hive-active:before {
+  content: "\e916";
+  color: #f9be28;
+}
+.ic-kakao:before {
+  content: "\e917";
+}
+.ic-lock:before {
+  content: "\e918";
+  color: #838e9e;
+}
+.ic-lock-active:before {
+  content: "\e919";
+  color: #ffc759;
+}
+.ic-login-circle-active:before {
+  content: "\e91a";
+  color: #f9be28;
+}
+.ic-login-circle-default:before {
+  content: "\e91b";
+  color: #b7b7b7;
+}
+.ic-login-circle-wrong:before {
+  content: "\e91c";
+  color: #ff6464;
+}
+.ic-logout:before {
+  content: "\e91d";
+  color: #838e9e;
+}
+.ic-menu-dot:before {
+  content: "\e91e";
+  color: #525050;
+}
+.ic-note:before {
+  content: "\e91f";
+  color: #525050;
+}
+.ic-note-pencil:before {
+  content: "\e920";
+  color: #ffd27a;
+}
+.ic-pencil:before {
+  content: "\e921";
+  color: #525050;
+}
+.ic-profile:before {
+  content: "\e922";
+  color: #838e9e;
+}
+.ic-quiz:before {
+  content: "\e923";
+  color: #838e9e;
+}
+.ic-reset:before {
+  content: "\e924";
+  color: #525050;
+}
+.ic-search:before {
+  content: "\e925";
+  color: #cdd2d8;
+}
+.ic-shared:before {
+  content: "\e926";
+  color: #838e9e;
+}
+.ic-star:before {
+  content: "\e927";
+  color: #838e9e;
+}
+.ic-star-active:before {
+  content: "\e928";
+  color: #ffc759;
+}
+.ic-triangle-down:before {
+  content: "\e929";
+  color: #525050;
+}
+.ic-warning:before {
+  content: "\e92a";
+  color: #ec131e;
+}
+.ic-word:before {
+  content: "\e92b";
+  color: #838e9e;
 }

@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+/*이용약관 제목 설정*/
+.term {
+  font-size: 4em;
+  color: #f9be28;
+  text-align: center;
+  text-decoration-line: underline;
+  text-decoration-color: #f9be28;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 20px;
+  flex-basis: 10%;
+  height: 8vh;
+  margin-left: 50px;
+  margin-right: 100px;
+}
+
+/* 버튼 부문*/
+.navCenter {
+  display: inline;
+  height: 10vh;
+  width: 100vh;
+  left: 360px;
+  position: absolute;
+}
+
+.navCenter > ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  height: 100%;
+}
+
+.navCenter li {
+  flex: -5, 1, 0;
+  /* 팽창, 수축, 기본값 */
+}
+
+.navCenter button {
+  display: block;
+  height: 100%;
+  line-height: 48px;
+  width: 130px;
+
+  /* 밑줄 없애기 */
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+
+  /* 모서리 깎기*/
+  border-radius: 5px;
+  transition-duration: 0.2s;
+
+  background-color: transparent;
+}
+
+.button:hover,
+.button.active {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #fad062;
+  color: #f9be28;
+}
+.button:visited {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #fad062;
+  color: #f9be28;
+}
+.button {
+  border: 0;
+}
+/* 박스 안의 내용 */
+.box1 {
+  width: 1000px;
+  height: 400px;
+  overflow: auto;
+  border: 1px solid white;
+  padding: 0 0.5em;
+  margin: 80px 0px 100px 400px;
+}

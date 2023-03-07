@@ -1,93 +1,114 @@
-* {
-    box-sizing: border-box;
+/* 배경 이미지 */
+body {
+  background: url("/assets/background-polygon.svg") no-repeat;
+  background-position: center;
 }
 
+/* 회원약관 상자 */
+#ok-form {
+  width: 450px;
+  height: 620px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: var(--login-shadow);
 
-/*이용약관 제목 설정*/
-.term { 
-    font-size: 4em; 
-    color: #F9BE28;
-    text-align: center;
-    text-decoration-line: underline;
-    text-decoration-color:#F9BE28;
-    text-decoration-thickness: 2px;
-    text-underline-offset : 20px;
-    flex-basis: 10%;   
-    height: 8vh;
-    margin-left: 50px;
-    margin-right: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* 버튼 부문*/
-.navCenter {  
-
-    display: inline;
-    height: 10vh;
-    width: 100vh;
-    left: 360px;
-    position: absolute;
-    
-    
-   
+/* 회원약관과 전체동의 노란 선과 사이즈 맞추기*/
+#up {
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.navCenter > ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    height: 100%;
+/* 회원약관 색, 위치 지정 */
+#title {
+  color: var(--primary);
+
+  position: relative;
+  text-align: center;
 }
 
-.navCenter li {
-
-    flex :-5,1,0;    
-    /* 팽창, 수축, 기본값 */
-    
+/* 노란 선 */
+#line {
+  border: 1px solid var(--primary);
+  width: 400px;
 }
 
-.navCenter button {
-    display: block;
-    height: 100%;   
-    line-height: 48px;
-    width: 130px;
-
-    /* 밑줄 없애기 */
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-
-    /* 모서리 깎기*/
-    border-radius: 5px;
-    transition-duration: 0.2s;
-
-    background-color: transparent;    
-    
+/* 약관 내용 스크롤 바 */
+.ok-box::-webkit-scrollbar {
+  width: 8px;
+}
+.ok-box::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.ok-box::-webkit-scrollbar-thumb {
+  background-color: var(--gray250);
+  border-radius: 30px;
 }
 
-.button:hover,
-.button.active {
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color:  #FAD062;
-    color: #F9BE28;
+/* 이용약관 내용 스타일 */
+.ok-box {
+  width: 380px;
+  height: 80px;
+  border: 1px solid var(--gray500);
 }
-.button:visited {
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color:  #FAD062;
-    color: #F9BE28;
-}
-.button {
-  border: 0;
-}
-/* 박스 안의 내용 */
-.box1 {
-    width:1000px;
-    height:400px;
-    overflow:auto;  
-    border:1px solid white;
-    padding: 0 0.5em;
-    margin: 80px 0px 100px 400px;
-  }
 
+/* 제출 */
+#ok {
+  margin-bottom: 30px;
+  width: 110px;
+  height: 40px;
+  background-color: var(--primary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  color: var(--white);
+}
+#ok:hover {
+  background-color: var(--secondary);
+}
+
+/* 취소 */
+#no {
+  margin-bottom: 30px;
+  width: 110px;
+  height: 40px;
+  background-color: var(--gray500);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  color: var(--white);
+}
+#no:hover {
+  background-color: var(--gray250);
+}
+
+/* 체크박스 변경 -> 수정필요 */
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  cursor: pointer;
+  padding-left: 24px;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/checkbox1.svg");
+}
+
+input[type="checkbox"]:hover + label {
+  background-image: url("/assets/images/checkbox2.svg");
+}
+
+input[type="checkbox"]:checked + label {
+  background-image: url("/assets/images/checkbox3.svg");
+}
