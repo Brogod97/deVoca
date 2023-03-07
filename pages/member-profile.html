@@ -221,17 +221,17 @@
       <div class="content-container">
         <!-- 페이지 타이틀 영역 -->
         <div class="page-title-area">
-          <p>회원 정보 수정</p>
+          <p>회원 정보</p>
         </div>
         <form action="#">
           <!-- 회원 정보 영역 -->
           <div class="user-info-area">
             <!-- 프로필사진 영역 -->
             <div class="user-img">
-              <div>
+              <div id="img-prev">
                 <img src="../assets/images/default-user-image.png" alt="" />
               </div>
-              <div><i class="fa-solid fa-camera"></i></div>
+              <div id="img-edit"><i class="fa-solid fa-camera"></i></div>
             </div>
             <!-- 정보 입력 영역 -->
             <div class="user-info-input">
@@ -240,45 +240,61 @@
                 <!-- 아이디 인풋 영역 -->
                 <div class="id-input-area">
                   <label>
-                    아이디
-                    <br />
-                    <input type="text" id="id-input" />
+                    <p>아이디</p>
+                    <input type="text" id="id-input" disabled />
                   </label>
                 </div>
                 <!-- 비밀번호 인풋 영역 -->
                 <div class="pw-input-area">
                   <div class="pw-input-box">
                     <label>
-                      비밀번호
-                      <input type="password" id="pw-input" />
+                      <p>비밀번호</p>
+                      <input type="password" id="pw-input" disabled required />
                     </label>
                   </div>
                   <div class="pwcheck-input-box">
                     <label>
-                      비밀번호 확인
-                      <input type="password" id="pwcheck-input" />
+                      <p>비밀번호 확인</p>
+                      <input
+                        type="password"
+                        id="pwcheck-input"
+                        disabled
+                        required
+                      />
                     </label>
                   </div>
                 </div>
                 <!-- 이메일 인풋 영역 -->
                 <div class="email-input-area">
-                  이메일
-                  <input type="email" id="email-input" />
+                  <label>
+                    <p>이메일</p>
+                    <input type="email" id="email-input" disabled required />
+                  </label>
                 </div>
                 <!-- 닉네임 인풋 영역 -->
                 <div class="nm-input-area">
-                  닉네임
-                  <input type="text" id="nm-inpu" />
+                  <label>
+                    <p>닉네임</p>
+                    <input type="text" id="nm-input" disabled required />
+                  </label>
                 </div>
-                <!-- 회원탈퇴 인풋 영역 -->
+                <!-- 회원탈퇴 & 비밀번호 변경 영역 -->
                 <div class="withdrawal-area">
-                  <p id="withdrawal-btn">회원탈퇴</p>
+                  <span id="pw-change">편집</span>
+                  <span id="withdrawal-btn">회원탈퇴</span>
                 </div>
               </div>
             </div>
           </div>
-          <!-- 완료 버튼 영역 -->
+          <!-- 완료 & 편집취소 버튼 영역 -->
           <div class="button-area">
+            <button
+              type="button"
+              class="btn-primary-line"
+              id="update-cancle-btn"
+            >
+              취소
+            </button>
             <button
               type="submit"
               class="btn-primary-fill btn-primary-line"
@@ -290,13 +306,15 @@
         </form>
       </div>
 
-      <!-- 모달창 -->
-      <div class="modal-window">
-        <div class="modal-box">
-          <!-- 영역잡기 div -->
-          <div class="modal-inner-box">
-            <div id="modal-title-box">
-              <h3 id="modal-title-text">회원 탈퇴</h3>
+      <!--회원탈퇴 모달창 -->
+      <div class="withdrawal-modal-window">
+        <div class="withdrawal-modal-box">
+          <!-- 박스 내부 영역잡기 div -->
+          <div class="withdrawal-modal-inner-box">
+            <div id="withdrawal-modal-title-box">
+              <span>
+                <h3 id="withdrawal-modal-title-text">회원 탈퇴</h3>
+              </span>
             </div>
             <div id="check-sentence-box">
               <h4 id="check-sentence-text">정말로 탈퇴 하시겠습니까?</h4>
@@ -321,6 +339,38 @@
           </div>
         </div>
       </div>
+      <!-- 회원 탈퇴 모달 끝 -->
+
+      <!-- 프로필 사진 편집 모달  -->
+      <div class="update-img-modal-window">
+        <div class="update-img-modal-box">
+          <div class="update-img-modal-inner-box">
+            <div class="update-img-modal-title-text-box">
+              <h2 id="update-img-modal-title-text">프로필 사진 변경</h2>
+            </div>
+            <div class="update-img-file-input-box">
+              <input
+                type="file"
+                id="update-img-file-input"
+                accept="image/jpeg,.png"
+                required
+              />
+            </div>
+            <div class="update-img-cancle-accept-btn-box">
+              <button id="update-img-cancle-btn" class="btn-primary-line">
+                취소
+              </button>
+              <button
+                id="update-img-accept-btn "
+                class="btn-primary-line btn-primary-fill"
+              >
+                저장
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 프로필 사진 편집 모달 끝 -->
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
