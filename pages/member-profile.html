@@ -252,7 +252,7 @@
             <!-- 프로필사진 영역 -->
             <div class="user-img">
               <div id="img-prev">
-                <img src="../assets/images/default-user-image.png" alt="" />
+                <img src="../assets/user-profile.png" alt="프로필 사진" />
               </div>
               <div id="img-edit"><i class="fa-solid fa-camera"></i></div>
             </div>
@@ -270,12 +270,18 @@
                 <!-- 비밀번호 인풋 영역 -->
                 <div class="pw-input-area">
                   <div class="pw-input-box">
+                    <div class="icon-position-box">
+                      <i class="ic-lock"></i>
+                    </div>
                     <label>
                       <p>비밀번호</p>
                       <input type="password" id="pw-input" disabled required />
                     </label>
                   </div>
                   <div class="pwcheck-input-box">
+                    <div class="icon-position-box">
+                      <i class="ic-lock"></i>
+                    </div>
                     <label>
                       <p>비밀번호 확인</p>
                       <input
@@ -336,7 +342,8 @@
           <div class="withdrawal-modal-inner-box">
             <div id="withdrawal-modal-title-box">
               <span>
-                <h3 id="withdrawal-modal-title-text">회원 탈퇴</h3>
+                <i class="ic-warning"></i>
+                <h3 id="withdrawal-modal-title-text">회원탈퇴</h3>
               </span>
             </div>
             <div id="check-sentence-box">
@@ -344,10 +351,12 @@
             </div>
             <form action="#">
               <div id="now-pw-box">
-                <label>
-                  <p id="now-pw-text">현재 비밀번호입력</p>
-                  <input type="password" id="now-pw-input" />
-                </label>
+                <div class=""></div>
+                <input
+                  type="password"
+                  id="now-pw-input"
+                  placeholder="현재 비밀번호를 입력하세요"
+                />
               </div>
               <div id="cancle-accept-btn-box">
                 <button class="btn-primary-line" id="cancle-btn">아니오</button>
