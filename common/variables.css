@@ -1,13 +1,11 @@
 :root {
   /* z-index */
-  --header-z-index : 200
-  --header-shadow-z-index: 300
-  --nav-sidebar-z-index : 100
-  --modal-background-z-index: 400
+  --nav-sidebar-z-index: 100;
+  --header-z-index: 200;
+  --header-shadow-z-index: 300;
+  --modal-background-z-index: 400; /* 모달 백그라운드 */
   --modal-content-z-index: 500;
 
-
-  
   /* 사이즈 */
   --header-height: 60px;
   --nav-width: 60px;
