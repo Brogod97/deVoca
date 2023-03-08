@@ -196,10 +196,26 @@ vocaSave.addEventListener("click", function () {
   }
 
   vocaModify.addEventListener("click", function () {
+    vocaReadTitle.focus();
     vocaReadTitle.removeAttribute("readonly");
     vocaReadDefinition.removeAttribute("readonly");
     vocaReadMemo.removeAttribute("readonly");
+    modifyBtn.style.display = "block";
   });
+
+  function modifyDone() {
+    modifyBtn.addEventListener("click", function () {
+      vocaContent.title = vocaReadTitle.value;
+      vocaContent.definition = vocaReadDefinition.value;
+      vocaContent.memo = vocaMemo.value;
+      vocaReadTitle.setAttribute("readonly", "true");
+      vocaReadDefinition.setAttribute("readonly", "true");
+      vocaReadMemo.setAttribute("readonly", "true");
+      modifyBtn.style.display = "none";
+
+      close();
+    });
+  }
 
   // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
   let flag = true;
@@ -229,17 +245,7 @@ vocaSave.addEventListener("click", function () {
       vocaReadTitle.value = vocaContent.title;
       vocaReadDefinition.value = vocaContent.definition;
       vocaReadMemo.innerText = vocaContent.memo;
-
-      // modifyBtn.addEventListener("click", function () {
-      //   vocaContent.title = vocaReadTitle.value;
-      //   vocaContent.definition = vocaReadDefinition.value;
-      //   vocaContent.memo = vocaMemo.value;
-      //   vocaReadTitle.setAttribute("readonly", "true");
-      //   vocaReadDefinition.setAttribute("readonly", "true");
-      //   vocaReadMemo.setAttribute("readonly", "true");
-
-      //   close();
-      // });
+      modifyDone();
     } else {
       console.log("다르다");
     }
