@@ -1,0 +1,107 @@
+/* 메인화면 */
+
+.quiz-result {
+  width: 100vw;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 원형프로그레스바 */
+.wrap {
+  position: relative;
+  bottom: 50px;
+  right: 50px;
+}
+.progress {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #f5f6f7;
+}
+.progress div {
+  position: absolute;
+  left: 100px;
+  top: 0px;
+  display: none;
+  width: 2px;
+  height: 100px;
+  background: var(--primary);
+  transform-origin: 0px 100px;
+  -webkit-transform-origin: 0px 100px;
+  -moz-transform-origin: 0px 100px;
+  -ms-transform-origin: 0px 100px;
+}
+
+.progress_value {
+  transform: lotate(0deg);
+  -webkit-transform: lotate(0deg);
+  -moz-transform: lotate(0deg);
+  -ms-transform: lotate(0deg);
+}
+
+.progress-result {
+  position: absolute;
+  z-index: 10;
+  left: 10px;
+  top: 10px;
+  width: 180px;
+  height: 180px;
+  line-height: 140px;
+  text-align: center;
+  background: var(--secondary);
+  border-radius: 50%;
+  border: 20px solid var(--gray30);
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--dark);
+}
+
+/* 결과값 */
+.result-set {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 50px;
+  right: 120px;
+}
+
+.rotate-a {
+  position: relative;
+  top: 30px;
+  left: 70px;
+}
+
+.rotate-a > a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.result-value {
+  padding-top: 80px;
+}
+
+.result-value > span {
+  padding-left: 150px;
+}
+
+.result-line {
+  border: var(--line);
+  width: 1000px;
+  position: relative;
+  top: 30px;
+  left: 100px;
+}
+
+.wrong-list {
+  position: relative;
+  top: 60px;
+  left: 70px;
+  font-size: 24px;
+}

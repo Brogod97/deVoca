@@ -2,8 +2,8 @@
 
 .container-main {
   display: flex;
-  margin-top: 70px;
   text-align: center;
+  margin-top: 70px;
 }
 
 .container-main > div:nth-child(1) {
@@ -23,7 +23,6 @@
   font-weight: 800;
   color: var(--dark);
   margin: 0;
-  padding-top: 80px;
 }
 
 .container-main h2 {
@@ -79,7 +78,7 @@
   width: 300px;
   height: 300px;
   position: relative;
-  top: 50vh;
+  top: 350px;
 }
 
 .container-main-img2 {

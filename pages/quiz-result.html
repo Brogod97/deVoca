@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-quiz.css" />
-    <link rel="stylesheet" href="/styles/quiz-main.css" />
+    <link rel="stylesheet" href="/styles/quiz-result.css">
 
     <!-- font-awesome -->
     <script
-      src="https://kit.fontawesome.com/5d7e6e936d.js"
-      crossorigin="anonymous"
-    ></script>
+    src="https://kit.fontawesome.com/5d7e6e936d.js"
+    crossorigin="anonymous"
+  ></script>
+
+    <script src="https:////cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 
     <title>단어장 서비스 계열 기본 template - header, nav, sidebar</title>
   </head>
@@ -91,43 +94,44 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <section class="container-main">
-        <div class="container-main-left">
-          <img
-            src="/assets/polygon-stroke-small-left.svg"
-            alt=""
-            class="container-main-img1"
-          />
-        </div>
-        <div>
-          <div>
-            <h1>Quiz</h1>
+      <section class="quiz-result">
+        <!-- 원형 프로그래스바 -->
+          <div class="wrap">
+            <div class="progress" data-percent="60">
+                <span class="progress-result"></span>
+              </div>
+            </div>
           </div>
-          <div>
-            <h2>카테고리를 선택해 주세요</h2>
+          <!-- 결과값 -->
+          <div class="result-set">
+            <div class="rotate-a">
+              <i class="ic-reset"></i>
+              <a href="#">다시 풀기</a> 
+            </div>
+            <div class="result-value">
+              <span>문제개수 :</span>
+              <span>정답 수 :</span>
+              <span>정답 수 :</span>
+            </div>
+            <div class="result-line"></div>
+            <div class="wrong-list">
+              <h3>오답 목록</h3>
+            </div>
+
           </div>
-          <div>
-            <button class="container-main-btn">시작하기</button>
-          </div>
-          <div class="container-main-content">
-            <button>JAVA</button>
-            <button>JavaScript</button>
-            <button>Python</button>
-            <button>DB</button>
-          </div>
-        </div>
-        <div class="container-main-right">
-          <img
-            src="/assets/polygon-stroke-big-left.svg"
-            alt=""
-            class="container-main-img2"
-          />
-        </div>
+
       </section>
+
+    
+  </section>
+
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
     <script src="/js/google-search.js"></script>
-    <script src="/common/template-2.js"></script>
+    <script src="/js/quiz-result.js"></script>
   </body>
 </html>
+
+        
+
