@@ -258,6 +258,8 @@ p {
   transition: all ease-in-out 0.15s;
 
   cursor: pointer;
+
+  display: none;
 }
 
 .modify-btn:hover {
