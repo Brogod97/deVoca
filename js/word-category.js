@@ -1,16 +1,3 @@
-// 모달창
-// 조회 모달창
-const open = () => {
-  document.querySelector(".modal").classList.remove("hidden");
-};
-
-const close = () => {
-  document.querySelector(".modal").classList.add("hidden");
-};
-
-document.querySelector(".openBtn").addEventListener("click", open);
-document.querySelector(".bg").addEventListener("click", close);
-
 // 추가 모달창
 const addOpen = () => {
   document.querySelector(".addModal").classList.remove("hidden");
@@ -151,8 +138,14 @@ function showDeleteBtn() {
 const vocaSave = document.getElementById("voca-save");
 const vocaInput = document.querySelector("input[name='voca-title']");
 const vocaTag = document.querySelector("input[name='basic']");
-const vocadefinition = document.querySelector(".voca-definition");
+const vocadefinition = document.querySelector("input[name='voca-definition']");
 const vocaMemo = document.querySelector("#voca-memo");
+const vocaReadTitle = document.getElementById("voca-read-title");
+const vocaReadDefinition = document.getElementById("voca-read-definition");
+const vocaReadMemo = document.getElementById("voca-read-memo");
+const modifyBtn = document.querySelector(".modify-btn");
+const vocaModify = document.querySelector(".voca-modify");
+const vocaDelete = document.querySelector(".voca-delete");
 
 vocaSave.addEventListener("click", function () {
   const div1 = document.createElement("div");
@@ -164,7 +157,7 @@ vocaSave.addEventListener("click", function () {
 
   const button1 = document.createElement("button");
   const img1 = document.createElement("img");
-  img1.setAttribute("src", "/assets/images/v.svg");
+  img1.setAttribute("src", "/assets/check-empty.svg");
 
   const button2 = document.createElement("button");
   button2.classList.add("openBtn");
@@ -172,11 +165,11 @@ vocaSave.addEventListener("click", function () {
   const div4 = document.createElement("div");
   const button3 = document.createElement("button");
   const img2 = document.createElement("img");
-  img2.setAttribute("src", "/assets/images/star.svg");
+  img2.setAttribute("src", "/assets/star-empty.svg");
 
   const button4 = document.createElement("button");
   const img3 = document.createElement("img");
-  img3.setAttribute("src", "/assets/images/arrow.svg");
+  img3.setAttribute("src", "/assets/chevron.svg");
 
   div2.append(div3, div4);
   div3.append(button1, button2);
@@ -187,6 +180,26 @@ vocaSave.addEventListener("click", function () {
   button3.append(img2);
   button4.append(img3);
   document.querySelector(".content-main-text").append(div2, div1);
+
+  // 객체생성
+  const vocaContent = {
+    id: randomIDGenerate(),
+    title: vocaInput.value,
+    tag: vocaTag.value,
+    definition: vocadefinition.value,
+    memo: vocaMemo.value,
+  };
+
+  // 랜덤아이디 생성
+  function randomIDGenerate() {
+    return "_" + Math.random().toString(36).substring(2, 9);
+  }
+
+  vocaModify.addEventListener("click", function () {
+    vocaReadTitle.removeAttribute("readonly");
+    vocaReadDefinition.removeAttribute("readonly");
+    vocaReadMemo.removeAttribute("readonly");
+  });
 
   // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
   let flag = true;
@@ -205,27 +218,45 @@ vocaSave.addEventListener("click", function () {
   });
 
   button2.addEventListener("click", function () {
-    open(event);
+    open(vocaContent.id);
   });
-  const open = () => {
+  const open = (id) => {
     document.querySelector(".modal").classList.remove("hidden");
-    const vocaSelect = event.target.parentElement.lastElementChild;
-    document.querySelector("h1").innerText = vocaSelect.innerText;
-    console.log(event.target.parentElement.lastElementChild);
+
+    console.log(id);
+    if (id == vocaContent.id) {
+      console.log("같다");
+      vocaReadTitle.value = vocaContent.title;
+      vocaReadDefinition.value = vocaContent.definition;
+      vocaReadMemo.innerText = vocaContent.memo;
+
+      // modifyBtn.addEventListener("click", function () {
+      //   vocaContent.title = vocaReadTitle.value;
+      //   vocaContent.definition = vocaReadDefinition.value;
+      //   vocaContent.memo = vocaMemo.value;
+      //   vocaReadTitle.setAttribute("readonly", "true");
+      //   vocaReadDefinition.setAttribute("readonly", "true");
+      //   vocaReadMemo.setAttribute("readonly", "true");
+
+      //   close();
+      // });
+    } else {
+      console.log("다르다");
+    }
   };
 
   button3.addEventListener("click", function () {
     if (flag) {
-      img2.setAttribute("src", "/assets/images/star2.svg");
+      img2.setAttribute("src", "/assets/star-fill.svg");
       flag = false;
     } else {
-      img2.setAttribute("src", "/assets/images/star.svg");
+      img2.setAttribute("src", "/assets/star-empty.svg");
       flag = true;
     }
   });
 
   button4.addEventListener("click", function () {
-    open();
+    open(vocaContent.id);
   });
 
   const close = () => {

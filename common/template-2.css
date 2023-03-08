@@ -2,12 +2,6 @@ main {
   width: 100%;
 }
 
-.fa-ellipsis-h:before,
-.fa-ellipsis:before {
-  content: "\f141";
-  font-family: "Font Awesome 5 Free", "Font Awesome 5 brand";
-}
-
 /* 헤더 영역 */
 header {
   width: 100vw;
