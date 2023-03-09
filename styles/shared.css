@@ -1,0 +1,74 @@
+/* line margin 수정 */
+.line {
+  margin: 30px 0;
+}
+
+/* 퀴즈 시작 버튼 가로 길이 수정 */
+.btn-long {
+  width: 100%;
+}
+
+/* 다른 회원 리스트 */
+.member-list-area {
+  overflow-y: auto;
+}
+
+/* 스크롤바 스타일 옵션 */
+
+.member-list-area::-webkit-scrollbar {
+  width: 8px;
+}
+.member-list-area::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.member-list-area::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.member-list {
+  padding: 0;
+  margin: 0;
+}
+
+.member-list > ul {
+  width: 100%;
+  list-style: none;
+}
+
+.member-list-area {
+  width: 100%;
+}
+
+/* 회원 목록 중 개별 회원에 대한 설정 */
+.member {
+  width: 100%;
+  height: 56px;
+
+  padding-left: 20px;
+
+  background-color: var(--gray30);
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+.member:not(:first-child) {
+  margin-top: 16px;
+}
+
+.member-thumbnail {
+  width: 30px;
+  height: 30px;
+}
+
+.member-thumbnail img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.member-nickname {
+  padding-left: 16px;
+}
