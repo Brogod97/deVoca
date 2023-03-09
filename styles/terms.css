@@ -2,6 +2,7 @@
 body {
   background: url("/assets/background-polygon.svg") no-repeat;
   background-position: center;
+  background-size: 70%;
 }
 
 /* 회원약관 상자 */
@@ -21,6 +22,7 @@ body {
 /* 회원약관과 전체동의 노란 선과 사이즈 맞추기*/
 #up {
   width: 400px;
+
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -36,8 +38,8 @@ body {
 
 /* 노란 선 */
 #line {
-  border: 1px solid var(--primary);
   width: 400px;
+  border: 1px solid var(--primary);
 }
 
 /* 약관 내용 스크롤 바 */
@@ -89,11 +91,12 @@ body {
   border: none;
   color: var(--white);
 }
+
 #no:hover {
   background-color: var(--gray250);
 }
 
-/* 체크박스 변경 -> 수정필요 */
+/* 체크박스 변경 (1차)
 input[type="checkbox"] {
   display: none;
 }
@@ -111,4 +114,49 @@ input[type="checkbox"]:hover + label {
 
 input[type="checkbox"]:checked + label {
   background-image: url("/assets/images/checkbox3.svg");
+}*/
+
+/* 체크박스 */
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+input[type="checkbox"] + label:before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:hover + label:before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #f8cf66;
+  background-color: #f8cf66;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* label:before에 체크 된 상태 CSS */
+input[type="checkbox"]:checked + label:before {
+  content: "";
+  background-color: var(--primary);
+  border-color: var(--primary);
+  background-image: url("/assets/checked.svg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+textarea {
+  padding: 10px 5px 0 10px;
 }

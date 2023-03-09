@@ -402,9 +402,6 @@ input::-webkit-search-results-decoration {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-
-  border: none;
-  box-shadow: var(--header-shadow);
 }
 
 .category-add,
@@ -421,7 +418,7 @@ input::-webkit-search-results-decoration {
 }
 
 .category-add {
-  border-bottom: 1px solid var(--gray100);
+  border-bottom: 1px solid var(--gray300);
 }
 
 .category-add:hover {
@@ -569,11 +566,11 @@ input::-webkit-search-results-decoration {
 
 /* 메인 콘텐츠 영역 */
 .main-content-area {
-  width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
+  width: calc(100% - var(--nav-width));
   height: 100%;
 
   margin-top: var(--header-height);
-  margin-left: calc((var(--sidebar-width) + var(--nav-width)));
+  margin-left: var(--nav-width);
 
   background-color: var(--gray30);
 

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-quiz.css" />
-    <link rel="stylesheet" href="/styles/quiz-main.css" />
 
     <!-- font-awesome -->
     <script
@@ -91,39 +90,22 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <section class="container-main">
-        <div class="container-main-left">
-          <img
-            src="/assets/polygon-stroke-small-left.svg"
-            alt=""
-            class="container-main-img1"
-          />
-        </div>
-        <div>
-          <div>
-            <h1>Quiz</h1>
-          </div>
-          <div>
-            <h2>카테고리를 선택해 주세요</h2>
-          </div>
-          <div>
-            <button class="container-main-btn">시작하기</button>
-          </div>
-          <div class="container-main-content">
-            <button>JAVA</button>
-            <button>JavaScript</button>
-            <button>Python</button>
-            <button>DB</button>
-          </div>
-        </div>
-        <div class="container-main-right">
-          <img
-            src="/assets/polygon-stroke-big-left.svg"
-            alt=""
-            class="container-main-img2"
-          />
-        </div>
-      </section>
+      <div class="test-delete-this-div">
+        이 div는 삭제하시고, main-content-area 여기부터 각자 작업 시작하시면
+        됩니다.
+        <br />
+        <pre>
+          main-content-area 영역 적용 값 (css) 
+          
+          - width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
+
+          - height: 100%;
+
+          - margin-top: var(--header-height);
+
+          - margin-left: calc((var(--sidebar-width) + var(--nav-width)));
+        </pre>
+      </div>
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>

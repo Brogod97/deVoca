@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/quiz-result.css" />
+    <link rel="stylesheet" href="/common/template-quiz.css" />
+    <link rel="stylesheet" href="/styles/quiz-result.css">
 
+    <!-- font-awesome -->
     <script
     src="https://kit.fontawesome.com/5d7e6e936d.js"
     crossorigin="anonymous"
   ></script>
+
     <script src="https:////cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <title>deVoca</title>
+
+
+    <title>단어장 서비스 계열 기본 template - header, nav, sidebar</title>
   </head>
   <body>
     <main>
@@ -21,7 +26,7 @@
         <!-- 로고 -->
         <div>
           <a href="#">
-            <img src="/assets/images/Group 323.svg" />
+            <img src="/assets/deVoca-logo.svg" />
           </a>
         </div>
         <!-- 공백 -->
@@ -31,10 +36,7 @@
           <!-- 구글-검색창 -->
           <div class="google-search">
             <fieldset>
-              <img
-                src="/assets/images/KakaoTalk_Image_2023-02-20-13-39-41.png"
-                class="google-img"
-              />
+              <img src="/assets/google-logo.png" class="google-img" />
               <input
                 type="search"
                 id="google-search-input"
@@ -48,73 +50,88 @@
               class="google-search-btn"
               id="google-search-btn"
             >
-              <img src="/assets/images/search.svg" class="google-search-img" />
+              <img src="/assets/search.svg" class="google-search-img" />
             </button>
           </div>
-         
+          <!-- FAQ / 로그인 / 회원가입 -->
+          <div class="faq-login-signup">
+            <a href="#">FAQ</a>
+            <a href="#">로그인</a>
+            <a href="#">
+              <button class="btn-primary-fill">회원가입</button>
+            </a>
+          </div>
+        </div>
       </header>
 
-      <!-- 몸통 -->
+      <!-- 바디 -->
+      <!-- nav + sidebar 컨테이너 -->
       <section class="container">
         <!-- nav바 -->
-        <nav>
+        <nav class="nav-bar">
           <section>
             <a href="#">
-              <img src="/assets/images/Profile.svg" />
+              <img id="profile-icon" src="/assets/profile.svg" />
             </a>
             <a href="#">
-              <img src="/assets/images/Paper.svg" />
+              <img src="/assets/voca.svg" />
             </a>
             <a href="#">
-              <img src="/assets/images/Edit.svg" />
+              <img src="/assets/quiz.svg" />
             </a>
             <a href="#">
-              <img src="/assets/images/3 User.svg" />
+              <img src="/assets/shared.svg" />
             </a>
           </section>
           <section>
             <a href="#">
-              <img src="/assets/images/Logout.svg" />
+              <img src="/assets/logout.svg" />
             </a>
           </section>
         </nav>
-
-        <!-- 메인화면 -->
-        <section class="content">
-          <section class="quiz-result">
-            <!-- 원형 프로그래스바 -->
-              <div class="wrap">
-                <div class="progress" data-percent="35">
-                    <span class="progress-result"></span>
-                  </div>
-                </div>
-              </div>
-              <!-- 결과값 -->
-              <div class="result-set">
-                <div class="rotate-a">
-                  <i class="fa-solid fa-rotate-right"></i>
-                  <a href="#">다시 풀기</a> 
-                </div>
-                <div class="result-value">
-                  <span>문제개수 :</span>
-                  <span>정답 수 :</span>
-                  <span>정답 수 :</span>
-                </div>
-                <div class="result-line"></div>
-                <div class="wrong-list">
-                  <h3>오답 목록</h3>
-                </div>
-
-              </div>
-
-          </section>
-
-        </section>
       </section>
     </main>
 
+    <!-- 메인 콘텐츠 영역 -->
+    <section class="main-content-area">
+      <section class="quiz-result">
+        <!-- 원형 프로그래스바 -->
+          <div class="wrap">
+            <div class="progress" data-percent="60">
+                <span class="progress-result"></span>
+              </div>
+            </div>
+          </div>
+          <!-- 결과값 -->
+          <div class="result-set">
+            <div class="rotate-a">
+              <i class="ic-reset"></i>
+              <a href="#">다시 풀기</a> 
+            </div>
+            <div class="result-value">
+              <span>문제개수 :</span>
+              <span>정답 수 :</span>
+              <span>정답 수 :</span>
+            </div>
+            <div class="result-line"></div>
+            <div class="wrong-list">
+              <h3>오답 목록</h3>
+            </div>
+
+          </div>
+
+      </section>
+
     
+  </section>
+
+    </section>
+    <!-- 헤더 그림자용 -->
+    <aside class="header-shadow"></aside>
     <script src="/js/google-search.js"></script>
-    <script src="../js/quiz-result.js"></script>
+    <script src="/js/quiz-result.js"></script>
   </body>
 </html>
+
+        
+

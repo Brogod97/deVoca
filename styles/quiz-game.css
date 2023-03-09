@@ -1,199 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--gray30);
-  font-family: "Pretendard-Regular";
-}
-
-main {
-  display: flex;
-}
-
-/* header 영역 */
-
-header {
-  box-shadow: var(--header-shadow);
-  width: 100vw;
-  height: 80px;
-  display: flex;
-  position: absolute;
-  background-color: var(--gray30);
-  z-index: 4;
-}
-
-header > div:nth-child(1) {
-  flex-basis: 20%;
-  margin-left: 80px;
-  margin-top: 20px;
-}
-
-header > div:nth-child(2) {
-  flex-basis: 60%;
-}
-
-header > div:nth-child(3) {
-  flex-basis: 20%;
-}
-
-.reading-glasses {
-  position: relative;
-  left: 260px;
-  bottom: 36px;
-  height: 35px;
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-}
-
-.google-img {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 5px;
-  left: 5px;
-}
-
-.google-search {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 20px;
-  padding-right: 24px;
-}
-
-.google-search-img {
-  width: 16px;
-  height: 16px;
-}
-
-.google-search fieldset {
-  width: 300px;
-  height: 38px;
-  border-radius: 80.18px;
-  background-color: var(--google);
-  border: 0;
-}
-
-#google-search-input {
-  width: 240px;
-  border: none;
-  background-color: transparent;
-  outline: 0;
-  position: relative;
-  top: 2px;
-  left: 10px;
-}
-
-#google-search-input::placeholder {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--gray200);
-  width: 95px;
-  height: 17px;
-}
-
-#google-search-input::-webkit-input-placeholder {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--gray200);
-  width: 95px;
-  height: 17px;
-}
-#google-search-input::-ms-input-placeholder {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--gray200);
-  width: 95px;
-  height: 17px;
-}
-
-input::-ms-clear,
-input::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button,
-input::-webkit-search-results-button,
-input::-webkit-search-results-decoration {
-  display: none;
-}
-
-/* 몸통 */
-.container {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-}
-
-/* nav 영역 */
-nav {
-  display: flex;
-  flex-direction: column;
-  width: 80px;
-  height: 100vh;
-  background-color: var(--gray100);
-  z-index: 3;
-}
-
-nav > section:nth-child(1),
-nav > section:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-}
-
-nav > section:nth-child(1) {
-  margin-top: 80px;
-  flex-basis: 90%;
-}
-
-nav > section:nth-child(2) {
-  flex-basis: 10%;
-  margin-bottom: 40px;
-}
-
-nav a {
-  padding-top: 40px;
-  text-align: center;
-}
-
-nav a:nth-child(1) {
-  margin-top: 10px;
-}
-
-nav a:nth-child(1):hover,
-nav a:nth-child(2):hover,
-nav a:nth-child(3):hover,
-nav a:nth-child(4):hover,
-nav a:nth-child(5):hover {
-  filter: var(--icon-hover);
-}
-
-/* 메인화면 */
-
-.content {
-  width: 100vw;
-  margin-top: 80px;
-  display: flex;
-  position: absolute;
-}
-
 /* 퀴즈 */
 .voca-quiz {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
-}
-
-.quiz-progress-bar {
-  position: relative;
-  top: 80px;
 }
 
 #quiz-pro {
@@ -209,58 +19,81 @@ nav a:nth-child(5):hover {
   background: var(--primary);
 }
 
-.quiz-title {
-  position: relative;
-  top: 100px;
-}
+/* ----------- */
+.slide {
+  /* layout */
+  display: flex;
+  flex-wrap: nowrap;
+  /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+  overflow: hidden;
 
-.quiz-title > h3 {
-  font-size: 24px;
-  margin-top: 50px;
-}
-
-.quiz-line {
+  /* position */
+  /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
   position: relative;
-  top: 120px;
-  width: 700px;
-  border-bottom: 1px solid var(--gray200);
-  margin-bottom: 20px;
-}
 
-.quiz-four-menu {
-  position: relative;
-  top: 180px;
+  /* size */
+  width: 100%;
+
+  border: 1px solid red;
+}
+.slide_item {
+  /* layout */
   display: flex;
   flex-direction: column;
-}
-
-.quiz-four-menu > div:nth-child(1),
-.quiz-four-menu > div:nth-child(2),
-.quiz-four-menu > div:nth-child(3),
-.quiz-four-menu > div:nth-child(4) {
-  width: 500px;
-  height: 80px;
-  border-radius: 30px;
-  box-shadow: var(--category-shadow);
-  padding: 30px;
-  margin: 15px;
-  display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.quiz-four-menu > div:nth-child(1):hover,
-.quiz-four-menu > div:nth-child(2):hover,
-.quiz-four-menu > div:nth-child(3):hover,
-.quiz-four-menu > div:nth-child(4):hover {
-  border: 1px solid var(--primary);
-}
-
-.devoca-btn2 {
+  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
   position: relative;
-  top: 300px;
+  left: 0px;
+
+  /* size */
+  width: 100%;
+  height: 100%;
+  /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+  flex-shrink: 0;
+
+  /* transition */
+  transition: left 0.15s;
+}
+.slide_button {
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position */
+  position: absolute;
+  /* 버튼이 중앙에 위치하게 하기위해 계산 */
+  top: calc(50% - 16px);
+
+  /* size */
+  width: 32px;
+  height: 32px;
+
+  /* style */
+  border-radius: 100%;
+  cursor: pointer;
 }
 
-.devoca-btn2:hover {
-  background-color: var(--secondary);
+.slide_prev_button {
+  left: 10px;
+}
+.slide_next_button {
+  right: 10px;
+}
+
+/* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
+
+.slide_item:nth-child(2) {
+  background-color: aqua;
+}
+.slide_item:nth-child(3) {
+  background-color: blueviolet;
+}
+.slide_item:nth-child(4) {
+  background-color: burlywood;
+}
+.slide_item:nth-child(5) {
+  background-color: cornflowerblue;
 }
