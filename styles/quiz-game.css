@@ -1,99 +1,61 @@
-/* 퀴즈 */
-.voca-quiz {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-}
-
-#quiz-pro {
-  appearance: none;
-  width: 800px;
-}
-#quiz-pro::-webkit-progress-bar {
-  background: var(--gray100);
-  border-radius: 10px;
-}
-#quiz-pro::-webkit-progress-value {
-  border-radius: 10px;
-  background: var(--primary);
-}
-
-/* ----------- */
-.slide {
-  /* layout */
-  display: flex;
-  flex-wrap: nowrap;
-  /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
-  overflow: hidden;
-
-  /* position */
-  /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
-  position: relative;
-
-  /* size */
-  width: 100%;
-
-  border: 1px solid red;
-}
-.slide_item {
-  /* layout */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
-  position: relative;
-  left: 0px;
-
-  /* size */
-  width: 100%;
+.swiper {
   height: 100%;
-  /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
-  flex-shrink: 0;
-
-  /* transition */
-  transition: left 0.15s;
 }
-.slide_button {
-  /* layout */
+
+.swiper-slide {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+
+.quiz-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
-  /* position */
-  position: absolute;
-  /* 버튼이 중앙에 위치하게 하기위해 계산 */
-  top: calc(50% - 16px);
+.quiz-header h1 {
+  color: var(--dark);
+}
 
-  /* size */
-  width: 32px;
-  height: 32px;
+.quiz-line {
+  width: 700px;
+  border: var(--line);
+}
 
-  /* style */
-  border-radius: 100%;
+.quiz-content {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.quiz-content > div {
+  width: 550px;
+  text-align: center;
+
+  border: 1px solid transparent;
+  border-radius: 20px;
+
+  margin: 20px;
+  box-shadow: var(--category-shadow);
+
+  font-size: 18px;
+}
+
+.quiz-content > div:hover {
+  border: 1px solid var(--primary);
   cursor: pointer;
 }
 
-.slide_prev_button {
-  left: 10px;
-}
-.slide_next_button {
-  right: 10px;
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--primary) !important;
 }
 
-/* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
-
-.slide_item:nth-child(2) {
-  background-color: aqua;
-}
-.slide_item:nth-child(3) {
-  background-color: blueviolet;
-}
-.slide_item:nth-child(4) {
-  background-color: burlywood;
-}
-.slide_item:nth-child(5) {
-  background-color: cornflowerblue;
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: var(--primary) !important;
 }

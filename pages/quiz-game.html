@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-quiz.css" />
-    <link rel="stylesheet" href="/styles/quiz-game.css">
+    <link rel="stylesheet" href="/styles/quiz-game.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <!-- font-awesome -->
     <script
@@ -92,140 +98,69 @@
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
       <!-- 메인화면 -->
-      <section class="content">
-        <section class="voca-quiz">
-          <div class="quiz-progress-bar">
-            <progress id="quiz-pro" min="1" max="100" value="1"></progress>
-            <span class="quiz-res">1 / 100</span>
+      <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+        <div class="swiper-wrapper" id="swiper-wrapper-a6d1108e48cf91028" aria-live="polite">
+          <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 9">
+            
+            <div class="quiz-header">
+              <h1>INSTR(컬럼명 | 문자열, '찾을 문자열' [, 찾기 시작할 위치] [, 순번])</h1>
+              <div class="quiz-line"></div>
+            </div>
+            <div class="quiz-content">
+              <div>
+                <p>지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환</p>
+              </div>
+              <div>
+                <p>컬럼이나 문자열에서 지정한 위치부터 지정된 길이만
+                  문자열을 잘라서 반환</p>
+              </div>
+              <div>
+                <p>주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거</p>
+              </div>
+              <div>
+                <p>소수점 첫째 자리에서 올림 처리</p>
+              </div>
+            </div>
+            
           </div>
+          <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 9">
 
-          <div class="slide slide_wrap">
-            <div class="slide_item">
-              <div class="quiz-title">
-                <h3>
-                  INSTR(컬럼명 | 문자열, '찾을 문자열' [, 찾기 시작할 위치] [,
-                  순번])
-                </h3>
-              </div>
+            <div class="quiz-header">
+              <h1>2번 입니다</h1>
               <div class="quiz-line"></div>
-              <div class="quiz-four-menu">
-                <div>
-                  지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
-                </div>
-                <div>
-                  컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
-                  잘라서 반환
-                </div>
-                <div>
-                  주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
-                </div>
-                <div>소수점 첫째 자리에서 올림 처리</div>
+            </div>
+            <div class="quiz-content">
+              <div>
+                <p>지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환</p>
+              </div>
+              <div>
+                <p>컬럼이나 문자열에서 지정한 위치부터 지정된 길이만
+                  문자열을 잘라서 반환</p>
+              </div>
+              <div>
+                <p>주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거</p>
+              </div>
+              <div>
+                <p>소수점 첫째 자리에서 올림 처리</p>
               </div>
             </div>
-            <div class="slide_item">
-              <div class="quiz-title">
-                <h3>
-                  2번입니다
-                </h3>
-              </div>
-              <div class="quiz-line"></div>
-              <div class="quiz-four-menu">
-                <div>
-                  지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
-                </div>
-                <div>
-                  컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
-                  잘라서 반환
-                </div>
-                <div>
-                  주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
-                </div>
-                <div>소수점 첫째 자리에서 올림 처리</div>
-              </div>
-            </div>
-            <div class="slide_item">
-              <div class="quiz-title">
-                <h3>
-                  3번입니다
-                </h3>
-              </div>
-              <div class="quiz-line"></div>
-              <div class="quiz-four-menu">
-                <div>
-                  지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
-                </div>
-                <div>
-                  컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
-                  잘라서 반환
-                </div>
-                <div>
-                  주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
-                </div>
-                <div>소수점 첫째 자리에서 올림 처리</div>
-              </div>
-            </div>
-            <div class="slide_item">
-              <div class="quiz-title">
-                <h3>
-                  4번입니다
-                </h3>
-              </div>
-              <div class="quiz-line"></div>
-              <div class="quiz-four-menu">
-                <div>
-                  지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
-                </div>
-                <div>
-                  컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
-                  잘라서 반환
-                </div>
-                <div>
-                  주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
-                </div>
-                <div>소수점 첫째 자리에서 올림 처리</div>
-              </div>
-            </div>
-            <div class="slide_item">
-              <div class="quiz-title">
-                <h3>
-                 5번입니다
-                </h3>
-              </div>
-              <div class="quiz-line"></div>
-              <div class="quiz-four-menu">
-                <div>
-                  지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환
-                </div>
-                <div>
-                  컬럼이나 문자열에서 지정한 위치부터 지정된 길이만 문자열을
-                  잘라서 반환
-                </div>
-                <div>
-                  주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거
-                </div>
-                <div>소수점 첫째 자리에서 올림 처리</div>
-              </div>
-            </div>
-            <div class="slide_prev_button slide_button">◀</div>
-            <div class="slide_next_button slide_button">▶</div>
-            <ul class="slide_pagination"></ul>
+
           </div>
-          
-          <div>
-            <button onclick="skillUp()" class="devoca-btn2">Next</button>
-          </div>
-        </section>
-      </section>
-    </section>
- 
-    </section>
+          <div class="swiper-slide" role="group" aria-label="3 / 9">Slide 3</div>
+          <div class="swiper-slide" role="group" aria-label="4 / 9">Slide 4</div>
+          <div class="swiper-slide" role="group" aria-label="5 / 9">Slide 5</div>
+          <div class="swiper-slide" role="group" aria-label="6 / 9">Slide 6</div>
+          <div class="swiper-slide" role="group" aria-label="7 / 9">Slide 7</div>
+          <div class="swiper-slide" role="group" aria-label="8 / 9">Slide 8</div>
+          <div class="swiper-slide" role="group" aria-label="9 / 9">Slide 9</div>
+        </div>
+        <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-a6d1108e48cf91028" aria-disabled="false"></div>
+        <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-a6d1108e48cf91028" aria-disabled="true"></div>
+        <div class="swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal"><span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.111111) scaleY(1); transition-duration: 300ms;"></span></div>
+      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
     <script src="/js/google-search.js"></script>
     <script src="/js/quiz-game.js"></script>
   </body>
 </html>
-
-    
-
-        
