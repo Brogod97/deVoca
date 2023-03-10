@@ -484,6 +484,9 @@ input::-webkit-search-results-decoration {
 
 .sec3-center {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
 .sec3-center-images {
@@ -496,14 +499,11 @@ input::-webkit-search-results-decoration {
 .sec3-center-img1 {
   width: 50px;
   height: 50px;
-  position: relative;
-  left: 15vw;
 }
 
 :-webkit-any(article, aside, nav, section) h4 {
   font-size: 40px;
-  position: relative;
-  left: 14vw;
+
   color: #525050;
 }
 
