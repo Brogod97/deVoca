@@ -2,7 +2,7 @@
 
 (function () {
   const idInput = document.querySelector("#id-input");
-  idInput.value = "thiszino";
+  idInput.value = "thiszino@gmail.com";
 
   const pwInput = document.querySelector("#pw-input");
   const pwcheckInput = document.querySelector("#pwcheck-input");
@@ -10,22 +10,20 @@
   pwInput.value = "devoca1234";
   pwcheckInput.value = "devoca1234";
 
-  const emailInput = document.querySelector("#email-input");
-  emailInput.value = "thiszino@gmail.com";
-
   const nmInput = document.querySelector("#nm-input");
-  nmInput.value = "안녕하세요";
+  nmInput.value = "불꽃전사지노";
 })();
 
 //--------------------------------------------------------------
 
 // ***전역변수***
-const pwChange = document.querySelector("#pw-change");
+const infoChangeBtn = document.querySelector("#info-change-btn");
+const submitBtn = document.querySelector("#submit-btn");
 const pwInput = document.querySelector("#pw-input");
 const pwcheckInput = document.querySelector("#pwcheck-input");
-const emailInput = document.querySelector("#email-input");
 const nmInput = document.querySelector("#nm-input");
 const updateCancle = document.querySelector("#update-cancle-btn");
+const withdrawalArea = document.querySelector(".withdrawal-area");
 const withdrawalBtn = document.querySelector("#withdrawal-btn");
 const withdrawalModalWindow = document.querySelector(
   ".withdrawal-modal-window"
@@ -33,28 +31,27 @@ const withdrawalModalWindow = document.querySelector(
 
 // 편집 활성화
 
-pwChange.addEventListener("click", () => {
+infoChangeBtn.addEventListener("click", (e) => {
   pwInput.removeAttribute("disabled");
   pwcheckInput.removeAttribute("disabled");
-  emailInput.removeAttribute("disabled");
   nmInput.removeAttribute("disabled");
   pwInput.value = null;
   pwcheckInput.value = null;
   pwInput.focus();
 
+  e.target.style.display = "none";
+  withdrawalBtn.style.display = "inline";
   updateCancle.style.display = "inline";
+  submitBtn.style.display = "inline";
 });
 
 // 편집 취소버튼 클릭 시
 
 updateCancle.addEventListener("click", (e) => {
-  const pwInput = document.querySelector("#pw-input");
-  const pwcheckInput = document.querySelector("#pwcheck-input");
-  const emailInput = document.querySelector("#email-input");
-  const nmInput = document.querySelector("#nm-input");
-
   e.target.style.display = "none";
-
+  withdrawalBtn.style.display = "none";
+  submitBtn.style.display = "none";
+  infoChangeBtn.style.display = "inline";
   // 기존 정보 불러오는 기능 추가???
   window.location.reload();
 });
