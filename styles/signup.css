@@ -1,75 +1,143 @@
-/* 배경 이미지 */
+/* 뒷 배경 */
 body {
-  background: url("/assets/background-polygon.svg") no-repeat;
+  background: url(/assets/background-polygon.svg) no-repeat;
   background-position: center;
-  background-size: 70%;
 }
 
-/* 회원가입 상자 */
+.main-content-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 로그인 박스 */
 #join-box {
-  width: 650px;
-  height: 600px;
-  border-radius: 30px;
-  border: none;
+  width: 630px;
+  height: 610px;
   background-color: white;
+  border-radius: 30px;
   box-shadow: var(--login-shadow);
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
-/* 회원가입 색, 위치 지정 */
+/* 제목 스타일 */
 #title {
   color: var(--primary);
-
-  position: relative;
   text-align: center;
 }
 
-/* 확인 */
-#ok {
-  position: relative;
-  left: 270px;
-  top: 16px;
+#input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 인풋창 */
+input {
+  width: 500px;
+  height: 48px;
+  border-radius: 10px;
   border: none;
-  text-align: center;
+  background-color: #f1f1f1;
+
+  margin: 13px;
+}
+
+input:focus {
+  width: 500px;
+  height: 48px;
+  outline: 2px solid var(--primary);
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+
+/* 인풋창 들여쓰기 */
+input[type="text"] {
+  text-indent: 24px;
+}
+input[type="password"] {
+  text-indent: 24px;
+}
+
+/* 인풋 상태 동그라미 */
+.ic-login-circle-default {
+  margin-left: 10px;
+}
+
+/*  - or - */
+.or {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: var(--primary);
+  font-size: 16px;
+  margin: 0px 32px;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  flex-grow: 1;
+  background: var(--primary);
+  height: 1.5px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 16px;
+}
+
+/* 확인 버튼 */
+#btn-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 10px;
+}
+
+/* 가입 여부 */
+#already-id {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 10px 10px 0px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#already-text {
+  color: var(--gray500);
 }
 
 #login {
+  margin-left: 20px;
   color: var(--primary);
   text-decoration: none;
 }
 
-/* or 선 */
-#line {
-  border: 1px solid var(--primary);
-  width: 500px;
-  position: relative;
-  top: 26px;
+#sns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 24px;
 }
 
-#or {
-  width: 100px;
-  height: 45px;
-  background-color: white;
-  color: var(--primary);
-  font-size: 16px;
-  text-align: center;
-
-  position: relative;
-  left: 270px;
-  top: 7px;
+/* 카카오 회원가입 */
+.ic-kakao {
+  margin-right: 10px;
 }
-
-/* 카카오 버튼 */
-
 #kakao {
-  width: 250px;
+  width: 230px;
   height: 45px;
   border: none;
   border-radius: 10px;
+  margin-right: 30px;
   font-weight: bold;
   color: #3d3d3d;
 
@@ -85,10 +153,10 @@ body {
   background-color: #e5cf00;
 }
 
-/* 구글 버튼 */
+/* 구글 회원가입 */
 
 #google {
-  width: 250px;
+  width: 230px;
   height: 45px;
   border: 1px solid var(--gray500);
   border-radius: 10px;
@@ -97,6 +165,11 @@ body {
   text-align: center;
   background-color: white;
   cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 #google > img {
@@ -109,58 +182,4 @@ body {
 
 #google:active {
   background-color: #eaeaea;
-}
-
-/* 인풋창 */
-input {
-  width: 539px;
-  height: 48px;
-  border-radius: 10px;
-  border: none;
-  background-color: #f1f1f1;
-}
-
-input:focus {
-  width: 539px;
-  height: 48px;
-  outline: 2px solid var(--primary);
-  border-radius: 10px;
-  background-color: #f1f1f1;
-}
-
-/* 인풋창 옆 상태표시 동그라미 */
-i {
-  font-size: 16px;
-  margin-right: 16px;
-}
-
-/* 인풋창 묶음 */
-#join-us {
-  position: relative;
-  left: 30px;
-  top: 10px;
-}
-
-/* 인풋창 들여쓰기 */
-input[type="text"] {
-  text-indent: 24px;
-}
-input[type="password"] {
-  text-indent: 24px;
-}
-
-/* 이미 가입 */
-#already {
-  color: var(--gray500);
-  position: relative;
-  top: 16px;
-  color: var(--gray500);
-  text-align: center;
-}
-
-/* 간편가입 */
-#sns {
-  position: relative;
-  left: 55px;
-  top: 10px;
 }

@@ -1,122 +1,77 @@
-/* 배경 이미지 */
+/* 뒷 배경 */
 body {
-  background: url("/assets/background-polygon.svg") no-repeat;
+  background: url(/assets/background-polygon.svg) no-repeat;
   background-position: center;
-  background-size: 70%;
 }
 
-/* 회원약관 상자 */
-#ok-form {
+.main-content-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 약관 동의 박스 */
+#terms-form {
   width: 450px;
   height: 620px;
-  border-radius: 30px;
   background-color: white;
+  border-radius: 30px;
   box-shadow: var(--login-shadow);
 
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  padding: 20px 20px 20px 20px;
 }
 
-/* 회원약관과 전체동의 노란 선과 사이즈 맞추기*/
-#up {
-  width: 400px;
-
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* 회원약관 색, 위치 지정 */
+/* 제목 스타일 */
 #title {
   color: var(--primary);
-
-  position: relative;
   text-align: center;
 }
 
-/* 노란 선 */
+/* 라인 스타일 */
 #line {
-  width: 400px;
   border: 1px solid var(--primary);
+  width: 400px;
 }
 
 /* 약관 내용 스크롤 바 */
-.ok-box::-webkit-scrollbar {
+.terms-box::-webkit-scrollbar {
   width: 8px;
 }
-.ok-box::-webkit-scrollbar-track {
+.terms-box::-webkit-scrollbar-track {
   background-color: transparent;
 }
-.ok-box::-webkit-scrollbar-thumb {
+.terms-box::-webkit-scrollbar-thumb {
   background-color: var(--gray250);
   border-radius: 30px;
 }
 
 /* 이용약관 내용 스타일 */
-.ok-box {
+.terms-box {
   width: 380px;
   height: 80px;
   border: 1px solid var(--gray500);
+
+  resize: none;
 }
 
-/* 제출 */
-#ok {
-  margin-bottom: 30px;
-  width: 110px;
-  height: 40px;
-  background-color: var(--primary);
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  color: var(--white);
+/* 이용약관 내용 포커스 없애고 크기고정 */
+textarea {
+  border: 1px solid var(--gray500);
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0 15px;
 }
-#ok:hover {
-  background-color: var(--secondary);
+textarea:focus {
+  outline: none;
 }
 
-/* 취소 */
-#no {
-  margin-bottom: 30px;
-  width: 110px;
-  height: 40px;
-  background-color: var(--gray500);
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  color: var(--white);
+/* 회원약관 박스와 간격 조정 */
+input {
+  margin-left: 15px;
 }
 
-#no:hover {
-  background-color: var(--gray250);
-}
-
-/* 체크박스 변경 (1차)
-input[type="checkbox"] {
-  display: none;
-}
-
-input[type="checkbox"] + label {
-  cursor: pointer;
-  padding-left: 24px;
-  background-repeat: no-repeat;
-  background-image: url("/assets/images/checkbox1.svg");
-}
-
-input[type="checkbox"]:hover + label {
-  background-image: url("/assets/images/checkbox2.svg");
-}
-
-input[type="checkbox"]:checked + label {
-  background-image: url("/assets/images/checkbox3.svg");
-}*/
-
-/* 체크박스 */
+/* 체크박스 스타일 */
 input[type="checkbox"] {
   display: none;
 }
@@ -131,23 +86,11 @@ input[type="checkbox"] + label:before {
   display: inline-block;
   width: 13px;
   height: 13px;
-  border: 1px solid #000000;
+  border: 1.5px solid var(--gray500);
   border-radius: 3px;
   vertical-align: middle;
 }
 
-input[type="checkbox"]:hover + label:before {
-  content: "";
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  border: 1px solid #f8cf66;
-  background-color: #f8cf66;
-  border-radius: 3px;
-  vertical-align: middle;
-}
-
-/* label:before에 체크 된 상태 CSS */
 input[type="checkbox"]:checked + label:before {
   content: "";
   background-color: var(--primary);
@@ -157,6 +100,42 @@ input[type="checkbox"]:checked + label:before {
   background-position: 50%;
 }
 
-textarea {
-  padding: 10px 5px 0 10px;
+/* 취소 버튼 */
+#btn-reset {
+  width: 100px;
+  height: 35px;
+  margin: 12px 20px;
+
+  text-align: center;
+  line-height: 35px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 5px;
+
+  color: var(--white);
+  background-color: #858585;
+
+  transition: all ease-in-out 0.15s;
+
+  cursor: pointer;
+}
+
+#btn-reset:hover {
+  background-color: var(--gray250);
+}
+
+/* 취소, 확인 버튼 간격 조정 */
+.btn-primary-fill {
+  margin: 12px 20px;
+}
+p {
+  margin: 13px;
+}
+
+pre {
+  display: flex;
+  justify-content: center;
 }
