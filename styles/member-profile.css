@@ -1,6 +1,7 @@
 * {
   color: var(--dark);
 }
+
 .main-content-area {
   display: flex;
 }
@@ -110,6 +111,10 @@
   /* background-color: red; */
 }
 
+.user-info-input-area label {
+  font-size: 16px;
+}
+
 /* 영역잡기 div */
 #user-info-input-area-innerbox {
   width: 100%;
@@ -215,14 +220,18 @@
 }
 
 /* 회원 탈퇴 모달창 */
+.withdrawal-modal {
+  display: flex;
+  position: absolute;
+  width: calc(100% - 380px);
+  height: calc(100% - 60px);
+  justify-content: center;
+  align-items: center;
+}
 .withdrawal-modal-window {
   width: calc(100% - 380px);
   height: calc(100% - 60px);
   backdrop-filter: blur(2px);
-  position: absolute;
-  display: none;
-  justify-content: center;
-  align-items: center;
 }
 
 .withdrawal-modal-box {
@@ -232,6 +241,7 @@
   box-shadow: var(--word-modal-shadow);
   border-radius: 10px;
   display: flex;
+  position: absolute;
 }
 
 /* 박스 내부 영역잡기 div */
@@ -259,6 +269,15 @@
 }
 
 /* 현재 비밀번호입력  */
+
+.icon-position-box-modal {
+  position: relative;
+}
+
+.icon-position-box-modal > i {
+  position: absolute;
+  top: 6px;
+}
 #now-pw-text {
   margin: 0 0 5px 0;
 }
@@ -309,15 +328,18 @@
 }
 
 /* 프로필 사진 편집 모달 */
-
+.update-img-modal {
+  width: calc(100% - 380px);
+  height: calc(100% - 60px);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
 .update-img-modal-window {
   width: calc(100% - 380px);
   height: calc(100% - 60px);
   backdrop-filter: blur(2px);
-  position: absolute;
-  display: none;
-  justify-content: center;
-  align-items: center;
 }
 
 .update-img-modal-box {
@@ -327,6 +349,7 @@
   box-shadow: var(--word-modal-shadow);
   border-radius: 10px;
   display: flex;
+  position: absolute;
 }
 
 .update-img-modal-inner-box {
@@ -363,12 +386,30 @@
   display: inline;
   margin: 10px;
 }
+
+.update-img-file-input-box {
+  margin: auto;
+}
 .update-img-file-input-box > label {
   cursor: pointer;
-  height: 100%;
-  
+  height: 45px;
+  width: 350px;
+  line-height: 45px;
+  display: block;
+  border: 1px solid var(--footer-color);
+  background-color: white;
+  color: var(--dark);
+}
+
+.update-img-file-input-box > label:hover {
+  color: white;
+  background-color: var(--footer-color);
 }
 #update-img-file-input {
   display: none;
 }
 
+#update-img-cancle-btn:hover {
+  color: white;
+  background-color: var(--secondary);
+}

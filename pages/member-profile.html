@@ -253,7 +253,11 @@
               <!-- 프로필사진 영역 -->
               <div class="user-img-area">
                 <div id="img-prev">
-                  <img src="../assets/user-profile.png" alt="프로필 사진" />
+                  <img
+                    src="../assets/user-profile.png"
+                    alt="프로필 사진"
+                    id="profile-img"
+                  />
                 </div>
                 <div id="img-edit"><i class="fa-solid fa-camera"></i></div>
               </div>
@@ -306,7 +310,7 @@
                       <input type="text" id="nm-input" disabled required />
                     </label>
                   </div>
-                  <!-- 회원탈퇴 & 비밀번호 변경 영역 -->
+                  <!-- 회원탈퇴  영역 -->
                   <div class="withdrawal-area">
                     <span id="withdrawal-btn">회원탈퇴</span>
                   </div>
@@ -338,7 +342,8 @@
       </div>
 
       <!--회원탈퇴 모달창 -->
-      <div class="withdrawal-modal-window">
+      <div class="withdrawal-modal">
+        <div class="withdrawal-modal-window"></div>
         <div class="withdrawal-modal-box">
           <!-- 박스 내부 영역잡기 div -->
           <div class="withdrawal-modal-inner-box">
@@ -353,12 +358,15 @@
             </div>
             <form action="#">
               <div id="now-pw-box">
-                <div class=""></div>
-                <input
-                  type="password"
-                  id="now-pw-input"
-                  placeholder="현재 비밀번호를 입력하세요"
-                />
+                <div class="icon-position-box-modal">
+                  <i class="ic-lock"></i>
+                  <input
+                    type="password"
+                    id="now-pw-input"
+                    placeholder="현재 비밀번호를 입력하세요"
+                    required
+                  />
+                </div>
               </div>
               <div id="cancle-accept-btn-box">
                 <button class="btn-primary-line" id="cancle-btn">아니오</button>
@@ -373,10 +381,12 @@
           </div>
         </div>
       </div>
+
       <!-- 회원 탈퇴 모달 끝 -->
 
       <!-- 프로필 사진 편집 모달  -->
-      <div class="update-img-modal-window">
+      <div class="update-img-modal">
+        <div class="update-img-modal-window"></div>
         <div class="update-img-modal-box">
           <div class="update-img-modal-inner-box">
             <div class="update-img-modal-title-text-box">
@@ -394,10 +404,18 @@
               />
             </div>
             <div class="update-img-cancle-accept-btn-box">
-              <button id="update-img-cancle-btn" class="btn-primary-line">
+              <button
+                type="button"
+                id="update-img-cancle-btn"
+                class="btn-primary-line"
+              >
                 취소
               </button>
-              <button id="update-img-accept-btn " class="btn-primary-fill">
+              <button
+                type="button"
+                id="update-img-accept-btn"
+                class="btn-primary-fill"
+              >
                 저장
               </button>
             </div>
