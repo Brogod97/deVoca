@@ -6,7 +6,7 @@ section{
     background-color: white;
     background-image: url(/assets/backgorund-hive-pattern.jpg);
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center center;  
     background-size: 1000px;
     display: flex;
 }
@@ -14,6 +14,7 @@ section{
 
 
 .background-img {
+
     width: 60%;
     height: 60%;
     display: block;
@@ -27,22 +28,33 @@ section{
 }
 
 
+#faq-collection {
+    width: 1000px;
+    height: 800px;
+    /*border: 2px solid black;
+    margin: 10px;*/
+}
+
+
 /* 자주 묻는 질문(FAQ) */
 #faq-title {
-    font-size: 25px;
     color: #F9BE28;
-    font-size: 4em; 
+    font-size: 3em; 
     text-decoration-line: underline;
     text-decoration-color:#F9BE28;
     text-decoration-thickness: 2px;
     text-underline-offset : 20px;
-    flex-basis: 10%;   
-    height: 20%;
-    margin: 50px 100px 50px;
-    width: 50%;
-    overflow: hidden;
-    text-align: center;
+display: flex;
+flex-direction: row;
+justify-content: center;
+width: 100%;
+margin-top: 80px;
+margin-bottom: 80px;    
+margin-left: auto;
+margin-right: -10%;
 }
+
+
 
 /* 블럭 추가*/
 #faq-titleleft {
@@ -51,8 +63,8 @@ section{
     height: 20vh;
 }
 #faq-center {
-    flex-basis: 80%;
-  
+    width: 93vh;
+     
 }
 
 
@@ -66,7 +78,7 @@ outline: none;
 background: none;
 width: 50%;
 text-align: left;
-margin-left: 80px;
+margin-left: 50px;
 }
 
   
@@ -88,17 +100,24 @@ margin-right: 15px;
     border: 1px solid white;
     background-color: white;
     border-radius: 30px;
-    box-shadow: 1px 1px 1px 1px gray;
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0, 10%);
     width: 850px;    
+    height: 80px;
+    margin: auto;
+    
 }
 /* 두 번째 질문*/
 #que-2 {
     border: 1px solid white;
     background-color: white;
     border-radius: 30px;
-    box-shadow: 1px 1px 1px 1px gray;
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0, 10%);
     width: 850px;
+    height: 80px;
     margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    
 
 }
 /* 세 번째 질문*/
@@ -106,18 +125,24 @@ margin-right: 15px;
     border: 1px solid white;
     background-color: white;
     border-radius: 30px;
-    box-shadow: 1px 1px 1px 1px gray;
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0, 10%);
     width: 850px;
+    height: 80px;
     margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* 네 번째 질문*/
 #que-4 {
     border: 1px solid white;
     background-color: white;
     border-radius: 30px;
-    box-shadow: 1px 1px 1px 1px gray;
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0, 10%);
     width: 850px;
+    height: 80px;
     margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 펼치기 크기*/
@@ -127,48 +152,57 @@ summary {
 }
 /* 펼치기 전 마크*/
 summary::marker{
-    content: "+ ";
-    font-family: monospace;
+    content: "\f078";
+    font-family: "FontAwesome";
+
 }
 /* 펼치기 후 마크*/
 details[open] summary::marker {
-    content: "- ";
+    content: "\f077";
+    font-family: "FontAwesome";
 }
 
 /* 첫번쨰 펼치기 안의 내용*/
 #qd1 {
-    border: 1px solid black;
     background-color: white;
-    position: fixed;
-    height: 200px;
+    border-radius: 30px;
+    box-shadow: 1px 1px 0px 0px rgb(0, 0, 0, 10%);
     width: 850px;
+    
+    height: 200px;
+    transform: translateY(10%);
 }
+
 
 /* 두번쨰 펼치기 안의 내용*/
 #qd2 {
-    border: 1px solid black;
     background-color: white;
-    position: fixed;
+    border-radius: 30px;
+    box-shadow: 1px 1px 0px 0px rgb(0, 0, 0, 10%);
+
     height: 200px;
     width: 850px;
+    text-align:start;
     /*transform으로 펼치는 방향을 정할 수 있음*/
     transform: translateY(-120%);
 }
 
 /* 세번쨰 펼치기 안의 내용*/
 #qd3 {
-    border: 1px solid black;
     background-color: white;
-    position: fixed;
+    border-radius: 30px;
+    box-shadow: 1px 1px 0px 0px rgb(0, 0, 0, 10%);
+
     height: 200px;
     width: 850px;
     transform: translateY(-120%);
 }
 /* 네번쨰 펼치기 안의 내용*/
 #qd4 {
-    border: 1px solid black;
     background-color: white;
-    position: fixed;
+    border-radius: 30px;
+    box-shadow: 1px 1px 0px 0px rgb(0, 0, 0, 10%);
+
     height: 200px;
     width: 850px;
     transform: translateY(-120%);
