@@ -28,7 +28,11 @@ const withdrawalBtn = document.querySelector("#withdrawal-btn");
 const withdrawalModalWindow = document.querySelector(
   ".withdrawal-modal-window"
 );
-
+const cancleBtn = document.querySelector("#cancle-btn");
+const nowPwInput = document.querySelector("#now-pw-input");
+const imgUpdateFileInput = document.querySelector("#img-update-file-input");
+const imgEdit = document.querySelector("#img-edit");
+const updateImgModalWindow = document.querySelector(".update-img-modal-window");
 // 편집 활성화
 
 infoChangeBtn.addEventListener("click", (e) => {
@@ -64,12 +68,23 @@ withdrawalBtn.addEventListener("click", () => {
   withdrawalModalWindow.style.display = "flex";
 });
 
-// 아니오 버튼 눌러서 모달창 끄기 & 인풋창 비우기
-const cancleBtn = document.querySelector("#cancle-btn");
-const nowPwInput = document.querySelector("#now-pw-input");
+// 아니오 버튼 눌러서 회원탈퇴 모달창 끄기 & 현재 비밀번호 input value 비우기
+
 cancleBtn.addEventListener("click", () => {
   withdrawalModalWindow.style.display = "none";
   nowPwInput.value = "";
 });
 
-const imgUpdateFileInput = document.getElementById("img-update-file-input");
+// 프로필 편집 모달창 띄우기
+
+imgEdit.addEventListener("click", () => {
+  updateImgModalWindow.style.display = "flex";
+});
+
+// 아니오 버튼 눌러서 프로필 편집 모달창 끄기
+
+const updateImgCancleBtn = document.querySelector("#update-img-cancle-btn");
+
+updateImgCancleBtn.addEventListener("click", () => {
+  updateImgModalWindow.style.display = "none";
+});

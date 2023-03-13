@@ -339,6 +339,7 @@
 
 #update-img-modal-title-text {
   margin: 0;
+  font-size: 18px;
 }
 
 .update-img-modal-title-text-box {
@@ -346,6 +347,10 @@
 }
 .update-img-file-input-box {
   flex-basis: 40%;
+}
+#update-img-file-input {
+  display: inline-block;
+  border: none;
 }
 .update-img-cancle-accept-btn-box {
   flex-basis: 30%;
@@ -356,5 +361,14 @@
 
 .update-img-cancle-accept-btn-box > button {
   display: inline;
-  margin: 5px;
+  margin: 10px;
 }
+.update-img-file-input-box > label {
+  cursor: pointer;
+  height: 100%;
+  
+}
+#update-img-file-input {
+  display: none;
+}
+
