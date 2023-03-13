@@ -9,11 +9,15 @@ section{
     background-position: center center;
     background-size: 1000px;
 }
+
+#blank{
+    height: 10%;
+}
 /*메뉴*/
 .menu {
     border: 1px solid white;
     background-color: white;
-    margin: 100px 400px;
+    margin: auto;
     width: 900px;
     height: 620px;
     border-radius: 25px;
@@ -25,8 +29,8 @@ section{
 #quetitle {
 
     font-size: 3em; 
-    color: #F9BE28;
-    text-decoration-color:#F9BE28;
+    color: var(--primary);
+    text-decoration-color:var(--primary);
     text-underline-offset : 20px;
     margin: 35px 50px;
     width: 800px;
@@ -67,6 +71,7 @@ section{
 }
 
 
+
 #name {
     width: 300px;
     height: 40px;
@@ -74,6 +79,12 @@ section{
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none;
+    text-indent: 5px;
+}
+
+.name input:focus{
+   
+    outline:2px solid var(--primary);
 }
 
 /*이메일*/
@@ -84,9 +95,19 @@ section{
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none;
+    text-indent: 5px;
 }
 
+.email input:focus{
+    
+    outline:2px solid var(--primary);
+}
+
+
 /*문의 유형*/
+select{
+    padding:0 28px 0 10px;
+}
 #selc {
     width: 300px;
     height: 40px; 
@@ -94,9 +115,51 @@ section{
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none; 
+    text-indent: 5px;
+    border: none;
+    outline-color: var(--primary);
+    
 }
 
-/*메세지 설정*/
+select {
+
+    width:100%;
+ 
+    height:100%;
+ 
+   padding:0 28px 0 10px;
+ 
+   font-size: 15px;
+ 
+    border:0; 
+ 
+    -webkit-appearance:none; /* for chrome */
+ 
+    -moz-appearance:none; /*for firefox*/
+ 
+    appearance:none;
+ 
+    box-sizing: border-box;
+ 
+    background:transparent;
+
+
+    
+ }
+ 
+ select::-ms-expand{
+ 
+    display:none;/*for IE10,11*/
+ 
+ }
+ 
+#arrow {
+    position: relative;
+    right: 30px;
+}
+
+ 
+/*메세지 전체 위치 설정*/
 #message {
     margin: -260px 00px  0px 450px;
     width: 500px;
@@ -105,7 +168,7 @@ section{
     
     
 }
-/*메세지 글자*/
+/*메세지 타이틀*/
 #messagetitle {
     height: 30px;
     width: 100px;
@@ -120,10 +183,15 @@ section{
     background-color: #F5F5F5;
     box-shadow: none;
     border-radius: 10px;
+    text-indent: 5px;
+    border:none;
+    outline-color: var(--primary);
 }
+
+
 /*버튼*/
-.btn {
-    position: absolute;
+#btn {
+    position: relative;
     top: 30px;
  left: 380px;
   width: 110px;
@@ -135,7 +203,7 @@ section{
   font-weight: 700;
   border: none;
   color: var(--white);
-  position: relative;
   text-align: center;
+
 
 }

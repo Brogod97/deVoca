@@ -19,27 +19,27 @@
 
 /*글자 설정 */
 .text {
-  color: #ffc759;
+  color: #fbae17;
   display: inline-block;
   margin-left: 5px;
+  font-size: larger;
 }
-
 /* 공 설정*/
 .bounceball {
   position: relative;
   display: inline-block;
   height: 37px;
-  width: 15px;
+  width: 30px;
 }
 .bounceball:before {
   position: absolute;
   content: "";
   display: block;
   top: 0;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background-color: #ffc759;
+  background-color: #fbae17;
   transform-origin: 50%;
   animation: bounce 500ms alternate infinite ease;
 }
@@ -59,4 +59,4 @@
   100% {
     top: 0;
   }
-} /*# sourceMappingURL=load.css.map */
+}
