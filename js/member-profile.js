@@ -7,8 +7,8 @@
   const pwInput = document.querySelector("#pw-input");
   const pwcheckInput = document.querySelector("#pwcheck-input");
 
-  pwInput.value = "devoca1234";
-  pwcheckInput.value = "devoca1234";
+  pwInput.value = "Devoca1234!";
+  pwcheckInput.value = "Devoca1234!";
 
   const nmInput = document.querySelector("#nm-input");
   nmInput.value = "불꽃전사지노";
@@ -27,14 +27,19 @@ const withdrawalArea = document.querySelector(".withdrawal-area"); // 회원탈�
 const withdrawalBtn = document.querySelector("#withdrawal-btn"); // 회원탈퇴 버튼
 const withdrawalModalWindow = document.querySelector(
   ".withdrawal-modal-window"
-); // 회원탈퇴 모달창
-
+); // 회원탈퇴 모달바깥부분
+const withdrawalModal = document.querySelector(".withdrawal-modal"); // 회원탈퇴 모달창
+const withdrawalModalBox = document.querySelector(".withdrawal-modal-box"); // 회원탈퇴 모달 박스
+const pwicon = document.querySelector(".pw-input-box i"); // 비밀번호 인풋 자물쇠 아이콘
+const pwcheckicon = document.querySelector(".pwcheck-input-box i"); // 비밀번호 확인 인풋 자물쇠 아이콘
+const modalpwicon = document.querySelector(".icon-position-box-modal i"); // 모달 현재비밀번호 입력 모달 자물쇠 아이콘
 const cancleBtn = document.querySelector("#cancle-btn"); // 회원탈퇴 모달창 아니오 버튼
 const nowPwInput = document.querySelector("#now-pw-input"); // 회원탈퇴 모달창 현재비밀번호 입력 인풋
 const imgUpdateFileInput = document.querySelector("#img-update-file-input"); // 이미지 편집 파일 인풋
 const imgEdit = document.querySelector("#img-edit"); // 이미지 편집 버튼 (모달 키는 버튼)
-const updateImgModalWindow = document.querySelector(".update-img-modal-window"); // 이미지 편집 모달창
+const updateImgModalWindow = document.querySelector(".update-img-modal-window"); // 이미지 편집 모달 바깥 부분
 const updateImgCancleBtn = document.querySelector("#update-img-cancle-btn"); // 이미지모달창 편집 취소 버튼
+const updateImgModal = document.querySelector(".update-img-modal"); // 프로필 편집 모달창
 
 // 편집 활성화
 
@@ -54,19 +59,17 @@ infoChangeBtn.addEventListener("click", (e) => {
 
 // 편집 취소버튼 클릭 시
 
-updateCancle.addEventListener("click", (e) => {
-  e.target.style.display = "none";
+updateCancle.addEventListener("click", () => {
+  updateCancle.style.display = "none";
   withdrawalBtn.style.display = "none";
   submitBtn.style.display = "none";
   infoChangeBtn.style.display = "inline";
-  // 기존 정보 불러오는 기능 추가???
+
+  //TODO: DB연결되면 기존 회원정보 불러오는거 고려
   window.location.reload();
 });
 
 // 비밀번호 인풋창 아이콘 색상 바꾸기
-const pwicon = document.querySelector(".pw-input-box i"); // 비밀번호 인풋 자물쇠 아이콘
-const pwcheckicon = document.querySelector(".pwcheck-input-box i"); // 비밀번호 확인 인풋 자물쇠 아이콘
-const modalpwicon = document.querySelector(".icon-position-box-modal i"); // 모달 현재비밀번호 입력 모달 자물쇠 아이콘
 
 pwInput.addEventListener("focusin", () => {
   pwicon.classList.add("ic-lock-active");
@@ -101,8 +104,6 @@ nowPwInput.addEventListener("focusout", () => {
 
 // 회원탈퇴 모달창 띄우기
 
-const withdrawalModal = document.querySelector(".withdrawal-modal");
-const withdrawalModalBox = document.querySelector(".withdrawal-modal-box");
 withdrawalBtn.addEventListener("click", () => {
   withdrawalModal.style.display = "flex";
 });
@@ -121,7 +122,6 @@ cancleBtn.addEventListener("click", () => {
 
 // 프로필 편집 모달창 띄우기
 
-const updateImgModal = document.querySelector(".update-img-modal");
 imgEdit.addEventListener("click", () => {
   updateImgModal.style.display = "flex";
 });
@@ -150,6 +150,65 @@ updateImgAcceptBtn.addEventListener("click", () => {
 });*/
 
 // 유효성 검사
+
+// 비밀번호 유효성검사
+pwInput.addEventListener("keyup", () => {
+  const pwReg = document.getElementById("pw-reg-text");
+  const regEx =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
+  //최소 8 자 및 최대 20 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상 :
+
+  if (regEx.test(pwInput.value)) {
+    pwReg.innerText = "사용가능한 비밀번호입니다.";
+    pwReg.classList.add("right");
+    pwReg.classList.remove("wrong");
+  } else {
+    pwReg.innerText = "사용불가능한 비밀번호입니다.";
+    pwReg.classList.add("wrong");
+    pwReg.classList.remove("right");
+  }
+});
+
+// 비밀번호 확인 유효성검사
+pwcheckInput.addEventListener("keyup", () => {
+  const pwCheckReg = document.getElementById("pwcheck-reg-text");
+
+  if (pwInput.value == pwcheckInput.value) {
+    pwCheckReg.innerText = "비밀번호가 일치했습니다.";
+    pwCheckReg.classList.add("right");
+    pwCheckReg.classList.remove("wrong");
+  } else {
+    pwCheckReg.innerText = "비밀번호가 일치하지않습니다.";
+    pwCheckReg.classList.add("wrong");
+    pwCheckReg.classList.remove("right");
+  }
+});
+
+// 닉네임 확인 유효성 검사
+nmInput.addEventListener("keyup", () => {
+  //TODO: DB 중복 닉네임 확인
+  const regEx = /[가-힣|a-z|A-Z]{2,10}/;
+  const nmReg = document.getElementById("nm-reg-text");
+  if (regEx.test(nmInput.value)) {
+    nmReg.innerText = "사용가능한 닉네임입니다.";
+    nmReg.classList.add("right");
+    nmReg.classList.remove("wrong");
+  } else {
+    nmReg.innerText = "사용불가능한 닉네임입니다.";
+    nmReg.classList.add("wrong");
+    nmReg.classList.remove("right");
+  }
+});
+
+// if (regEx.test(pw.value)) {
+//   pwcheck.innerText = "사용가능한 비밀번호입니다.";
+//   pwcheck.classList.add("right");
+//   pwcheck.classList.remove("wrong");
+// } else {
+//   pwcheck.innerText = "사용불가능한 비밀번호입니다.";
+//   pwcheck.classList.add("wrong");
+//   pwcheck.classList.remove("right");
+// }
 
 //TODO: 회원탈퇴 비밀번호 유효성 검사
 // DB회원 비밀번호와 비교 검사 후 alert창 띄우기
