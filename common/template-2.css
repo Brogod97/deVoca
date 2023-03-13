@@ -12,14 +12,6 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  width: 100vw;
-  height: var(--header-height);
-  min-height: var(--header-height);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -384,7 +376,9 @@ input::-webkit-search-results-decoration {
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: var(--modal-background-z-index);
+
+  /* FIXME:아래 z인덱스 주면 마우스 오버 이벤트가 되지 않음 */
+  /* z-index: var(--modal-background-z-index); */
 }
 
 .category-menu-content {
@@ -412,20 +406,16 @@ input::-webkit-search-results-decoration {
   padding: 12px;
 }
 
-.category-add:hover,
-.category-edit:hover {
-  background-color: var(--gray200);
-  cursor: pointer;
-
-  transition: all ease-in-out 0.2s;
-}
-
 .category-add {
   border-bottom: 1px solid var(--gray100);
 }
 
 .category-add:hover {
   border-radius: 15px 15px 0 0;
+  background-color: var(--gray200);
+  cursor: pointer;
+
+  transition: all ease-in-out 0.2s;
 }
 
 .category-edit {
@@ -434,6 +424,10 @@ input::-webkit-search-results-decoration {
 
 .category-edit:hover {
   border-radius: 0 0 15px 15px;
+  background-color: var(--gray200);
+  cursor: pointer;
+
+  transition: all ease-in-out 0.2s;
 }
 
 /* 카테고리 리스트 영역 */
