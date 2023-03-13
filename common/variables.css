@@ -62,6 +62,7 @@
   --menu-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
   --word-modal-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
   --nav-inner-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2) inset;
+  --shared-category-shadow: 0px 2px 4px 0px #00000040;
 
   /* 푸터 */
   --footer: #f1f1f1;

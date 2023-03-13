@@ -1,43 +1,32 @@
-.btn-primary-line {
-  width: 100px;
-  height: 35px;
-  padding: 8px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 16px;
-  font-weight: 700;
-
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-
-  color: var(--primary);
-  background-color: var(--white);
-
-  cursor: pointer;
-}
-
+.btn-primary-line,
 .btn-primary-fill {
   width: 100px;
   height: 35px;
 
-  text-align: center;
   line-height: 35px;
+  text-align: center;
 
   font-size: 16px;
   font-weight: 700;
 
-  border: none;
   border-radius: 5px;
+  cursor: pointer;
+
+  transition: all ease-in-out 0.15s;
+}
+
+.btn-primary-line {
+  border: 1px solid var(--primary);
+
+  color: var(--primary);
+  background-color: var(--white);
+}
+
+.btn-primary-fill {
+  border: none;
 
   color: var(--white);
   background-color: var(--primary);
-
-  transition: all ease-in-out 0.15s;
-
-  cursor: pointer;
 }
 
 .btn-primary-fill:hover {

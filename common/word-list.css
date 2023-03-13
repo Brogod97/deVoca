@@ -10,17 +10,9 @@
   background-color: var(--gray30);
 }
 
-/* 메인 컨텐츠 양옆 사이즈를 맞추기 위한 div */
-.content-main-container {
-  width: 100%;
-
-  margin: auto;
-}
-
 .content-main {
   display: flex;
   justify-content: space-between;
-
   padding: 20px 80px 15px 80px;
 }
 
@@ -31,7 +23,6 @@
 .content-main h2 {
   margin: 0;
   margin-top: 30px;
-
   color: var(--dark);
 }
 
@@ -42,13 +33,10 @@
 
 .content-main-btn1 {
   margin-top: 25px;
-
-  border: none;
   border-radius: 80%;
-
   background-color: transparent;
-
   cursor: pointer;
+  border: none;
 }
 
 .content-main-btn1:hover {
@@ -56,11 +44,9 @@
 }
 
 .content-main-btn2 {
-  border: none;
   border-radius: 80%;
-
+  border: none;
   background-color: transparent;
-
   cursor: pointer;
 }
 
@@ -80,7 +66,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   padding: 20px 80px 15px 80px;
 }
 
@@ -88,47 +73,39 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   margin-top: 20px;
 }
 
 .content-main-text-flex {
   display: flex;
   justify-content: space-between;
-
   margin: 20px 0;
 }
 
 .content-main-text button {
   border: none;
-
   background-color: transparent;
-
   cursor: pointer;
 }
 
 /* 모달창 */
 .modal {
-  width: 100%;
-  height: 100%;
-
   position: fixed;
   top: 60px;
   left: 380px;
-
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .addModal {
-  width: 100%;
-  height: 100%;
-
   position: fixed;
   top: 60px;
   left: 380px;
-
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,14 +114,12 @@
 .addModal .addBg {
   width: 100%;
   height: 100%;
-
   background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modal .bg {
   width: 100%;
   height: 100%;
-
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -153,30 +128,22 @@
 }
 
 .voca-modalBox {
-  width: 60vw;
-  height: 85.6vh;
-
   position: absolute;
-
   background-color: #fff;
-
-  border-radius: 15px;
-
+  width: 50vw;
+  height: 60vh;
   padding: 60px;
+  border-radius: 15px;
   margin-right: 300px;
-
-  overflow: hidden;
+  overflow: auto;
 }
 
 .voca-modify {
-  background-color: transparent;
-
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--gray200);
-
   border: none;
-
+  background-color: transparent;
+  font-size: 16px;
+  color: var(--gray200);
+  font-weight: 700;
   cursor: pointer;
 }
 

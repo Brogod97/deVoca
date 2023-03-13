@@ -8,20 +8,41 @@
   color: #f9be28;
   text-align: center;
   text-decoration-color: #f9be28;
-position: absolute;
-width: 1700px;
+
+width: 100%;
 
 
 
   
 }
 
+#navcollection{
+  width: 1000px;
+  height: 1000px;
+  display: block;
+  margin: auto;
+}
+
+
+#navleft {
+  
+ width: 1000px;
+ height: 100px;
+  display: inline-block;
+  flex-basis: 20%;
+  
+}
+
+
 /* 버튼 부문*/
 .navCenter {
-  height: 10vh;
-  width: 100vh;
-  margin-left: 360px;
-  margin-top: 150px;
+  height: 100px;
+  width: 100%;
+
+  flex-basis: 80%;
+
+ display: flex;
+ flex-direction: row;
 }
 
 .navCenter > ul {
@@ -29,10 +50,11 @@ width: 1700px;
   display: flex;
   padding: 0;
   height: 100%;
+  margin-left: -40px;
 }
 
 .navCenter li {
-  flex: -5, 1, 0;
+  flex: -5, z, 0;
   /* 팽창, 수축, 기본값 */
 }
 
@@ -74,9 +96,29 @@ width: 1700px;
 /* 박스 안의 내용 */
 .box1 {
   width: 1000px;
-  height: 400px;
-  overflow: auto;
+  height: 100%;
   border: 1px solid white;
-  padding: 0 0.5em;
-  margin: -30px 400px 10px 400px;
+  margin: auto;
+
+}
+
+a {
+  text-decoration-line: none;
+/*   text-decoration-line: underline; */
+/*   text-decoration-line: overline; */
+/*   text-decoration-line: line-through; */
+/*   text-decoration-line: underline line-through overline; */
+}
+
+
+#page1{
+  padding-top: 50px;
+}
+
+#page2{
+  padding-top: 50px;
+}
+
+#page3{
+  padding-top: 50px;
 }

@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="/styles/word-category.css" />
     <link rel="stylesheet" href="/common/template-2.css" />
 
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
 
     <script
       src="https://kit.fontawesome.com/5d7e6e936d.js"
       crossorigin="anonymous"
     ></script>
 
-    <!-- 태그추가 부분 -->
+    <!-- tagify - 단어 생성 (태그) -->
     <script src="https://unpkg.com/@yaireo/tagify"></script>
     <!-- 폴리필 (구버젼 브라우저 지원) -->
     <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
@@ -29,7 +29,7 @@
       type="text/css"
     />
 
-    <title>단어장 조회 추가</title>
+    <title>조회된 단어 리스트 Common</title>
   </head>
   <body>
     <main>
@@ -37,7 +37,7 @@
       <header>
         <!-- 로고 -->
         <div>
-          <a href="mainPage.html">
+          <a href="#">
             <img src="/assets/deVoca-logo.svg" />
           </a>
         </div>
@@ -85,10 +85,10 @@
             <a href="#">
               <img id="profile-icon" src="/assets/profile.svg" />
             </a>
-            <a href="word-category.html">
+            <a href="#">
               <img src="/assets/voca.svg" />
             </a>
-            <a href="quiz-main.html">
+            <a href="#">
               <img src="/assets/quiz.svg" />
             </a>
             <a href="#">
@@ -182,134 +182,132 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <div class="content-main-container">
-        <div class="content-main">
-          <!-- 모달창조회 -->
-          <div class="modal hidden">
-            <div class="bg"></div>
-            <div class="voca-modalBox">
+      <div class="content-main">
+        <!-- 모달창조회 -->
+        <div class="modal hidden">
+          <div class="bg"></div>
+          <div class="voca-modalBox">
+            <div class="voca-category1">
+              <div class="voca-category-tag">SQL</div>
+              <div class="voca-category-btns">
+                <button class="voca-modify">수정</button>
+                <button class="voca-delete">삭제</button>
+              </div>
+            </div>
+            <div class="voca-category2">
+              <input id="voca-read-title" readonly />
+            </div>
+            <div class="voca-category3">
+              <span></span>
+            </div>
+            <div class="voca-category4">
+              <img src="/assets/memo.svg" alt="" />
+              정의
+            </div>
+            <div class="voca-content1">
+              <input id="voca-read-definition" readonly />
+            </div>
+            <div class="voca-category5">
+              <img src="/assets/define.svg" alt="" />
+              메모
+            </div>
+            <div class="voca-content2">
+              <textarea id="voca-read-memo" readonly></textarea>
+            </div>
+            <div class="voca-category6">
+              <img src="/assets/code-block.svg" alt="" />
+              코드블럭
+            </div>
+            <div class="voca-content3"></div>
+            <div>
+              <button class="modify-btn">수정완료</button>
+            </div>
+          </div>
+        </div>
+        <!-- 모달창조회 끝 -->
+
+        <!-- 모달창 추가 -->
+        <div class="addModal hidden">
+          <div class="addBg"></div>
+          <div class="voca-modalBox">
+            <form action="#" method="post" id="voca-form">
               <div class="voca-category1">
                 <div class="voca-category-tag">SQL</div>
-                <div class="voca-category-btns">
-                  <button class="voca-modify">수정</button>
-                  <button class="voca-delete">삭제</button>
-                </div>
               </div>
               <div class="voca-category2">
-                <input id="voca-read-title" readonly />
+                <input
+                  type="text"
+                  placeholder="메소드명을 입력해주세요"
+                  name="voca-title"
+                  required
+                />
               </div>
               <div class="voca-category3">
-                <span></span>
+                <input
+                  type="text"
+                  placeholder="#태그를 입력하세요"
+                  name="basic"
+                  required
+                />
               </div>
+
               <div class="voca-category4">
                 <img src="/assets/memo.svg" alt="" />
                 정의
               </div>
               <div class="voca-content1">
-                <input id="voca-read-definition" readonly />
+                <input type="text" name="voca-definition" required />
               </div>
               <div class="voca-category5">
                 <img src="/assets/define.svg" alt="" />
                 메모
               </div>
               <div class="voca-content2">
-                <textarea id="voca-read-memo" readonly></textarea>
+                <textarea name="voca-memo" id="voca-memo"></textarea>
               </div>
               <div class="voca-category6">
                 <img src="/assets/code-block.svg" alt="" />
                 코드블럭
               </div>
-              <div class="voca-content3"></div>
-              <div>
-                <button class="modify-btn">수정완료</button>
+              <div></div>
+              <div class="voca-modal-btn">
+                <button onclick="addClose()" class="btn-primary-line">
+                  나가기
+                </button>
+                <button type="button" class="btn-save" id="voca-save">
+                  저장
+                </button>
               </div>
-            </div>
-          </div>
-          <!-- 모달창조회 끝 -->
-
-          <!-- 모달창 추가 -->
-          <div class="addModal hidden">
-            <div class="addBg"></div>
-            <div class="voca-modalBox">
-              <form action="#" method="post" id="voca-form">
-                <div class="voca-category1">
-                  <div class="voca-category-tag">SQL</div>
-                </div>
-                <div class="voca-category2">
-                  <input
-                    type="text"
-                    placeholder="메소드명을 입력해주세요"
-                    name="voca-title"
-                    required
-                  />
-                </div>
-                <div class="voca-category3">
-                  <input
-                    type="text"
-                    placeholder="#태그를 입력하세요"
-                    name="basic"
-                    required
-                  />
-                </div>
-
-                <div class="voca-category4">
-                  <img src="/assets/memo.svg" alt="" />
-                  정의
-                </div>
-                <div class="voca-content1">
-                  <input type="text" name="voca-definition" required />
-                </div>
-                <div class="voca-category5">
-                  <img src="/assets/define.svg" alt="" />
-                  메모
-                </div>
-                <div class="voca-content2">
-                  <textarea name="voca-memo" id="voca-memo"></textarea>
-                </div>
-                <div class="voca-category6">
-                  <img src="/assets/code-block.svg" alt="" />
-                  코드블럭
-                </div>
-                <div></div>
-                <div class="voca-modal-btn">
-                  <button onclick="addClose()" class="btn-primary-line">
-                    나가기
-                  </button>
-                  <button type="button" class="btn-save" id="voca-save">
-                    저장
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- 모달창 추가 끝 -->
-
-          <!-- 단어장 조회 부분 -->
-          <div>
-            <h2>JAVA</h2>
-          </div>
-          <div class="content-main-imgs">
-            <button class="content-main-btn1">
-              <img src="/assets/voca-order.svg" class="menu-openBtn" />
-              <!-- 즐겨찾기 및 순서정렬 메뉴-->
-              <div class="voca-menu-modal menu-hidden">
-                <div class="voca-menu-bg"></div>
-                <div class="voca-menu-modalBox">
-                  <div>즐겨찾기</div>
-                  <div>체크된 단어</div>
-                  <div>미체크된 단어</div>
-                </div>
-              </div>
-              <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
-            </button>
-            <button class="content-main-btn2 addOpenBtn">
-              <img src="/assets/plus.svg" />
-            </button>
+            </form>
           </div>
         </div>
-        <div class="content-main-line"></div>
-        <div class="content-main-text"></div>
+        <!-- 모달창 추가 끝 -->
+
+        <!-- 단어장 조회 부분 -->
+        <div>
+          <h2>JAVA</h2>
+        </div>
+        <div class="content-main-imgs">
+          <button class="content-main-btn1">
+            <img src="/assets/voca-order.svg" class="menu-openBtn" />
+            <!-- 즐겨찾기 및 순서정렬 메뉴-->
+            <div class="voca-menu-modal menu-hidden">
+              <div class="voca-menu-bg"></div>
+              <div class="voca-menu-modalBox">
+                <div>즐겨찾기</div>
+                <div>체크된 단어</div>
+                <div>미체크된 단어</div>
+              </div>
+            </div>
+            <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
+          </button>
+          <button class="content-main-btn2 addOpenBtn">
+            <img src="/assets/plus.svg" />
+          </button>
+        </div>
       </div>
+      <div class="content-main-line"></div>
+      <div class="content-main-text"></div>
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
