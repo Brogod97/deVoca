@@ -97,7 +97,7 @@
                   type="search"
                   id="voca-search-input"
                   name="voca-search-input"
-                  placeholder="회원 닉네임 입력"
+                  placeholder="유저명 입력"
                   autocomplete="off"
                 />
                 <button>
@@ -105,12 +105,12 @@
                 </button>
               </form>
             </div>
-            <div class="line"></div>
-
-            <div class="btn-primary-fill btn-long">퀴즈 시작</div>
-
-            <div class="line"></div>
           </section>
+          <div class="line"></div>
+
+          <div class="btn-primary-fill btn-long">퀴즈 시작</div>
+
+          <div class="line"></div>
           <!-- 카테고리 -->
           <section class="category-container">
             <div class="category-header">
@@ -121,57 +121,69 @@
               <ul class="member-list">
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/user-profile.png" />
                   </div>
                   <span class="member-nickname">Zino</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/default-user-img.png" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">겁쟁이 라이놀즈</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/shared-page/user-profile1.jpg" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">보라돌이</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/shared-page/user-profile2.jpg" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">뚜비</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/default-user-img.png" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">기예르모 델 토로</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/default-user-img.png" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">번듯한 오크</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/shared-page/user-profile3.jpg" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">나나</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/shared-page/user-profile4.jpg" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">뽀</span>
                 </li>
                 <li class="member">
                   <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" alt="Zino님" />
+                    <img src="/assets/default-user-img.png" />
                   </div>
-                  <span class="member-nickname">Zino</span>
+                  <span class="member-nickname">다아시</span>
+                </li>
+                <li class="member">
+                  <div class="member-thumbnail">
+                    <img src="/assets/default-user-img.png" />
+                  </div>
+                  <span class="member-nickname">엘리자베스 베넷</span>
+                </li>
+                <li class="member">
+                  <div class="member-thumbnail">
+                    <img src="/assets/default-user-img.png" />
+                  </div>
+                  <span class="member-nickname">찬호박</span>
                 </li>
               </ul>
             </div>
@@ -182,26 +194,102 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <div class="test-delete-this-div">
-        이 div는 삭제하시고, main-content-area 여기부터 각자 작업 시작하시면
-        됩니다.
-        <br />
-        <pre>
-          main-content-area 영역 적용 값 (css) 
-          
-          - width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
+      <!-- 공유된 유저의 카테고리 및 단어 조회 -->
+      <div class="shared-container">
+        <div class="shared-header-area">
+          <h2>
+            <span id="shared-user-name">Zino</span>
+            <span>
+              님의 공유된 단어 리스트
+              <div class="flying-bee">
+                <img src="/assets/shared-page/shared-flying-bee.svg" /></div
+            ></span>
+          </h2>
+        </div>
 
-          - height: 100%;
+        <div class="line"></div>
 
-          - margin-top: var(--header-height);
+        <div class="shared-category-area">
+          <ul class="shared-category-list">
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">JavaScript</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+            <li class="shared-category">
+              <!-- TODO: icon-font로 hive 아이콘 만들기 -->
+              <i class="ic-star"></i>
+              <span class="category-title">DB</span>
+            </li>
+          </ul>
+        </div>
 
-          - margin-left: calc((var(--sidebar-width) + var(--nav-width)));
-        </pre>
+        <div class="line"></div>
+
+        <div class="shared-voca-list-area">
+          조회된 단어 리스트 : common으로 가져오기
+        </div>
       </div>
     </section>
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
     <script src="/js/google-search.js"></script>
     <script src="/common/template-2.js"></script>
+    <script src="/js/shared.js"></script>
   </body>
 </html>
