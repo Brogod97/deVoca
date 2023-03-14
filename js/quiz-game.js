@@ -9,9 +9,10 @@ const swiper = new Swiper(".mySwiper", {
   },
 });
 
-swiper.once("click", function () {
+function onSlideChange() {
   if (swiper.isEnd) {
-    // 현재 슬라이드가 마지막 슬라이드인 경우
+    // 마지막 슬라이드인 경우 버튼 생성
+    console.log("마지막입니다");
     const link = document.createElement("a");
     link.href = "/pages/quiz-result.html";
 
@@ -20,18 +21,19 @@ swiper.once("click", function () {
     btn.textContent = "결과보기";
 
     link.appendChild(btn);
+    // 슬라이드 컨테이너를 선택합니다.
+    const slideContainer = document.querySelector(
+      ".swiper-slide.swiper-slide-active"
+    );
 
-    // 현재 활성화된 슬라이드에 a 태그 추가
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    activeSlide.append(link);
+    slideContainer.nextElementSibling.appendChild(link);
 
-    // 화살표 엘리먼트의 pointer-events 속성 제거
-    const arrowPrev = document.querySelector(".swiper-button-prev");
-    const arrowNext = document.querySelector(".swiper-button-next");
-    arrowPrev.style.pointerEvents = "auto";
-    arrowNext.style.pointerEvents = "auto";
+    // slideChange 이벤트 리스너를 해제합니다.
+    swiper.off("slideChange", onSlideChange);
   }
-});
+}
+
+swiper.on("slideChange", onSlideChange);
 
 // 슬라이드 추가하는 함수
 // swiper.appendSlide('<div class="swiper-slide">Slide 10</div>');
