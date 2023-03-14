@@ -351,7 +351,6 @@
   height: 30px;
   border: var(--line);
   color: var(--footer-color);
-  line-height: 30px;
 }
 
 #cancle-btn:hover {
@@ -366,7 +365,6 @@
   height: 30px;
   background-color: var(--secondary);
   border-color: var(--secondary);
-  line-height: 30px;
 }
 
 #accept-btn:hover {
