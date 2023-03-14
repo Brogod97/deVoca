@@ -1,0 +1,208 @@
+/* 뒷 배경 */
+body {
+  background: url(/assets/background-circle.svg) no-repeat;
+  background-size: 50%;
+  resize: none;
+  background-position: left bottom;
+}
+
+.main-content-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  flex-basis: auto;
+}
+
+#login-box {
+  width: 430px;
+  height: 550px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: var(--login-shadow);
+  margin-right: 200px;
+}
+
+/* 제목 스타일 */
+#title {
+  color: var(--primary);
+  text-align: center;
+}
+
+#input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 350px;
+  border: none;
+  border-bottom: 1.5px solid var(--gray500);
+  padding: 4px;
+}
+
+input:focus {
+  width: 350px;
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid var(--primary);
+  padding: 4px;
+}
+
+/* 인풋창 들여쓰기 */
+input[type="mail"] {
+  text-indent: 16px;
+}
+input[type="password"] {
+  text-indent: 16px;
+}
+
+/* 체크박스 스타일 */
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+input[type="checkbox"] + label:before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid var(--gray500);
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked + label:before {
+  content: "";
+  background-color: var(--primary);
+  border-color: var(--primary);
+  background-image: url("/assets/checked.svg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+#remember-searchPw {
+  color: var(--gray500);
+  font-size: 11;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#btn-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 20px;
+}
+/*  - or - */
+.or {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: var(--gray500);
+  font-size: 16px;
+  margin: 0px 40px;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  flex-grow: 1;
+  background: var(--gray500);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 16px;
+}
+
+#sns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 28px;
+}
+
+/* 카카오 회원가입 */
+.ic-kakao {
+  margin-right: 10px;
+}
+#kakao {
+  width: 320px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+
+  font-weight: bold;
+  color: #3d3d3d;
+
+  background-color: #fee500;
+  cursor: pointer;
+}
+
+#kakao:hover {
+  background-color: #faeb62;
+}
+
+#kakao:active {
+  background-color: #e5cf00;
+}
+
+/* 구글 회원가입 */
+
+#google {
+  width: 320px;
+  height: 40px;
+  border: 1px solid var(--gray500);
+  border-radius: 10px;
+  font-weight: bold;
+  color: #3d3d3d;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#google > img {
+  width: 16px;
+  height: 16px;
+}
+#google:hover {
+  background-color: #f3f3f3;
+}
+
+#google:active {
+  background-color: #eaeaea;
+}
+
+a {
+  color: var(--gray500);
+  text-decoration: none;
+}
+
+#join {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+#non-member {
+  color: var(--gray500);
+  margin: 15px 35px;
+}

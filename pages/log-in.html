@@ -7,9 +7,9 @@
 
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-1.css" />
-    <link rel="stylesheet" href="/styles/signup.css" />
+    <link rel="stylesheet" href="/styles/log-in.css" />
 
-    <title>deVoca - 회원가입</title>
+    <title>deVoca - 로그인</title>
   </head>
   <body>
     <body>
@@ -59,59 +59,34 @@
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
-        <div id="join-box">
+        <div id="login-box">
           <form>
-            <h1 id="title">회원 가입</h1>
+            <div id="input-box">
+              <h1 id="title">로그인</h1>
 
-            <!-- 인풋창 묶음 -->
-            <div id="input">
-              <div id="uName">
-                <i class="ic-login-circle-default"></i>
-                <input
-                  id="nn"
-                  type="text"
-                  placeholder="닉네임을 입력해주세요"
-                />
-              </div>
+              <div id="id-pw"><p>아이디</p></div>
+              <input type="mail" id="uMail" placeholder="email@gmail.com" />
 
-              <div id="uId">
-                <i class="ic-login-circle-default"></i>
-                <input
-                  id="uid"
-                  type="text"
-                  placeholder="아이디를 입력해주세요"
-                />
-              </div>
-
-              <div id="uPw">
-                <i class="ic-login-circle-default"></i>
-                <input
-                  id="upw"
-                  type="password"
-                  placeholder="비밀번호를 입력해주세요"
-                />
-              </div>
-
-              <div id="uPw2">
-                <i class="ic-login-circle-default"></i>
-                <input
-                  id="upw2"
-                  type="password"
-                  placeholder="비밀번호를 확인해주세요"
-                />
-              </div>
+              <div id="id-pw"><p>비밀번호</p></div>
+              <input
+                type="password"
+                id="uPw"
+                placeholder="비밀번호를 입력해주세요"
+              />
+            </div>
+            <br />
+            <div id="remember-searchPw">
+              <label>
+                <input type="checkbox" id="remember-login" />
+                <label for="remember-login"></label>자동로그인
+              </label>
+              <a href="#">비밀번호를 잊으셨나요?</a>
             </div>
 
-            <div id="btn-submit">
-              <button type="submit" class="btn-primary-fill">확인</button>
-            </div>
-
-            <div id="already-id">
-              <p id="already-text">
-                이미 계정이 있으신가요?<a href="/pages/log-in.html" id="login"
-                  >로그인</a
-                >
-              </p>
+            <div id="btn-login">
+              <button type="submit" class="btn-primary-fill btn-long">
+                로그인
+              </button>
             </div>
 
             <div class="or">OR</div>
@@ -124,6 +99,11 @@
               <button id="google">
                 <img src="/assets/google-logo.png" /> &emsp;구글 계정으로 가입
               </button>
+            </div>
+
+            <div id="non-member">
+              아직 회원이 아니신가요?
+              <a href="/pages/signup.html" id="join">회원가입</a>
             </div>
           </form>
         </div>
