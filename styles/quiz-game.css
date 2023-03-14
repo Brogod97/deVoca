@@ -5,6 +5,7 @@
 .swiper-slide {
   display: flex !important;
   flex-direction: column !important;
+
   justify-content: space-around !important;
   align-items: center !important;
 }
@@ -12,8 +13,11 @@
 .quiz-header {
   display: flex;
   flex-direction: column;
+
   justify-content: center;
   align-items: center;
+
+  margin-bottom: 70px;
 }
 
 .quiz-header h1 {
@@ -58,4 +62,24 @@
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   background-color: var(--primary) !important;
+}
+
+/* 1300px 미만일 때 */
+@media (max-width: 1000px) {
+  .swiper-button-prev {
+    left: 0px !important;
+  }
+  .swiper-button-next {
+    right: 0px !important;
+  }
+}
+
+/* 1300px 이상일 때 */
+@media (min-width: 1200px) {
+  .swiper-button-prev {
+    left: 300px !important;
+  }
+  .swiper-button-next {
+    right: 300px !important;
+  }
 }
