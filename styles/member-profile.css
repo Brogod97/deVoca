@@ -1,16 +1,18 @@
 * {
   color: var(--dark);
 }
+
 .main-content-area {
   display: flex;
 }
 .content-container {
   width: 90%;
-  height: 850px;
+  height: 100%;
   margin: auto;
   margin-top: 0px;
   display: flex;
   flex-direction: column;
+  /* background-color: antiquewhite; */
 }
 
 /* 페이지 제목 시작*/
@@ -29,34 +31,47 @@
 /* 페이지 제목 끝 */
 
 /* 유저 정보 시작 */
-.user-info-area {
+.user-info-outbox {
   width: 100%;
-  height: 450px;
-  display: flex;
-  margin-top: 100px;
-}
-
-/* 프로필사진 시작  */
-.user-img {
-  flex-basis: 40%;
-  height: 450px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: var(--line);
+}
+
+.user-info-area {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 50px; */
+  /* background-color: blueviolet; */
+}
+
+/* 프로필사진 시작  */
+.user-img-area {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: blue; */
+  /* border-right: var(--line); */
 }
 /* 프로필사진 프리뷰 */
 #img-prev {
+  margin-left: 45px;
   width: 200px;
   height: 200px;
-  border-radius: 150px;
+  border-radius: 100px;
   background-color: white;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.user-img img {
+.user-img-area img {
   width: 220px;
 }
 
@@ -86,26 +101,80 @@
 /* 프로필사진 종료 */
 
 /* 정보입력창 시작 */
-.user-info-input {
-  flex-basis: 60%;
+.user-info-input-area {
   height: 450px;
   display: flex;
   flex-direction: column;
-  font-size: 20px;
-  margin-left: 50px;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 유효성 검사 */
+
+.pw-input-box {
+  position: relative;
+}
+.pw-reg {
+  width: 100%;
+  height: 50%;
+
+  position: absolute;
+  bottom: 10px;
+  right: -101%;
+}
+
+.pw-reg > p {
+  line-height: 40px;
+}
+
+.pwcheck-input-box {
+  position: relative;
+}
+.pwcheck-reg {
+  width: 100%;
+  height: 50%;
+
+  position: absolute;
+  bottom: 10px;
+  right: -101%;
+}
+
+.pwcheck-reg > p {
+  line-height: 40px;
+}
+
+.nm-input-area {
+  position: relative;
+}
+.nm-reg {
+  width: 100%;
+  height: 50%;
+
+  position: absolute;
+  bottom: 10px;
+  right: -101%;
+}
+.nm-reg > p {
+  line-height: 40px;
 }
 
 /* 영역잡기 div */
-.user-info-input > div {
+#user-info-input-area-innerbox {
   width: 100%;
   height: 400px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 전체 인풋창 디자인 */
-.user-info-input input {
+.user-info-input-area input {
   margin: 10px 0;
-  width: 600px;
+  width: 400px;
   height: 40px;
   border: var(--line);
   border-radius: 5px;
@@ -114,18 +183,14 @@
 }
 
 /* 인풋 포커스 */
-.user-info-input input:focus {
+.user-info-input-area input:focus {
   outline: none;
   border: var(--line-hover);
 }
 
-.user-info-input p {
+.user-info-input-area p {
   margin: 0;
-}
-
-/* 비밀번호 영역 */
-.pw-input-area {
-  display: flex;
+  font-size: 16px;
 }
 
 .icon-position-box {
@@ -135,34 +200,34 @@
 .ic-lock,
 .ic-lock-active {
   position: absolute;
-  top: 43px;
+  top: 40px;
   left: 9px;
 }
-.pw-input-area input {
-  width: 290px;
+#pw-input {
   text-indent: 2em;
 }
 
-.pwcheck-input-box {
-  margin-left: 20px;
+#pwcheck-input {
+  text-indent: 2em;
 }
 
-/* 회원탈퇴 영역 & 비밀번호 변경 영역*/
+/* 회원탈퇴 & 정보편집버튼 영역*/
 .withdrawal-area {
   display: flex;
-  width: 600px;
+  width: 400px;
+  height: 16px;
   justify-content: end;
-  margin-top: 20px;
 }
 #withdrawal-btn {
   margin-left: 20px;
   font-size: 16px;
   color: var(--red);
   cursor: pointer;
+  display: none;
 }
-#pw-change {
+#info-change-btn {
   font-size: 16px;
-  color: var(--dark);
+  color: white;
   cursor: pointer;
 }
 
@@ -173,10 +238,11 @@
 
 .button-area {
   width: 100%;
-  height: 200px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: yellow; */
 }
 .button-area > button {
   margin: 10px;
@@ -191,19 +257,26 @@
   border-color: var(--primary);
   color: var(--primary);
 }
+#submit-btn {
+  display: none;
+}
 #submit-btn:hover {
   background-color: var(--secondary);
 }
 
 /* 회원 탈퇴 모달창 */
-.withdrawal-modal-window {
+.withdrawal-modal {
+  display: none;
+  position: absolute;
   width: calc(100% - 380px);
   height: calc(100% - 60px);
-  backdrop-filter: blur(2px);
-  position: absolute;
-  display: none;
   justify-content: center;
   align-items: center;
+}
+.withdrawal-modal-window {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
 }
 
 .withdrawal-modal-box {
@@ -213,6 +286,7 @@
   box-shadow: var(--word-modal-shadow);
   border-radius: 10px;
   display: flex;
+  position: absolute;
 }
 
 /* 박스 내부 영역잡기 div */
@@ -240,6 +314,15 @@
 }
 
 /* 현재 비밀번호입력  */
+
+.icon-position-box-modal {
+  position: relative;
+}
+
+.icon-position-box-modal > i {
+  position: absolute;
+  top: 6px;
+}
 #now-pw-text {
   margin: 0 0 5px 0;
 }
@@ -290,15 +373,18 @@
 }
 
 /* 프로필 사진 편집 모달 */
-
-.update-img-modal-window {
+.update-img-modal {
   width: calc(100% - 380px);
   height: calc(100% - 60px);
-  backdrop-filter: blur(2px);
   position: absolute;
-  display: none;
   justify-content: center;
   align-items: center;
+  display: none;
+}
+.update-img-modal-window {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
 }
 
 .update-img-modal-box {
@@ -308,6 +394,7 @@
   box-shadow: var(--word-modal-shadow);
   border-radius: 10px;
   display: flex;
+  position: absolute;
 }
 
 .update-img-modal-inner-box {
@@ -320,6 +407,7 @@
 
 #update-img-modal-title-text {
   margin: 0;
+  font-size: 18px;
 }
 
 .update-img-modal-title-text-box {
@@ -327,6 +415,10 @@
 }
 .update-img-file-input-box {
   flex-basis: 40%;
+}
+#update-img-file-input {
+  display: inline-block;
+  border: none;
 }
 .update-img-cancle-accept-btn-box {
   flex-basis: 30%;
@@ -337,5 +429,41 @@
 
 .update-img-cancle-accept-btn-box > button {
   display: inline;
-  margin: 5px;
+  margin: 10px;
+}
+
+.update-img-file-input-box {
+  margin: auto;
+}
+.update-img-file-input-box > label {
+  cursor: pointer;
+  height: 45px;
+  width: 350px;
+  line-height: 45px;
+  display: block;
+  border: 1px solid var(--footer-color);
+  background-color: white;
+  color: var(--dark);
+}
+
+.update-img-file-input-box > label:hover {
+  color: white;
+  background-color: var(--footer-color);
+}
+#update-img-file-input {
+  display: none;
+}
+
+#update-img-cancle-btn:hover {
+  color: white;
+  background-color: var(--secondary);
+}
+
+/* 유효성검사 클래스 */
+.right {
+  color: var(--primary);
+}
+
+.wrong {
+  color: var(--red);
 }

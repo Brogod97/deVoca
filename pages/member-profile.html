@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>단어장 서비스 계열 기본 template - header, nav, sidebar</title>
+    <title>회원 정보 페이지</title>
   </head>
   <body>
     <main>
@@ -238,6 +238,7 @@
       </section>
     </main>
 
+    <!-- ****************************************************************************** -->
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
       <!-- content-container -->
@@ -246,97 +247,113 @@
         <div class="page-title-area">
           <p>회원 정보</p>
         </div>
-        <form action="#">
-          <!-- 회원 정보 영역 -->
-          <div class="user-info-area">
-            <!-- 프로필사진 영역 -->
-            <div class="user-img">
-              <div id="img-prev">
-                <img src="../assets/user-profile.png" alt="프로필 사진" />
-              </div>
-              <div id="img-edit"><i class="fa-solid fa-camera"></i></div>
-            </div>
-            <!-- 정보 입력 영역 -->
-            <div class="user-info-input">
-              <!-- 영역잡기용 div -->
-              <div>
-                <!-- 아이디 인풋 영역 -->
-                <div class="id-input-area">
-                  <label>
-                    <p>아이디</p>
-                    <input type="text" id="id-input" disabled />
-                  </label>
+        <div class="user-info-outbox">
+          <form action="#">
+            <!-- 회원 정보 영역 -->
+            <div class="user-info-area">
+              <!-- 프로필사진 영역 -->
+              <div class="user-img-area">
+                <div id="img-prev">
+                  <img
+                    src="../assets/user-profile.png"
+                    alt="프로필 사진"
+                    id="profile-img"
+                  />
                 </div>
-                <!-- 비밀번호 인풋 영역 -->
-                <div class="pw-input-area">
+                <div id="img-edit"><i class="fa-solid fa-camera"></i></div>
+              </div>
+              <!-- 정보 입력 영역 -->
+              <div class="user-info-input-area">
+                <!-- 영역잡기용 div -->
+                <div id="user-info-input-innerbox">
+                  <!-- 아이디 인풋 영역 -->
+                  <div class="id-input-area">
+                    <label>
+                      아이디<br />
+                      <input type="text" id="id-input" disabled />
+                    </label>
+                  </div>
+                  <!-- 비밀번호 인풋 영역 -->
+
                   <div class="pw-input-box">
                     <div class="icon-position-box">
                       <i class="ic-lock"></i>
+                      <label>
+                        비밀번호 <br />
+                        <input
+                          type="password"
+                          id="pw-input"
+                          disabled
+                          required
+                        />
+                      </label>
                     </div>
-                    <label>
-                      <p>비밀번호</p>
-                      <input type="password" id="pw-input" disabled required />
-                    </label>
+                    <div class="pw-reg">
+                      <p id="pw-reg-text"></p>
+                    </div>
                   </div>
                   <div class="pwcheck-input-box">
                     <div class="icon-position-box">
                       <i class="ic-lock"></i>
+                      <label>
+                        비밀번호 확인 <br />
+                        <input
+                          type="password"
+                          id="pwcheck-input"
+                          disabled
+                          required
+                        />
+                      </label>
                     </div>
-                    <label>
-                      <p>비밀번호 확인</p>
-                      <input
-                        type="password"
-                        id="pwcheck-input"
-                        disabled
-                        required
-                      />
-                    </label>
+                    <div class="pwcheck-reg">
+                      <p id="pwcheck-reg-text"></p>
+                    </div>
                   </div>
-                </div>
-                <!-- 이메일 인풋 영역 -->
-                <div class="email-input-area">
-                  <label>
-                    <p>이메일</p>
-                    <input type="email" id="email-input" disabled required />
-                  </label>
-                </div>
-                <!-- 닉네임 인풋 영역 -->
-                <div class="nm-input-area">
-                  <label>
-                    <p>닉네임</p>
-                    <input type="text" id="nm-input" disabled required />
-                  </label>
-                </div>
-                <!-- 회원탈퇴 & 비밀번호 변경 영역 -->
-                <div class="withdrawal-area">
-                  <span id="pw-change">편집</span>
-                  <span id="withdrawal-btn">회원탈퇴</span>
+
+                  <!-- 닉네임 인풋 영역 -->
+                  <div class="nm-input-area">
+                    <label>
+                      닉네임 <br />
+                      <input type="text" id="nm-input" disabled required />
+                    </label>
+                    <div class="nm-reg">
+                      <p id="nm-reg-text"></p>
+                    </div>
+                  </div>
+                  <!-- 회원탈퇴  영역 -->
+                  <div class="withdrawal-area">
+                    <span id="withdrawal-btn">회원탈퇴</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- 완료 & 편집취소 버튼 영역 -->
-          <div class="button-area">
-            <button
-              type="button"
-              class="btn-primary-line"
-              id="update-cancle-btn"
-            >
-              취소
-            </button>
-            <button
-              type="submit"
-              class="btn-primary-fill btn-primary-line"
-              id="submit-btn"
-            >
-              완료
-            </button>
-          </div>
-        </form>
+            <!-- 완료 & 편집취소 버튼 영역 -->
+            <div class="button-area">
+              <button
+                type="button"
+                class="btn-primary-fill"
+                id="info-change-btn"
+              >
+                편집
+              </button>
+              <button
+                type="button"
+                class="btn-primary-line"
+                id="update-cancle-btn"
+              >
+                취소
+              </button>
+              <button type="submit" class="btn-primary-fill" id="submit-btn">
+                완료
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <!--회원탈퇴 모달창 -->
-      <div class="withdrawal-modal-window">
+      <div class="withdrawal-modal">
+        <div class="withdrawal-modal-window"></div>
         <div class="withdrawal-modal-box">
           <!-- 박스 내부 영역잡기 div -->
           <div class="withdrawal-modal-inner-box">
@@ -351,12 +368,15 @@
             </div>
             <form action="#">
               <div id="now-pw-box">
-                <div class=""></div>
-                <input
-                  type="password"
-                  id="now-pw-input"
-                  placeholder="현재 비밀번호를 입력하세요"
-                />
+                <div class="icon-position-box-modal">
+                  <i class="ic-lock"></i>
+                  <input
+                    type="password"
+                    id="now-pw-input"
+                    placeholder="현재 비밀번호를 입력하세요"
+                    required
+                  />
+                </div>
               </div>
               <div id="cancle-accept-btn-box">
                 <button class="btn-primary-line" id="cancle-btn">아니오</button>
@@ -371,16 +391,21 @@
           </div>
         </div>
       </div>
+
       <!-- 회원 탈퇴 모달 끝 -->
 
       <!-- 프로필 사진 편집 모달  -->
-      <div class="update-img-modal-window">
+      <div class="update-img-modal">
+        <div class="update-img-modal-window"></div>
         <div class="update-img-modal-box">
           <div class="update-img-modal-inner-box">
             <div class="update-img-modal-title-text-box">
               <h2 id="update-img-modal-title-text">프로필 사진 변경</h2>
             </div>
             <div class="update-img-file-input-box">
+              <label for="update-img-file-input" class="btn-primary-fill"
+                >프로필 변경하기</label
+              >
               <input
                 type="file"
                 id="update-img-file-input"
@@ -389,12 +414,17 @@
               />
             </div>
             <div class="update-img-cancle-accept-btn-box">
-              <button id="update-img-cancle-btn" class="btn-primary-line">
+              <button
+                type="button"
+                id="update-img-cancle-btn"
+                class="btn-primary-line"
+              >
                 취소
               </button>
               <button
-                id="update-img-accept-btn "
-                class="btn-primary-line btn-primary-fill"
+                type="button"
+                id="update-img-accept-btn"
+                class="btn-primary-fill"
               >
                 저장
               </button>
