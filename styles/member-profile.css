@@ -351,6 +351,7 @@
   height: 30px;
   border: var(--line);
   color: var(--footer-color);
+  line-height: 30px;
 }
 
 #cancle-btn:hover {
@@ -365,6 +366,7 @@
   height: 30px;
   background-color: var(--secondary);
   border-color: var(--secondary);
+  line-height: 30px;
 }
 
 #accept-btn:hover {
@@ -459,6 +461,7 @@
   background-color: var(--secondary);
 }
 
+/* ******************** */
 /* 유효성검사 클래스 */
 .right {
   color: var(--primary);
@@ -467,3 +470,4 @@
 .wrong {
   color: var(--red);
 }
+/* ******************** */
