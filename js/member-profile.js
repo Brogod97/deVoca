@@ -152,7 +152,7 @@ updateImgAcceptBtn.addEventListener("click", () => {
 // 유효성 검사
 
 // 비밀번호 유효성검사
-pwInput.addEventListener("keyup", () => {
+pwInput.addEventListener("focusout", () => {
   const pwReg = document.getElementById("pw-reg-text");
   const regEx =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
@@ -161,6 +161,7 @@ pwInput.addEventListener("keyup", () => {
   if (regEx.test(pwInput.value)) {
     pwReg.innerText = "";
     pwReg.classList.remove("wrong");
+    pwInput.style.borderColor = "var(--primary)";
   } else {
     pwReg.innerText = "사용불가능한 비밀번호입니다.";
     pwReg.classList.add("wrong");
@@ -169,7 +170,7 @@ pwInput.addEventListener("keyup", () => {
 });
 
 // 비밀번호 확인 유효성검사
-pwcheckInput.addEventListener("keyup", () => {
+pwcheckInput.addEventListener("focusout", () => {
   const pwCheckReg = document.getElementById("pwcheck-reg-text");
 
   if (pwInput.value == pwcheckInput.value) {
@@ -184,7 +185,7 @@ pwcheckInput.addEventListener("keyup", () => {
 });
 
 // 닉네임 확인 유효성 검사
-nmInput.addEventListener("keyup", () => {
+nmInput.addEventListener("focusout", () => {
   //TODO: DB 중복 닉네임 확인
   const regEx = /[가-힣|a-z|A-Z]{2,10}/;
   const nmReg = document.getElementById("nm-reg-text");
