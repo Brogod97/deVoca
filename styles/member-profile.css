@@ -55,13 +55,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   /* background-color: blue; */
   /* border-right: var(--line); */
 }
 /* 프로필사진 프리뷰 */
-#img-prev {
-  margin-left: 45px;
+#img-thumbnail {
   width: 200px;
   height: 200px;
   border-radius: 100px;
@@ -81,9 +81,7 @@
   height: 45px;
   border-radius: 40px;
   background-color: white;
-  position: relative;
-  top: -65px;
-  left: -50px;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +89,8 @@
   color: var(--dark);
   box-shadow: var(--login-shadow);
   cursor: pointer;
+  top: 20px;
+  right: 100px;
 }
 
 /* 이미지 편집버튼 호버 */
@@ -117,47 +117,53 @@
   position: relative;
 }
 .pw-reg {
-  width: 100%;
+  width: 50%;
   height: 50%;
-
   position: absolute;
-  bottom: 10px;
-  right: -101%;
+
+  top: -10px;
+  left: 17%;
+  font-size: 12px;
 }
 
-.pw-reg > p {
+#pw-reg-text {
   line-height: 40px;
+  font-size: 12px;
 }
 
 .pwcheck-input-box {
   position: relative;
 }
 .pwcheck-reg {
-  width: 100%;
+  width: 50%;
   height: 50%;
-
   position: absolute;
-  bottom: 10px;
-  right: -101%;
+
+  top: -10px;
+  left: 25%;
+  font-size: 12px;
 }
 
-.pwcheck-reg > p {
+#pwcheck-reg-text {
   line-height: 40px;
+  font-size: 12px;
 }
 
 .nm-input-area {
   position: relative;
 }
 .nm-reg {
-  width: 100%;
+  width: 50%;
   height: 50%;
-
   position: absolute;
-  bottom: 10px;
-  right: -101%;
+
+  top: -10px;
+  left: 13%;
+  font-size: 12px;
 }
-.nm-reg > p {
+#nm-reg-text {
   line-height: 40px;
+  font-size: 12px;
 }
 
 /* 영역잡기 div */
@@ -221,9 +227,13 @@
 #withdrawal-btn {
   margin-left: 20px;
   font-size: 16px;
-  color: var(--red);
+  color: var(--dark);
   cursor: pointer;
   display: none;
+}
+
+#withdrawal-btn:hover {
+  color: var(--red);
 }
 #info-change-btn {
   font-size: 16px;
@@ -351,6 +361,7 @@
   height: 30px;
   border: var(--line);
   color: var(--footer-color);
+  line-height: 30px;
 }
 
 #cancle-btn:hover {
@@ -365,6 +376,7 @@
   height: 30px;
   background-color: var(--secondary);
   border-color: var(--secondary);
+  line-height: 30px;
 }
 
 #accept-btn:hover {
@@ -461,9 +473,6 @@
 
 /* ******************** */
 /* 유효성검사 클래스 */
-.right {
-  color: var(--primary);
-}
 
 .wrong {
   color: var(--red);
