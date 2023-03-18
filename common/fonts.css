@@ -9,20 +9,20 @@
 
 /* font-icon */
 @font-face {
-  font-family: 'devoca';
-  src:  url('/assets/fonts/devoca.eot?');
-  src:  url('/assets/fonts/devoca.eot?#iefix') format('embedded-opentype'),
-    url('/assets/fonts/devoca.ttf?') format('truetype'),
-    url('/assets/fonts/devoca.woff?') format('woff'),
-    url('/assets/fonts/devoca.svg?#devoca') format('svg');
+  font-family: "devoca";
+  src: url("/assets/fonts/devoca.eot?");
+  src: url("/assets/fonts/devoca.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/devoca.ttf?") format("truetype"),
+    url("/assets/fonts/devoca.woff?") format("woff"),
+    url("/assets/fonts/devoca.svg?#devoca") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="ic-"], [class*=" ic-"] {
+i {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'devoca' !important;
+  font-family: "devoca" !important;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -43,110 +43,194 @@
   margin-left: -1em;
   color: rgb(255, 255, 255);
 }
-.ic-check:before {
+.ic-camera-cc:before {
   content: "\e902";
+}
+.ic-check:before {
+  content: "\e903";
   color: #cdd2d8;
 }
 .ic-check-active:before {
-  content: "\e903";
+  content: "\e904";
   color: #525050;
+}
+.ic-check-cc:before {
+  content: "\e905";
 }
 .ic-chevron:before {
-  content: "\e904";
+  content: "\e906";
   color: #838e9e;
 }
-.ic-close:before {
-  content: "\e905";
-  color: #525050;
-}
-.ic-code:before {
-  content: "\e906";
-  color: #525050;
-}
-.ic-kakao:before {
+.ic-chevron-cc:before {
   content: "\e907";
 }
-.ic-lock:before {
+.ic-close:before {
   content: "\e908";
+  color: #525050;
+}
+.ic-close-cc:before {
+  content: "\e909";
+}
+.ic-code:before {
+  content: "\e90a";
+  color: #525050;
+}
+.ic-code-cc:before {
+  content: "\e90b";
+}
+.ic-hive-active:before {
+  content: "\e90c";
+  color: #f9be28;
+}
+.ic-hive-cc:before {
+  content: "\e90d";
+}
+.ic-hive-default:before {
+  content: "\e90e";
+  color: #8f8f8f;
+}
+.ic-kakao:before {
+  content: "\e90f";
+}
+.ic-kakao-cc:before {
+  content: "\e910";
+}
+.ic-lock:before {
+  content: "\e911";
   color: #838e9e;
 }
 .ic-lock-active:before {
-  content: "\e909";
+  content: "\e912";
   color: #ffc759;
 }
+.ic-lock-cc:before {
+  content: "\e913";
+}
+.ic-lock-wrong:before {
+  content: "\e914";
+  color: #ff3939;
+}
 .ic-login-circle-active:before {
-  content: "\e90a";
+  content: "\e915";
   color: #f9be28;
 }
+.ic-login-circle-cc:before {
+  content: "\e916";
+}
 .ic-login-circle-default:before {
-  content: "\e90b";
+  content: "\e917";
   color: #b7b7b7;
 }
 .ic-login-circle-wrong:before {
-  content: "\e90c";
+  content: "\e918";
   color: #ff6464;
 }
 .ic-logout:before {
-  content: "\e90d";
+  content: "\e919";
   color: #838e9e;
+}
+.ic-logout-cc:before {
+  content: "\e91a";
 }
 .ic-menu-dot:before {
-  content: "\e90e";
+  content: "\e91b";
   color: #525050;
+}
+.ic-menu-dot-cc:before {
+  content: "\e91c";
 }
 .ic-note:before {
-  content: "\e90f";
+  content: "\e91d";
   color: #525050;
+}
+.ic-note-cc:before {
+  content: "\e91e";
 }
 .ic-order:before {
-  content: "\e910";
+  content: "\e91f";
   color: #525050;
+}
+.ic-order-cc:before {
+  content: "\e920";
 }
 .ic-pencil:before {
-  content: "\e911";
+  content: "\e921";
   color: #525050;
+}
+.ic-pencil-cc:before {
+  content: "\e922";
 }
 .ic-plus:before {
-  content: "\e912";
+  content: "\e923";
   color: #525050;
+}
+.ic-plus-cc:before {
+  content: "\e924";
 }
 .ic-profile:before {
-  content: "\e913";
+  content: "\e925";
   color: #838e9e;
+}
+.ic-profile-cc:before {
+  content: "\e926";
 }
 .ic-quiz:before {
-  content: "\e914";
+  content: "\e927";
   color: #838e9e;
+}
+.ic-quiz-cc:before {
+  content: "\e928";
 }
 .ic-reset:before {
-  content: "\e915";
+  content: "\e929";
   color: #525050;
 }
+.ic-reset-cc:before {
+  content: "\e92a";
+}
 .ic-search:before {
-  content: "\e916";
+  content: "\e92b";
   color: #cdd2d8;
 }
+.ic-search-cc:before {
+  content: "\e92c";
+}
 .ic-shared:before {
-  content: "\e917";
+  content: "\e92d";
   color: #838e9e;
 }
+.ic-shared-cc:before {
+  content: "\e92e";
+}
 .ic-star:before {
-  content: "\e918";
+  content: "\e92f";
   color: #838e9e;
 }
 .ic-star-active:before {
-  content: "\e919";
+  content: "\e930";
   color: #ffc759;
 }
+.ic-star-cc:before {
+  content: "\e931";
+}
 .ic-triangle-down:before {
-  content: "\e91a";
+  content: "\e932";
   color: #525050;
 }
+.ic-triangle-down-cc:before {
+  content: "\e933";
+}
 .ic-warning:before {
-  content: "\e91b";
+  content: "\e934";
   color: #ec131e;
 }
+.ic-warning-cc:before {
+  content: "\e935";
+}
 .ic-word:before {
-  content: "\e91c";
+  content: "\e936";
   color: #838e9e;
+}
+.ic-word-cc:before {
+  content: "\e937";
 }
