@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/word-category.css" />
     <link rel="stylesheet" href="/common/template-2.css" />
+    <link rel="stylesheet" href="/common/word-list.css" />
 
     <!-- <script
       src="https://code.jquery.com/jquery-3.6.0.js"
@@ -180,10 +180,41 @@
       </section>
     </main>
 
+    <!-- FIXME: 여기부터 단어 리스트 시작 -->
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
-      <div class="content-main">
-        <!-- 모달창조회 -->
+      <div class="word-list">
+        <div class="content-main">
+          <!-- 단어장 조회 헤더 -->
+
+          <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
+          <div>
+            <h2>JAVA</h2>
+          </div>
+          <div class="content-main-imgs">
+            <!-- 즐겨찾기 및 순서정렬 메뉴-->
+            <button class="content-main-btn1">
+              <img src="/assets/voca-order.svg" class="menu-openBtn" />
+              <div class="voca-menu-modal menu-hidden">
+                <div class="voca-menu-bg"></div>
+                <div class="voca-menu-modalBox">
+                  <div>즐겨찾기</div>
+                  <div>체크된 단어</div>
+                  <div>미체크된 단어</div>
+                </div>
+              </div>
+              <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
+            </button>
+            <!-- 새 단어 추가 버튼 -->
+            <button class="content-main-btn2 addOpenBtn">
+              <img src="/assets/plus.svg" />
+            </button>
+          </div>
+        </div>
+
+        <div class="content-main-line"></div>
+
+        <!-- 단어 조회 모달 시작 -->
         <div class="modal hidden">
           <div class="bg"></div>
           <div class="voca-modalBox">
@@ -218,15 +249,42 @@
               <img src="/assets/code-block.svg" alt="" />
               코드블럭
             </div>
-            <div class="voca-content3"></div>
+            <div class="voca-code-block-area">
+              <textarea name="voca-code-block" id="voca-code-block"></textarea>
+            </div>
             <div>
               <button class="modify-btn">수정완료</button>
             </div>
           </div>
         </div>
-        <!-- 모달창조회 끝 -->
+        <!-- 단어 조회 모달 끝 -->
 
-        <!-- 모달창 추가 -->
+        <div class="content-main-text">
+          <div class="content-main-text-flex">
+            <div>
+              <button><img src="/assets/check-empty.svg" /></button
+              ><button class="openBtn">Test Method Name</button>
+            </div>
+            <div>
+              <button><img src="/assets/star-empty.svg" /></button
+              ><button><img src="/assets/chevron.svg" /></button>
+            </div>
+          </div>
+          <div class="content-main-add-line"></div>
+          <div class="content-main-text-flex">
+            <div>
+              <button><img src="/assets/check-empty.svg" /></button
+              ><button class="openBtn">Test Method Name2</button>
+            </div>
+            <div>
+              <button><img src="/assets/star-empty.svg" /></button
+              ><button><img src="/assets/chevron.svg" /></button>
+            </div>
+          </div>
+          <div class="content-main-add-line"></div>
+        </div>
+
+        <!-- 단어 추가 모달 시작 -->
         <div class="addModal hidden">
           <div class="addBg"></div>
           <div class="voca-modalBox">
@@ -269,7 +327,12 @@
                 <img src="/assets/code-block.svg" alt="" />
                 코드블럭
               </div>
-              <div></div>
+              <div class="voca-code-block-area">
+                <textarea
+                  name="voca-code-block"
+                  id="voca-code-block"
+                ></textarea>
+              </div>
               <div class="voca-modal-btn">
                 <button onclick="addClose()" class="btn-primary-line">
                   나가기
@@ -281,37 +344,13 @@
             </form>
           </div>
         </div>
-        <!-- 모달창 추가 끝 -->
-
-        <!-- 단어장 조회 부분 -->
-        <div>
-          <h2>JAVA</h2>
-        </div>
-        <div class="content-main-imgs">
-          <button class="content-main-btn1">
-            <img src="/assets/voca-order.svg" class="menu-openBtn" />
-            <!-- 즐겨찾기 및 순서정렬 메뉴-->
-            <div class="voca-menu-modal menu-hidden">
-              <div class="voca-menu-bg"></div>
-              <div class="voca-menu-modalBox">
-                <div>즐겨찾기</div>
-                <div>체크된 단어</div>
-                <div>미체크된 단어</div>
-              </div>
-            </div>
-            <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
-          </button>
-          <button class="content-main-btn2 addOpenBtn">
-            <img src="/assets/plus.svg" />
-          </button>
-        </div>
+        <!-- 단어 추가 모달 끝 -->
       </div>
-      <div class="content-main-line"></div>
-      <div class="content-main-text"></div>
     </section>
+
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
-    <script src="/js/word-category.js"></script>
+    <script src="/common/word-list.js"></script>
     <script src="/js/google-search.js"></script>
   </body>
 </html>
