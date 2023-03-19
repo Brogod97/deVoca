@@ -327,7 +327,7 @@ input::-webkit-search-results-decoration {
 }
 
 .category-header {
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 
   display: flex;
   justify-content: space-between;
