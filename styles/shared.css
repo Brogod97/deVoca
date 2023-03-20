@@ -4,7 +4,7 @@
 }
 
 .category-container {
-  /* flex-basis: 90vh; */
+  flex-basis: 90vh;
 }
 
 .line {
@@ -198,5 +198,16 @@
 }
 
 /* shared-voca-list-area */
-.shared-voca-list-area {
+
+.word-list {
+  padding: 0;
+}
+
+.ic-hive-cc {
+  font-size: 32px;
+  color: var(--gray200);
+}
+
+.ic-hive-cc.active {
+  color: var(--secondary);
 }
