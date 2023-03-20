@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-1.css" />
     <link rel="stylesheet" href="/styles/faq.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
 
     <title>FAQ</title>
   </head>
@@ -64,64 +66,54 @@
         <div id="faq-titleleft"></div>
         <!-- 전체 묶음 -->
         <div id="faq-collection">
-          
-        <div id="faq-center">
-        <table id="faq-title">
-          <tr>
-        <td> 자주 묻는 질문(FAQ) </td>
-        </tr>
-        </table>       
-        </div>  
-        <div class="faq-content"  id="faq1">
-          <div class="question" id="que-1">
-           <span id="q1"> 왜 deVoca 인가요? </span>
-          
-  
-          <details>
-            <summary></summary>
-          
-           <div id="qd1"> <div>&nbsp</div> 하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.</div>
-          </details>
+          <div id="faq-center">
+            <div id="faq-title">
+              <tr>
+                <td>자주 묻는 질문(FAQ)</td>
+              </tr>
+            </div>
+          </div>
+
+          <ul>
+            <li class="on">
+              <button class="button">
+                왜 deVoca 인가요?
+                <div class="fa fa-chevron-down rotate" id="arrow"></div>
+              </button>
+              <p id="menu1" class="content">
+                하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+              </p>
+            </li>
+            <li>
+              <button class="button">
+                어떻게 단어를 추가하나요?
+                <div class="fa fa-chevron-down rotate" id="arrow"></div>
+              </button>
+              <p id="menu2" class="content">
+                캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+              </p>
+            </li>
+            <li>
+              <button class="button">
+                어떻게 퀴즈를 시작하나요?
+                <div class="fa fa-chevron-down rotate" id="arrow"></div>
+              </button>
+              <p id="menu3" class="content">
+                자바스크립트는 객체(Object)를 기초로 하는 스크립트 프로그래밍
+                언어입니다.
+              </p>
+            </li>
+            <li>
+              <button class="button">
+                어떻게 단어를 공유하나요?
+                <div class="fa fa-chevron-down rotate" id="arrow"></div>
+              </button>
+              <p id="menu4" class="content">
+                하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+              </p>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="faq-content" id="faq2">
-        <div class="question" id="que-2">
-          <span id="q1"> 어떻게 단어를 추가하나요? </span>
-        
-  
-        <details>
-          <summary></summary>
-         <div id="qd2"> <div>&nbsp</div> 캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.</div>
-        </details>
-      </div>
-    </div>
-    <div class="faq-content" id="faq3">
-      <div class="question" id="que-3">
-        <span id="q1">  어떻게 퀴즈를 시작하나요? </span>
-      
-  
-      <details>
-        <summary></summary>
-       <div id="qd3"> <div>&nbsp</div>
-        자바스크립트는 객체(Object)를 기초로 하는 스크립트 프로그래밍
-        언어입니다.</div>
-      </details>
-    </div>
-  </div>
-  <div class="faq-content" id="faq4">
-    <div class="question" id="que-4">
-      <span id="q1"> 어떻게 단어를 공유하나요? </span>
-    
-  
-    <details>
-      <summary></summary>
-     <div id="qd4"><div>&nbsp</div>
-      하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.</div>
-    </details>
-  </div>
-  </div>
-</div>
-</div>
       </section>
 
       <!-- 푸터 -->
@@ -135,6 +127,7 @@
       </footer>
 
       <script src="/js/google-search.js"></script>
+      <script src="/js/faq.js"></script>
     </body>
   </body>
 </html>

@@ -29,28 +29,31 @@ section{
 #quetitle {
 
     font-size: 3em; 
+    font-weight: bold;
     color: var(--primary);
     text-decoration-color:var(--primary);
     text-underline-offset : 20px;
-    margin: 35px 50px;
+    margin-top: 35px;
+    margin-bottom: 15px;
     width: 800px;
     height: 100px;
-  
+    padding-left: 39%;
     display: flex;
-    justify-content: center;
-    
+    justify-content: flex-start;
+
       
 }
 
 /* 밑에 글씨*/
 #quetext{
-    margin: -120px 50px 80px;
+
     width: 800px;
     height: 100px;
     display: flex;
+    margin: auto;
     justify-content: center;
     text-align: center;
-    align-items: flex-end;
+   
 }
 
 
@@ -61,13 +64,14 @@ section{
     display: flex;
     justify-content: center;
     text-align: center;
-    align-items: flex-end;   
+    align-items: flex-end;  
+    padding: 5px; 
 
 }
 /*이름*/
 .titlename {
     text-align: left;
-    margin: 20px 0px 10px;
+   padding: 10px;
 }
 
 
@@ -105,66 +109,56 @@ section{
 
 
 /*문의 유형*/
-select{
-    padding:0 28px 0 10px;
-}
-#selc {
-    width: 300px;
-    height: 40px; 
-    border: 0px;
-    border-radius: 10px;
-    background-color: #F5F5F5;
-    box-shadow: none; 
-    text-indent: 5px;
-    border: none;
-    outline-color: var(--primary);
-    
-}
-
-select {
-
-    width:100%;
- 
-    height:100%;
- 
-   padding:0 28px 0 10px;
- 
-   font-size: 15px;
- 
-    border:0; 
- 
-    -webkit-appearance:none; /* for chrome */
- 
-    -moz-appearance:none; /*for firefox*/
- 
-    appearance:none;
- 
-    box-sizing: border-box;
- 
-    background:transparent;
-
-
-    
- }
- 
- select::-ms-expand{
- 
-    display:none;/*for IE10,11*/
- 
- }
- 
-#arrow {
+.selectBox{
     position: relative;
-    right: 30px;
-}
-
+    display: inline-block;
+    margin-bottom: 15px;
+    width :100%;
+    
+    
+  }
+  
+  select{
+    display:inline-block;
+    width:100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0px;
+    padding:10px 15px;
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background-color: #F5F5F5;
+    outline-color: var(--primary);
+  }
+  
+  select::-ms-expand{
+    display:none;
+  }
+  
+  .select__arrow{
+    position: absolute;
+    top :16px;
+    right: 15px;
+    width :0;
+    height :0;
+    pointer-events: none;
+    border-style :solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #999 transparent transparent transparent;
+  
+    
+    
+  }
+  
  
 /*메세지 전체 위치 설정*/
 #message {
     margin: -260px 00px  0px 450px;
     width: 500px;
-    height: 240px;
+    height: 30px;
    
+    
     
     
 }
@@ -178,6 +172,8 @@ select {
 
 /*메세지 내용*/
 #textarea{
+    padding: 1  0px;
+    height: 208px;
     resize: none;
     border: 0px;
     background-color: #F5F5F5;
@@ -192,8 +188,8 @@ select {
 /*버튼*/
 #btn {
     position: relative;
-    top: 30px;
- left: 380px;
+    top: 230px;
+ left: 370px;
   width: 110px;
   height: 40px;
   background-color: var(--primary);
@@ -204,6 +200,14 @@ select {
   border: none;
   color: var(--white);
   text-align: center;
+  justify-content: center;
 
+
+}
+
+#collect {
+border: 1px solid black;
+width: 100%;
+height: 100%;
 
 }

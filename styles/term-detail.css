@@ -5,6 +5,7 @@
 /*이용약관 제목 설정*/
 .term {
   font-size: 3em;
+  font-weight: bold;
   color: #f9be28;
   text-align: center;
   text-decoration-color: #f9be28;
@@ -26,7 +27,7 @@ width: 100%;
 
 #navleft {
   
- width: 1000px;
+ width: auto;
  height: 100px;
   display: inline-block;
   flex-basis: 20%;
@@ -37,10 +38,10 @@ width: 100%;
 /* 버튼 부문*/
 .navCenter {
   height: 100px;
-  width: 100%;
-
+  width: 1000px;
+border-bottom: 1px dashed black;
   flex-basis: 80%;
-
+padding: 30px;
  display: flex;
  flex-direction: row;
 }
@@ -59,10 +60,10 @@ width: 100%;
 }
 
 .navCenter button {
-  display: block;
-  height: 100%;
+  display:inline block;
+  height: auto;
   line-height: 48px;
-  width: 130px;
+  width: auto;
 
   /* 밑줄 없애기 */
   text-decoration: none;
@@ -97,7 +98,7 @@ width: 100%;
 .box1 {
   width: 1000px;
   height: 100%;
-  border: 1px solid white;
+
   margin: auto;
 
 }
@@ -121,4 +122,24 @@ a {
 
 #page3{
   padding-top: 50px;
+}
+
+#blank0 {
+  width: 10px;
+  height: 50px;
+  text-align: center;
+  justify-content : center;
+}
+
+
+#blank {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  justify-content : center;
+}
+
+#blank1 {
+  width: 100%;
+  height: 5%;
 }
