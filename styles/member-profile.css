@@ -12,6 +12,7 @@
   margin-top: 0px;
   display: flex;
   flex-direction: column;
+
   /* background-color: antiquewhite; */
 }
 
@@ -34,24 +35,24 @@
 .user-info-outbox {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .user-info-area {
   width: 100%;
-  height: 600px;
+  height: 550px;
   display: flex;
   flex-direction: column;
-  /* margin-top: 50px; */
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
   /* background-color: blueviolet; */
 }
 
 /* 프로필사진 시작  */
 .user-img-area {
-  height: 200px;
-  width: 100%;
+  height: 150px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,8 +63,8 @@
 }
 /* 프로필사진 프리뷰 */
 #img-thumbnail {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 100px;
   background-color: white;
   overflow: hidden;
@@ -72,25 +73,25 @@
   align-items: center;
 }
 .user-img-area img {
-  width: 220px;
+  width: 180px;
 }
 
 /* 이미지 편집버튼 */
 #img-edit {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   border-radius: 40px;
   background-color: white;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--dark);
   box-shadow: var(--login-shadow);
   cursor: pointer;
   top: 20px;
-  right: 100px;
+  right: 20px;
 }
 
 /* 이미지 편집버튼 호버 */
@@ -102,7 +103,7 @@
 
 /* 정보입력창 시작 */
 .user-info-input-area {
-  height: 450px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   font-size: 16px;
