@@ -72,18 +72,32 @@
 
 .rotate-a > a {
   text-decoration: none;
+
+  color: var(--dark);
+
   font-weight: bold;
   font-size: 18px;
 }
 
+.rotate-a > a:hover {
+  color: var(--gray500);
+
+  transition: all ease-in-out 0.2s;
+}
+
 .result-line {
   border: var(--line);
-  width: 1000px;
+  width: 60vw;
 
   margin-bottom: 30px;
 }
 
 .result-value {
+  width: 500px;
+
+  display: flex;
+  justify-content: space-around;
+
   margin-bottom: 30px;
 }
 
