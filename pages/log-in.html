@@ -17,7 +17,7 @@
       <header>
         <!-- 로고 -->
         <div>
-          <a href="#">
+          <a href="/index.html">
             <img src="/assets/deVoca-logo.svg" />
           </a>
         </div>
@@ -47,9 +47,9 @@
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
           <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="#">
+            <a href="/pages/FAQ.html">FAQ</a>
+            <a href="/pages/log-in.html">로그인</a>
+            <a href="/pages/terms.html">
               <button class="btn-primary-fill">회원가입</button>
             </a>
           </div>
@@ -61,28 +61,21 @@
       <section class="main-content-area">
         <div id="login-box">
           <form>
-            <div id="input-box">
-              <h1 id="title">로그인</h1>
+            <h1 id="title">로그인</h1>
 
-              <div id="id-pw"><p>아이디</p></div>
-              <input type="mail" id="uMail" placeholder="email@gmail.com" />
+            <p>아이디</p>
+            <input type="mail" placeholder="email@mail.com" />
 
-              <div id="id-pw"><p>비밀번호</p></div>
-              <input
-                type="password"
-                id="uPw"
-                placeholder="비밀번호를 입력해주세요"
-              />
-            </div>
-            <br />
+            <p>비밀번호</p>
+            <input type="password" placeholder="******" />
+
             <div id="remember-searchPw">
               <label>
                 <input type="checkbox" id="remember-login" />
                 <label for="remember-login"></label>자동로그인
               </label>
-              <a href="#">비밀번호를 잊으셨나요?</a>
+              <a href="/pages/password-reset.html">비밀번호를 잊으셨나요?</a>
             </div>
-
             <div id="btn-login">
               <button type="submit" class="btn-primary-fill btn-long">
                 로그인
@@ -93,17 +86,17 @@
 
             <div id="sns">
               <button id="kakao">
-                <i class="ic-kakao"></i>카카오 계정으로 가입
+                <i class="ic-kakao"></i>카카오 계정으로 로그인
               </button>
 
               <button id="google">
-                <img src="/assets/google-logo.png" /> &emsp;구글 계정으로 가입
+                <img src="/assets/google-logo.png" />구글 계정으로 로그인
               </button>
             </div>
 
             <div id="non-member">
               아직 회원이 아니신가요?
-              <a href="/pages/signup.html" id="join">회원가입</a>
+              <a href="/pages/terms.html" id="join"> 회원가입</a>
             </div>
           </form>
         </div>
@@ -112,9 +105,9 @@
       <!-- 푸터 -->
       <footer class="footer">
         <div>
-          <a href="#">이용약관</a>
-          <a href="#">도움말</a>
-          <a href="#">Contact</a>
+          <a href="/pages/terms-detail.html">이용약관</a>
+          <a href="/pages/FAQ.html">도움말</a>
+          <a href="/pages/inquiry.html">Contact</a>
         </div>
         <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
       </footer>
