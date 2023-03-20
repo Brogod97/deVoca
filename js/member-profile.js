@@ -152,51 +152,51 @@ updateImgAcceptBtn.addEventListener("click", () => {
 // 유효성 검사
 
 // 비밀번호 유효성검사
-pwInput.addEventListener("keyup", () => {
+pwInput.addEventListener("focusout", () => {
   const pwReg = document.getElementById("pw-reg-text");
   const regEx =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
   //최소 8 자 및 최대 20 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상 :
 
   if (regEx.test(pwInput.value)) {
-    pwReg.innerText = "사용가능한 비밀번호입니다.";
-    pwReg.classList.add("right");
+    pwReg.innerText = "";
     pwReg.classList.remove("wrong");
+    pwInput.style.borderColor = "var(--primary)";
   } else {
     pwReg.innerText = "사용불가능한 비밀번호입니다.";
     pwReg.classList.add("wrong");
-    pwReg.classList.remove("right");
+    pwInput.style.borderColor = "var(--red)";
   }
 });
 
 // 비밀번호 확인 유효성검사
-pwcheckInput.addEventListener("keyup", () => {
+pwcheckInput.addEventListener("focusout", () => {
   const pwCheckReg = document.getElementById("pwcheck-reg-text");
 
   if (pwInput.value == pwcheckInput.value) {
-    pwCheckReg.innerText = "비밀번호가 일치했습니다.";
-    pwCheckReg.classList.add("right");
+    pwCheckReg.innerText = "";
     pwCheckReg.classList.remove("wrong");
+    pwcheckInput.style.borderColor = "var(--primary)";
   } else {
     pwCheckReg.innerText = "비밀번호가 일치하지않습니다.";
     pwCheckReg.classList.add("wrong");
-    pwCheckReg.classList.remove("right");
+    pwcheckInput.style.borderColor = "var(--red)";
   }
 });
 
 // 닉네임 확인 유효성 검사
-nmInput.addEventListener("keyup", () => {
+nmInput.addEventListener("focusout", () => {
   //TODO: DB 중복 닉네임 확인
   const regEx = /[가-힣|a-z|A-Z]{2,10}/;
   const nmReg = document.getElementById("nm-reg-text");
   if (regEx.test(nmInput.value)) {
-    nmReg.innerText = "사용가능한 닉네임입니다.";
-    nmReg.classList.add("right");
+    nmReg.innerText = "";
     nmReg.classList.remove("wrong");
+    nmInput.style.borderColor = "var(--primary)";
   } else {
     nmReg.innerText = "사용불가능한 닉네임입니다.";
     nmReg.classList.add("wrong");
-    nmReg.classList.remove("right");
+    nmInput.style.borderColor = "var(--red)";
   }
 });
 
