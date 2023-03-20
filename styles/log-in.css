@@ -1,62 +1,52 @@
-/* 뒷 배경 */
 body {
   background: url(/assets/background-circle.svg) no-repeat;
-  background-size: 50%;
-  resize: none;
+  background-size: 55% auto;
   background-position: left bottom;
+  background-color: var(--gray30);
 }
 
 .main-content-area {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   justify-content: center;
-  flex-basis: auto;
+  align-items: end;
 }
 
+/*TODO: 그림자값 조정 
+흰색 박스 */
 #login-box {
-  width: 430px;
-  height: 550px;
+  width: 400px;
+  height: auto;
   background-color: white;
-  border-radius: 30px;
-  box-shadow: var(--login-shadow);
-  margin-right: 200px;
+  border-radius: 20px;
+  box-shadow: 2px 6px 20px rgba(148, 163, 184, 0.4);
+
+  padding: 35px 40px;
+  margin-right: 10%;
 }
 
 /* 제목 스타일 */
 #title {
+  font-size: 30px;
   color: var(--primary);
   text-align: center;
+  margin: 20px 0;
 }
 
-#input-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+/* 인풋창 */
 input {
-  width: 350px;
+  width: 100%;
   border: none;
+  text-indent: 16px;
+  padding-bottom: 3px;
   border-bottom: 1.5px solid var(--gray500);
-  padding: 4px;
+  outline: none;
+
+  font-family: "Pretendard-Regular";
 }
 
 input:focus {
-  width: 350px;
-  border: none;
-  outline: none;
   border-bottom: 1.5px solid var(--primary);
-  padding: 4px;
-}
-
-/* 인풋창 들여쓰기 */
-input[type="mail"] {
-  text-indent: 16px;
-}
-input[type="password"] {
-  text-indent: 16px;
 }
 
 /* 체크박스 스타일 */
@@ -88,22 +78,27 @@ input[type="checkbox"]:checked + label:before {
   background-position: 50%;
 }
 
+/* 자동로그인-비밀번호 찾기 */
 #remember-searchPw {
   color: var(--gray500);
   font-size: 11;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+
+  margin: 20px 0;
 }
 
-#btn-login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+#remember-searchPw > a {
+  color: var(--gray500);
+  text-decoration: none;
+}
 
-  margin: 20px;
+.btn-primary-fill {
+  width: 100%;
+  height: 45px;
+  margin: 5px 0;
 }
 /*  - or - */
 .or {
@@ -111,36 +106,37 @@ input[type="checkbox"]:checked + label:before {
   flex-basis: 100%;
   align-items: center;
   color: var(--gray500);
-  font-size: 16px;
-  margin: 0px 40px;
+  font-size: 13px;
+  margin: 15px 0;
 }
 
-.or::before,
+.or::before {
+  content: "";
+  flex-grow: 1;
+  background: var(--gray500);
+  height: 1.2px;
+  font-size: 0px;
+  line-height: 0px;
+  margin-right: 16px;
+}
+
 .or::after {
   content: "";
   flex-grow: 1;
   background: var(--gray500);
-  height: 1px;
+  height: 1.2px;
   font-size: 0px;
   line-height: 0px;
-  margin: 0px 16px;
+  margin-left: 16px;
 }
 
-#sns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 28px;
-}
-
-/* 카카오 회원가입 */
+/* 카카오 로그인 */
 .ic-kakao {
-  margin-right: 10px;
+  font-size: 16px;
+  margin-right: 12px;
 }
 #kakao {
-  width: 320px;
+  width: 100%;
   height: 40px;
   border: none;
   border-radius: 10px;
@@ -150,6 +146,8 @@ input[type="checkbox"]:checked + label:before {
 
   background-color: #fee500;
   cursor: pointer;
+
+  margin-bottom: 15px;
 }
 
 #kakao:hover {
@@ -160,10 +158,10 @@ input[type="checkbox"]:checked + label:before {
   background-color: #e5cf00;
 }
 
-/* 구글 회원가입 */
+/* 구글 로그인 */
 
 #google {
-  width: 320px;
+  width: 100%;
   height: 40px;
   border: 1px solid var(--gray500);
   border-radius: 10px;
@@ -172,12 +170,13 @@ input[type="checkbox"]:checked + label:before {
   text-align: center;
   background-color: white;
   cursor: pointer;
-  margin-top: 20px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  margin-bottom: 15px;
 }
 
 #google > img {
@@ -192,9 +191,8 @@ input[type="checkbox"]:checked + label:before {
   background-color: #eaeaea;
 }
 
-a {
-  color: var(--gray500);
-  text-decoration: none;
+#google > img {
+  margin-right: 24px;
 }
 
 #join {
@@ -204,5 +202,5 @@ a {
 
 #non-member {
   color: var(--gray500);
-  margin: 15px 35px;
+  margin: 20px 0;
 }

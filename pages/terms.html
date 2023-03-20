@@ -17,7 +17,7 @@
       <header>
         <!-- 로고 -->
         <div>
-          <a href="#">
+          <a href="/index.html">
             <img src="/assets/deVoca-logo.svg" />
           </a>
         </div>
@@ -47,9 +47,9 @@
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
           <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="#">
+            <a href="/pages/FAQ.html">FAQ</a>
+            <a href="/pages/log-in.html">로그인</a>
+            <a href="/pages/terms.html">
               <button class="btn-primary-fill">회원가입</button>
             </a>
           </div>
@@ -59,60 +59,59 @@
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
-        <div id="terms-form">
-          <form>
-            <h1 id="title">약관 동의</h1>
-            <!-- 전체 동의 -->
-            <p>
-              <label>
-                <input type="checkbox" name="all" id="all" />
-                <label for="all"></label>
-                deVoca 이용약관, 개인정보 수집 및 이용, 프로모션 정보
-                수신(선택)에 모두 동의합니다.
-              </label>
-            </p>
+        <div id="terms-box">
+          <form id="terms-form">
+            <h1 id="terms-title">약관 동의</h1>
 
-            <hr id="line" />
+            <label>
+              <input type="checkbox" name="all" id="all" />
+              <label for="all"></label>
+              deVoca 이용약관, 개인정보 수집 및 이용, 프로모션 정보 수신(선택)에
+              모두 동의합니다.
+            </label>
 
-            <!-- 체크박스랑 약관 내용 3개, 추후에 약관 내용 바꿔주어야 함-->
-            <p>
-              <label>
+            <div>
+              <hr id="line" />
+            </div>
+            <div>
+              <label class="terms-derc">
                 <input type="checkbox" name="c1" id="c1" /><label
                   for="c1"
                 ></label>
                 deVoca 이용약관 동의(필수)
               </label>
-            </p>
-            <textarea class="terms-box" readonly>
+
+              <br />
+              <div>
+                <textarea readonly>
 deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 받아보실 수 있습니다. 일부 서비스 (별도 회원 체계로 운영하거나 deVoca 가입 이후 추가 가입하여 이용하는 서비스 등)의 겅우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.
-        </textarea
-            >
-            <p>
-              <label>
+                      </textarea
+                >
+              </div>
+            </div>
+            <br />
+            <div>
+              <label class="terms-derc">
                 <input type="checkbox" name="c2" id="c2" />
                 <label for="c2"></label>
+
                 개인정보 수집 및 이용에 대한 안내(필수)
               </label>
-            </p>
-            <textarea class="terms-box" readonly>
+
+              <br />
+              <div>
+                <textarea readonly>
 deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 받아보실 수 있습니다. 일부 서비스 (별도 회원 체계로 운영하거나 deVoca 가입 이후 추가 가입하여 이용하는 서비스 등)의 겅우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.
-        </textarea
-            >
-            <p>
-              <label>
-                <input type="checkbox" name="c3" id="c3" />
-                <label for="c3"></label>
-                프로모션 정보 수신 동의(선택)
-              </label>
-            </p>
-            <textarea class="terms-box" readonly>
-deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 받아보실 수 있습니다. 일부 서비스 (별도 회원 체계로 운영하거나 deVoca 가입 이후 추가 가입하여 이용하는 서비스 등)의 겅우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.
-            </textarea>
+                      </textarea
+                >
+              </div>
+            </div>
 
             <!-- 취소, 확인 버튼-->
-            <pre>
-              <input id="btn-reset" type="reset" value="취소" />     <input class="btn-primary-fill" type="submit" value="동의" />
-                 </pre>
+            <div id="input-group">
+              <input id="btn-reset" type="reset" value="취소" />
+              <input class="btn-primary-fill" type="submit" value="동의" />
+            </div>
           </form>
         </div>
       </section>
@@ -120,9 +119,9 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
       <!-- 푸터 -->
       <footer class="footer">
         <div>
-          <a href="#">이용약관</a>
-          <a href="#">도움말</a>
-          <a href="#">Contact</a>
+          <a href="/pages/terms-detail.html">이용약관</a>
+          <a href="/pages/FAQ.html">도움말</a>
+          <a href="/pages/inquiry.html">Contact</a>
         </div>
         <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
       </footer>
