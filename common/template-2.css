@@ -185,6 +185,8 @@ input::-webkit-search-results-decoration {
 
   position: fixed;
   margin-top: var(--header-height);
+
+  z-index: var(--nav-sidebar-z-index);
 }
 
 /* nav 영역 */
