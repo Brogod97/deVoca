@@ -18,7 +18,6 @@
 /* 메인 컨텐츠 양옆 사이즈를 맞추기 위한 div */
 .content-main-container {
   width: 100%;
-
   margin: auto;
 }
 
@@ -183,7 +182,8 @@
 }
 
 .voca-modalBox {
-  min-width: 900px;
+  width: 900px;
+  /* min-width: 500px; */
   /* min-height: 800px; */
 
   position: absolute;
@@ -192,9 +192,11 @@
 
   border-radius: 15px;
 
-  padding: 30px 60px 40px 60px;
+  padding: 40px 60px 40px 60px;
 
   overflow: hidden;
+
+  /* z-index: var(--modal-background-z-index); */
 
   /* margin: auto; */
 }
@@ -297,6 +299,11 @@ p {
   outline: none;
   font-size: 32px;
   font-weight: 700;
+}
+
+#voca-read-memo {
+  width: 100%;
+  height: 100%;
 }
 
 .voca-category3 > input {
