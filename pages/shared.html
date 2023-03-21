@@ -15,9 +15,20 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- tagify -->
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <!-- 폴리필 (구버젼 브라우저 지원) -->
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <link
+      href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
     <title>deVoca | 다른 유저들의 공유된 단어 목록을 확인해보세요</title>
   </head>
   <body>
+    <!-- 공용 디자인 영역 - header, navbar, sidebar -->
     <main>
       <!-- 헤더 -->
       <header>
@@ -427,11 +438,13 @@
         </div>
       </div>
     </section>
+
     <!-- 헤더 그림자용 -->
     <aside class="header-shadow"></aside>
+
+    <!-- JS -->
     <script src="/js/google-search.js"></script>
-    <script src="/common/template-2.js"></script>
-    <script src="/common/word-list.js"></script>
+    <!-- <script src="/common/template-2.js"></script> -->
     <script src="/js/shared.js"></script>
   </body>
 </html>
