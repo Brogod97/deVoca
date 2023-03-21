@@ -1,74 +1,68 @@
-/* 뒷 배경 */
+/* TODO: 배경화면 색 조절함 */
 body {
-  background: url(/assets/background-polygon.svg) no-repeat;
+  background-image: url("/assets/background-polygon.svg");
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--gray30);
 }
 
+/* 회원가입 상자 가운데 정렬 */
 .main-content-area {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* 약관 동의 박스 */
-#terms-form {
+/* 회원가입 상자 */
+#terms-box {
   width: 450px;
-  height: 620px;
+  height: auto;
   background-color: white;
   border-radius: 30px;
   box-shadow: var(--login-shadow);
 
-  padding: 20px 20px 20px 20px;
+  padding: 35px 35px;
 }
 
-/* 제목 스타일 */
-#title {
+/* 제목 */
+#terms-title {
   color: var(--primary);
   text-align: center;
+  margin: 20px 0;
 }
 
-/* 라인 스타일 */
+#terms-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #line {
   border: 1px solid var(--primary);
-  width: 400px;
+  margin: 15px 0;
 }
 
-/* 약관 내용 스크롤 바 */
-.terms-box::-webkit-scrollbar {
-  width: 8px;
-}
-.terms-box::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-.terms-box::-webkit-scrollbar-thumb {
-  background-color: var(--gray250);
-  border-radius: 30px;
+/* 체크박스 */
+.terms-derc {
+  display: inline-block;
+  margin: 0 0 10px 0;
 }
 
-/* 이용약관 내용 스타일 */
-.terms-box {
-  width: 380px;
-  height: 80px;
+/*TODO: textarea 내의 글씨체 변경*/
+textarea {
+  font-family: "Pretendard-Regular";
+  color: var(--dark);
+  width: 100%;
+  height: 130px;
   border: 1px solid var(--gray500);
 
   resize: none;
-}
-
-/* 이용약관 내용 포커스 없애고 크기고정 */
-textarea {
   border: 1px solid var(--gray500);
   border-radius: 4px;
   padding: 10px;
-  margin: 0 15px;
 }
 textarea:focus {
   outline: none;
-}
-
-/* 회원약관 박스와 간격 조정 */
-input {
-  margin-left: 15px;
 }
 
 /* 체크박스 스타일 */
@@ -100,11 +94,21 @@ input[type="checkbox"]:checked + label:before {
   background-position: 50%;
 }
 
+/* 버튼 그룹 */
+
+#input-group {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 취소 버튼 */
 #btn-reset {
   width: 100px;
   height: 35px;
-  margin: 12px 20px;
+  margin-right: 40px;
 
   text-align: center;
   line-height: 35px;
@@ -124,18 +128,5 @@ input[type="checkbox"]:checked + label:before {
 }
 
 #btn-reset:hover {
-  background-color: var(--gray250);
-}
-
-/* 취소, 확인 버튼 간격 조정 */
-.btn-primary-fill {
-  margin: 12px 20px;
-}
-p {
-  margin: 13px;
-}
-
-pre {
-  display: flex;
-  justify-content: center;
+  opacity: 0.7;
 }

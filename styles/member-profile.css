@@ -12,6 +12,7 @@
   margin-top: 0px;
   display: flex;
   flex-direction: column;
+
   /* background-color: antiquewhite; */
 }
 
@@ -34,36 +35,36 @@
 .user-info-outbox {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .user-info-area {
   width: 100%;
-  height: 600px;
+  height: 550px;
   display: flex;
   flex-direction: column;
-  /* margin-top: 50px; */
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
   /* background-color: blueviolet; */
 }
 
 /* 프로필사진 시작  */
 .user-img-area {
-  height: 200px;
-  width: 100%;
+  height: 150px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   /* background-color: blue; */
   /* border-right: var(--line); */
 }
 /* 프로필사진 프리뷰 */
-#img-prev {
-  margin-left: 45px;
-  width: 200px;
-  height: 200px;
+#img-thumbnail {
+  width: 150px;
+  height: 150px;
   border-radius: 100px;
   background-color: white;
   overflow: hidden;
@@ -72,25 +73,25 @@
   align-items: center;
 }
 .user-img-area img {
-  width: 220px;
+  width: 180px;
 }
 
 /* 이미지 편집버튼 */
 #img-edit {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   border-radius: 40px;
   background-color: white;
-  position: relative;
-  top: -65px;
-  left: -50px;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--dark);
   box-shadow: var(--login-shadow);
   cursor: pointer;
+  top: 20px;
+  right: 20px;
 }
 
 /* 이미지 편집버튼 호버 */
@@ -102,7 +103,7 @@
 
 /* 정보입력창 시작 */
 .user-info-input-area {
-  height: 450px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   font-size: 16px;
@@ -117,47 +118,53 @@
   position: relative;
 }
 .pw-reg {
-  width: 100%;
+  width: 50%;
   height: 50%;
-
   position: absolute;
-  bottom: 10px;
-  right: -101%;
+
+  top: -10px;
+  left: 17%;
+  font-size: 12px;
 }
 
-.pw-reg > p {
+#pw-reg-text {
   line-height: 40px;
+  font-size: 12px;
 }
 
 .pwcheck-input-box {
   position: relative;
 }
 .pwcheck-reg {
-  width: 100%;
+  width: 50%;
   height: 50%;
-
   position: absolute;
-  bottom: 10px;
-  right: -101%;
+
+  top: -10px;
+  left: 25%;
+  font-size: 12px;
 }
 
-.pwcheck-reg > p {
+#pwcheck-reg-text {
   line-height: 40px;
+  font-size: 12px;
 }
 
 .nm-input-area {
   position: relative;
 }
 .nm-reg {
-  width: 100%;
+  width: 50%;
   height: 50%;
-
   position: absolute;
-  bottom: 10px;
-  right: -101%;
+
+  top: -10px;
+  left: 13%;
+  font-size: 12px;
 }
-.nm-reg > p {
+#nm-reg-text {
   line-height: 40px;
+  font-size: 12px;
 }
 
 /* 영역잡기 div */
@@ -221,9 +228,13 @@
 #withdrawal-btn {
   margin-left: 20px;
   font-size: 16px;
-  color: var(--red);
+  color: var(--dark);
   cursor: pointer;
   display: none;
+}
+
+#withdrawal-btn:hover {
+  color: var(--red);
 }
 #info-change-btn {
   font-size: 16px;
@@ -351,6 +362,7 @@
   height: 30px;
   border: var(--line);
   color: var(--footer-color);
+  line-height: 30px;
 }
 
 #cancle-btn:hover {
@@ -365,6 +377,7 @@
   height: 30px;
   background-color: var(--secondary);
   border-color: var(--secondary);
+  line-height: 30px;
 }
 
 #accept-btn:hover {
@@ -388,8 +401,8 @@
 }
 
 .update-img-modal-box {
-  width: 400px;
-  height: 200px;
+  width: 350px;
+  height: 500px;
   background-color: white;
   box-shadow: var(--word-modal-shadow);
   border-radius: 10px;
@@ -399,29 +412,54 @@
 
 .update-img-modal-inner-box {
   margin: auto;
-  width: 350px;
-  height: 150px;
+  width: 250px;
+  height: 450px;
   display: flex;
   flex-direction: column;
 }
 
 #update-img-modal-title-text {
   margin: 0;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .update-img-modal-title-text-box {
-  flex-basis: 30%;
+  flex-basis: 10%;
+  border-bottom: var(--line);
 }
+
+.update-img-thumbnail-outerbox {
+  flex-basis: 60%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#update-img-thumbnail-innerbox {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray30);
+}
+
+#update-img-thumbnail-innerbox > img {
+  width: 220px;
+}
+
 .update-img-file-input-box {
-  flex-basis: 40%;
+  flex-basis: 10%;
 }
 #update-img-file-input {
   display: inline-block;
   border: none;
 }
 .update-img-cancle-accept-btn-box {
-  flex-basis: 30%;
+  flex-basis: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -429,7 +467,7 @@
 
 .update-img-cancle-accept-btn-box > button {
   display: inline;
-  margin: 10px;
+  margin: 20px;
 }
 
 .update-img-file-input-box {
@@ -438,7 +476,7 @@
 .update-img-file-input-box > label {
   cursor: pointer;
   height: 45px;
-  width: 350px;
+  width: 250px;
   line-height: 45px;
   display: block;
   border: 1px solid var(--footer-color);
@@ -459,11 +497,10 @@
   background-color: var(--secondary);
 }
 
+/* ******************** */
 /* 유효성검사 클래스 */
-.right {
-  color: var(--primary);
-}
 
 .wrong {
   color: var(--red);
 }
+/* ******************** */

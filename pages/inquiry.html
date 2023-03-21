@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-1.css" />
     <link rel="stylesheet" href="/styles/inquiry.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>문의하기</title>
   </head>
   <body>
@@ -60,11 +59,13 @@
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
+        <div id="collect">
         <div id="blank"></div>
+     
         <div class="menu">
           <div class="texttitle"><span id = "quetitle">문의하기</span></div>
-      <div> <span id = quetext>deVoca를 이용해주셔서 감사합니다.<br>
-  사용하시면서 발생한 불편사항을 저희에게 알려주세요 🐝 </span></div>
+      <span id = quetext>deVoca를 이용해주셔서 감사합니다.<br>
+  사용하시면서 발생한 불편사항을 저희에게 알려주세요 🐝 </span>
 
 <table id="table">
 
@@ -94,18 +95,21 @@
   <th></th>
   <td>
       <div class="titlename"> 문의 유형</div>
-      <div class="selc">
-       
+  
+      <div class="selectBox">
+        <div class="select-wrap">
       <select id="selc">
+       
           <option value="a">abcdefg</option>
           <option value="b">bcdefgh</option>
           <option value="c">cdefghi</option>
           <option value="d">defghij</option>
           <option selected></option>
-          
+        
       </select>
-      <i class="fa-solid fa-angle-down" id="arrow"></i>
+      <div class="select__arrow"></div>
     </div>
+  
   </td>
 </tr>
 
@@ -128,8 +132,8 @@
   문의하기
 </button>
 
-
-</div>    
+</div>
+</div>
       </section>
 
       <!-- 푸터 -->

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/common/template-1.css" />
     <link rel="stylesheet" href="/styles/signup.css" />
 
-    <title>deVoca - 회원가입</title>
+    <title>deVoca - 회원 가입</title>
   </head>
   <body>
     <body>
@@ -17,7 +17,7 @@
       <header>
         <!-- 로고 -->
         <div>
-          <a href="#">
+          <a href="/index.html">
             <img src="/assets/deVoca-logo.svg" />
           </a>
         </div>
@@ -47,9 +47,9 @@
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
           <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="#">
+            <a href="/pages/FAQ.html">FAQ</a>
+            <a href="/pages/log-in.html">로그인</a>
+            <a href="/pages/terms.html">
               <button class="btn-primary-fill">회원가입</button>
             </a>
           </div>
@@ -59,12 +59,12 @@
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
-        <div id="join-box">
+        <div id="sign-up-box">
           <form>
-            <h1 id="title">회원 가입</h1>
+            <h1 id="sign-up-title">회원 가입</h1>
 
             <!-- 인풋창 묶음 -->
-            <div id="input">
+            <div id="input-group">
               <div id="uName">
                 <i class="ic-login-circle-default"></i>
                 <input
@@ -108,9 +108,7 @@
 
             <div id="already-id">
               <p id="already-text">
-                이미 계정이 있으신가요?<a href="/pages/log-in.html" id="login"
-                  >로그인</a
-                >
+                이미 계정이 있으신가요?<a href="/pages/log-in.html">로그인</a>
               </p>
             </div>
 
@@ -132,9 +130,9 @@
       <!-- 푸터 -->
       <footer class="footer">
         <div>
-          <a href="#">이용약관</a>
-          <a href="#">도움말</a>
-          <a href="#">Contact</a>
+          <a href="/pages/terms-detail.html">이용약관</a>
+          <a href="/pages/FAQ.html">도움말</a>
+          <a href="/pages/inquiry.html">Contact</a>
         </div>
         <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
       </footer>
