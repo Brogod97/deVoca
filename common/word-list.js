@@ -63,8 +63,7 @@ categoryAdd.addEventListener("click", function () {
   categoryBtn.classList.add("category-delete");
   categoryBtn.setAttribute("type", "submit");
   const categoryI = document.createElement("i");
-  categoryI.classList.add("fa-solid");
-  categoryI.classList.add("fa-x");
+  categoryI.classList.add("ic-close");
 
   categoryLi.append(categoryA, categoryBtn);
   categoryA.append(categoryInput);
@@ -94,6 +93,18 @@ categoryAdd.addEventListener("click", function () {
         }
       }
     }
+  });
+
+  // 인풋창 focus가 해제 되었을때도 내가 입력한 값이 그대로 나오는 이벤트
+  categoryInput.addEventListener("blur", function () {
+    this.setAttribute("readonly", "true");
+    this.style.border = "none";
+    this.style.outline = "none";
+    this.style.backgroundColor = "transparent";
+    this.style.fontSize = "16px";
+    this.style.fontWeight = "700";
+    this.style.cursor = "pointer";
+    categoryA.append = this.value;
   });
 
   // 편집시 카테고리 제목 바꿀수 있게 하는 이벤트

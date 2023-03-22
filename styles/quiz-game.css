@@ -10,6 +10,10 @@
   align-items: center !important;
 }
 
+.quiz-content-area {
+  margin: auto;
+}
+
 .quiz-header {
   display: flex;
   flex-direction: column;
@@ -30,7 +34,6 @@
 }
 
 .quiz-content {
-  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
