@@ -117,6 +117,16 @@
   position: relative;
 }
 
+/* 인풋 플레이스 홀더 사이즈 */
+
+#pw-input::placeholder {
+  font-size: 12px;
+}
+
+#nm-input::placeholder {
+  font-size: 12px;
+}
+
 /* 유효성 검사 */
 
 .pw-input-box {
@@ -191,7 +201,7 @@
   border: var(--line);
   border-radius: 5px;
   font-size: 16px;
-  text-indent: 0.5em;
+  text-indent: 10px;
 }
 
 /* 인풋 포커스 */
