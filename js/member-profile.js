@@ -152,7 +152,7 @@ updateImgAcceptBtn.addEventListener("click", () => {
 // 유효성 검사
 
 // 비밀번호 유효성검사
-pwInput.addEventListener("focusout", () => {
+pwInput.addEventListener("keyup", () => {
   const pwReg = document.getElementById("pw-reg-text");
   const regEx =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
@@ -162,30 +162,36 @@ pwInput.addEventListener("focusout", () => {
     pwReg.innerText = "";
     pwReg.classList.remove("wrong");
     pwInput.style.borderColor = "var(--primary)";
+    pwicon.classList.add("ic-lock-active");
+    pwicon.classList.remove("ic-lock-wrong");
   } else {
     pwReg.innerText = "사용불가능한 비밀번호입니다.";
     pwReg.classList.add("wrong");
     pwInput.style.borderColor = "var(--red)";
+    pwicon.classList.add("ic-lock-wrong");
   }
 });
 
 // 비밀번호 확인 유효성검사
-pwcheckInput.addEventListener("focusout", () => {
+pwcheckInput.addEventListener("keyup", () => {
   const pwCheckReg = document.getElementById("pwcheck-reg-text");
 
   if (pwInput.value == pwcheckInput.value) {
     pwCheckReg.innerText = "";
     pwCheckReg.classList.remove("wrong");
     pwcheckInput.style.borderColor = "var(--primary)";
+    pwcheckicon.classList.add("ic-lock-active");
+    pwcheckicon.classList.remove("ic-lock-wrong");
   } else {
     pwCheckReg.innerText = "비밀번호가 일치하지않습니다.";
     pwCheckReg.classList.add("wrong");
     pwcheckInput.style.borderColor = "var(--red)";
+    pwcheckicon.classList.add("ic-lock-wrong");
   }
 });
 
 // 닉네임 확인 유효성 검사
-nmInput.addEventListener("focusout", () => {
+nmInput.addEventListener("keyup", () => {
   //TODO: DB 중복 닉네임 확인
   const regEx = /[가-힣|a-z|A-Z]{2,10}/;
   const nmReg = document.getElementById("nm-reg-text");
