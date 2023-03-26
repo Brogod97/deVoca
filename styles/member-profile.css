@@ -12,6 +12,8 @@
   margin-top: 0px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   /* background-color: antiquewhite; */
 }
@@ -35,6 +37,10 @@
 .user-info-outbox {
   width: 100%;
   height: 100%;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-info-area {
@@ -44,7 +50,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
 
   /* background-color: blueviolet; */
 }
@@ -359,7 +364,7 @@
 
 #cancle-btn {
   width: 80px;
-  height: 30px;
+  height: 35px;
   border: var(--line);
   color: var(--footer-color);
   line-height: 30px;
@@ -374,7 +379,7 @@
 #accept-btn {
   margin-left: 15px;
   width: 120px;
-  height: 30px;
+  height: 35px;
   background-color: var(--secondary);
   border-color: var(--secondary);
   line-height: 30px;
