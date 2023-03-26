@@ -1,450 +1,538 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/common/template-2.css" />
-    <link rel="stylesheet" href="/common/word-list.css" />
-    <link rel="stylesheet" href="/styles/shared.css" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles/main.css" />
+        <link rel="stylesheet" href="/common/template-2.css" />
+        <link rel="stylesheet" href="/common/word-list.css" />
+        <link rel="stylesheet" href="/styles/shared.css" />
 
-    <!-- font-awesome -->
-    <script
-      src="https://kit.fontawesome.com/5d7e6e936d.js"
-      crossorigin="anonymous"
-    ></script>
+        <!-- font-awesome -->
+        <script
+            src="https://kit.fontawesome.com/5d7e6e936d.js"
+            crossorigin="anonymous"
+        ></script>
 
-    <!-- tagify -->
-    <script src="https://unpkg.com/@yaireo/tagify"></script>
-    <!-- 폴리필 (구버젼 브라우저 지원) -->
-    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-    <link
-      href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+        <!-- tagify -->
+        <script src="https://unpkg.com/@yaireo/tagify"></script>
+        <!-- 폴리필 (구버젼 브라우저 지원) -->
+        <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <link
+            href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
+            rel="stylesheet"
+            type="text/css"
+        />
 
-    <title>deVoca | 다른 유저들의 공유된 단어 목록을 확인해보세요</title>
-  </head>
-  <body>
-    <!-- 공용 디자인 영역 - header, navbar, sidebar -->
-    <main>
-      <!-- 헤더 -->
-      <header>
-        <!-- 로고 -->
-        <div>
-          <a href="/pages/mainPage.html">
-            <img src="/assets/deVoca-logo.svg" />
-          </a>
-        </div>
-        <!-- 공백 -->
-        <div></div>
-        <!-- 헤더 우측 영역 -->
-        <div>
-          <!-- 구글-검색창 -->
-          <div class="google-search">
-            <fieldset>
-              <img src="/assets/google-logo.png" class="google-img" />
-              <input
-                type="search"
-                id="google-search-input"
-                name="google-search-input"
-                autocomplete="off"
-                placeholder="Google Search"
-              />
-            </fieldset>
-            <button
-              type="button"
-              class="google-search-btn"
-              id="google-search-btn"
-            >
-              <img src="/assets/search.svg" class="google-search-img" />
-            </button>
-          </div>
-          <!-- FAQ / 로그인 / 회원가입 -->
-          <div class="faq-login-signup">
-            <a href="/pages/FAQ.html">FAQ</a>
-            <a href="/pages/log-in.html">로그인</a>
-            <a href="/pages/signup.html">
-              <button class="btn-primary-fill">회원가입</button>
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <!-- 바디 -->
-      <!-- nav + sidebar 컨테이너 -->
-      <section class="container">
-        <!-- nav바 -->
-        <nav class="nav-bar">
-          <section>
-            <a href="/pages/member-profile.html">
-              <img id="profile-icon" src="/assets/profile.svg" />
-            </a>
-            <a href="/pages/mainPage.html">
-              <img src="/assets/voca.svg" />
-            </a>
-            <a href="/pages/quiz-main.html">
-              <img src="/assets/quiz.svg" />
-            </a>
-            <a href="/pages/shared.html">
-              <img src="/assets/shared.svg" />
-            </a>
-          </section>
-          <section>
-            <a href="/index.html">
-              <img src="/assets/logout.svg" />
-            </a>
-          </section>
-        </nav>
-
-        <!-- 서치&카테고리 -->
-        <section class="side-bar">
-          <!-- 단어장 서치바 -->
-          <section class="sidebar-search-area">
-            <div class="sidebar-search">
-              <form action="#" name="voca-search-form">
-                <input
-                  type="search"
-                  id="voca-search-input"
-                  name="voca-search-input"
-                  placeholder="유저명 입력"
-                  autocomplete="off"
-                />
-                <button>
-                  <img src="/assets/search.svg" class="voca-search-img" />
-                </button>
-              </form>
-            </div>
-          </section>
-          <div class="line"></div>
-
-          <div class="btn-primary-fill btn-long">퀴즈 시작</div>
-
-          <div class="line"></div>
-          <!-- 카테고리 -->
-          <section class="category-container">
-            <div class="category-header">
-              <h3>회원 목록</h3>
-            </div>
-
-            <div class="member-list-area">
-              <ul class="member-list">
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/user-profile.png" />
-                  </div>
-                  <span class="member-nickname">Zino</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/default-user-img.png" />
-                  </div>
-                  <span class="member-nickname">겁쟁이 라이놀즈</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/shared-page/user-profile1.jpg" />
-                  </div>
-                  <span class="member-nickname">보라돌이</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/shared-page/user-profile2.jpg" />
-                  </div>
-                  <span class="member-nickname">뚜비</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/default-user-img.png" />
-                  </div>
-                  <span class="member-nickname">기예르모 델 토로</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/default-user-img.png" />
-                  </div>
-                  <span class="member-nickname">번듯한 오크</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/shared-page/user-profile3.jpg" />
-                  </div>
-                  <span class="member-nickname">나나</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/shared-page/user-profile4.jpg" />
-                  </div>
-                  <span class="member-nickname">뽀</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/default-user-img.png" />
-                  </div>
-                  <span class="member-nickname">다아시</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/default-user-img.png" />
-                  </div>
-                  <span class="member-nickname">엘리자베스 베넷</span>
-                </li>
-                <li class="member">
-                  <div class="member-thumbnail">
-                    <img src="/assets/default-user-img.png" />
-                  </div>
-                  <span class="member-nickname">찬호박</span>
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-      </section>
-    </main>
-
-    <!-- 메인 콘텐츠 영역 -->
-    <section class="main-content-area">
-      <!-- 공유된 유저의 카테고리 및 단어 조회 -->
-      <div class="shared-container">
-        <div class="shared-header-area">
-          <h2>
-            <span id="shared-user-name">Zino</span>
-            <span>
-              님의 공유된 단어 리스트
-              <div class="flying-bee">
-                <img src="/assets/shared-page/shared-flying-bee.svg" /></div
-            ></span>
-          </h2>
-        </div>
-
-        <div class="line"></div>
-
-        <div class="shared-category-area">
-          <ul class="shared-category-list">
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Java</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc active"></i>
-              <span class="category-title">JavaScript</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-            <li class="shared-category">
-              <i class="ic-hive-cc"></i>
-              <span class="category-title">Python</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="line"></div>
-
-        <div class="shared-voca-list-area">
-          <div class="word-list">
-            <div class="content-main">
-              <!-- 단어장 조회 헤더 -->
-
-              <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
-              <div>
-                <h2>JAVA</h2>
-              </div>
-              <div class="content-main-imgs">
-                <!-- 즐겨찾기 및 순서정렬 메뉴-->
-                <button class="content-main-btn1">
-                  <img src="/assets/voca-order.svg" class="menu-openBtn" />
-                  <div class="voca-menu-modal menu-hidden">
-                    <div class="voca-menu-bg"></div>
-                    <div class="voca-menu-modalBox">
-                      <div>즐겨찾기</div>
-                      <div>체크된 단어</div>
-                      <div>미체크된 단어</div>
+        <title>deVoca | 다른 유저들의 공유된 단어 목록을 확인해보세요</title>
+    </head>
+    <body>
+        <!-- 공용 디자인 영역 - header, navbar, sidebar -->
+        <main>
+            <!-- 헤더 -->
+            <header>
+                <!-- 로고 -->
+                <div>
+                    <a href="/pages/mainPage.html">
+                        <img src="/assets/deVoca-logo.svg" />
+                    </a>
+                </div>
+                <!-- 공백 -->
+                <div></div>
+                <!-- 헤더 우측 영역 -->
+                <div>
+                    <!-- 구글-검색창 -->
+                    <div class="google-search">
+                        <fieldset>
+                            <img
+                                src="/assets/google-logo.png"
+                                class="google-img"
+                            />
+                            <input
+                                type="search"
+                                id="google-search-input"
+                                name="google-search-input"
+                                autocomplete="off"
+                                placeholder="Google Search"
+                            />
+                        </fieldset>
+                        <button
+                            type="button"
+                            class="google-search-btn"
+                            id="google-search-btn"
+                        >
+                            <img
+                                src="/assets/search.svg"
+                                class="google-search-img"
+                            />
+                        </button>
                     </div>
-                  </div>
-                  <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
-                </button>
-                <!-- 새 단어 추가 버튼 -->
-                <button class="content-main-btn2 addOpenBtn">
-                  <img src="/assets/plus.svg" />
-                </button>
-              </div>
+                    <!-- FAQ / 로그인 / 회원가입 -->
+                    <div class="faq-login-signup">
+                        <a href="/pages/FAQ.html">FAQ</a>
+                        <a href="/pages/log-in.html">로그인</a>
+                        <a href="/pages/signup.html">
+                            <button class="btn-primary-fill">회원가입</button>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 바디 -->
+            <!-- nav + sidebar 컨테이너 -->
+            <section class="container">
+                <!-- nav바 -->
+                <nav class="nav-bar">
+                    <section>
+                        <a href="/pages/member-profile.html">
+                            <img id="profile-icon" src="/assets/profile.svg" />
+                        </a>
+                        <a href="/pages/mainPage.html">
+                            <img src="/assets/voca.svg" />
+                        </a>
+                        <a href="/pages/quiz-main.html">
+                            <img src="/assets/quiz.svg" />
+                        </a>
+                        <a href="/pages/shared.html">
+                            <img src="/assets/shared.svg" />
+                        </a>
+                    </section>
+                    <section>
+                        <a href="/index.html">
+                            <img src="/assets/logout.svg" />
+                        </a>
+                    </section>
+                </nav>
+
+                <!-- 서치&카테고리 -->
+                <section class="side-bar">
+                    <!-- 단어장 서치바 -->
+                    <section class="sidebar-search-area">
+                        <div class="sidebar-search">
+                            <form action="#" name="voca-search-form">
+                                <input
+                                    type="search"
+                                    id="voca-search-input"
+                                    name="voca-search-input"
+                                    placeholder="유저명 입력"
+                                    autocomplete="off"
+                                />
+                                <button>
+                                    <img
+                                        src="/assets/search.svg"
+                                        class="voca-search-img"
+                                    />
+                                </button>
+                            </form>
+                        </div>
+                    </section>
+                    <div class="line"></div>
+
+                    <div class="btn-primary-fill btn-long">퀴즈 시작</div>
+
+                    <div class="line"></div>
+                    <!-- 카테고리 -->
+                    <section class="category-container">
+                        <div class="category-header">
+                            <h3>회원 목록</h3>
+                        </div>
+
+                        <div class="member-list-area">
+                            <ul class="member-list">
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img src="/assets/user-profile.png" />
+                                    </div>
+                                    <span class="member-nickname">Zino</span>
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/default-user-img.png"
+                                        />
+                                    </div>
+                                    <span class="member-nickname"
+                                        >겁쟁이 라이놀즈</span
+                                    >
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/shared-page/user-profile1.jpg"
+                                        />
+                                    </div>
+                                    <span class="member-nickname"
+                                        >보라돌이</span
+                                    >
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/shared-page/user-profile2.jpg"
+                                        />
+                                    </div>
+                                    <span class="member-nickname">뚜비</span>
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/default-user-img.png"
+                                        />
+                                    </div>
+                                    <span class="member-nickname"
+                                        >기예르모 델 토로</span
+                                    >
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/default-user-img.png"
+                                        />
+                                    </div>
+                                    <span class="member-nickname"
+                                        >번듯한 오크</span
+                                    >
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/shared-page/user-profile3.jpg"
+                                        />
+                                    </div>
+                                    <span class="member-nickname">나나</span>
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/shared-page/user-profile4.jpg"
+                                        />
+                                    </div>
+                                    <span class="member-nickname">뽀</span>
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/default-user-img.png"
+                                        />
+                                    </div>
+                                    <span class="member-nickname">다아시</span>
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/default-user-img.png"
+                                        />
+                                    </div>
+                                    <span class="member-nickname"
+                                        >엘리자베스 베넷</span
+                                    >
+                                </li>
+                                <li class="member">
+                                    <div class="member-thumbnail">
+                                        <img
+                                            src="/assets/default-user-img.png"
+                                        />
+                                    </div>
+                                    <span class="member-nickname">찬호박</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+            </section>
+        </main>
+
+        <!-- 메인 콘텐츠 영역 -->
+        <section class="main-content-area">
+            <!-- 공유된 유저의 카테고리 및 단어 조회 -->
+            <div class="shared-container">
+                <div class="shared-header-area">
+                    <h2>
+                        <span id="shared-user-name">Zino</span>
+                        <span>
+                            님의 공유된 단어 리스트
+                            <div class="flying-bee">
+                                <img
+                                    src="/assets/shared-page/shared-flying-bee.svg"
+                                /></div
+                        ></span>
+                    </h2>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="shared-category-area">
+                    <ul class="shared-category-list">
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Java</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">JavaScript</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                        <li class="shared-category">
+                            <i class="ic-hive-cc"></i>
+                            <span class="category-title">Python</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="shared-voca-list-area">
+                    <div class="word-list">
+                        <div class="content-main">
+                            <!-- 단어장 조회 헤더 -->
+
+                            <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
+                            <div>
+                                <h2>JAVA</h2>
+                            </div>
+                            <div class="content-main-imgs">
+                                <!-- 즐겨찾기 및 순서정렬 메뉴-->
+                                <button class="content-main-btn1">
+                                    <img
+                                        src="/assets/voca-order.svg"
+                                        class="menu-openBtn"
+                                    />
+                                    <div class="voca-menu-modal menu-hidden">
+                                        <div class="voca-menu-bg"></div>
+                                        <div class="voca-menu-modalBox">
+                                            <div>즐겨찾기</div>
+                                            <div>체크된 단어</div>
+                                            <div>미체크된 단어</div>
+                                        </div>
+                                    </div>
+                                    <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
+                                </button>
+                                <!-- 새 단어 추가 버튼 -->
+                                <button class="content-main-btn2 addOpenBtn">
+                                    <img src="/assets/plus.svg" />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="content-main-line"></div>
+
+                        <!-- 단어 조회 모달 시작 -->
+                        <div class="modal hidden">
+                            <div class="bg"></div>
+                            <div class="voca-modalBox">
+                                <div class="voca-category1">
+                                    <div class="voca-category-tag">SQL</div>
+                                    <div class="voca-category-btns">
+                                        <button class="voca-modify">
+                                            수정
+                                        </button>
+                                        <button class="voca-delete">
+                                            삭제
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="voca-category2">
+                                    <input id="voca-read-title" readonly />
+                                </div>
+                                <div class="voca-category3">
+                                    <span></span>
+                                </div>
+                                <div class="voca-category4">
+                                    <img src="/assets/memo.svg" alt="" />
+                                    정의
+                                </div>
+                                <div class="voca-content1">
+                                    <input id="voca-read-definition" readonly />
+                                </div>
+                                <div class="voca-category5">
+                                    <img src="/assets/define.svg" alt="" />
+                                    메모
+                                </div>
+                                <div class="voca-content2">
+                                    <textarea
+                                        id="voca-read-memo"
+                                        readonly
+                                    ></textarea>
+                                </div>
+                                <div class="voca-category6">
+                                    <img src="/assets/code-block.svg" alt="" />
+                                    코드블럭
+                                </div>
+                                <div class="voca-code-block-area">
+                                    <textarea
+                                        name="voca-code-block"
+                                        id="voca-code-block"
+                                    ></textarea>
+                                </div>
+                                <div>
+                                    <button class="modify-btn">수정완료</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 단어 조회 모달 끝 -->
+
+                        <div class="content-main-text">
+                            <div class="content-main-text-flex">
+                                <div>
+                                    <button>
+                                        <img
+                                            src="/assets/check-empty.svg"
+                                        /></button
+                                    ><button class="openBtn">
+                                        Test Method Name
+                                    </button>
+                                </div>
+                                <div>
+                                    <button>
+                                        <img
+                                            src="/assets/star-empty.svg"
+                                        /></button
+                                    ><button>
+                                        <img src="/assets/chevron.svg" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="content-main-add-line"></div>
+                            <div class="content-main-text-flex">
+                                <div>
+                                    <button>
+                                        <img
+                                            src="/assets/check-empty.svg"
+                                        /></button
+                                    ><button class="openBtn">
+                                        Test Method Name2
+                                    </button>
+                                </div>
+                                <div>
+                                    <button>
+                                        <img
+                                            src="/assets/star-empty.svg"
+                                        /></button
+                                    ><button>
+                                        <img src="/assets/chevron.svg" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="content-main-add-line"></div>
+                        </div>
+
+                        <!-- 단어 추가 모달 시작 -->
+                        <div class="addModal hidden">
+                            <div class="addBg"></div>
+                            <div class="voca-modalBox">
+                                <form action="#" method="post" id="voca-form">
+                                    <div class="voca-category1">
+                                        <div class="voca-category-tag">SQL</div>
+                                    </div>
+                                    <div class="voca-category2">
+                                        <input
+                                            type="text"
+                                            placeholder="메소드명을 입력해주세요"
+                                            name="voca-title"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="voca-category3">
+                                        <input
+                                            type="text"
+                                            placeholder="#태그를 입력하세요"
+                                            name="basic"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div class="voca-category4">
+                                        <img src="/assets/memo.svg" alt="" />
+                                        정의
+                                    </div>
+                                    <div class="voca-content1">
+                                        <input
+                                            type="text"
+                                            name="voca-definition"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="voca-category5">
+                                        <img src="/assets/define.svg" alt="" />
+                                        메모
+                                    </div>
+                                    <div class="voca-content2">
+                                        <textarea
+                                            name="voca-memo"
+                                            id="voca-memo"
+                                        ></textarea>
+                                    </div>
+                                    <div class="voca-category6">
+                                        <img
+                                            src="/assets/code-block.svg"
+                                            alt=""
+                                        />
+                                        코드블럭
+                                    </div>
+                                    <div class="voca-code-block-area">
+                                        <textarea
+                                            name="voca-code-block"
+                                            id="voca-code-block"
+                                        ></textarea>
+                                    </div>
+                                    <div class="voca-modal-btn">
+                                        <button
+                                            onclick="addClose()"
+                                            class="btn-primary-line"
+                                        >
+                                            나가기
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-save"
+                                            id="voca-save"
+                                        >
+                                            저장
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 단어 추가 모달 끝 -->
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="content-main-line"></div>
+        <!-- 헤더 그림자용 -->
+        <aside class="header-shadow"></aside>
 
-            <!-- 단어 조회 모달 시작 -->
-            <div class="modal hidden">
-              <div class="bg"></div>
-              <div class="voca-modalBox">
-                <div class="voca-category1">
-                  <div class="voca-category-tag">SQL</div>
-                  <div class="voca-category-btns">
-                    <button class="voca-modify">수정</button>
-                    <button class="voca-delete">삭제</button>
-                  </div>
-                </div>
-                <div class="voca-category2">
-                  <input id="voca-read-title" readonly />
-                </div>
-                <div class="voca-category3">
-                  <span></span>
-                </div>
-                <div class="voca-category4">
-                  <img src="/assets/memo.svg" alt="" />
-                  정의
-                </div>
-                <div class="voca-content1">
-                  <input id="voca-read-definition" readonly />
-                </div>
-                <div class="voca-category5">
-                  <img src="/assets/define.svg" alt="" />
-                  메모
-                </div>
-                <div class="voca-content2">
-                  <textarea id="voca-read-memo" readonly></textarea>
-                </div>
-                <div class="voca-category6">
-                  <img src="/assets/code-block.svg" alt="" />
-                  코드블럭
-                </div>
-                <div class="voca-code-block-area">
-                  <textarea
-                    name="voca-code-block"
-                    id="voca-code-block"
-                  ></textarea>
-                </div>
-                <div>
-                  <button class="modify-btn">수정완료</button>
-                </div>
-              </div>
-            </div>
-            <!-- 단어 조회 모달 끝 -->
-
-            <div class="content-main-text">
-              <div class="content-main-text-flex">
-                <div>
-                  <button><img src="/assets/check-empty.svg" /></button
-                  ><button class="openBtn">Test Method Name</button>
-                </div>
-                <div>
-                  <button><img src="/assets/star-empty.svg" /></button
-                  ><button><img src="/assets/chevron.svg" /></button>
-                </div>
-              </div>
-              <div class="content-main-add-line"></div>
-              <div class="content-main-text-flex">
-                <div>
-                  <button><img src="/assets/check-empty.svg" /></button
-                  ><button class="openBtn">Test Method Name2</button>
-                </div>
-                <div>
-                  <button><img src="/assets/star-empty.svg" /></button
-                  ><button><img src="/assets/chevron.svg" /></button>
-                </div>
-              </div>
-              <div class="content-main-add-line"></div>
-            </div>
-
-            <!-- 단어 추가 모달 시작 -->
-            <div class="addModal hidden">
-              <div class="addBg"></div>
-              <div class="voca-modalBox">
-                <form action="#" method="post" id="voca-form">
-                  <div class="voca-category1">
-                    <div class="voca-category-tag">SQL</div>
-                  </div>
-                  <div class="voca-category2">
-                    <input
-                      type="text"
-                      placeholder="메소드명을 입력해주세요"
-                      name="voca-title"
-                      required
-                    />
-                  </div>
-                  <div class="voca-category3">
-                    <input
-                      type="text"
-                      placeholder="#태그를 입력하세요"
-                      name="basic"
-                      required
-                    />
-                  </div>
-
-                  <div class="voca-category4">
-                    <img src="/assets/memo.svg" alt="" />
-                    정의
-                  </div>
-                  <div class="voca-content1">
-                    <input type="text" name="voca-definition" required />
-                  </div>
-                  <div class="voca-category5">
-                    <img src="/assets/define.svg" alt="" />
-                    메모
-                  </div>
-                  <div class="voca-content2">
-                    <textarea name="voca-memo" id="voca-memo"></textarea>
-                  </div>
-                  <div class="voca-category6">
-                    <img src="/assets/code-block.svg" alt="" />
-                    코드블럭
-                  </div>
-                  <div class="voca-code-block-area">
-                    <textarea
-                      name="voca-code-block"
-                      id="voca-code-block"
-                    ></textarea>
-                  </div>
-                  <div class="voca-modal-btn">
-                    <button onclick="addClose()" class="btn-primary-line">
-                      나가기
-                    </button>
-                    <button type="button" class="btn-save" id="voca-save">
-                      저장
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <!-- 단어 추가 모달 끝 -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 헤더 그림자용 -->
-    <aside class="header-shadow"></aside>
-
-    <!-- JS -->
-    <script src="/js/google-search.js"></script>
-    <script src="/common/word-list.js"></script>
-    <script src="/js/shared.js"></script>
-  </body>
+        <!-- JS -->
+        <script src="/js/google-search.js"></script>
+        <script src="/common/word-list.js"></script>
+        <script src="/js/shared.js"></script>
+    </body>
 </html>
