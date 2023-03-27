@@ -234,13 +234,13 @@
 }
 
 /* 회원탈퇴 & 정보편집버튼 영역*/
-.withdrawal-area {
+.secession-area {
   display: flex;
   width: 400px;
   height: 16px;
   justify-content: end;
 }
-#withdrawal-btn {
+#secession-btn {
   margin-left: 20px;
   font-size: 16px;
   color: var(--dark);
@@ -248,7 +248,7 @@
   display: none;
 }
 
-#withdrawal-btn:hover {
+#secession-btn:hover {
   color: var(--red);
 }
 #info-change-btn {
@@ -291,7 +291,7 @@
 }
 
 /* 회원 탈퇴 모달창 */
-.withdrawal-modal {
+.secession-modal {
   display: none;
   position: absolute;
   width: calc(100% - 380px);
@@ -299,13 +299,13 @@
   justify-content: center;
   align-items: center;
 }
-.withdrawal-modal-window {
+.secession-modal-window {
   width: 100%;
   height: 100%;
   backdrop-filter: blur(2px);
 }
 
-.withdrawal-modal-box {
+.secession-modal-box {
   width: 400px;
   height: 200px;
   background-color: white;
@@ -316,17 +316,17 @@
 }
 
 /* 박스 내부 영역잡기 div */
-.withdrawal-modal-inner-box {
+.secession-modal-inner-box {
   margin: auto;
   width: 350px;
   height: 150px;
 }
 
-#withdrawal-modal-title-box {
+#secession-modal-title-box {
   margin-bottom: 10px;
 }
 /* 회원탈퇴 글씨 */
-#withdrawal-modal-title-text {
+#secession-modal-title-text {
   margin: 0 0 0 5px;
   display: inline;
 }

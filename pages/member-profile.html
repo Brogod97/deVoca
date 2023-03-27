@@ -248,7 +248,7 @@
           <p>회원 정보</p>
         </div>
         <div class="user-info-outbox">
-          <form action="#">
+          <form action="#" method="POST">
             <!-- 회원 정보 영역 -->
             <div class="user-info-area">
               <!-- 프로필사진 영역 -->
@@ -328,8 +328,8 @@
                     </div>
                   </div>
                   <!-- 회원탈퇴  영역 -->
-                  <div class="withdrawal-area">
-                    <span id="withdrawal-btn">회원탈퇴</span>
+                  <div class="secession-area">
+                    <span id="secession-btn">회원탈퇴</span>
                   </div>
                 </div>
               </div>
@@ -359,21 +359,21 @@
       </div>
 
       <!--회원탈퇴 모달창 -->
-      <div class="withdrawal-modal">
-        <div class="withdrawal-modal-window"></div>
-        <div class="withdrawal-modal-box">
+      <div class="secession-modal">
+        <div class="secession-modal-window"></div>
+        <div class="secession-modal-box">
           <!-- 박스 내부 영역잡기 div -->
-          <div class="withdrawal-modal-inner-box">
-            <div id="withdrawal-modal-title-box">
+          <div class="secession-modal-inner-box">
+            <div id="secession-modal-title-box">
               <span>
                 <i class="ic-warning"></i>
-                <h3 id="withdrawal-modal-title-text">회원탈퇴</h3>
+                <h3 id="secession-modal-title-text">회원탈퇴</h3>
               </span>
             </div>
             <div id="check-sentence-box">
               <h4 id="check-sentence-text">정말로 탈퇴 하시겠습니까?</h4>
             </div>
-            <form action="#">
+            <form action="#" method="POST">
               <div id="now-pw-box">
                 <div class="icon-position-box-modal">
                   <i class="ic-lock"></i>
@@ -409,38 +409,41 @@
             <div class="update-img-modal-title-text-box">
               <h2 id="update-img-modal-title-text">프로필 사진 변경</h2>
             </div>
+
             <div class="update-img-thumbnail-outerbox">
               <div id="update-img-thumbnail-innerbox">
                 <img src="/assets/user-profile.png" alt="변경 프로필 사진" />
               </div>
             </div>
-            <div class="update-img-file-input-box">
-              <label for="update-img-file-input" class="btn-primary-fill"
-                >프로필 변경하기</label
-              >
-              <input
-                type="file"
-                id="update-img-file-input"
-                accept="image/jpeg,.png"
-                required
-              />
-            </div>
-            <div class="update-img-cancle-accept-btn-box">
-              <button
-                type="button"
-                id="update-img-cancle-btn"
-                class="btn-primary-line"
-              >
-                취소
-              </button>
-              <button
-                type="button"
-                id="update-img-accept-btn"
-                class="btn-primary-fill"
-              >
-                저장
-              </button>
-            </div>
+            <form action="#" method="GET">
+              <div class="update-img-file-input-box">
+                <label for="update-img-file-input" class="btn-primary-fill"
+                  >프로필 변경하기</label
+                >
+                <input
+                  type="file"
+                  id="update-img-file-input"
+                  accept="image/jpeg,.png"
+                  required
+                />
+              </div>
+              <div class="update-img-cancle-accept-btn-box">
+                <button
+                  type="button"
+                  id="update-img-cancle-btn"
+                  class="btn-primary-line"
+                >
+                  취소
+                </button>
+                <button
+                  type="button"
+                  id="update-img-accept-btn"
+                  class="btn-primary-fill"
+                >
+                  저장
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
