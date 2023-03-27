@@ -15,7 +15,7 @@ body {
 /* 회원 가입 박스 */
 #sign-up-box {
   width: 590px;
-  height: auto;
+  height: 630px;
   background-color: white;
   border-radius: 30px;
   box-shadow: var(--login-shadow);
@@ -25,6 +25,9 @@ body {
 
 /* 제목 */
 #sign-up-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
   color: var(--primary);
   text-align: center;
 }
@@ -62,10 +65,14 @@ input:focus {
 
 /* 인풋창 들여쓰기 */
 input[type="text"] {
-  text-indent: 16px;
+  font-size: 15px;
+  text-indent: 10px;
+  letter-spacing: 1px;
 }
 input[type="password"] {
-  text-indent: 16px;
+  font-size: 15px;
+  text-indent: 10px;
+  letter-spacing: 1px;
 }
 
 /* 확인 버튼 */
@@ -130,7 +137,7 @@ input[type="password"] {
   border-radius: 10px;
 
   font-weight: bold;
-  color: #3d3d3d;
+  color: var(--dark);
 
   background-color: #fee500;
   cursor: pointer;
