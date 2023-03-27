@@ -16,7 +16,12 @@
     margin-bottom: 20px;
 }
 
-/* 퀴즈 시작 버튼 가로 길이 수정 */
+/* 퀴즈 시작 버튼*/
+.quiz-start-btn {
+    color: var(--white);
+    text-decoration: none;
+}
+
 .btn-long {
     width: 100%;
     height: 40px;

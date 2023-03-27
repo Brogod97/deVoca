@@ -3,9 +3,14 @@
 const memberList = document.querySelectorAll(".member");
 
 memberList.forEach((member) => {
+    const sharedUserName = document.getElementById("shared-user-name");
+
     member.addEventListener("click", function () {
         removeMemberListClassname(this, "backgroundPrimary");
         this.classList.add("backgroundPrimary");
+        console.log();
+
+        sharedUserName.innerText = this.innerText;
     });
 });
 
