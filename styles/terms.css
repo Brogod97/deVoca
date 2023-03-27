@@ -16,7 +16,7 @@ body {
 /* 회원가입 상자 */
 #terms-box {
   width: 450px;
-  height: auto;
+  height: 630px;
   background-color: white;
   border-radius: 30px;
   box-shadow: var(--login-shadow);
@@ -26,6 +26,7 @@ body {
 
 /* 제목 */
 #terms-title {
+  font-size: 30px;
   color: var(--primary);
   text-align: center;
   margin: 20px 0;

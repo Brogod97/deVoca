@@ -64,7 +64,13 @@
             <h1 id="terms-title">약관 동의</h1>
 
             <label>
-              <input type="checkbox" name="all" id="all" />
+              <input
+                type="checkbox"
+                name="select-all"
+                id="all"
+                value="selectall"
+                onclick="selectAll(this)"
+              />
               <label for="all"></label>
               deVoca 이용약관, 개인정보 수집 및 이용, 프로모션 정보 수신(선택)에
               모두 동의합니다.
@@ -75,9 +81,12 @@
             </div>
             <div>
               <label class="terms-derc">
-                <input type="checkbox" name="c1" id="c1" /><label
-                  for="c1"
-                ></label>
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="c1"
+                  onclick="checkSelectAll()"
+                /><label for="c1"></label>
                 deVoca 이용약관 동의(필수)
               </label>
 
@@ -92,7 +101,12 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
             <br />
             <div>
               <label class="terms-derc">
-                <input type="checkbox" name="c2" id="c2" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="c2"
+                  onclick="checkSelectAll()"
+                />
                 <label for="c2"></label>
 
                 개인정보 수집 및 이용에 대한 안내(필수)
@@ -109,8 +123,12 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
 
             <!-- 취소, 확인 버튼-->
             <div id="input-group">
-              <input id="btn-reset" type="reset" value="취소" />
-              <input class="btn-primary-fill" type="submit" value="동의" />
+              <a href="/index.html">
+                <input id="btn-reset" type="button" value="취소"
+              /></a>
+              <a href="/pages/signup.html">
+                <input class="btn-primary-fill" type="button" value="동의"
+              /></a>
             </div>
           </form>
         </div>
@@ -126,6 +144,7 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
         <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
       </footer>
 
+      <script src="/js/terms.js"></script>
       <script src="/js/google-search.js"></script>
     </body>
   </body>
