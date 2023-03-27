@@ -23,13 +23,11 @@ const pwInput = document.querySelector("#pw-input"); // 비밀번호 인풋
 const pwcheckInput = document.querySelector("#pwcheck-input"); // 비밀번호 확인 인풋
 const nmInput = document.querySelector("#nm-input"); // 닉네임 인풋
 const updateCancle = document.querySelector("#update-cancle-btn"); // 편집 취소 버튼
-const withdrawalArea = document.querySelector(".withdrawal-area"); // 회원탈퇴 영역
-const withdrawalBtn = document.querySelector("#withdrawal-btn"); // 회원탈퇴 버튼
-const withdrawalModalWindow = document.querySelector(
-  ".withdrawal-modal-window"
-); // 회원탈퇴 모달바깥부분
-const withdrawalModal = document.querySelector(".withdrawal-modal"); // 회원탈퇴 모달창
-const withdrawalModalBox = document.querySelector(".withdrawal-modal-box"); // 회원탈퇴 모달 박스
+const secessionArea = document.querySelector(".secession-area"); // 회원탈퇴 영역
+const secessionBtn = document.querySelector("#secession-btn"); // 회원탈퇴 버튼
+const secessionModalWindow = document.querySelector(".secession-modal-window"); // 회원탈퇴 모달바깥부분
+const secessionModal = document.querySelector(".secession-modal"); // 회원탈퇴 모달창
+const secessionModalBox = document.querySelector(".secession-modal-box"); // 회원탈퇴 모달 박스
 const pwicon = document.querySelector(".pw-input-box i"); // 비밀번호 인풋 자물쇠 아이콘
 const pwcheckicon = document.querySelector(".pwcheck-input-box i"); // 비밀번호 확인 인풋 자물쇠 아이콘
 const modalpwicon = document.querySelector(".icon-position-box-modal i"); // 모달 현재비밀번호 입력 모달 자물쇠 아이콘
@@ -52,7 +50,7 @@ infoChangeBtn.addEventListener("click", (e) => {
   pwInput.focus();
 
   e.target.style.display = "none";
-  withdrawalBtn.style.display = "inline";
+  secessionBtn.style.display = "inline";
   updateCancle.style.display = "inline";
   submitBtn.style.display = "inline";
 });
@@ -61,7 +59,7 @@ infoChangeBtn.addEventListener("click", (e) => {
 
 updateCancle.addEventListener("click", () => {
   updateCancle.style.display = "none";
-  withdrawalBtn.style.display = "none";
+  secessionBtn.style.display = "none";
   submitBtn.style.display = "none";
   infoChangeBtn.style.display = "inline";
 
@@ -104,19 +102,19 @@ nowPwInput.addEventListener("focusout", () => {
 
 // 회원탈퇴 모달창 띄우기
 
-withdrawalBtn.addEventListener("click", () => {
-  withdrawalModal.style.display = "flex";
+secessionBtn.addEventListener("click", () => {
+  secessionModal.style.display = "flex";
 });
 
 // 모달 창 밖에 눌러서 모달 끄기
-withdrawalModalWindow.addEventListener("click", () => {
-  withdrawalModal.style.display = "none";
+secessionModalWindow.addEventListener("click", () => {
+  secessionModal.style.display = "none";
 });
 
 // 아니오 버튼 눌러서 회원탈퇴 모달창 끄기 & 현재 비밀번호 input value 비우기
 
 cancleBtn.addEventListener("click", () => {
-  withdrawalModal.style.display = "none";
+  secessionModal.style.display = "none";
   nowPwInput.value = "";
 });
 
@@ -152,7 +150,7 @@ updateImgAcceptBtn.addEventListener("click", () => {
 // 유효성 검사
 
 // 비밀번호 유효성검사
-pwInput.addEventListener("focusout", () => {
+pwInput.addEventListener("keyup", () => {
   const pwReg = document.getElementById("pw-reg-text");
   const regEx =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
@@ -162,30 +160,36 @@ pwInput.addEventListener("focusout", () => {
     pwReg.innerText = "";
     pwReg.classList.remove("wrong");
     pwInput.style.borderColor = "var(--primary)";
+    pwicon.classList.add("ic-lock-active");
+    pwicon.classList.remove("ic-lock-wrong");
   } else {
     pwReg.innerText = "사용불가능한 비밀번호입니다.";
     pwReg.classList.add("wrong");
     pwInput.style.borderColor = "var(--red)";
+    pwicon.classList.add("ic-lock-wrong");
   }
 });
 
 // 비밀번호 확인 유효성검사
-pwcheckInput.addEventListener("focusout", () => {
+pwcheckInput.addEventListener("keyup", () => {
   const pwCheckReg = document.getElementById("pwcheck-reg-text");
 
   if (pwInput.value == pwcheckInput.value) {
     pwCheckReg.innerText = "";
     pwCheckReg.classList.remove("wrong");
     pwcheckInput.style.borderColor = "var(--primary)";
+    pwcheckicon.classList.add("ic-lock-active");
+    pwcheckicon.classList.remove("ic-lock-wrong");
   } else {
     pwCheckReg.innerText = "비밀번호가 일치하지않습니다.";
     pwCheckReg.classList.add("wrong");
     pwcheckInput.style.borderColor = "var(--red)";
+    pwcheckicon.classList.add("ic-lock-wrong");
   }
 });
 
 // 닉네임 확인 유효성 검사
-nmInput.addEventListener("focusout", () => {
+nmInput.addEventListener("keyup", () => {
   //TODO: DB 중복 닉네임 확인
   const regEx = /[가-힣|a-z|A-Z]{2,10}/;
   const nmReg = document.getElementById("nm-reg-text");

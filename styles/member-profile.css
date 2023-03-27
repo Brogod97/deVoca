@@ -12,6 +12,8 @@
   margin-top: 0px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   /* background-color: antiquewhite; */
 }
@@ -35,6 +37,10 @@
 .user-info-outbox {
   width: 100%;
   height: 100%;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-info-area {
@@ -44,7 +50,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
 
   /* background-color: blueviolet; */
 }
@@ -110,6 +115,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+/* 인풋 플레이스 홀더 사이즈 */
+
+#pw-input::placeholder {
+  font-size: 12px;
+}
+
+#nm-input::placeholder {
+  font-size: 12px;
 }
 
 /* 유효성 검사 */
@@ -186,7 +201,7 @@
   border: var(--line);
   border-radius: 5px;
   font-size: 16px;
-  text-indent: 0.5em;
+  text-indent: 10px;
 }
 
 /* 인풋 포커스 */
@@ -219,13 +234,13 @@
 }
 
 /* 회원탈퇴 & 정보편집버튼 영역*/
-.withdrawal-area {
+.secession-area {
   display: flex;
   width: 400px;
   height: 16px;
   justify-content: end;
 }
-#withdrawal-btn {
+#secession-btn {
   margin-left: 20px;
   font-size: 16px;
   color: var(--dark);
@@ -233,7 +248,7 @@
   display: none;
 }
 
-#withdrawal-btn:hover {
+#secession-btn:hover {
   color: var(--red);
 }
 #info-change-btn {
@@ -276,7 +291,7 @@
 }
 
 /* 회원 탈퇴 모달창 */
-.withdrawal-modal {
+.secession-modal {
   display: none;
   position: absolute;
   width: calc(100% - 380px);
@@ -284,13 +299,13 @@
   justify-content: center;
   align-items: center;
 }
-.withdrawal-modal-window {
+.secession-modal-window {
   width: 100%;
   height: 100%;
   backdrop-filter: blur(2px);
 }
 
-.withdrawal-modal-box {
+.secession-modal-box {
   width: 400px;
   height: 200px;
   background-color: white;
@@ -301,17 +316,17 @@
 }
 
 /* 박스 내부 영역잡기 div */
-.withdrawal-modal-inner-box {
+.secession-modal-inner-box {
   margin: auto;
   width: 350px;
   height: 150px;
 }
 
-#withdrawal-modal-title-box {
+#secession-modal-title-box {
   margin-bottom: 10px;
 }
 /* 회원탈퇴 글씨 */
-#withdrawal-modal-title-text {
+#secession-modal-title-text {
   margin: 0 0 0 5px;
   display: inline;
 }
@@ -359,7 +374,7 @@
 
 #cancle-btn {
   width: 80px;
-  height: 30px;
+  height: 35px;
   border: var(--line);
   color: var(--footer-color);
   line-height: 30px;
@@ -374,7 +389,7 @@
 #accept-btn {
   margin-left: 15px;
   width: 120px;
-  height: 30px;
+  height: 35px;
   background-color: var(--secondary);
   border-color: var(--secondary);
   line-height: 30px;
