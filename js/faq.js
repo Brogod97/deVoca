@@ -1,21 +1,23 @@
-const buttons = document.querySelectorAll('.button');
-
-buttons.forEach(function(button, index) {
-  button.addEventListener('click', function(e) {
-    e.preventDefault();
+function FaqBox__init() {
+  $('.faq-box > ul > li').click(function() {
+    let $this = $(this);
     
-    this.parentNode.classList.toggle('on');
+    $this.siblings('.hover').find(' > .faq-box__answer').stop().slideUp(300); 
+    $this.siblings('.hover').removeClass('hover');
     
-    buttons.forEach(function(button2, index2) {
-      if ( index !== index2 ) {
-        button2.parentNode.classList.remove('on');
-      }
-    });
+    if ( $this.hasClass('hover') ) {
+      $this.find(' > .faq-box__answer').stop().slideUp(300); 
+      $this.removeClass('hover');
+    }
+    else {
+      $this.find(' > .faq-box__answer').stop().slideDown(300); 
+      $this.addClass('hover');
+    }
   });
-});
+  
+  $('.faq-box__answer').click(function() {
+    return false;
+  });
+}
 
-
-
-$(".rotate").click(function () {
-  $(this).toggleClass("down");
-})
+FaqBox__init();
