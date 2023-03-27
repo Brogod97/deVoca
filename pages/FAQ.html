@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/common/template-1.css" />
     <link rel="stylesheet" href="/styles/faq.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    />
-
     <title>FAQ</title>
   </head>
   <body>
@@ -51,9 +46,9 @@
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
           <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="#">
+            <a href="/pages/faq.html">FAQ</a>
+            <a href="/pages/log-in.html">로그인</a>
+            <a href="/pages/terms.html">
               <button class="btn-primary-fill">회원가입</button>
             </a>
           </div>
@@ -63,65 +58,101 @@
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
-        <div id="faq-titleleft"></div>
-        <!-- 전체 묶음 -->
-        <div id="faq-collection">
-          <div id="faq-center">
-            <div id="faq-title">
-              <tr>
-                <td>자주 묻는 질문(FAQ)</td>
+        <body>
+  
+          <!-- 모바일에서 기기의 해상도 능력에 상관없이 절대적인 크기로 나오도록 -->
+          <!-- 예를들어, pc에서의 300px이 모바일 에서도 똑같은 크기로 나오도록 -->
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          
+          <!-- 제이쿼리 -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+          
+          <!-- 폰트어썸 -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+          <!-- 폰트어썸 FREE 아이콘 리스트 : https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free -->
+          
+       
+    
+            <div id="faq-collection" class="faq-back">
+            <div class="container mx-auto">
+              <div id="faq-center">
+               
+                <div id="faq-title">
+                  <tr>
+              <p>자주 묻는 질문(FAQ)</p>
               </tr>
             </div>
           </div>
+<div id="cneter">
+              <div class="faq-box">
+                <!--
+                ul>li*10>div.faq-box__question>span{질문 $}^div.faq-box__answer>lorem*10
+              -->
+                <ul>
+                  <li>
+                    <div class="faq-box__question"><span>Q.  왜 devoca인가요?</span></div>
+                    <div class="faq-box__answer">
+                      <div>
+                        - 하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+                        </div>
+                  
+                    </div>
+                  </li>
+                  <li>
+                    <div class="faq-box__question"><span>Q. 어떻게 퀴즈를 시작하나요?</span></div>
+                    <div class="faq-box__answer">
+                      <div>
+                        캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                      </div>
+                  
+                    </div>
+                  </li>
+                  <li>
+                    <div class="faq-box__question"><span>Q.   어떻게 단어를 추가하나요?</span></div>
+                    <div class="faq-box__answer">
+                      <div>
+                        캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                      </div>
+                  </li>
+                  <li>
+                    <div class="faq-box__question"><span>Q. 어떻게 단어를 공유하나요?</span></div>
+                    <div class="faq-box__answer">
+                      <div>
+                        하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+                      </div>
+                     
+                    </div>
+                  </li>
+                  <li>
+                    <div class="faq-box__question"><span>Q. 추가질문입니다.</span></div>
+                    <div class="faq-box__answer">
+                     <div>
+                      캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                     </div>
+               
+                      <div>
+                        하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+                      </div>
 
-          <ul>
-            <li class="on">
-              <button class="button">
-                왜 deVoca 인가요?
-                <div class="fa fa-chevron-down rotate" id="arrow"></div>
-              </button>
-              <p id="menu1" class="content">
-                하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
-              </p>
-            </li>
-            <li>
-              <button class="button">
-                어떻게 단어를 추가하나요?
-                <div class="fa fa-chevron-down rotate" id="arrow"></div>
-              </button>
-              <p id="menu2" class="content">
-                캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
-              </p>
-            </li>
-            <li>
-              <button class="button">
-                어떻게 퀴즈를 시작하나요?
-                <div class="fa fa-chevron-down rotate" id="arrow"></div>
-              </button>
-              <p id="menu3" class="content">
-                자바스크립트는 객체(Object)를 기초로 하는 스크립트 프로그래밍
-                언어입니다.
-              </p>
-            </li>
-            <li>
-              <button class="button">
-                어떻게 단어를 공유하나요?
-                <div class="fa fa-chevron-down rotate" id="arrow"></div>
-              </button>
-              <p id="menu4" class="content">
-                하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
-              </p>
-            </li>
-          </ul>
-        </div>
+                    </div>
+                  </li>
+             
+               
+                </ul>
+              </div>
+            </div>
+            </div>
+          </div>
+          </section>
+
       </section>
 
       <!-- 푸터 -->
       <footer class="footer">
         <div>
-          <a href="#">이용약관</a>
+          <a href="/pages/terms-detail.html">이용약관</a>
           <a href="#">도움말</a>
-          <a href="#">Contact</a>
+          <a href="/pages/inquiry.html">Contact</a>
         </div>
         <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
       </footer>

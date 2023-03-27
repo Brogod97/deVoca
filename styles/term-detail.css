@@ -11,7 +11,7 @@
   text-decoration-color: #f9be28;
 
 width: 100%;
-
+padding-top: 2%;
 
 
   
@@ -33,6 +33,7 @@ width: 100%;
   flex-basis: 20%;
   
 }
+
 
 
 /* 버튼 부문*/
@@ -80,13 +81,13 @@ padding: 30px;
 
 .button:hover,
 .button.active {
-  text-decoration: underline;
+
   text-decoration-thickness: 3px;
-  text-decoration-color: #fad062;
+
   color: #f9be28;
 }
 .button:visited {
-  text-decoration: underline;
+
   text-decoration-thickness: 3px;
   text-decoration-color: #fad062;
   color: #f9be28;

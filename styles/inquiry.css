@@ -10,80 +10,84 @@ section{
     background-size: 1000px;
 }
 
+form{
+  display: flex;
+  justify-content: center;
+align-items: center;
+height: 100%;
+width: 100%;
+
+}
+
 #blank{
-    height: 10%;
+
 }
 /*메뉴*/
 .menu {
     border: 1px solid white;
     background-color: white;
-    margin: auto;
-    width: 900px;
-    height: 620px;
+    width: 750px;
+    height: 600px;
     border-radius: 25px;
     box-shadow: 1px 1px 10px 1px #dcdcdc;
-   
+    position: fixed;
 }
 
 /*문의하기 제목*/
 #quetitle {
-
-    font-size: 3em; 
-    font-weight: bold;
-    color: var(--primary);
-    text-decoration-color:var(--primary);
-    text-underline-offset : 20px;
-    margin-top: 35px;
-    margin-bottom: 15px;
-    width: 800px;
-    height: 100px;
-    padding-left: 39%;
-    display: flex;
-    justify-content: flex-start;
-
-      
+  font-size: 30px;
+  color: var(--primary);
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    
+padding-top: 50px;      
 }
 
 /* 밑에 글씨*/
 #quetext{
 
-    width: 800px;
-    height: 100px;
+    width: 100%;
+    height: 50px;
     display: flex;
-    margin: auto;
     justify-content: center;
     text-align: center;
-   
+    padding-top: 20px;
 }
 
 
 /*메세지항목 제외한 테이블 */
 #table {
-    width: 500px;
+    width: 300px;
     height: 250px;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
-    text-align: center;
-    align-items: flex-end;  
-    padding: 5px; 
-
+    flex-direction: row;
+    align-items: center;
+    padding-top: 90px; 
+    padding-left: 90px;
 }
 /*이름*/
 .titlename {
-    text-align: left;
+ 
    padding: 10px;
+   font-family: "Pretendard-Regular";
+   
 }
 
 
 
 #name {
     width: 300px;
-    height: 40px;
+    height: 35px;
     border: 0px;
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none;
     text-indent: 5px;
+    margin-bottom: 5px;
 }
 
 .name input:focus{
@@ -94,12 +98,13 @@ section{
 /*이메일*/
 #email {
     width: 300px;
-    height: 40px;
+    height: 35px;
     border: 0px;
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none;
     text-indent: 5px;
+    margin-bottom: 5px;
 }
 
 .email input:focus{
@@ -121,7 +126,7 @@ section{
   select{
     display:inline-block;
     width:100%;
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     border: 0px;
     padding:10px 15px;
@@ -130,6 +135,7 @@ section{
     -moz-appearance:none;
     background-color: #F5F5F5;
     outline-color: var(--primary);
+
   }
   
   select::-ms-expand{
@@ -154,26 +160,32 @@ section{
  
 /*메세지 전체 위치 설정*/
 #message {
-    margin: -260px 00px  0px 450px;
-    width: 500px;
-    height: 30px;
-   
-    
-    
-    
+
+  display: flex;
+  float: right;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+    width: 350px;
+    height: 330px;
+    padding: 10px;
+
+  
 }
 /*메세지 타이틀*/
 #messagetitle {
-    height: 30px;
-    width: 100px;
-   
+display: flex;
+justify-self: start;
+ padding: 10px;
+
    
 }
 
 /*메세지 내용*/
 #textarea{
-    padding: 1  0px;
-    height: 208px;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
     resize: none;
     border: 0px;
     background-color: #F5F5F5;
@@ -187,9 +199,7 @@ section{
 
 /*버튼*/
 #btn {
-    position: relative;
-    top: 230px;
- left: 370px;
+   
   width: 110px;
   height: 40px;
   background-color: var(--primary);
@@ -201,13 +211,16 @@ section{
   color: var(--white);
   text-align: center;
   justify-content: center;
-
+display: block;
+margin: auto;
 
 }
 
-#collect {
-border: 1px solid black;
-width: 100%;
-height: 100%;
+
+#tablediv{
+    display: inline-block;
+    width: 350px;
+    height: 350px;
+   
 
 }

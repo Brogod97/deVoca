@@ -47,9 +47,9 @@
           </div>
           <!-- FAQ / 로그인 / 회원가입 -->
           <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="#">
+            <a href="/pages/faq.html">FAQ</a>
+            <a href="/pages/log-in.html">로그인</a>
+            <a href="/pages/terms.html">
               <button class="btn-primary-fill">회원가입</button>
             </a>
           </div>
@@ -59,19 +59,18 @@
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
-        <div id="collect">
         <div id="blank"></div>
-     
+     <form >
         <div class="menu">
           <div class="texttitle"><span id = "quetitle">문의하기</span></div>
       <span id = quetext>deVoca를 이용해주셔서 감사합니다.<br>
   사용하시면서 발생한 불편사항을 저희에게 알려주세요 🐝 </span>
-
+<div id="tablediv">
 <table id="table">
 
 <tr>
 
-  <th></th> 
+  
   <td>
      <div class="titlename"> 이름</div>
      <div class="name">
@@ -82,7 +81,7 @@
 </tr>
 
 <tr>
-  <th></th> 
+
   <td>
       <div class="titlename"> 이메일</div>
       <div class="email">
@@ -92,7 +91,7 @@
 </tr>
 
 <tr>
-  <th></th>
+
   <td>
       <div class="titlename"> 문의 유형</div>
   
@@ -100,10 +99,10 @@
         <div class="select-wrap">
       <select id="selc">
        
-          <option value="a">abcdefg</option>
-          <option value="b">bcdefgh</option>
-          <option value="c">cdefghi</option>
-          <option value="d">defghij</option>
+          <option value="a">건의</option>
+          <option value="b">버그</option>
+          <option value="c">신고</option>
+          <option value="d">기타</option>
           <option selected></option>
         
       </select>
@@ -113,18 +112,18 @@
   </td>
 </tr>
 
+</table> 
 
-</table>
-
-<td>
-
+</div>
 
 <div id = "message">
-<div id="messagetitle">메세지</div>
+  <td>
+<div id="messagetitle">메세지</div> 
 
 <textarea name="textarea" id="textarea" cols="50" rows="15"></textarea>
+
 </div>
-</td>    
+</td>
 <br>
 <button 
   id='btn' 
@@ -133,15 +132,15 @@
 </button>
 
 </div>
-</div>
+</form>
       </section>
 
       <!-- 푸터 -->
       <footer class="footer">
         <div>
-          <a href="#">이용약관</a>
+          <a href="/pages/terms-detail.html">이용약관</a>
           <a href="#">도움말</a>
-          <a href="#">Contact</a>
+          <a href="/pages/inquiry.html">Contact</a>
         </div>
         <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
       </footer>

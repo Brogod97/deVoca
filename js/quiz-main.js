@@ -16,3 +16,15 @@ function hideLoadingPage() {
   document.querySelector(".wrap").style.display = "none";
   document.querySelector(".container").style.display = "flex";
 }
+
+// 단어를 선택했을때 고정으로 색이 변하는 이벤트
+const content = document.querySelectorAll(".container-main-content > button");
+for (let i = 0; i < content.length; i++) {
+  content[i].addEventListener("click", (e) => {
+    if (e.target.style.backgroundColor == "white") {
+      e.target.style.backgroundColor = "#ffc759";
+    } else {
+      e.target.style.backgroundColor = "white";
+    }
+  });
+}
