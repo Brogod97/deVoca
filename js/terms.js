@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+/*function selectAll(selectAll) {
+  const checkboxes = document.getElementsByName("checkbox");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  });
+
+}*/
+
+>>>>>>> bad844c7d89eeb92d3b898ed12fcea9ac2cd1097
 function checkSelectAll() {
   // 전체 체크박스
   const checkboxes = document.querySelectorAll('input[name="checkbox"]');
