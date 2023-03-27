@@ -64,7 +64,7 @@
             <h1 id="title">로그인</h1>
 
             <p>아이디</p>
-            <input type="mail" placeholder="email@mail.com" />
+            <input type="mail" placeholder="deVoca@email.com" />
 
             <p>비밀번호</p>
             <input type="password" placeholder="******" />
@@ -77,7 +77,7 @@
               <a href="/pages/password-reset.html">비밀번호를 잊으셨나요?</a>
             </div>
             <div id="btn-login">
-              <button type="submit" class="btn-primary-fill btn-long">
+              <button type="submit" class="btn-primary-fill btn-long login-btn">
                 로그인
               </button>
             </div>
@@ -85,9 +85,11 @@
             <div class="or">OR</div>
 
             <div id="sns">
-              <button id="kakao">
-                <i class="ic-kakao"></i>카카오 계정으로 로그인
-              </button>
+              <a href="/pages/mainPage.html"
+                ><button onclick="kakaoLogin();" id="kakao">
+                  <i class="ic-kakao"></i>카카오 계정으로 로그인
+                </button></a
+              >
 
               <button id="google">
                 <img src="/assets/google-logo.png" />구글 계정으로 로그인
@@ -112,6 +114,8 @@
         <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
       </footer>
 
+      <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+      <script src="/js/sns-login.js"></script>
       <script src="/js/google-search.js"></script>
     </body>
   </body>
