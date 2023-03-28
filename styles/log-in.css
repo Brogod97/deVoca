@@ -1,6 +1,6 @@
 body {
   background: url(/assets/background-circle.svg) no-repeat;
-  background-size: 55% auto;
+  background-size: contain;
   background-position: left bottom;
   background-color: var(--gray30);
 }
@@ -16,7 +16,7 @@ body {
 흰색 박스 */
 #login-box {
   width: 400px;
-  height: auto;
+  height: 590px;
   background-color: white;
   border-radius: 20px;
   box-shadow: 2px 6px 20px rgba(148, 163, 184, 0.4);
@@ -37,7 +37,9 @@ body {
 input {
   width: 100%;
   border: none;
-  text-indent: 16px;
+  font-size: 15px;
+  text-indent: 10px;
+  letter-spacing: 1px;
   padding-bottom: 3px;
   border-bottom: 1.5px solid var(--gray500);
   outline: none;
@@ -91,11 +93,14 @@ input[type="checkbox"]:checked + label:before {
 }
 
 #remember-searchPw > a {
+  font-size: 15px;
   color: var(--gray500);
   text-decoration: none;
 }
 
-.btn-primary-fill {
+.login-btn {
+  font-size: 20px;
+  font-style: bold;
   width: 100%;
   height: 45px;
   margin: 5px 0;
@@ -142,7 +147,7 @@ input[type="checkbox"]:checked + label:before {
   border-radius: 10px;
 
   font-weight: bold;
-  color: #3d3d3d;
+  color: var(--dark);
 
   background-color: #fee500;
   cursor: pointer;
