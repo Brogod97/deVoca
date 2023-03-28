@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
 }
+
+
 /*배경*/
 section{
     background-color: white;
@@ -16,7 +18,7 @@ form{
 align-items: center;
 height: 100%;
 width: 100%;
-
+word-break:break-all;
 }
 
 #blank{
@@ -30,7 +32,8 @@ width: 100%;
     height: 600px;
     border-radius: 25px;
     box-shadow: 1px 1px 10px 1px #dcdcdc;
-    position: fixed;
+  position: fixed;
+
 }
 
 /*문의하기 제목*/
@@ -224,3 +227,113 @@ margin: auto;
    
 
 }
+
+@media (max-width: 800px) or (max-height:800px) {
+
+  .menu {
+    border: 1px solid white;
+    background-color: white;
+    width: 550px;
+    height: 500px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 10px 1px #dcdcdc;
+ 
+}
+
+#tablediv{
+  display: inline-block;
+  width: 50px;
+  height: 350px;
+ 
+
+}
+
+#table {
+  width: 300px;
+  height: 250px;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 90px; 
+  padding-left: 10px;
+}
+
+#name {
+  width: 200px;
+  height: 35px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: #F5F5F5;
+  box-shadow: none;
+  text-indent: 5px;
+  margin-bottom: 5px;
+}
+  
+#email {
+  width: 200px;
+  height: 35px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: #F5F5F5;
+  box-shadow: none;
+  text-indent: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+#message {
+position: relative;
+  display: block;
+  float: center;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+    width: 250px;
+    height: 200px;
+  top: 30px;
+
+}
+
+#textarea{
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  resize: none;
+  border: 0px;
+  background-color: #F5F5F5;
+  box-shadow: none;
+  border-radius: 10px;
+  text-indent: 5px;
+  border:none;
+  outline-color: var(--primary);
+}
+
+#btn {
+   
+  width: 110px;
+  height: 40px;
+  background-color: var(--primary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  color: var(--white);
+  text-align: center;
+  justify-content: center;
+display: block;
+margin-top: -50px;
+
+
+}
+header{
+  z-index: 1;
+}
+
+footer{
+  z-index: 1;
+}
+}
+
