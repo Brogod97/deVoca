@@ -1,4 +1,4 @@
-@import "/common/variables.css";
-@import "/common/fonts.css";
-@import "/common/component.css";
-@import "/common/global.css";
+@import "./common/variables.css";
+@import "./common/fonts.css";
+@import "./common/component.css";
+@import "./common/global.css";
