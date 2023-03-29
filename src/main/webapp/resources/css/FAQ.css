@@ -2,7 +2,7 @@
 
 
 #faq-collection {
-  background-image: url(/assets/background-FAQ.jpg);
+  background-image: url(/src/main/webapp/resources/assets/images/faq-background.png);
 position: fixed;
   background-repeat: no-repeat;
   background-position: center center ;
@@ -61,7 +61,7 @@ justify-content: center;
   }
   
   .faq-box__question::after {
-  content: url(/assets/arrow-down.svg);
+  content: url(/src/main/webapp/resources/assets/icon/triangle-down.svg);
 
     float:right;
   }
