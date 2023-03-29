@@ -1,12 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/common/template-2.css" />
-    <link rel="stylesheet" href="/common/word-list.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/template-2.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/word-list.css" />
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
@@ -34,149 +38,18 @@
   <body>
     <main>
       <!-- 헤더 -->
-      <header>
-        <!-- 로고 -->
-        <div>
-          <a href="#">
-            <img src="/assets/deVoca-logo.svg" />
-          </a>
-        </div>
-        <!-- 공백 -->
-        <div></div>
-        <!-- 헤더 우측 영역 -->
-        <div>
-          <!-- 구글-검색창 -->
-          <div class="google-search">
-            <fieldset>
-              <img src="/assets/google-logo.png" class="google-img" />
-              <input
-                type="search"
-                id="google-search-input"
-                name="google-search-input"
-                autocomplete="off"
-                placeholder="Google Search"
-              />
-            </fieldset>
-            <button
-              type="button"
-              class="google-search-btn"
-              id="google-search-btn"
-            >
-              <img src="/assets/search.svg" class="google-search-img" />
-            </button>
-          </div>
-          <!-- FAQ / 로그인 / 회원가입 -->
-          <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="#">
-              <button class="btn-primary-fill">회원가입</button>
-            </a>
-          </div>
-        </div>
-      </header>
+           <jsp:include page="${contextPath}/WEB-INF/views/common/header.jsp" />
+     
 
       <!-- 바디 -->
       <!-- nav + sidebar 컨테이너 -->
       <section class="container">
         <!-- nav바 -->
-        <nav class="nav-bar">
-          <section>
-            <a href="#">
-              <img id="profile-icon" src="/assets/profile.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/voca.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/quiz.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/shared.svg" />
-            </a>
-          </section>
-          <section>
-            <a href="#">
-              <img src="/assets/logout.svg" />
-            </a>
-          </section>
-        </nav>
-
-        <!-- 서치&카테고리 -->
-        <section class="side-bar">
-          <!-- 단어장 서치바 -->
-          <section class="sidebar-search-area">
-            <div class="sidebar-search">
-              <form action="#" name="voca-search-form">
-                <input
-                  type="search"
-                  id="voca-search-input"
-                  name="voca-search-input"
-                  placeholder="검색어 입력"
-                  autocomplete="off"
-                />
-                <button>
-                  <img src="/assets/search.svg" class="voca-search-img" />
-                </button>
-              </form>
-            </div>
-            <!-- 선1 -->
-            <div class="line"></div>
-          </section>
-          <!-- 카테고리 -->
-          <section class="category-container">
-            <div class="category-header">
-              <h3>카테고리</h3>
-              <button id="category-btn" type="button">
-                <i class="ic-menu-dot"></i>
-              </button>
-              <!-- 카테고리 메뉴 모달 -->
-              <div id="category-menu-wrapper" class="invisible">
-                <div id="category-menu-overlay"></div>
-                <div class="category-menu-content">
-                  <div class="category-add">추가</div>
-                  <div class="category-edit">편집</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="category-list">
-              <ul></ul>
-            </div>
-          </section>
-
-          <!-- 태그 -->
-          <!-- 선2 -->
-          <div class="line"></div>
-          <section class="category-footer">
-            <div class="tag-area">
-              <button class="tag">
-                <a href="#">#DB</a>
-              </button>
-              <button class="tag">
-                <a href="#">#Python</a>
-              </button>
-              <button class="tag">
-                <a href="#">#CSS</a>
-              </button>
-              <button class="tag">
-                <a href="#">#Java</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-            </div>
-          </section>
-        </section>
+        <jsp:include page="${contextPath}/WEB-INF/views/common/navbar.jsp" />
+        
+        <!-- sidebar -->
+		<jsp:include page="${contextPath}/WEB-INF/views/common/sidebar.jsp" />
+		
       </section>
     </main>
 
@@ -194,7 +67,7 @@
           <div class="content-main-imgs">
             <!-- 즐겨찾기 및 순서정렬 메뉴-->
             <button class="content-main-btn1">
-              <img src="/assets/voca-order.svg" class="menu-openBtn" />
+              <img src="${contextPath}/resources/assets/icon/order.svg" class="menu-openBtn" />
               <div class="voca-menu-modal menu-hidden">
                 <div class="voca-menu-bg"></div>
                 <div class="voca-menu-modalBox">
@@ -207,7 +80,7 @@
             </button>
             <!-- 새 단어 추가 버튼 -->
             <button class="content-main-btn2 addOpenBtn">
-              <img src="/assets/plus.svg" />
+              <img src="${contextPath}/resources/assets/icon/plus.svg" />
             </button>
           </div>
         </div>
@@ -232,21 +105,21 @@
               <span></span>
             </div>
             <div class="voca-category4">
-              <img src="/assets/memo.svg" alt="" />
+              <img src="${contextPath}/resources/assets/icon/note.svg" alt="" />
               정의
             </div>
             <div class="voca-content1">
               <input id="voca-read-definition" readonly />
             </div>
             <div class="voca-category5">
-              <img src="/assets/define.svg" alt="" />
+              <img src="${contextPath}/resources/assets/icon/pencil.svg" alt="" />
               메모
             </div>
             <div class="voca-content2">
               <textarea id="voca-read-memo" readonly></textarea>
             </div>
             <div class="voca-category6">
-              <img src="/assets/code-block.svg" alt="" />
+              <img src="${contextPath}/resources/assets/icon/code.svg" alt="" />
               코드블럭
             </div>
             <div class="voca-code-block-area">
@@ -262,25 +135,15 @@
         <div class="content-main-text">
           <div class="content-main-text-flex">
             <div>
-              <button><img src="/assets/check-empty.svg" /></button
+              <button><img src="${contextPath}/resources/assets/icon/check.svg" /></button
               ><button class="openBtn">Test Method Name</button>
             </div>
             <div>
-              <button><img src="/assets/star-empty.svg" /></button
-              ><button><img src="/assets/chevron.svg" /></button>
+              <button><img src="${contextPath}/resources/assets/icon/star.svg" /></button
+              ><button><img src="${contextPath}/resources/assets/icon/chevron.svg" /></button>
             </div>
           </div>
-          <div class="content-main-add-line"></div>
-          <div class="content-main-text-flex">
-            <div>
-              <button><img src="/assets/check-empty.svg" /></button
-              ><button class="openBtn">Test Method Name2</button>
-            </div>
-            <div>
-              <button><img src="/assets/star-empty.svg" /></button
-              ><button><img src="/assets/chevron.svg" /></button>
-            </div>
-          </div>
+          
           <div class="content-main-add-line"></div>
         </div>
 
@@ -310,21 +173,21 @@
               </div>
 
               <div class="voca-category4">
-                <img src="/assets/memo.svg" alt="" />
+                <img src="${contextPath}/resources/assets/icon/note.svg" alt="" />
                 정의
               </div>
               <div class="voca-content1">
                 <input type="text" name="voca-definition" required />
               </div>
               <div class="voca-category5">
-                <img src="/assets/define.svg" alt="" />
+                <img src="${contextPath}/resources/assets/icon/pencil.svg" alt="" />
                 메모
               </div>
               <div class="voca-content2">
                 <textarea name="voca-memo" id="voca-memo"></textarea>
               </div>
               <div class="voca-category6">
-                <img src="/assets/code-block.svg" alt="" />
+                <img src="${contextPath}/resources/assets/icon/code.svg" alt="" />
                 코드블럭
               </div>
               <div class="voca-code-block-area">
@@ -349,8 +212,8 @@
     </section>
 
     <!-- 헤더 그림자용 -->
-    <aside class="header-shadow"></aside>
-    <script src="/common/word-list.js"></script>
-    <script src="/js/google-search.js"></script>
+    
+    <script src="${contextPath}/resources/js/common/word-list.js"></script>
+    <script src="${contextPath}/resources/js/google-search.js"></script>
   </body>
 </html>

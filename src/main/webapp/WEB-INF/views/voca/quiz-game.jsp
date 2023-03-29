@@ -1,12 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/common/template-quiz.css" />
-    <link rel="stylesheet" href="/styles/quiz-game.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+    <link rel="stylesheet" href="${contextPath}/resources.css/common/template-quiz.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/quiz-game.css" />
 
     <link
       rel="stylesheet"
@@ -25,73 +29,12 @@
   <body>
     <main>
       <!-- 헤더 -->
-      <header>
-        <!-- 로고 -->
-        <div>
-          <a href="mainPage.html">
-            <img src="/assets/deVoca-logo.svg" />
-          </a>
-        </div>
-        <!-- 공백 -->
-        <div></div>
-        <!-- 헤더 우측 영역 -->
-        <div>
-          <!-- 구글-검색창 -->
-          <div class="google-search">
-            <fieldset>
-              <img src="/assets/google-logo.png" class="google-img" />
-              <input
-                type="search"
-                id="google-search-input"
-                name="google-search-input"
-                autocomplete="off"
-                placeholder="Google Search"
-              />
-            </fieldset>
-            <button
-              type="button"
-              class="google-search-btn"
-              id="google-search-btn"
-            >
-              <img src="/assets/search.svg" class="google-search-img" />
-            </button>
-          </div>
-          <!-- FAQ / 로그인 / 회원가입 -->
-          <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="/pages/signup.html">
-              <button class="btn-primary-fill">회원가입</button>
-            </a>
-          </div>
-        </div>
-      </header>
-
+      <jsp:include page="${contextPath}/WEB-INF/views/common/header.jsp" />
       <!-- 바디 -->
       <!-- nav + sidebar 컨테이너 -->
       <section class="container">
         <!-- nav바 -->
-        <nav class="nav-bar">
-          <section>
-            <a href="member-profile.html">
-              <img id="profile-icon" src="/assets/profile.svg" />
-            </a>
-            <a href="word-category.html">
-              <img src="/assets/voca.svg" />
-            </a>
-            <a href="quiz-main.html">
-              <img src="/assets/quiz.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/shared.svg" />
-            </a>
-          </section>
-          <section>
-            <a href="#">
-              <img src="/assets/logout.svg" />
-            </a>
-          </section>
-        </nav>
+       	<jsp:include page="${contextPath}/WEB-INF/views/common/navbar.jsp" />
       </section>
     </main>
 
@@ -186,9 +129,8 @@
         <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-a6d1108e48cf91028" aria-disabled="true"></div>
         <div class="swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal"><span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.111111) scaleY(1); transition-duration: 300ms;"></span></div>
       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-    <!-- 헤더 그림자용 -->
-    <aside class="header-shadow"></aside>
-    <script src="/js/google-search.js"></script>
-    <script src="/js/quiz-game.js"></script>
+   
+    <script src="${contextPath}/resources/js/google-search.js"></script>
+    <script src="${contextPath}/resources/js/quiz-game.js"></script>
   </body>
 </html>

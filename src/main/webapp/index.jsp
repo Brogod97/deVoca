@@ -1,20 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/landing.css" />
-    <link rel="stylesheet" href="/common/variables.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="./styles/jquery.fullPage.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/landing.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/variables.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/jquery.fullPage.css" />
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
       crossorigin="anonymous"
     ></script>
-    <script src="./js/jquery.fullPage.js"></script>
-    <script src="./js/landing.js"></script>
+    <script src="${contextPath}/resources/js/jquery.fullPage.js"></script>
+    <script src="${contextPath}/resources/js/landing.js"></script>
     <title>deVoca</title>
   </head>
   <body>
@@ -23,78 +27,38 @@
     <main id="fullpage">
       <section class="section section-1">
         <!-- 헤더 -->
-        <header>
-          <!-- 로고 -->
-          <div>
-            <a href="#">
-              <img src="/assets/deVoca-logo.svg" />
-            </a>
-          </div>
-          <!-- 공백 -->
-          <div></div>
-          <!-- 헤더 우측 영역 -->
-          <div>
-            <!-- 구글-검색창 -->
-            <div class="google-search">
-              <fieldset>
-                <img src="/assets/google-logo.png" class="google-img" />
-                <input
-                  type="search"
-                  id="google-search-input"
-                  name="google-search-input"
-                  autocomplete="off"
-                  placeholder="Google Search"
-                />
-              </fieldset>
-              <button
-                type="button"
-                class="google-search-btn"
-                id="google-search-btn"
-              >
-                <img src="/assets/search.svg" class="google-search-img" />
-              </button>
-            </div>
-            <!-- FAQ / 로그인 / 회원가입 -->
-            <div class="faq-login-signup">
-              <a href="#">FAQ</a>
-              <a href="#">로그인</a>
-              <a href="/pages/signup.html">
-                <button class="btn-primary-fill">회원가입</button>
-              </a>
-            </div>
-          </div>
-        </header>
+        <jsp:include page="${contextPath}/WEB-INF/views/common/header.jsp" />
 
         <div class="sec1-container">
           <div>
             <div class="sec1-container-img1">
-              <img src="/assets/Polygon 11.png" alt="" />
+              <img src="${contextPath}/resources/assets/images/landing-polygon-top-left.png" alt="" />
             </div>
             <div class="sec1-container-img2">
-              <img src="/assets/Polygon 14.png" alt="" />
-              <img src="/assets/Polygon 15.png" alt="" />
+              <img src="${contextPath}/resources/assets/images/landing-polygon-bottom-left-white.png" alt="" />
+              <img src="${contextPath}/resources/assets/images/landing-polygon-bottom-left-yellow.png" alt="" />
             </div>
           </div>
           <div>
             <h1>Hello World</h1>
             <div class="sec1-container-main-center">
-              <img src="/assets/flying-bee-1.svg" alt="" />
+              <img src="${contextPath}/resources/assets/images/flying-bee-1.png" alt="" />
               <div class="sec1-container-text">
                 <h3>BOOST</h3>
                 <h3>YOUR DEV STUDY!!</h3>
               </div>
             </div>
-            <a href="/pages/mainPage.html">
+            <a href="${contextPath}/WEB-INF/views/voca/voca-main.jsp">
               <button class="sec1-container-btn"></button>
             </a>
           </div>
           <div>
             <div class="sec1-container-img3">
-              <img src="/assets/Polygon 16.png" alt="" />
-              <img src="/assets/Polygon 17.png" alt="" />
+              <img src="${contextPath}/resources/assets/images/landing-polygon-top-right-white.png" alt="" />
+              <img src="${contextPath}/resources/assets/images/landing-polygon-top-right-yellow.png" alt="" />
             </div>
             <div class="sec1-container-img4">
-              <img src="/assets/Polygon 13.png" alt="" />
+              <img src="${contextPath}/resources/assets/images/landing-polygon-bottom-right.png" alt="" />
             </div>
           </div>
         </div>
@@ -120,19 +84,19 @@
       </section>
       <section class="section section-3">
         <div class="landing-drop">
-          <img src="/assets/landing-honey-drop.svg" id="sec3-background" />
+          <img src="${contextPath}/resources/assets/images/background-honey-drop.svg" id="sec3-background" />
         </div>
         <div class="section-3-center">
           <div></div>
           <div>
             <div class="sec3-center">
               <h4>deVoca를 사용해야 하는이유</h4>
-              <img src="/assets/honeycomb.svg" class="sec3-center-img1" />
+              <img src="${contextPath}/resources/assets/images/honeycomb.png" class="sec3-center-img1" />
             </div>
             <div class="sec3-center-images">
               <div>
                 <img
-                  src="/assets/landing-globe.svg"
+                  src="${contextPath}/resources/assets/images/globe.png"
                   width="180px"
                   height="180px"
                 />
@@ -143,7 +107,7 @@
               </div>
               <div>
                 <img
-                  src="/assets/landing-quiz.svg"
+                  src="${contextPath}/resources/assets/images/note-pencil.png"
                   width="180px"
                   height="180px"
                 />
@@ -154,7 +118,7 @@
               </div>
               <div>
                 <img
-                  src="/assets/landing-coding.svg"
+                  src="${contextPath}/resources/assets/images/coding.png"
                   width="180px"
                   height="180px"
                 />
@@ -165,7 +129,7 @@
               </div>
             </div>
             <div>
-              <a href="/pages/signup.html">
+              <a href="${contextPath}/WEB-INF/views/member/signup.jsp">
                 <button class="sec3-center-btn">회원가입</button>
               </a>
             </div>
@@ -173,18 +137,10 @@
           <div></div>
         </div>
         <!-- 푸터 -->
-        <footer class="footer">
-          <div>
-            <a href="#">이용약관</a>
-            <a href="#">도움말</a>
-            <a href="#">Contact</a>
-          </div>
-          <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
-        </footer>
+       <jsp:include page="${contextPath}/WEB-INF/views/common/footer.jsp" />
       </section>
 
-      <!-- 헤더 그림자용 -->
-      <aside class="header-shadow"></aside>
+      
     </main>
   </body>
 </html>
