@@ -10,11 +10,11 @@
 /* font-icon */
 @font-face {
   font-family: "devoca";
-  src: url("/assets/fonts/devoca.eot?");
-  src: url("/assets/fonts/devoca.eot?#iefix") format("embedded-opentype"),
-    url("/assets/fonts/devoca.ttf?") format("truetype"),
-    url("/assets/fonts/devoca.woff?") format("woff"),
-    url("/assets/fonts/devoca.svg?#devoca") format("svg");
+  src: url("src/main/webapp/resources/assets/fonts/devoca.eot?");
+  src: url("src/main/webapp/resources/assets/fonts/devoca.eot?#iefix") format("embedded-opentype"),
+    url("src/main/webapp/resources/assets/fonts/devoca.ttf?") format("truetype"),
+    url("src/main/webapp/resources/assets/fonts/devoca.woff?") format("woff"),
+    url("src/main/webapp/resources/assets/fonts/devoca.svg?#devoca") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
