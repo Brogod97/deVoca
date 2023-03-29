@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/common/template-1.css" />
+    <link rel="stylesheet" href="/styles/terms.css" />
+
+    <title>deVoca - 회원 약관 동의</title>
+  </head>
+  <body>
+    <body>
+      <!-- 헤더 -->
+      <header>
+        <!-- 로고 -->
+        <div>
+          <a href="/index.html">
+            <img src="/assets/deVoca-logo.svg" />
+          </a>
+        </div>
+        <!-- 공백 -->
+        <div></div>
+        <!-- 헤더 우측 영역 -->
+        <div>
+          <!-- 구글-검색창 -->
+          <div class="google-search">
+            <fieldset>
+              <img src="/assets/google-logo.png" class="google-img" />
+              <input
+                type="search"
+                id="google-search-input"
+                name="google-search-input"
+                autocomplete="off"
+                placeholder="Google Search"
+              />
+            </fieldset>
+            <button
+              type="button"
+              class="google-search-btn"
+              id="google-search-btn"
+            >
+              <img src="/assets/search.svg" class="google-search-img" />
+            </button>
+          </div>
+          <!-- FAQ / 로그인 / 회원가입 -->
+          <div class="faq-login-signup">
+            <a href="/pages/FAQ.html">FAQ</a>
+            <a href="/pages/log-in.html">로그인</a>
+            <a href="/pages/terms.html">
+              <button class="btn-primary-fill">회원가입</button>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- 바디 -->
+      <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
+      <section class="main-content-area">
+        <div id="terms-box">
+          <form id="terms-form">
+            <h1 id="terms-title">약관 동의</h1>
+
+            <label>
+              <input
+                type="checkbox"
+                name="select-all"
+                id="all"
+                value="selectall"
+                onclick="selectAll(this)"
+              />
+              <label for="all"></label>
+              deVoca 이용약관, 개인정보 수집 및 이용, 프로모션 정보 수신(선택)에
+              모두 동의합니다.
+            </label>
+
+            <div>
+              <hr id="line" />
+            </div>
+            <div>
+              <label class="terms-derc">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="c1"
+                  onclick="checkSelectAll()"
+                /><label for="c1"></label>
+                deVoca 이용약관 동의(필수)
+              </label>
+
+              <br />
+              <div>
+                <textarea readonly>
+deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 받아보실 수 있습니다. 일부 서비스 (별도 회원 체계로 운영하거나 deVoca 가입 이후 추가 가입하여 이용하는 서비스 등)의 겅우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.
+                      </textarea
+                >
+              </div>
+            </div>
+            <br />
+            <div>
+              <label class="terms-derc">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="c2"
+                  onclick="checkSelectAll()"
+                />
+                <label for="c2"></label>
+
+                개인정보 수집 및 이용에 대한 안내(필수)
+              </label>
+
+              <br />
+              <div>
+                <textarea readonly>
+deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 받아보실 수 있습니다. 일부 서비스 (별도 회원 체계로 운영하거나 deVoca 가입 이후 추가 가입하여 이용하는 서비스 등)의 겅우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.
+                      </textarea
+                >
+              </div>
+            </div>
+
+            <!-- 취소, 확인 버튼-->
+            <div id="input-group">
+              <a href="/index.html">
+                <input id="btn-reset" type="button" value="취소"
+              /></a>
+              <a href="/pages/signup.html">
+                <input class="btn-primary-fill" type="button" value="동의"
+              /></a>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 푸터 -->
+      <footer class="footer">
+        <div>
+          <a href="/pages/terms-detail.html">이용약관</a>
+          <a href="/pages/FAQ.html">도움말</a>
+          <a href="/pages/inquiry.html">Contact</a>
+        </div>
+        <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
+      </footer>
+
+      <script src="/js/terms.js"></script>
+      <script src="/js/google-search.js"></script>
+    </body>
+  </body>
+</html>
