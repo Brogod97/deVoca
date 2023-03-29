@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -5,57 +11,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/common/template-1.css" />
-    <link rel="stylesheet" href="/styles/signup.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="${contextPath}/resources/css/common/template-1.css"
+    />
+   <link rel="stylesheet" href="${contextPath}/resources/css/signup.css" />
 
     <title>deVoca - 회원 가입</title>
   </head>
   <body>
     <body>
-      <!-- 헤더 -->
-      <header>
-        <!-- 로고 -->
-        <div>
-          <a href="/index.html">
-            <img src="/assets/deVoca-logo.svg" />
-          </a>
-        </div>
-        <!-- 공백 -->
-        <div></div>
-        <!-- 헤더 우측 영역 -->
-        <div>
-          <!-- 구글-검색창 -->
-          <div class="google-search">
-            <fieldset>
-              <img src="/assets/google-logo.png" class="google-img" />
-              <input
-                type="search"
-                id="google-search-input"
-                name="google-search-input"
-                autocomplete="off"
-                placeholder="Google Search"
-              />
-            </fieldset>
-            <button
-              type="button"
-              class="google-search-btn"
-              id="google-search-btn"
-            >
-              <img src="/assets/search.svg" class="google-search-img" />
-            </button>
-          </div>
-          <!-- FAQ / 로그인 / 회원가입 -->
-          <div class="faq-login-signup">
-            <a href="/pages/FAQ.html">FAQ</a>
-            <a href="/pages/log-in.html">로그인</a>
-            <a href="/pages/terms.html">
-              <button class="btn-primary-fill">회원가입</button>
-            </a>
-          </div>
-        </div>
-      </header>
-
+      <main>
+        <jsp:include page="${contextPath/WEB-INF/views/common/header.jsp}"/>
+      </main>
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
@@ -108,7 +77,7 @@
 
             <div id="already-id">
               <p id="already-text">
-                이미 계정이 있으신가요?<a href="/pages/log-in.html">로그인</a>
+                이미 계정이 있으신가요?<a href="${contextPath}/resources/WEB-INF/views/member/login.jsp">로그인</a>
               </p>
             </div>
 
@@ -120,7 +89,7 @@
               </button>
 
               <button id="google">
-                <img src="/assets/google-logo.png" /> &emsp;구글 계정으로 가입
+               <img src="${contextPath}/resources/assets/images/google-logo.png" /> &emsp;구글 계정으로 가입
               </button>
             </div>
           </form>
@@ -128,18 +97,11 @@
       </section>
 
       <!-- 푸터 -->
-      <footer class="footer">
-        <div>
-          <a href="/pages/terms-detail.html">이용약관</a>
-          <a href="/pages/FAQ.html">도움말</a>
-          <a href="/pages/inquiry.html">Contact</a>
-        </div>
-        <div>Copyright&copy; 2023 deVoca All rights reserved.</div>
-      </footer>
+        <jsp:include page="${contextPath/WEB-INF/views/common/footer.jsp}" />
 
       <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-      <script src="/js/sns-login.js"></script>
-      <script src="/js/google-search.js"></script>
+       <script src="${contextPath}/resources/js/sns-login.js"></script>
+      <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>
   </body>
 </html>
