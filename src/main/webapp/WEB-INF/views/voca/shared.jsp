@@ -1,29 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/styles/main.css" />
-        <link rel="stylesheet" href="/common/template-2.css" />
-        <link rel="stylesheet" href="/common/word-list.css" />
-        <link rel="stylesheet" href="/styles/shared.css" />
-
-        <!-- font-awesome -->
-        <script
-            src="https://kit.fontawesome.com/5d7e6e936d.js"
-            crossorigin="anonymous"
-        ></script>
-
-        <!-- tagify -->
-        <script src="https://unpkg.com/@yaireo/tagify"></script>
-        <!-- 폴리필 (구버젼 브라우저 지원) -->
-        <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
         <link
-            href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
             rel="stylesheet"
-            type="text/css"
+            href="${contextPath}/resources/css/common/template-2.css"
         />
+        <link
+            rel="stylesheet"
+            href="${contextPath}/resources/css/common/word-list.css"
+        />
+        <link rel="stylesheet" href="${contextPath}/resources/css/shared.css" />
 
         <title>deVoca | 다른 유저들의 공유된 단어 목록을 확인해보세요</title>
     </head>
@@ -31,217 +25,22 @@
         <!-- 공용 디자인 영역 - header, navbar, sidebar -->
         <main>
             <!-- 헤더 -->
-            <header>
-                <!-- 로고 -->
-                <div>
-                    <a href="/pages/mainPage.html">
-                        <img src="/assets/deVoca-logo.svg" />
-                    </a>
-                </div>
-                <!-- 공백 -->
-                <div></div>
-                <!-- 헤더 우측 영역 -->
-                <div>
-                    <!-- 구글-검색창 -->
-                    <div class="google-search">
-                        <fieldset>
-                            <img
-                                src="/assets/google-logo.png"
-                                class="google-img"
-                            />
-                            <input
-                                type="search"
-                                id="google-search-input"
-                                name="google-search-input"
-                                autocomplete="off"
-                                placeholder="Google Search"
-                            />
-                        </fieldset>
-                        <button
-                            type="button"
-                            class="google-search-btn"
-                            id="google-search-btn"
-                        >
-                            <img
-                                src="/assets/search.svg"
-                                class="google-search-img"
-                            />
-                        </button>
-                    </div>
-                    <!-- FAQ / 로그인 / 회원가입 -->
-                    <div class="faq-login-signup">
-                        <a href="/pages/FAQ.html">FAQ</a>
-                        <a href="/pages/log-in.html">로그인</a>
-                        <a href="/pages/signup.html">
-                            <button class="btn-primary-fill">회원가입</button>
-                        </a>
-                    </div>
-                </div>
-            </header>
+            <jsp:include
+                page="${contextPath}/WEB-INF/views/common/header.jsp"
+            />
 
             <!-- 바디 -->
             <!-- nav + sidebar 컨테이너 -->
             <section class="container">
-                <!-- nav바 -->
-                <nav class="nav-bar">
-                    <section>
-                        <a href="/pages/member-profile.html">
-                            <img id="profile-icon" src="/assets/profile.svg" />
-                        </a>
-                        <a href="/pages/mainPage.html">
-                            <img src="/assets/voca.svg" />
-                        </a>
-                        <a href="/pages/quiz-main.html">
-                            <img src="/assets/quiz.svg" />
-                        </a>
-                        <a href="/pages/shared.html">
-                            <img src="/assets/shared.svg" />
-                        </a>
-                    </section>
-                    <section>
-                        <a href="/index.html">
-                            <img src="/assets/logout.svg" />
-                        </a>
-                    </section>
-                </nav>
+                <!-- navbar -->
+                <jsp:include
+                    page="${contextPath}/WEB-INF/views/common/navbar.jsp"
+                />
 
-                <!-- 서치&카테고리 -->
-                <section class="side-bar">
-                    <!-- 단어장 서치바 -->
-                    <section class="sidebar-search-area">
-                        <div class="sidebar-search">
-                            <form action="#" name="voca-search-form">
-                                <input
-                                    type="search"
-                                    id="voca-search-input"
-                                    name="voca-search-input"
-                                    placeholder="유저명 입력"
-                                    autocomplete="off"
-                                />
-                                <button>
-                                    <img
-                                        src="/assets/search.svg"
-                                        class="voca-search-img"
-                                    />
-                                </button>
-                            </form>
-                        </div>
-                    </section>
-                    <div class="line"></div>
-
-                    <a href="/pages/quiz-main.html" class="quiz-start-btn">
-                        <div class="btn-primary-fill btn-long">퀴즈 시작</div>
-                    </a>
-
-                    <div class="line"></div>
-                    <!-- 카테고리 -->
-                    <section class="category-container">
-                        <div class="category-header">
-                            <h3>회원 목록</h3>
-                        </div>
-
-                        <div class="member-list-area">
-                            <ul class="member-list">
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img src="/assets/user-profile.png" />
-                                    </div>
-                                    <span class="member-nickname">Zino</span>
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/default-user-img.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname"
-                                        >겁쟁이 라이놀즈</span
-                                    >
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/shared-page/user-profile1.jpg"
-                                        />
-                                    </div>
-                                    <span class="member-nickname"
-                                        >보라돌이</span
-                                    >
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/shared-page/user-profile2.jpg"
-                                        />
-                                    </div>
-                                    <span class="member-nickname">뚜비</span>
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/default-user-img.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname"
-                                        >기예르모 델 토로</span
-                                    >
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/default-user-img.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname"
-                                        >번듯한 오크</span
-                                    >
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/shared-page/user-profile3.jpg"
-                                        />
-                                    </div>
-                                    <span class="member-nickname">나나</span>
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/shared-page/user-profile4.jpg"
-                                        />
-                                    </div>
-                                    <span class="member-nickname">뽀</span>
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/default-user-img.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname">다아시</span>
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/default-user-img.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname"
-                                        >엘리자베스 베넷</span
-                                    >
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="/assets/default-user-img.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname">찬호박</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-                </section>
+                <!-- sidebar -->
+                <jsp:include
+                    page="${contextPath}/WEB-INF/views/common/sidebar.jsp"
+                />
             </section>
         </main>
 
@@ -256,7 +55,7 @@
                             님의 공유된 단어 리스트
                             <div class="flying-bee">
                                 <img
-                                    src="/assets/shared-page/shared-flying-bee.svg"
+                                    src="${contextPath}/resources/assets/images/flying-bee.png"
                                 /></div
                         ></span>
                     </h2>
@@ -324,7 +123,7 @@
                                 <!-- 즐겨찾기 및 순서정렬 메뉴-->
                                 <button class="content-main-btn1">
                                     <img
-                                        src="/assets/voca-order.svg"
+                                        src="${contextPath}/resources/assets/icon/order.svg"
                                         class="menu-openBtn"
                                     />
                                     <div class="voca-menu-modal menu-hidden">
@@ -339,7 +138,9 @@
                                 </button>
                                 <!-- 새 단어 추가 버튼 -->
                                 <button class="content-main-btn2 addOpenBtn">
-                                    <img src="/assets/plus.svg" />
+                                    <img
+                                        src="${contextPath}/resources/assets/icon/plus.svg"
+                                    />
                                 </button>
                             </div>
                         </div>
@@ -368,14 +169,20 @@
                                     <span></span>
                                 </div>
                                 <div class="voca-category4">
-                                    <img src="/assets/memo.svg" alt="" />
+                                    <img
+                                        src="${contextPath}/resources/assets/icon/note.svg"
+                                        alt=""
+                                    />
                                     정의
                                 </div>
                                 <div class="voca-content1">
                                     <input id="voca-read-definition" readonly />
                                 </div>
                                 <div class="voca-category5">
-                                    <img src="/assets/define.svg" alt="" />
+                                    <img
+                                        src="${contextPath}/resources/assets/icon/pencil.svg"
+                                        alt=""
+                                    />
                                     메모
                                 </div>
                                 <div class="voca-content2">
@@ -385,7 +192,10 @@
                                     ></textarea>
                                 </div>
                                 <div class="voca-category6">
-                                    <img src="/assets/code-block.svg" alt="" />
+                                    <img
+                                        src="${contextPath}/resources/assets/icon/code.svg"
+                                        alt=""
+                                    />
                                     코드블럭
                                 </div>
                                 <div class="voca-code-block-area">
@@ -406,7 +216,7 @@
                                 <div>
                                     <button>
                                         <img
-                                            src="/assets/check-empty.svg"
+                                            src="${contextPath}/resources/assets/icon/check.svg"
                                         /></button
                                     ><button class="openBtn">
                                         Test Method Name
@@ -415,10 +225,12 @@
                                 <div>
                                     <button>
                                         <img
-                                            src="/assets/star-empty.svg"
+                                            src="${contextPath}/resources/assets/icon/star.svg"
                                         /></button
                                     ><button>
-                                        <img src="/assets/chevron.svg" />
+                                        <img
+                                            src="${contextPath}/resources/assets/icon/chevron.svg"
+                                        />
                                     </button>
                                 </div>
                             </div>
@@ -427,7 +239,7 @@
                                 <div>
                                     <button>
                                         <img
-                                            src="/assets/check-empty.svg"
+                                            src="${contextPath}/resources/assets/icon/check.svg"
                                         /></button
                                     ><button class="openBtn">
                                         Test Method Name2
@@ -436,10 +248,12 @@
                                 <div>
                                     <button>
                                         <img
-                                            src="/assets/star-empty.svg"
+                                            src="${contextPath}/resources/assets/icon/star.svg"
                                         /></button
                                     ><button>
-                                        <img src="/assets/chevron.svg" />
+                                        <img
+                                            src="${contextPath}/resources/assets/icon/chevron.svg"
+                                        />
                                     </button>
                                 </div>
                             </div>
@@ -472,7 +286,10 @@
                                     </div>
 
                                     <div class="voca-category4">
-                                        <img src="/assets/memo.svg" alt="" />
+                                        <img
+                                            src="${contextPath}/resources/assets/icon/note.svg"
+                                            alt=""
+                                        />
                                         정의
                                     </div>
                                     <div class="voca-content1">
@@ -483,7 +300,10 @@
                                         />
                                     </div>
                                     <div class="voca-category5">
-                                        <img src="/assets/define.svg" alt="" />
+                                        <img
+                                            src="${contextPath}/resources/assets/icon/pencil.svg"
+                                            alt=""
+                                        />
                                         메모
                                     </div>
                                     <div class="voca-content2">
@@ -494,7 +314,7 @@
                                     </div>
                                     <div class="voca-category6">
                                         <img
-                                            src="/assets/code-block.svg"
+                                            src="${contextPath}/resources/assets/icon/code.svg"
                                             alt=""
                                         />
                                         코드블럭
@@ -529,12 +349,9 @@
             </div>
         </section>
 
-        <!-- 헤더 그림자용 -->
-        <aside class="header-shadow"></aside>
-
         <!-- JS -->
-        <script src="/js/google-search.js"></script>
-        <script src="/common/word-list.js"></script>
-        <script src="/js/shared.js"></script>
+        <script src="${contextPath}/resources/js/google-search.js"></script>
+        <script src="${contextPath}/resources/js/common/word-list.js"></script>
+        <script src="${contextPath}/resources/js/shared.js"></script>
     </body>
 </html>
