@@ -16,7 +16,7 @@ public class CreateXML {
 
 			Properties prop = new Properties();
 
-			String filePath = "src/main/java/edu/kh/community/sql/";
+			String filePath = "src/main/java/devoca/sql/";
 
 			prop.storeToXML(new FileOutputStream(filePath + fileName), fileName);
 
