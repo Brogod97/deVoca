@@ -17,7 +17,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           autocomplete="off"
         />
         <button>
-          <img src="/assets/search.svg" class="voca-search-img" />
+          <img src="${contextPath}/resources/assets/icon/search.svg" class="voca-search-img" />
         </button>
       </form>
     </div>

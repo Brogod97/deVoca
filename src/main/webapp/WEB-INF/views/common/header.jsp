@@ -5,8 +5,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
  <header>
    <!-- 로고 -->
    <div>
-     <a href="#">
-       <img src="/assets/deVoca-logo.svg" />
+     <a href="${contextPath}/WEB-INF/views/voca/voca-main.jsp">
+       <img src="${contextPath}/resources/assets/images/devoca-logo.png" />
      </a>
    </div>
    <!-- 공백 -->
@@ -16,7 +16,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      <!-- 구글-검색창 -->
      <div class="google-search">
        <fieldset>
-         <img src="/assets/google-logo.png" class="google-img" />
+         <img src="${contextPath}/resources/assets/images/google-logo.png" class="google-img" />
          <input
            type="search"
            id="google-search-input"
@@ -30,14 +30,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
          class="google-search-btn"
          id="google-search-btn"
        >
-         <img src="/assets/search.svg" class="google-search-img" />
+         <img src="${contextPath}/resources/assets/icon/search.svg" class="google-search-img" />
        </button>
      </div>
      <!-- FAQ / 로그인 / 회원가입 -->
      <div class="faq-login-signup">
-       <a href="#">FAQ</a>
-       <a href="#">로그인</a>
-       <a href="#">
+       <a href="${contextPath}/WEB-INF/views/about/FAQ.jsp">FAQ</a>
+       <a href="${contextPath}/WEB-INF/views/member/log-in.jsp">로그인</a>
+       <a href="${contextPath}/WEB-INF/views/member/signup.jsp">
          <button class="btn-primary-fill">회원가입</button>
        </a>
      </div>
