@@ -6,7 +6,7 @@
 /*배경*/
 section{
     background-color: white;
-    background-image: url(//src/main/webapp/resources/assets/images/inquiry-background.png);
+    background-image: url("../assets/images/inquiry-background.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1000px;
