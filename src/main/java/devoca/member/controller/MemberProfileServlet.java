@@ -33,6 +33,5 @@ public class memberProfileServlet extends HttpServlet{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
 	}
 }

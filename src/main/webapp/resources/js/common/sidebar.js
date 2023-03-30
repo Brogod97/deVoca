@@ -53,17 +53,7 @@ categoryAdd.addEventListener("click", function () {
       this.style.fontSize = "16px";
       this.style.fontWeight = "700";
       this.style.cursor = "pointer";
-      categoryA.append = this.value;
-
-      if (!showDeleteBtn()) {
-        const categoryXbtnAll = document.querySelectorAll(
-          ".category-list button"
-        );
-
-        for (let i = 0; i < categoryXbtnAll.length; i++) {
-          categoryXbtnAll[i].classList.add("invisible");
-        }
-      }
+      addBtn.append = this.value;
     }
   });
 
@@ -76,7 +66,7 @@ categoryAdd.addEventListener("click", function () {
     this.style.fontSize = "16px";
     this.style.fontWeight = "700";
     this.style.cursor = "pointer";
-    categoryA.append = this.value;
+    addBtn.append = this.value;
   });
 
   // 편집시 카테고리 제목 바꿀수 있게 하는 이벤트
