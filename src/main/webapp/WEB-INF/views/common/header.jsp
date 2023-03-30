@@ -5,7 +5,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
  <header>
    <!-- 로고 -->
    <div>
-     <a href="${contextPath}/WEB-INF/views/voca/voca-main.jsp">
+     <a href="${contextPath}/index.jsp">
        <img src="${contextPath}/resources/assets/images/devoca-logo.png" />
      </a>
    </div>
@@ -35,9 +35,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      </div>
      <!-- FAQ / 로그인 / 회원가입 -->
      <div class="faq-login-signup">
-       <a href="${contextPath}/WEB-INF/views/about/FAQ.jsp">FAQ</a>
-       <a href="${contextPath}/WEB-INF/views/member/log-in.jsp">로그인</a>
-       <a href="${contextPath}/WEB-INF/views/member/signup.jsp">
+       <a href="${contextPath}/static/faq.jsp">FAQ</a>
+       <a href="${contextPath}/static/log-in.jsp">로그인</a>
+       <a href="${contextPath}/static/signup.jsp">
          <button class="btn-primary-fill">회원가입</button>
        </a>
      </div>

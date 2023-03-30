@@ -15,24 +15,24 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
 
-    <link
-      rel="stylesheet"
-      href="${contextPath}/resources/css/jquery.fullPage.css"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
-    <script src="${contextPath}/resources/js/jquery.fullPage.js"></script>
-    <script src="${contextPath}/resources/js/landing.js"></script>
-    <title>deVoca</title>
-  </head>
-  <body>
-    <main id="fullpage">
-      <section class="section section-1">
-        <!-- 헤더 -->
-        <jsp:include page="WEB-INF/views/common/header.jsp" />
+        <link
+            rel="stylesheet"
+            href="${contextPath}/resources/css/jquery.fullPage.css"
+        />
+        <script
+            src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            crossorigin="anonymous"
+        ></script>
+        <script src="${contextPath}/resources/js/jquery.fullPage.js"></script>
+
+        <title>deVoca</title>
+    </head>
+    <body>
+        <main id="fullpage">
+            <section class="section section-1">
+                <!-- 헤더 -->
+                <jsp:include page="WEB-INF/views/common/header.jsp" />
 
         <div class="sec1-container">
           <div>
@@ -93,85 +93,95 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <div>
           <h2>Ready For You</h2>
 
-          <div class="slide">
-            <img
-              src="${contextPath}/resources/assets/images/globe.svg"
-             
-            />
-          </div>
-          <div class="slide">
-            <img src="${contextPath}/resources/assets/images/globe.svg" />
-          </div>
-          <div class="slide">
-            <img src="${contextPath}/resources/assets/images/globe.svg" />
-          </div>
-        </div>
-      </section>
-      <section class="section section-3">
-        <div class="landing-drop">
-          <img
-            src="${contextPath}/resources/assets/images/background-honey-drop.svg"
-            id="sec3-background"
-          />
-        </div>
-        <div class="section-3-center">
-          <div></div>
-          <div>
-            <div class="sec3-center">
-              <h4>deVoca를 사용해야 하는이유</h4>
-              <img
-                src="${contextPath}/resources/assets/images/honeycomb.png"
-                class="sec3-center-img1"
-              />
-            </div>
-            <div class="sec3-center-images">
-              <div>
-                <img
-                  src="${contextPath}/resources/assets/images/globe.png"
-                  width="180px"
-                  height="180px"
-                />
-                <p>
-                  다른 유저의 단어장을 <br />
-                  확인해 보세요!!
-                </p>
-              </div>
-              <div>
-                <img
-                  src="${contextPath}/resources/assets/images/note-pencil.png"
-                  width="180px"
-                  height="180px"
-                />
-                <p>
-                  Quiz를 통해 단어를 <br />
-                  완벽하게 공부하세요!
-                </p>
-              </div>
-              <div>
-                <img
-                  src="${contextPath}/resources/assets/images/coding.png"
-                  width="180px"
-                  height="180px"
-                />
-                <p>
-                  개발자를 위한 <br />
-                  맞춤 단어장!
-                </p>
-              </div>
-            </div>
-            <div>
-              <a href="${contextPath}/WEB-INF/views/member/signup.jsp">
-                <button class="sec3-center-btn">회원가입</button>
-              </a>
-            </div>
-          </div>
-          <div></div>
-        </div>
-        <!-- 푸터 -->
-        <jsp:include page="WEB-INF/views/common/footer.jsp" />
-      </section>
-    </main>
+                    <div class="slide">
+                        <img
+                            src="${contextPath}/resources/assets/images/globe.svg"
+                            width="800px"
+                            height="800px"
+                        />
+                    </div>
+                    <div class="slide">
+                        <img
+                            src="${contextPath}/resources/assets/images/globe.svg"
+                        />
+                    </div>
+                    <div class="slide">
+                        <img
+                            src="${contextPath}/resources/assets/images/globe.svg"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section class="section section-3">
+                <div class="landing-drop">
+                    <img
+                        src="${contextPath}/resources/assets/images/background-honey-drop.svg"
+                        id="sec3-background"
+                    />
+                </div>
+                <div class="section-3-center">
+                    <div></div>
+                    <div>
+                        <div class="sec3-center">
+                            <h4>deVoca를 사용해야 하는이유</h4>
+                            <img
+                                src="${contextPath}/resources/assets/images/honeycomb.png"
+                                class="sec3-center-img1"
+                            />
+                        </div>
+                        <div class="sec3-center-images">
+                            <div>
+                                <img
+                                    src="${contextPath}/resources/assets/images/globe.png"
+                                    width="180px"
+                                    height="180px"
+                                />
+                                <p>
+                                    다른 유저의 단어장을 <br />
+                                    확인해 보세요!!
+                                </p>
+                            </div>
+                            <div>
+                                <img
+                                    src="${contextPath}/resources/assets/images/note-pencil.png"
+                                    width="180px"
+                                    height="180px"
+                                />
+                                <p>
+                                    Quiz를 통해 단어를 <br />
+                                    완벽하게 공부하세요!
+                                </p>
+                            </div>
+                            <div>
+                                <img
+                                    src="${contextPath}/resources/assets/images/coding.png"
+                                    width="180px"
+                                    height="180px"
+                                />
+                                <p>
+                                    개발자를 위한 <br />
+                                    맞춤 단어장!
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <a
+                                href="${contextPath}/WEB-INF/views/member/signup.jsp"
+                            >
+                                <button class="sec3-center-btn">
+                                    회원가입
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+                <!-- 푸터 -->
+                <jsp:include page="WEB-INF/views/common/footer.jsp" />
+            </section>
+        </main>
 
-    <script src="${contextPath}/resources/js/google-search.js"></script>
-  </body>
+        <script src="${contextPath}/resources/js/landing.js"></script>
+        <script src="${contextPath}/resources/js/google-search.js"></script>
+    </body>
 </html>
