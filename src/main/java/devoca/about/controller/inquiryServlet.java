@@ -1,4 +1,4 @@
-package devoca.member.controller;
+package devoca.about.controller;
 
 import java.io.IOException;
 
@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/about/FAQ")
-public class FAQ extends HttpServlet  {
-	
+@WebServlet("/about/inquiry")
+public class inquiryServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(req, resp);
-	}
 	
-
+		String path = "/WEB-INF/views/about/inquiry.jsp";
+		
+		req.getRequestDispatcher(path).forward(req, resp);
+}
 }
