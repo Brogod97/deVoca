@@ -4,19 +4,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-            name="viewport"
-            content="width=device-widthoney-btn-default.svgh, initial-scale=1.0"
-        />
-        <link
-            rel="stylesheet"
-            href="${contextPath}/resources/css/landing.css"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-widthoney-btn-default.svgh, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="${contextPath}/resources/css/landing.css" />
 
-        <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
 
         <link
             rel="stylesheet"
@@ -37,66 +34,64 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <!-- 헤더 -->
                 <jsp:include page="WEB-INF/views/common/header.jsp" />
 
-                <div class="sec1-container">
-                    <div>
-                        <div class="sec1-container-img1">
-                            <img
-                                src="${contextPath}/resources/assets/images/landing-polygon-top-left.png"
-                                alt=""
-                            />
-                        </div>
-                        <div class="sec1-container-img2">
-                            <img
-                                src="${contextPath}/resources/assets/images/landing-polygon-bottom-left-white.png"
-                                alt=""
-                            />
-                            <img
-                                src="${contextPath}/resources/assets/images/landing-polygon-bottom-left-yellow.png"
-                                alt=""
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <h1>Hello World</h1>
-                        <div class="sec1-container-main-center">
-                            <img
-                                src="${contextPath}/resources/assets/images/flying-bee-1.svg"
-                                alt=""
-                            />
-                            <div class="sec1-container-text">
-                                <h3>BOOST</h3>
-                                <h3>YOUR DEV STUDY!!</h3>
-                            </div>
-                        </div>
-                        <a
-                            href="${contextPath}/WEB-INF/views/voca/voca-main.jsp"
-                        >
-                            <button class="sec1-container-btn"></button>
-                        </a>
-                    </div>
-                    <div>
-                        <div class="sec1-container-img3">
-                            <img
-                                src="${contextPath}/resources/assets/images/landing-polygon-top-right-white.png"
-                                alt=""
-                            />
-                            <img
-                                src="${contextPath}/resources/assets/images/landing-polygon-top-right-yellow.png"
-                                alt=""
-                            />
-                        </div>
-                        <div class="sec1-container-img4">
-                            <img
-                                src="${contextPath}/resources/assets/images/landing-polygon-bottom-right.png"
-                                alt=""
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="section section-2">
-                <div>
-                    <h2>Ready For You</h2>
+        <div class="sec1-container">
+          <div>
+            <div class="sec1-container-img1">
+              <img
+                src="${contextPath}/resources/assets/images/landing-polygon-top-left.png"
+                alt=""
+              />
+            </div>
+            <div class="sec1-container-img2">
+              <img
+                src="${contextPath}/resources/assets/images/landing-polygon-bottom-left-white.png"
+                alt=""
+              />
+              <img
+                src="${contextPath}/resources/assets/images/landing-polygon-bottom-left-yellow.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div>
+            <h1>Hello World</h1>
+            <div class="sec1-container-main-center">
+              <img
+                src="${contextPath}/resources/assets/images/flying-bee-1.svg"
+                alt=""
+              />
+              <div class="sec1-container-text">
+                <h3>BOOST</h3>
+                <h3>YOUR DEV STUDY!!</h3>
+              </div>
+            </div>
+            <a href="${contextPath}/voca/voca-main">
+              <button class="sec1-container-btn"></button>
+            </a>
+          </div>
+          <div>
+            <div class="sec1-container-img3">
+              <img
+                src="${contextPath}/resources/assets/images/landing-polygon-top-right-white.png"
+                alt=""
+              />
+              <img
+                src="${contextPath}/resources/assets/images/landing-polygon-top-right-yellow.png"
+                alt=""
+              />
+            </div>
+            <div class="sec1-container-img4">
+              <img
+                src="${contextPath}/resources/assets/images/landing-polygon-bottom-right.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-2">
+        <div>
+          <h2>Ready For You</h2>
 
                     <div class="slide">
                         <img

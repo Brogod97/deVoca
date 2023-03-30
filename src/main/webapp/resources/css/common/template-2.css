@@ -477,7 +477,7 @@ input::-webkit-search-results-decoration {
   transition: all ease-in-out 0.2s;
 }
 
-.category-list a {
+.category-list button {
   width: 220px;
 
   padding-left: 10px;
