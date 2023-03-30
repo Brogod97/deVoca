@@ -1,3 +1,5 @@
+// word-list 수정
+
 // 회원 목록(member-list)의 li(member) 클릭 시 배경색 primary로 변경
 // .backgroudPrimary 추가 시 스타일 활성화
 const memberList = document.querySelectorAll(".member");
