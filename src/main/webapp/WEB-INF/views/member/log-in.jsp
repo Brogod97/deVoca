@@ -19,66 +19,65 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <title>deVoca - 로그인</title>
   </head>
   <body>
-    <body>
-      <main>
-        <jsp:include page="${contextPath/WEB-INF/views/common/header.jsp}" />
-      </main>
-      <!-- 바디 -->
-      <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
-      <section class="main-content-area">
-        <div id="login-box">
-          <form>
-            <h1 id="title">로그인</h1>
+    <main>
+      <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    </main>
+    <!-- 바디 -->
+    <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
+    <section class="main-content-area">
+      <div id="login-box">
+        <form>
+          <h1 id="title">로그인</h1>
 
-            <p>아이디</p>
-            <input type="email" placeholder="deVoca@email.com" />
+          <p>아이디</p>
+          <input type="email" placeholder="deVoca@email.com" />
 
-            <p>비밀번호</p>
-            <input type="password" placeholder="******" />
+          <p>비밀번호</p>
+          <input type="password" placeholder="******" />
 
-            <div id="remember-searchPw">
-              <label>
-                <input type="checkbox" id="remember-login" />
-                자동로그인
-              </label>
-              <a href="${contextPath}/WEB-INF/views/member/password-reset.jsp"
-                >비밀번호를 잊으셨나요?</a
-              >
-            </div>
-            <div id="btn-login">
-              <button type="submit" class="btn-primary-fill btn-long login-btn">
-                로그인
-              </button>
-            </div>
+          <div id="remember-searchPw">
+            <label>
+              <input type="checkbox" id="remember-login" />
+              자동로그인
+            </label>
 
-            <div class="or">OR</div>
+            <a href="${contextPath}/member/resetPw">비밀번호를 잊으셨나요?</a>
+          </div>
+          <div id="btn-login">
+            <button type="submit" class="btn-primary-fill btn-long login-btn">
+              로그인
+            </button>
+          </div>
 
-            <div id="sns">
-              <a href="${contextPath}/WEB-INF/views/voca/voca-main.jsp">
-                <button onclick="kakaoLogin();" id="kakao">
-                  <i class="ic-kakao"></i>카카오 계정으로 로그인
-                </button></a
-              >
+          <div class="or">OR</div>
 
-              <button id="google">
-                <img src="${contextPath}/resources/assets/images/google-logo.png" />구글 계정으로 로그인
-              </button>
-            </div>
+          <div id="sns">
+            <a href="${contextPath}/WEB-INF/views/voca/voca-main.jsp">
+              <button onclick="kakaoLogin();" id="kakao">
+                <i class="ic-kakao"></i>카카오 계정으로 로그인
+              </button></a
+            >
 
-            <div id="non-member">
-              아직 회원이 아니신가요?
-              <a href="${contextPath}/WEB-INF/views/member/signup.jsp" id="join"> 회원가입</a>
-            </div>
-          </form>
-        </div>
-      </section>
+            <button id="google">
+              <img
+                src="${contextPath}/resources/assets/images/google-logo.png"
+              />구글 계정으로 로그인
+            </button>
+          </div>
 
-      <!-- 푸터 -->
-      <jsp:include page="${contextPath/WEB-INF/views/common/footer.jsp}" />
+          <div id="non-member">
+            아직 회원이 아니신가요?
+            <a href="${contextPath}/member/logIn" id="join"> 회원가입</a>
+          </div>
+        </form>
+      </div>
+    </section>
 
-      <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-      <script src="${contextPath}/resources/js/sns-login.js"></script>
-      <script src="${contextPath}/resources/js/google-search.js"></script>
-    </body>
+    <!-- 푸터 -->
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="${contextPath}/resources/js/sns-login.js"></script>
+    <script src="${contextPath}/resources/js/google-search.js"></script>
   </body>
 </html>
