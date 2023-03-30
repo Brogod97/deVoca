@@ -132,7 +132,7 @@
     width: 120px;
 
     position: absolute;
-    top: -30px;
+    top: -15px;
     right: -130px;
 }
 
@@ -214,6 +214,7 @@
 
 .word-list {
     padding: 0;
+    /* TODO: 기본 display:none인 것 내 페이지에서만 block으로 변경 */
 }
 
 .ic-hive-cc {
@@ -224,3 +225,26 @@
 .ic-hive-cc.active {
     color: var(--secondary);
 }
+
+/* ------------------------------------------------------ */
+/* word-list.jsp -> explore.jsp에 맞게 안보일 요소 숨기기 */
+
+.word-list {
+    display: block;
+}
+
+.content-main,
+.content-main-line {
+    display: none;
+}
+
+/* 암기한 단어 체크 버튼 */
+.content-main-text-flex > div:nth-child(1) > button:nth-child(1) {
+    display: none;
+}
+
+/* 즐겨찾기 단어 버튼 */
+.content-main-text-flex > div:nth-child(2) > button:nth-child(1) {
+    display: none;
+}
+/* ------------------------------------------------------ */
