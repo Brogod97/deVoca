@@ -169,4 +169,28 @@ vocaSave.addEventListener("click", function () {
   document.querySelector(".bg").addEventListener("click", close);
 
   addClose();
+  // ---------코드블럭-------
+  codeOutput.textContent = codeInput.value;
+  hljs.highlightBlock(codeOutput);
 });
+
+// ---------- 코드블럭 구간 -----------------
+
+const codeInput = document.getElementById("voca-code-block");
+const codeOutput = document.querySelector("pre code");
+
+// textarea에서 커서 깜빡임이 다음줄부터 시작하는 코드
+codeInput.focus();
+codeInput.setSelectionRange(7, 7);
+
+codeInput.value = codeInput.value.slice(0, 7) + "\n" + codeInput.value.slice(7);
+
+function focusNextLine() {
+  const lineHeight = parseInt(
+    window.getComputedStyle(codeInput).lineHeight,
+    10
+  );
+  codeInput.scrollTop += lineHeight;
+}
+
+focusNextLine();

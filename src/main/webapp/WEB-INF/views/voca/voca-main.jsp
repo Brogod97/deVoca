@@ -1,19 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/main/webapp/resources/css/main.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
     <link
       rel="stylesheet"
-      href="/src/main/webapp/resources/css/word-category.css"
+      href="${contextPath}/resources/css/common/template-2.css"
     />
     <link
       rel="stylesheet"
-      href="/src/main/webapp/resources/css/common/template-2.css"
+      href="${contextPath}/resources/css/common/word-list.css"
     />
-    <link rel="stylesheet" href="/src/main/webapp/resources/css/loading.css" />
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
@@ -26,7 +29,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- 태그추가 부분 -->
+    <!-- tagify - 단어 생성 (태그) -->
     <script src="https://unpkg.com/@yaireo/tagify"></script>
     <!-- 폴리필 (구버젼 브라우저 지원) -->
     <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
@@ -36,172 +39,206 @@
       type="text/css"
     />
 
-    <title>단어장 조회 추가</title>
+    <!-- 코드블럭 하이라이트 js -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <title>조회된 단어 리스트 Common</title>
   </head>
   <body>
     <main>
       <!-- 헤더 -->
-      <header>
-        <!-- 로고 -->
-        <div>
-          <a href="mainPage.html">
-            <img src="/assets/deVoca-logo.svg" />
-          </a>
-        </div>
-        <!-- 공백 -->
-        <div></div>
-        <!-- 헤더 우측 영역 -->
-        <div>
-          <!-- 구글-검색창 -->
-          <div class="google-search">
-            <fieldset>
-              <img src="/assets/google-logo.png" class="google-img" />
-              <input
-                type="search"
-                id="google-search-input"
-                name="google-search-input"
-                autocomplete="off"
-                placeholder="Google Search"
-              />
-            </fieldset>
-            <button
-              type="button"
-              class="google-search-btn"
-              id="google-search-btn"
-            >
-              <img src="/assets/search.svg" class="google-search-img" />
-            </button>
-          </div>
-          <!-- FAQ / 로그인 / 회원가입 -->
-          <div class="faq-login-signup">
-            <a href="#">FAQ</a>
-            <a href="#">로그인</a>
-            <a href="/pages/signup.html">
-              <button class="btn-primary-fill">회원가입</button>
-            </a>
-          </div>
-        </div>
-      </header>
+      <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
       <!-- 바디 -->
       <!-- nav + sidebar 컨테이너 -->
       <section class="container">
-        <!-- 로딩 -->
-        <div class="wrap">
-          <div class="loading">
-            <div class="bounceball"></div>
-            <div class="text">NOW LOADING</div>
-          </div>
-        </div>
-
         <!-- nav바 -->
-        <nav class="nav-bar">
-          <section>
-            <a href="member-profile.html">
-              <img id="profile-icon" src="/assets/profile.svg" />
-            </a>
-            <a href="word-category.html">
-              <img src="/assets/voca.svg" />
-            </a>
-            <a href="quiz-main.html">
-              <img src="/assets/quiz.svg" />
-            </a>
-            <a href="#">
-              <img src="/assets/shared.svg" />
-            </a>
-          </section>
-          <section>
-            <a href="#">
-              <img src="/assets/logout.svg" />
-            </a>
-          </section>
-        </nav>
+        <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
 
-        <!-- 서치&카테고리 -->
-        <section class="side-bar">
-          <!-- 단어장 서치바 -->
-          <section class="sidebar-search-area">
-            <div class="sidebar-search">
-              <form action="#" name="voca-search-form">
-                <input
-                  type="search"
-                  id="voca-search-input"
-                  name="voca-search-input"
-                  placeholder="검색어 입력"
-                  autocomplete="off"
-                />
-                <button>
-                  <img src="/assets/search.svg" class="voca-search-img" />
-                </button>
-              </form>
-            </div>
-            <!-- 선1 -->
-            <div class="line"></div>
-          </section>
-          <!-- 카테고리 -->
-          <section class="category-container">
-            <div class="category-header">
-              <h3>카테고리</h3>
-              <button id="category-btn" type="button">
-                <i class="ic-menu-dot"></i>
-              </button>
-              <!-- 카테고리 메뉴 모달 -->
-              <div id="category-menu-wrapper" class="invisible">
-                <div id="category-menu-overlay"></div>
-                <div class="category-menu-content">
-                  <div class="category-add">추가</div>
-                  <div class="category-edit">편집</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="category-list">
-              <ul></ul>
-            </div>
-          </section>
-
-          <!-- 태그 -->
-          <!-- 선2 -->
-          <div class="line"></div>
-          <section class="category-footer">
-            <div class="tag-area">
-              <button class="tag">
-                <a href="#">#DB</a>
-              </button>
-              <button class="tag">
-                <a href="#">#Python</a>
-              </button>
-              <button class="tag">
-                <a href="#">#CSS</a>
-              </button>
-              <button class="tag">
-                <a href="#">#Java</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-              <button class="tag">
-                <a href="#">#JavaScript</a>
-              </button>
-            </div>
-          </section>
-        </section>
+        <!-- sidebar -->
+        <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
       </section>
     </main>
 
+    <!-- FIXME: 여기부터 단어 리스트 시작 -->
     <!-- 메인 콘텐츠 영역 -->
-    <section class="main-content-area"></section>
-    <!-- 헤더 그림자용 -->
-    <aside class="header-shadow"></aside>
+    <section class="main-content-area">
+      <div class="word-list">
+        <div class="content-main">
+          <!-- 단어장 조회 헤더 -->
 
-    <script src="/js/mainPage.js"></script>
-    <script src="/js/google-search.js"></script>
-    <script src="/common/template-2.js"></script>
+          <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
+          <div>
+            <h2>JAVA</h2>
+          </div>
+          <div class="content-main-imgs">
+            <!-- 즐겨찾기 및 순서정렬 메뉴-->
+            <button class="content-main-btn1">
+              <img
+                src="${contextPath}/resources/assets/icon/order.svg"
+                class="menu-openBtn"
+              />
+              <div class="voca-menu-modal menu-hidden">
+                <div class="voca-menu-bg"></div>
+                <div class="voca-menu-modalBox">
+                  <div>즐겨찾기</div>
+                  <div>체크된 단어</div>
+                  <div>미체크된 단어</div>
+                </div>
+              </div>
+              <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
+            </button>
+            <!-- 새 단어 추가 버튼 -->
+            <button class="content-main-btn2 addOpenBtn">
+              <img src="${contextPath}/resources/assets/icon/plus.svg" />
+            </button>
+          </div>
+        </div>
+
+        <div class="content-main-line"></div>
+
+        <!-- 단어 조회 모달 시작 -->
+        <div class="modal hidden">
+          <div class="bg"></div>
+          <div class="voca-modalBox">
+            <div class="voca-category1">
+              <div class="voca-category-tag">SQL</div>
+              <div class="voca-category-btns">
+                <button class="voca-modify">수정</button>
+                <button class="voca-delete">삭제</button>
+              </div>
+            </div>
+            <div class="voca-category2">
+              <input id="voca-read-title" readonly />
+            </div>
+            <div class="voca-category3">
+              <span></span>
+            </div>
+            <div class="voca-category4">
+              <img src="${contextPath}/resources/assets/icon/note.svg" alt="" />
+              정의
+            </div>
+            <div class="voca-content1">
+              <input id="voca-read-definition" readonly />
+            </div>
+            <div class="voca-category5">
+              <img
+                src="${contextPath}/resources/assets/icon/pencil.svg"
+                alt=""
+              />
+              메모
+            </div>
+            <div class="voca-content2">
+              <textarea id="voca-read-memo" readonly></textarea>
+            </div>
+            <div class="voca-category6">
+              <img src="${contextPath}/resources/assets/icon/code.svg" alt="" />
+              코드블럭
+            </div>
+            <div class="voca-code-block-area">
+              <pre><code class="language-java"></code></pre>
+            </div>
+            <div>
+              <button class="modify-btn">수정완료</button>
+            </div>
+          </div>
+        </div>
+        <!-- 단어 조회 모달 끝 -->
+
+        <div class="content-main-text">
+          <div class="content-main-text-flex"></div>
+        </div>
+
+        <!-- 단어 추가 모달 시작 -->
+        <div class="addModal hidden">
+          <div class="addBg"></div>
+          <div class="voca-modalBox">
+            <form action="#" method="post" id="voca-form">
+              <div class="voca-category1">
+                <div class="voca-category-tag">SQL</div>
+              </div>
+              <div class="voca-category2">
+                <input
+                  type="text"
+                  placeholder="메소드명을 입력해주세요"
+                  name="voca-title"
+                  required
+                />
+              </div>
+              <div class="voca-category3">
+                <input
+                  type="text"
+                  placeholder="#태그를 입력하세요"
+                  name="basic"
+                  required
+                />
+              </div>
+
+              <div class="voca-category4">
+                <img
+                  src="${contextPath}/resources/assets/icon/note.svg"
+                  alt=""
+                />
+                정의
+              </div>
+              <div class="voca-content1">
+                <input type="text" name="voca-definition" required />
+              </div>
+              <div class="voca-category5">
+                <img
+                  src="${contextPath}/resources/assets/icon/pencil.svg"
+                  alt=""
+                />
+                메모
+              </div>
+              <div class="voca-content2">
+                <textarea name="voca-memo" id="voca-memo"></textarea>
+              </div>
+              <div class="voca-category6">
+                <img
+                  src="${contextPath}/resources/assets/icon/code.svg"
+                  alt=""
+                />
+                코드블럭
+              </div>
+              <div class="voca-code-block-area">
+                <textarea
+                  name="voca-code-block"
+                  id="voca-code-block"
+                ></textarea>
+                <select name="" id="voca-code-select">
+                  <option class="language-java" value="">JAVA</option>
+                  <option class="language-javaScript" value="">
+                    JavaScript
+                  </option>
+                  <option class="language-sql" value="">SQL</option>
+                  <option class="language-c" value="">C</option>
+                  <option class="language-python" value="">Python</option>
+                </select>
+              </div>
+              <div class="voca-modal-btn">
+                <button onclick="addClose()" class="btn-primary-line">
+                  나가기
+                </button>
+                <button type="button" class="btn-save" id="voca-save">
+                  저장
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- 단어 추가 모달 끝 -->
+      </div>
+    </section>
+
+    <script src="${contextPath}/resources/js/common/word-list.js"></script>
+    <script src="${contextPath}/resources/js/google-search.js"></script>
   </body>
 </html>

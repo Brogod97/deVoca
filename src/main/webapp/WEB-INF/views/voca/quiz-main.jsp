@@ -83,7 +83,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </section>
     
     <script src="${contextPath}/resources/js/google-search.js"></script>
-    <script src="/common/template-2.js"></script>
     <script src="${contextPath}/resources/js/quiz-main.js"></script>
   </body>
 </html>

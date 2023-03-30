@@ -29,7 +29,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <div class="category-header">
       <h3>카테고리</h3>
       <button id="category-btn" type="button">
-        <i class="fa-solid fa-ellipsis"></i>
+        <i class="ic-menu-dot"></i>
       </button>
       <!-- 카테고리 메뉴 모달 -->
       <div id="category-menu-wrapper" class="invisible">
@@ -43,79 +43,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
     <div class="category-list">
       <ul>
-        <li>
-          <a href="#">JAVA</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">DB</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">JavaScript</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
-        <li>
-          <a href="#">Python</a>
-          <button type="submit" class="invisible">
-            <i class="fa-solid fa-x"></i>
-          </button>
-        </li>
+       
       </ul>
     </div>
   </section>
 </section>
+
+<script src="${contextPath}/resources/js/common/sidebar.js"></script>

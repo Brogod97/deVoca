@@ -5,11 +5,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- nav바 -->
 <nav class="nav-bar">
   <section>
-    <a href="${contextPath}/WEB-INF/views/member/member-profile.jsp">
+    <a href="${contextPath}/member/member-profile">
       <img id="profile-icon" src="${contextPath}/resources/assets/icon/profile.svg"/>
     </a>
-    <a href="${contextPath}/WEB-INF/views/voca/voca-main.jsp">
-      <img src="${contextPath}/resources/assets/icon/voca.svg" />
+    <a href="${contextPath}/voca/voca-main">
+      <img src="${contextPath}/resources/assets/icon/word.svg" />
     </a>
     <a href="${contextPath}/WEB-INF/views/voca/quiz-main.jsp">
       <img src="${contextPath}/resources/assets/icon/quiz.svg" />
