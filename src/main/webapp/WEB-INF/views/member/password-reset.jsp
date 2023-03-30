@@ -23,7 +23,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <body>
     <body>
      <main>
-        <jsp:include page="${contextPath/WEB-INF/views/common/header.jsp}" />
+       <jsp:include page="/WEB-INF/views/common/header.jsp" />
       </main>
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
@@ -47,7 +47,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </section>
       <!-- 푸터 -->
-      <jsp:include page="${contextPath/WEB-INF/views/common/footer.jsp}" />
+     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
       <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>

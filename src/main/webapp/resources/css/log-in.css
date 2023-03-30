@@ -1,5 +1,6 @@
 body {
-  background: url(/assets/background-circle.svg) no-repeat;
+  background: url(/src/main/webapp/resources/assets/images/background-circle.svg)
+    no-repeat;
   background-size: contain;
   background-position: left bottom;
   background-color: var(--gray30);
@@ -75,7 +76,7 @@ input[type="checkbox"]:checked + label:before {
   content: "";
   background-color: var(--primary);
   border-color: var(--primary);
-  background-image: url("/assets/checked.svg");
+  background-image: url("${contextPath}/resources/images/checkbox.png");
   background-repeat: no-repeat;
   background-position: 50%;
 }

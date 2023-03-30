@@ -22,7 +22,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <body>
     <body>
       <main>
-        <jsp:include page="${contextPath/WEB-INF/views/common/header.jsp}" />
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
       </main>
 
       <!-- 바디 -->
@@ -93,18 +93,18 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
             <!-- 취소, 확인 버튼-->
             <div id="input-group">
              
-                <input id="btn-reset" type="button" value="취소"
-              />
+                 <a href="${contextPath}/member/logIn"><input id="btn-reset" type="button" value="취소"
+              /></a>
              
-                <input class="btn-primary-fill" type="button" value="동의"
-              />
+                <a href="${contextPath}/member/signUp"><input class="btn-primary-fill" type="button" value="동의"
+              /></a>
             </div>
           </form>
         </div>
       </section>
 
       <!-- 푸터 -->
-      <jsp:include page="${contextPath/WEB-INF/views/common/footer.jsp}" />
+      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
       <script src="${contextPath}/resources/common/js/terms.js"></script>
       <script src="${contextPath}/resources/js/google-search.js"></script>

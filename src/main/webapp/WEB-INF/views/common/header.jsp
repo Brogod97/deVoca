@@ -36,8 +36,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      <!-- FAQ / 로그인 / 회원가입 -->
      <div class="faq-login-signup">
        <a href="${contextPath}/static/faq.jsp">FAQ</a>
-       <a href="${contextPath}/static/log-in.jsp">로그인</a>
-       <a href="${contextPath}/static/signup.jsp">
+       <a href="${contextPath}/member/logIn">로그인</a>
+       <a href="${contextPath}/static/terms.jsp">
          <button class="btn-primary-fill">회원가입</button>
        </a>
      </div>
