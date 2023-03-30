@@ -1,6 +1,6 @@
 // 회원정보 입상 시 인풋창
 
-(function () {
+/*(function () {
   const idInput = document.querySelector("#id-input");
   idInput.value = "thiszino@gmail.com";
 
@@ -12,7 +12,7 @@
 
   const nmInput = document.querySelector("#nm-input");
   nmInput.value = "불꽃전사지노";
-})();
+})();*/
 
 //--------------------------------------------------------------
 
