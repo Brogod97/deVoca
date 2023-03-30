@@ -6,23 +6,27 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="nav-bar">
   <section>
     <a href="${contextPath}/member/member-profile">
-      <img id="profile-icon" src="${contextPath}/resources/assets/icon/profile.svg"/>
+      <img
+        id="profile-icon"
+        src="${contextPath}/resources/assets/icon/profile.svg"
+      />
     </a>
     <a href="${contextPath}/voca/voca-main">
       <img src="${contextPath}/resources/assets/icon/word.svg" />
     </a>
-    <a href="${contextPath}/WEB-INF/views/voca/quiz-main.jsp">
+    <a href="${contextPath}/voca/quiz-main">
       <img src="${contextPath}/resources/assets/icon/quiz.svg" />
     </a>
-    <a href="${contextPath}/WEB-INF/views/voca/shared.jsp">
+    <a href="${contextPath}/voca/exlore">
       <img src="${contextPath}/resources/assets/icon/shared.svg" />
     </a>
   </section>
   <section>
+    <a href="${contextPath}/about/inquiry">
+      <img src="${contextPath}/resources/assets/icon/send.svg" alt="" />
+    </a>
     <a href="${contextPath}/lndex.jsp">
       <img src="${contextPath}/resources/assets/icon/logout.svg" />
     </a>
   </section>
 </nav>
-
-        

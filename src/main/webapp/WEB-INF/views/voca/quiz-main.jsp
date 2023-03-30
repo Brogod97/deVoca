@@ -9,10 +9,19 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
-    <link rel="stylesheet" href="${contextPath}/resources.css/common/template-quiz.css" />
+    <link
+      rel="stylesheet"
+      href="${contextPath}/resources/css/common/template-quiz.css"
+    />
     <link rel="stylesheet" href="${contextPath}/resources/css/quiz-main.css" />
-    <link rel="stylesheet" href="${contextPath}/resources/css/loding.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/loading.css" />
 
+    <!-- 제이쿼리 cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- font-awesome -->
     <script
@@ -25,14 +34,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <body>
     <main>
       <!-- 헤더 -->
-      <jsp:include page="${contextPath}/WEB-INF/views/common/header.jsp" />
-      
+      <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
       <!-- 바디 -->
       <!-- nav + sidebar 컨테이너 -->
       <section class="container">
         <!-- nav바 -->
-        <jsp:include page="${contextPath}/WEB-INF/views/common/navbar.jsp" />
-        
+        <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
       </section>
     </main>
 
@@ -60,17 +68,20 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <div>
             <h2>카테고리를 선택해 주세요</h2>
           </div>
-          <div>
-            <a href="quiz-game.html">
-              <button class="container-main-btn">시작하기</button>
-            </a>
-          </div>
-          <div class="container-main-content">
-            <button>JAVA</button>
-            <button>JavaScript</button>
-            <button>Python</button>
-            <button>DB</button>
-          </div>
+
+          <form action="quiz-game">
+            <div>
+              <a href="quiz-game.html">
+                <button class="container-main-btn">시작하기</button>
+              </a>
+            </div>
+            <div class="container-main-content">
+              <button>JAVA</button>
+              <button>JavaScript</button>
+              <button>Python</button>
+              <button>DB</button>
+            </div>
+          </form>
         </div>
         <div class="container-main-right">
           <img
@@ -81,7 +92,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </section>
     </section>
-    
+
     <script src="${contextPath}/resources/js/google-search.js"></script>
     <script src="${contextPath}/resources/js/quiz-main.js"></script>
   </body>
