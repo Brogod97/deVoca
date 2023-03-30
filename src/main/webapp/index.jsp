@@ -28,7 +28,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             crossorigin="anonymous"
         ></script>
         <script src="${contextPath}/resources/js/jquery.fullPage.js"></script>
-        <script src="${contextPath}/resources/js/landing.js"></script>
+
         <title>deVoca</title>
     </head>
     <body>
@@ -185,5 +185,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <jsp:include page="WEB-INF/views/common/footer.jsp" />
             </section>
         </main>
+
+        <script src="${contextPath}/resources/js/landing.js"></script>
+        <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>
 </html>

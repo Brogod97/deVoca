@@ -417,7 +417,7 @@ input::-webkit-search-results-decoration {
     cursor: pointer;
     width: 200px;
     height: 100px;
-    background-image: url("./assets/images/honey-btn-default.svg");
+    background-image: url("../assets/images/honey-btn-default.svg");
     background-repeat: no-repeat;
 }
 
@@ -425,7 +425,7 @@ input::-webkit-search-results-decoration {
     border: none;
     cursor: pointer;
 
-    background-image: url("./assets/images/honey-btn-action.svg");
+    background-image: url("../assets/images/honey-btn-action.svg");
 }
 
 .section-2 {
