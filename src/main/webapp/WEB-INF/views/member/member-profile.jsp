@@ -8,8 +8,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css" />
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/template-2" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/template-2.css" />
     <link rel="stylesheet" href="${contextPath}/resources/css/member-profile.css" />
 
     <!-- font-awesome -->
@@ -23,15 +23,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <body>
     <main>
       <!-- 헤더 -->
-      <jsp:include page="${contextPath}/WEB-INF/views/common/header.jsp" />
+      <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
       <!-- 바디 -->
       <!-- nav + sidebar 컨테이너 -->
       <section class="container">
-        <jsp:include page="${contextPath}/WEB-INF/views/common/navbar.jsp" />
+        <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
 
         <!-- 서치&카테고리 -->
-        <jsp:include page="${contextPath}/WEB-INF/views/common/sidebar.jsp" />
+        <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
       </section>
     </main>
 
@@ -52,7 +52,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <div class="user-img-area">
                 <div id="img-thumbnail">
                   <img
-                    src="${contextPath}/resources/images/default-user-img.png"
+                    src="${contextPath}/resources/assets/images/default-user-img.png"
                     alt="프로필 사진"
                     id="profile-img"
                   />
@@ -209,7 +209,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
             <div class="update-img-thumbnail-outerbox">
               <div id="update-img-thumbnail-innerbox">
-                <img src="${contextPath}/resources/images/default-user-img.png" alt="변경 프로필 사진" />
+                <img src="${contextPath}/resources/assets/images/default-user-img.png" alt="변경 프로필 사진" />
               </div>
             </div>
             <form action="#" method="GET">
