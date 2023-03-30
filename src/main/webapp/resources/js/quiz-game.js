@@ -14,7 +14,7 @@ function onSlideChange() {
     // 마지막 슬라이드인 경우 버튼 생성
     console.log("마지막입니다");
     const link = document.createElement("a");
-    link.href = "/pages/quiz-result.html";
+    link.href = "/voca/game-result";
 
     const btn = document.createElement("button");
     btn.classList.add("btn-primary-fill");

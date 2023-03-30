@@ -125,14 +125,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <div class="sec3-center">
                             <h4>deVoca를 사용해야 하는이유</h4>
                             <img
-                                src="${contextPath}/resources/assets/images/honeycomb.png"
+                                src="${contextPath}/resources/assets/images/honeycomb.svg"
                                 class="sec3-center-img1"
                             />
                         </div>
                         <div class="sec3-center-images">
                             <div>
                                 <img
-                                    src="${contextPath}/resources/assets/images/globe.png"
+                                    src="${contextPath}/resources/assets/images/globe.svg"
                                     width="180px"
                                     height="180px"
                                 />
@@ -143,7 +143,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             </div>
                             <div>
                                 <img
-                                    src="${contextPath}/resources/assets/images/note-pencil.png"
+                                    src="${contextPath}/resources/assets/images/note-pencil.svg"
                                     width="180px"
                                     height="180px"
                                 />
@@ -154,7 +154,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             </div>
                             <div>
                                 <img
-                                    src="${contextPath}/resources/assets/images/coding.png"
+                                    src="${contextPath}/resources/assets/images/coding.svg"
                                     width="180px"
                                     height="180px"
                                 />

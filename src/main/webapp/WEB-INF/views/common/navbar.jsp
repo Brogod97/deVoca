@@ -6,12 +6,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="nav-bar">
   <section>
     <a href="${contextPath}/member/member-profile">
-      <img id="profile-icon" src="${contextPath}/resources/assets/icon/profile.svg"/>
+      <img
+        id="profile-icon"
+        src="${contextPath}/resources/assets/icon/profile.svg"
+      />
     </a>
     <a href="${contextPath}/voca/voca-main">
       <img src="${contextPath}/resources/assets/icon/word.svg" />
     </a>
-    <a href="${contextPath}/WEB-INF/views/voca/quiz-main.jsp">
+    <a href="${contextPath}/voca/quiz-main">
       <img src="${contextPath}/resources/assets/icon/quiz.svg" />
     </a>
     <a href="${contextPath}/voca/explore">
@@ -24,5 +27,3 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </a>
   </section>
 </nav>
-
-        

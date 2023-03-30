@@ -2,7 +2,6 @@
 pageEncoding="UTF-8" %> <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <!-- 서치&카테고리 -->
 <section class="side-bar">
   <!-- 단어장 서치바 -->
@@ -17,7 +16,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           autocomplete="off"
         />
         <button>
-          <img src="${contextPath}/resources/assets/icon/search.svg" class="voca-search-img" />
+          <img
+            src="${contextPath}/resources/assets/icon/search.svg"
+            class="voca-search-img"
+          />
         </button>
       </form>
     </div>
@@ -42,9 +44,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </div>
 
     <div class="category-list">
-      <ul>
-       
-      </ul>
+      <ul></ul>
     </div>
   </section>
 </section>
