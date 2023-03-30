@@ -13,6 +13,8 @@
 /* word-list를 묶은 부모 div */
 .word-list {
   padding: 20px 80px;
+
+  display: none;
 }
 
 /* 메인 컨텐츠 양옆 사이즈를 맞추기 위한 div */
@@ -313,11 +315,34 @@ p {
   font-size: 14px;
 }
 
+/* 코드블럭 */
+
+pre code.hljs {
+  width: 800px;
+  overflow-y: auto;
+  background-color: var(--gray50);
+  max-height: 200px;
+}
 .voca-code-block-area {
   width: 100%;
-  background-color: var(--gray50);
+
+  display: flex;
+
   border-radius: 20px;
+
   padding: 15px 25px;
+
+  background-color: var(--gray50);
+}
+
+#voca-code-select {
+  height: 20px;
+
+  border: none;
+
+  background-color: transparent;
+
+  outline: none;
 }
 
 .modify-btn-area {
