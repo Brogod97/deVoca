@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>voca-sql.xml</comment>
+
+	<entry key ="selectCategoryAll">
+		SELECT MEMBER_NO, CATEGORY_TITLE, CATEGORY_NO
+		FROM CATEGORY
+		WHERE MEMBER_NO = ? 
+	</entry>
+	
+	<entry key="selectMemberAll">
+		SELECT MEMBER_NO, MEMBER_NM, USER_IMG
+		FROM MEMBER
+		WHERE SECESSION_FL = 'N'
+	</entry>
+
+</properties>

@@ -233,13 +233,17 @@
 }
 
 .voca-category1 {
-    display: flex;
-    justify-content: space-between;
+
+  display: flex;
+
+  float: right;
 }
 
 .voca-category2 {
-    border-bottom: 1px solid var(--primary);
-    width: 100%;
+  border-bottom: 1px solid var(--primary);
+  width: 100%;
+
+  margin-bottom: 40px;
 }
 
 .voca-category2 > h1 {
@@ -315,13 +319,70 @@ p {
     font-size: 14px;
 }
 
+/* 삭제 모달창 */
+.voca-delete-modal {
+  width: 100%;
+  height: 100%;
+
+  display: none;
+}
+
+.voca-delete-modal-box {
+  width: 400px;
+  height: 200px;
+
+  background-color: white;
+
+  box-shadow: var(--word-modal-shadow);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: absolute;
+  right: 250px;
+  top: 200px;
+
+  padding: 30px;
+}
+
+.voca-delete-area {
+  display: flex;
+}
+
+.voca-delete-title {
+  font-size: 24px;
+  font-weight: 800;
+
+  color: var(--dark);
+
+  margin-left: 10px;
+}
+
+.voca-delete-btns {
+  margin-left: auto;
+}
+
+.voca-delete-content {
+  font-size: 18px;
+}
+
+.btn-primary-line {
+  width: 80px;
+}
+
+.btn-primary-fill {
+  width: 120px;
+}
+
 /* 코드블럭 */
 
 pre code.hljs {
-    width: 800px;
-    overflow-y: auto;
-    background-color: var(--gray50);
-    max-height: 200px;
+  width: 700px;
+  overflow-y: auto;
+  background-color: var(--gray50);
+  max-height: 200px;
 }
 .voca-code-block-area {
     width: 100%;

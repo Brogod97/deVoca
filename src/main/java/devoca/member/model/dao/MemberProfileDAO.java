@@ -30,6 +30,12 @@ public class MemberProfileDAO {
 			e.printStackTrace();
 		}
 	}
+	/** 회원정보 조회 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public Member selectOne(Connection conn, int memberNo) throws Exception{
 		
 		Member loginMember = null; // 결과 저장용 변수
@@ -62,6 +68,36 @@ public class MemberProfileDAO {
 		
 		
 		return loginMember;
+	}
+	/** 회원 정보 수정 DAO
+	 * @param conn
+	 * @param member
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateMember(Connection conn, Member member) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberPw());
+			pstmt.setString(2, member.getMemberNick());
+			pstmt.setInt(3, member.getMemberNo());
+			
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

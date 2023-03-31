@@ -1,18 +1,14 @@
 // 회원정보 입상 시 인풋창
 
-/*(function () {
-  const idInput = document.querySelector("#id-input");
-  idInput.value = "thiszino@gmail.com";
+(function () {
 
   const pwInput = document.querySelector("#pw-input");
   const pwcheckInput = document.querySelector("#pwcheck-input");
 
-  pwInput.value = "Devoca1234!";
-  pwcheckInput.value = "Devoca1234!";
+  pwInput.value = "123456789";
+  pwcheckInput.value = "123456789";
 
-  const nmInput = document.querySelector("#nm-input");
-  nmInput.value = "불꽃전사지노";
-})();*/
+})();
 
 //--------------------------------------------------------------
 

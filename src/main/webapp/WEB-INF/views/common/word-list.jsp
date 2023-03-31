@@ -92,10 +92,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </div>
     <!-- 단어 조회 모달 끝 -->
 
-    <div class="content-main-text">
-        <div class="content-main-text-flex"></div>
-    </div>
-
     <!-- 단어 추가 모달 시작 -->
     <div class="addModal hidden">
         <div class="addBg"></div>
