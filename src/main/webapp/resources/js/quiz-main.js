@@ -16,7 +16,7 @@ function hideLoadingPage() {
   // 로딩 페이지를 화면에서 숨깁니다.
   document.querySelector(".wrap").style.display = "none";
   document.querySelector(".container").style.display = "flex";
-  document.querySelector(".container-main").style.display = "block";
+  document.querySelector(".container-main").style.display = "flex";
 }
 
 // 단어를 선택했을때 고정으로 색이 변하는 이벤트
