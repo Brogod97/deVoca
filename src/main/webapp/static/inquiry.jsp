@@ -39,7 +39,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      <div class="titlename"> 이름</div>
      <div class="name">
       <input type="text" class="name" id="name" name="name">
-    </div>>
     </div>
     </td>
 
