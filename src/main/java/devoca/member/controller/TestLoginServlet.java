@@ -14,18 +14,12 @@ import devoca.member.model.service.TestLoginService;
 import devoca.member.model.vo.Member;
 
 @WebServlet("/member/testLogin")
-public class TestLogin extends HttpServlet{
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String path = "/WEB-INF/views/member/member-profile.jsp";
-		req.getRequestDispatcher(path).forward(req, resp);
-	}
+public class TestLoginServlet extends HttpServlet{
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String inputId = "thiszino@gmail.com";
-		String inputPw = "zino12@#";
+		String inputPw = "4444";
 		
 		Member member = new Member();
 		member.setMemberId(inputId);
@@ -53,8 +47,13 @@ public class TestLogin extends HttpServlet{
 				}
 				
 				c.setPath(req.getContextPath());// 최상위 주소 
-				
+				resp.addCookie(c);
+			}else {
+				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			}
+			
+			// redirect
+			resp.sendRedirect(req.getContextPath());
 			
 		}catch(Exception e) {
 			e.printStackTrace();

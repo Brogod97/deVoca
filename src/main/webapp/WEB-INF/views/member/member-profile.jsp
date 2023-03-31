@@ -45,20 +45,31 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <p>회원 정보</p>
         </div>
         <div class="user-info-outbox">
-          <form action="#" method="POST">
             <!-- 회원 정보 영역 -->
             <div class="user-info-area">
               <!-- 프로필사진 영역 -->
               <div class="user-img-area">
                 <div id="img-thumbnail">
+                <!-- profileImage 비어있을 시 기본 이미지  -->
+                <c:if test="${empty loginMember.profileImage }">
                   <img
                     src="${contextPath}/resources/assets/images/default-user-img.png"
                     alt="프로필 사진"
                     id="profile-img"
                   />
+                 </c:if>
+                 <!-- profileImage 가지고 있을 시 이미지 출력 -->
+                 <c:if test="${!empty loginMember.profileImage }">
+                  <img
+                    src="${contextPath}/${loginMember.profileImage}"
+                    alt="프로필 사진"
+                    id="profile-img"
+                  />
+                 </c:if>
                 </div>
                 <div id="img-edit"><i class="ic-camera-cc"></i></div>
               </div>
+          <form action="${contextPath}/member/memberInfo" method="POST">
               <!-- 정보 입력 영역 -->
               <div class="user-info-input-area">
                 <!-- 영역잡기용 div -->
@@ -67,7 +78,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   <div class="id-input-area">
                     <label>
                       아이디<br />
-                      <input type="text" id="id-input" disabled />
+                      <input type="text" id="id-input" name="inputId" value="${loginMember.memberId}" disabled />
                     </label>
                   </div>
                   <!-- 비밀번호 인풋 영역 -->
@@ -80,9 +91,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <input
                           type="password"
                           id="pw-input"
+                          name ="inputPw"
+                          
                           disabled
                           required
                           placeholder="영어 대소문자,숫자,특수 문자 포함8~20자 "
+                          
                         />
                       </label>
                     </div>
@@ -98,6 +112,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <input
                           type="password"
                           id="pwcheck-input"
+                          name ="inputPw"
+                          
                           disabled
                           required
                         />
@@ -115,6 +131,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                       <input
                         type="text"
                         id="nm-input"
+                        name ="inputNm"
+                        value="${loginMember.memberNick}"
                         disabled
                         required
                         placeholder="한글,영문 2~10자 "
@@ -209,7 +227,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
             <div class="update-img-thumbnail-outerbox">
               <div id="update-img-thumbnail-innerbox">
-                <img src="${contextPath}/resources/assets/images/default-user-img.png" alt="변경 프로필 사진" />
+	              <c:if test="${empty loginMember.profileImage }">
+	                <img src="${contextPath}/resources/assets/images/default-user-img.png" alt="변경 프로필 사진" />
+	              </c:if>
+	              <c:if test="${!empty loginMember.profileImage }">
+	                <img src="${contextPath}/${loginMember.profileImage}" alt="변경 프로필 사진" />
+	              </c:if>
+	              
               </div>
             </div>
             <form action="#" method="GET">

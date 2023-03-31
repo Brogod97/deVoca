@@ -9,4 +9,11 @@
 	FROM MEMBER
 	WHERE MEMBER_NO = ?
 </entry>
+
+<entry key="updateMember">
+	UPDATE MEMBER SET 
+	MEMBER_PW = ?,
+	MEMBER_NM = ?
+	WHERE MEMBER_NO = ?
+</entry>
 </properties>
