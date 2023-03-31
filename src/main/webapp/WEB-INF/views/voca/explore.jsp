@@ -36,9 +36,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <!-- navbar -->
                 <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
 
-                <!-- 서치&카테고리 -->
+                <!-- 회원 검색 & 회원 리스트 -->
                 <section class="side-bar">
-                    <!-- 단어장 서치바 -->
+                    <!-- 회원 검색 -->
                     <section class="sidebar-search-area">
                         <div class="sidebar-search">
                             <form action="#" name="voca-search-form">
@@ -63,30 +63,28 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="btn-primary-fill btn-long">퀴즈 시작</div>
 
                     <div class="line"></div>
-                    <!-- 카테고리 -->
+
+                    <!-- 회원 리스트 -->
                     <section class="category-container">
                         <div class="category-header">
                             <h3>회원 목록</h3>
                         </div>
 
                         <div class="member-list-area">
+                            <!-- 회원 클릭 시 해당 회원의 카테고리 조회 -->
                             <ul class="member-list">
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="${contextPath}/resources/assets/images/user-profile.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname">Zino</span>
-                                </li>
-                                <li class="member">
-                                    <div class="member-thumbnail">
-                                        <img
-                                            src="${contextPath}/resources/assets/images/user-profile.png"
-                                        />
-                                    </div>
-                                    <span class="member-nickname">Xino</span>
-                                </li>
+                                <c:forEach var="member" items="${memberList}">
+                                    <li class="member">
+                                        <div class="member-thumbnail">
+                                            <img
+                                                src="${contextPath}/${ member.profileImage }"
+                                            />
+                                        </div>
+                                        <span class="member-nickname">
+                                            ${member.memberNick}
+                                        </span>
+                                    </li>
+                                </c:forEach>
                             </ul>
                         </div>
                     </section>
@@ -96,44 +94,58 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
         <!-- 메인 콘텐츠 영역 -->
         <section class="main-content-area">
-            <!-- 공유된 유저의 카테고리 및 단어 조회 -->
+            <!-- 특정 유저의 카테고리 표시 영역 -->
             <div class="shared-container">
-                <div class="shared-header-area">
-                    <h2>
-                        <span id="shared-user-name">Zino</span>
-                        <span>
-                            님의 공유된 단어 리스트
-                            <div class="flying-bee">
-                                <img
-                                    src="${contextPath}/resources/assets/images/flying-bee-1.svg"
-                                /></div
-                        ></span>
-                    </h2>
+                <div id="shared-header-category-area">
+                    <div class="shared-header-area">
+                        <h2>
+                            <span id="shared-user-name">Zino</span>
+                            <span>
+                                님의 공유된 단어 리스트
+                                <div class="flying-bee">
+                                    <img
+                                        src="${contextPath}/resources/assets/images/flying-bee-1.svg"
+                                    /></div
+                            ></span>
+                        </h2>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="shared-category-area">
+                        <ul class="shared-category-list">
+                            <li class="shared-category">
+                                <i class="ic-hive-cc"></i>
+                                <span class="category-title">Java</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="line"></div>
                 </div>
 
-                <div class="line"></div>
-
-                <div class="shared-category-area">
-                    <ul class="shared-category-list">
-                        <li class="shared-category">
-                            <i class="ic-hive-cc"></i>
-                            <span class="category-title">Java</span>
-                        </li>
-                        <li class="shared-category">
-                            <i class="ic-hive-cc"></i>
-                            <span class="category-title">JavaScript</span>
-                        </li>
-                        <li class="shared-category">
-                            <i class="ic-hive-cc"></i>
-                            <span class="category-title">Python</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="line"></div>
-
+                <!-- 카테고리 클릭 시 해당 카테고리의 단어 조회 -->
                 <div class="shared-voca-list-area">
                     <jsp:include page="/WEB-INF/views/common/word-list.jsp" />
+
+                    <div class="content-main-text">
+                        <div class="content-main-text-flex">
+                            <div>
+                                <button>
+                                    <img src="/assets/check-empty.svg" />
+                                </button>
+                                <button class="openBtn">TestMethod1</button>
+                            </div>
+                            <div>
+                                <button>
+                                    <img src="/assets/star-empty.svg" /></button
+                                ><button>
+                                    <img src="/assets/chevron.svg" />
+                                </button>
+                            </div>
+                        </div>
+                        <div class="content-main-add-line"></div>
+                    </div>
                 </div>
             </div>
         </section>

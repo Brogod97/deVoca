@@ -1,15 +1,11 @@
 package devoca.voca.model.vo;
 
-
-
 public class Category {
 	private int categoryNo;
 	private int memberNo;
 	private String categoryTitle;
 	
-	
 	public Category() {}
-
 
 	public Category(int categoryNo, int memberNo, String categoryTitle) {
 		super();
@@ -55,9 +51,4 @@ public class Category {
 				+ "]";
 	}
 	
-	
-	
-	
 }
-
-
