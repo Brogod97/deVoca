@@ -23,7 +23,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <body>
     <body>
       <main>
-        <jsp:include page="${contextPath/WEB-INF/views/common/header.jsp}"/>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
       </main>
       <!-- 바디 -->
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
@@ -77,7 +77,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
             <div id="already-id">
               <p id="already-text">
-                이미 계정이 있으신가요?<a href="${contextPath}/resources/WEB-INF/views/member/login.jsp">로그인</a>
+                이미 계정이 있으신가요?<a href="${contextPath}/member/logIn">로그인</a>
               </p>
             </div>
 
@@ -97,7 +97,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       </section>
 
       <!-- 푸터 -->
-        <jsp:include page="${contextPath/WEB-INF/views/common/footer.jsp}" />
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
       <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
        <script src="${contextPath}/resources/js/sns-login.js"></script>

@@ -17,15 +17,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <a href="${contextPath}/voca/quiz-main">
       <img src="${contextPath}/resources/assets/icon/quiz.svg" />
     </a>
-    <a href="${contextPath}/voca/exlore">
+    <a href="${contextPath}/voca/explore">
       <img src="${contextPath}/resources/assets/icon/shared.svg" />
     </a>
   </section>
   <section>
-    <a href="${contextPath}/about/inquiry">
-      <img src="${contextPath}/resources/assets/icon/send.svg" alt="" />
-    </a>
-    <a href="${contextPath}/lndex.jsp">
+    <a href="${contextPath}/index.jsp">
       <img src="${contextPath}/resources/assets/icon/logout.svg" />
     </a>
   </section>

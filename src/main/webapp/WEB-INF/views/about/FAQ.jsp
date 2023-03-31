@@ -38,6 +38,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
        
     
             <div id="faq-collection" class="faq-back">
+           
             <div class="container mx-auto">
               <div id="faq-center">
                
@@ -66,7 +67,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>Q. 어떻게 퀴즈를 시작하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                        - 캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
                       </div>
                   
                     </div>
@@ -75,14 +76,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>Q.   어떻게 단어를 추가하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                        - 캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
                       </div>
                   </li>
                   <li>
                     <div class="faq-box__question"><span>Q. 어떻게 단어를 공유하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+                        - 하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
                       </div>
                      
                     </div>
@@ -91,11 +92,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>Q. 추가질문입니다.</span></div>
                     <div class="faq-box__answer">
                      <div>
-                      캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                      - 캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
                      </div>
                
                       <div>
-                        하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+                        - 하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
                       </div>
 
                     </div>
