@@ -9,7 +9,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
-    <link rel="stylesheet" href="${contextPath}/resources.css/common/template-quiz.css" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/template-quiz.css" />
     <link rel="stylesheet" href="${contextPath}/resources/css/quiz-result.css" />
 
     <!-- font-awesome -->
@@ -26,14 +26,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <body>
     <main>
       <!-- 헤더 -->
-      <jsp:include page="${contextPath}/WEB-INF/views/common/header.jsp" />
+      <jsp:include page="/WEB-INF/views/common/header.jsp" />
       
 
       <!-- 바디 -->
       <!-- nav + sidebar 컨테이너 -->
       <section class="container">
         <!-- nav바 -->
-        <jsp:include page="${contextPath}/WEB-INF/views/common/navbar.jsp" />
+        <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
         
       </section>
     </main>

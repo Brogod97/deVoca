@@ -33,7 +33,6 @@ tagify.on("add", function () {
 
 const vocaSave = document.getElementById("voca-save");
 const vocaInput = document.querySelector("input[name='voca-title']");
-const vocaTag = document.querySelector("input[name='basic']");
 const vocadefinition = document.querySelector("input[name='voca-definition']");
 const vocaMemo = document.querySelector("#voca-memo");
 const vocaReadTitle = document.getElementById("voca-read-title");
@@ -42,8 +41,13 @@ const vocaReadMemo = document.getElementById("voca-read-memo");
 const modifyBtn = document.querySelector(".modify-btn");
 const vocaModify = document.querySelector(".voca-modify");
 const vocaDelete = document.querySelector(".voca-delete");
+const vocaDeleteDone = document.getElementById("voca-delete-done");
 
 vocaSave.addEventListener("click", function () {
+  // $.ajax({
+  //   url: "voca/wordAdd",
+
+  //   success: function (result) {
   const div1 = document.createElement("div");
   div1.classList.add("content-main-add-line");
 
@@ -53,7 +57,10 @@ vocaSave.addEventListener("click", function () {
 
   const button1 = document.createElement("button");
   const img1 = document.createElement("img");
-  img1.setAttribute("src", "/assets/check-empty.svg");
+  img1.setAttribute(
+    "src",
+    contextPath + "/resources/assets/icon/check-active.svg"
+  );
 
   const button2 = document.createElement("button");
   button2.classList.add("openBtn");
@@ -61,11 +68,11 @@ vocaSave.addEventListener("click", function () {
   const div4 = document.createElement("div");
   const button3 = document.createElement("button");
   const img2 = document.createElement("img");
-  img2.setAttribute("src", "/assets/star-empty.svg");
+  img2.setAttribute("src", contextPath + "/resources/assets/icon/star.svg");
 
   const button4 = document.createElement("button");
   const img3 = document.createElement("img");
-  img3.setAttribute("src", "/assets/chevron.svg");
+  img3.setAttribute("src", contextPath + "/resources/assets/icon/chevron.svg");
 
   div2.append(div3, div4);
   div3.append(button1, button2);
@@ -81,7 +88,7 @@ vocaSave.addEventListener("click", function () {
   const vocaContent = {
     id: randomIDGenerate(),
     title: vocaInput.value,
-    tag: vocaTag.value,
+
     definition: vocadefinition.value,
     memo: vocaMemo.value,
   };
@@ -113,6 +120,16 @@ vocaSave.addEventListener("click", function () {
     });
   }
 
+  const vocaDeleteModal = document.querySelector(".voca-delete-modal");
+  const vocaDeleteCancell = document.getElementById("voca-delete-cancell");
+  vocaDelete.addEventListener("click", () => {
+    vocaDeleteModal.style.display = "block";
+  });
+
+  vocaDeleteCancell.addEventListener("click", () => {
+    vocaDeleteModal.style.display = "none";
+  });
+
   // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
   let flag = true;
   button1.addEventListener("click", function () {
@@ -141,6 +158,7 @@ vocaSave.addEventListener("click", function () {
       vocaReadTitle.value = vocaContent.title;
       vocaReadDefinition.value = vocaContent.definition;
       vocaReadMemo.innerText = vocaContent.memo;
+
       modifyDone();
     } else {
       console.log("다르다");
@@ -149,10 +167,13 @@ vocaSave.addEventListener("click", function () {
 
   button3.addEventListener("click", function () {
     if (flag) {
-      img2.setAttribute("src", "/assets/star-fill.svg");
+      img2.setAttribute(
+        "src",
+        contextPath + "/resources/assets/icon/star-active.svg"
+      );
       flag = false;
     } else {
-      img2.setAttribute("src", "/assets/star-empty.svg");
+      img2.setAttribute("src", contextPath + "/resources/assets/icon/star.svg");
       flag = true;
     }
   });
@@ -172,6 +193,8 @@ vocaSave.addEventListener("click", function () {
   // ---------코드블럭-------
   codeOutput.textContent = codeInput.value;
   hljs.highlightBlock(codeOutput);
+  //   },
+  // });
 });
 
 // ---------- 코드블럭 구간 -----------------
