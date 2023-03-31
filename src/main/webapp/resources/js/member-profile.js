@@ -131,19 +131,11 @@ updateImgCancleBtn.addEventListener("click", () => {
   updateImgModal.style.display = "none";
 });
 
-// 프로필사진 바꾸기
 
-//FIXME:이미지 변경법 더 찾아보기 value값 못가져옴
+/*******************************************************/
 
-/*const updateImgFileInput = document.querySelector("#update-img-file-input");
-const updateImgAcceptBtn = document.querySelector("#update-img-accept-btn");
-const profileImg = document.querySelector("#profile-img");
-updateImgAcceptBtn.addEventListener("click", () => {
-  profileImg.src = updateImgFileInput.value;
-  console(updateImgFileInput.value);
-});*/
 
-// 유효성 검사
+
 
 // 비밀번호 유효성검사
 pwInput.addEventListener("keyup", () => {
@@ -200,15 +192,49 @@ nmInput.addEventListener("keyup", () => {
   }
 });
 
-// if (regEx.test(pw.value)) {
-//   pwcheck.innerText = "사용가능한 비밀번호입니다.";
-//   pwcheck.classList.add("right");
-//   pwcheck.classList.remove("wrong");
-// } else {
-//   pwcheck.innerText = "사용불가능한 비밀번호입니다.";
-//   pwcheck.classList.add("wrong");
-//   pwcheck.classList.remove("right");
-// }
+// 경고 출력 + 포커스 + false 반환  함수
+function printAlert(el, message){ // 매개변수 el은 요소
+    alert(message);
+    el.focus();
+    return false;
+}
+
+function infoValidate(){
+	const regEx1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
+	 const regEx2 = /[가-힣|a-z|A-Z]{2,10}/;
+	// 닉네임 유효성 검사
+    if(nmInput.value.length == 0){ // 미작성 시 : 닉네임 입력해주세요.
+        return printAlert(nmInput, "닉네임을 입력해주세요.");
+    }
+
+    if(!regExp2.test(nmInput.value)){ // 유효하지 않은 경우
+        return false;
+    }
+   // 비밀번호 유효성 검사
+	if(pwInput.value.trim().length == 0){
+
+        return printAlert(pwInput, "비밀번호를 입력해주세요.");
+    }
+    if(!regExp1.test(pwInput.value)){ // 유효하지 않은 경우
+        return false;
+    }
+    
+    
+    if(pwcheckInput.value.trim().length == 0){
+
+        return printAlert(pwcheckInput, "비밀번호 확인을 입력해주세요.");
+    }
+    
+    // 새 비밀번호 != 새 비밀번호 확인
+    if(pwInput.value != pwcheckInput.value){
+        return printAlert(newPwConfirm, " 비밀번호가 일치하지 않습니다.");
+    }
+
+    return true; // true를 반환해서 form 제출 수행
+}
+
+
+
 
 //TODO: 회원탈퇴 비밀번호 유효성 검사
 // DB회원 비밀번호와 비교 검사 후 alert창 띄우기
