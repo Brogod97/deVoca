@@ -29,7 +29,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
         <div id="sign-up-box">
-          <form>
+          <form action="/deVoca/member/signUp" method="POST">
             <h1 id="sign-up-title">회원 가입</h1>
 
             <!-- 인풋창 묶음 -->
