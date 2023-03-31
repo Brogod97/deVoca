@@ -26,14 +26,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
     <section class="main-content-area">
       <div id="login-box">
-        <form>
+        <form action="/deVoca/member/logIn" method="POST">
           <h1 id="title">로그인</h1>
 
           <p>아이디</p>
-          <input type="email" placeholder="deVoca@email.com" />
+          <input id="loginId" type="email" placeholder="deVoca@email.com" />
 
           <p>비밀번호</p>
-          <input type="password" placeholder="******" />
+          <input id="loginPw" type="password" placeholder="******" />
 
           <div id="remember-searchPw">
             <label>
@@ -52,11 +52,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <div class="or">OR</div>
 
           <div id="sns">
-            <a href="${contextPath}/WEB-INF/views/voca/voca-main.jsp">
-              <button onclick="kakaoLogin();" id="kakao">
-                <i class="ic-kakao"></i>카카오 계정으로 로그인
-              </button></a
-            >
+            <button onclick="kakaoLogin();" id="kakao">
+              <i class="ic-kakao"></i>카카오 계정으로 로그인
+            </button>
 
             <button id="google">
               <img
@@ -76,6 +74,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- 푸터 -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+	<script src="${contextPath}/resources/common/js/memberLogin.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="${contextPath}/resources/js/sns-login.js"></script>
     <script src="${contextPath}/resources/js/google-search.js"></script>

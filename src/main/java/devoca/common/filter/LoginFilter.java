@@ -17,9 +17,7 @@ import javax.servlet.http.HttpSession;
 // 댓글 등록, 수정, 삭제 등등
 
 @WebFilter(filterName = "loginFilter", 
-		   urlPatterns = { "/board/write", "/board/delete",
-				   		   "/reply/insert", "/reply/update", "/reply/delete",
-				   		   "/member/myPage/*"}  )
+		   urlPatterns = { "/member/logIn", "/member/signUp"}  )
 
 public class LoginFilter extends HttpFilter implements Filter {
        
