@@ -18,5 +18,4 @@ public class faqServlet extends HttpServlet {
 		
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
-
 }

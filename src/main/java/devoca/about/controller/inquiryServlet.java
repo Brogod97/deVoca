@@ -17,5 +17,5 @@ public class inquiryServlet extends HttpServlet {
 		String path = "/WEB-INF/views/about/inquiry.jsp";
 		
 		req.getRequestDispatcher(path).forward(req, resp);
-}
+	}
 }

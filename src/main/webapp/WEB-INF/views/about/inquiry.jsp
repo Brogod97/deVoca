@@ -23,7 +23,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
         <div id="blank"></div>
-     <form >
+        <form class="subform" method="POST" deta-email="nastrikelike@gmail.com" 
+        action="https://script.google.com/macros/s/AKfycbx6CiuyImAdQCP78uLCsCXBzYlHlKmuDAByE7Il7NJxKvJdYFg8U_I0t2xE2AJeHZGS/exec" target="frAttachFiles">
         <div class="menu">
           <div class="texttitle"><span id = "quetitle">문의하기</span></div>
       <span id = quetext>deVoca를 이용해주셔서 감사합니다.<br>
@@ -37,7 +38,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <td>
      <div class="titlename"> 이름</div>
      <div class="name">
-      <input type="text" class="name" id="name">
+      <input type="text" class="name" id="name" name="name">
+    </div>>
     </div>
     </td>
 
@@ -48,7 +50,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <td>
       <div class="titlename"> 이메일</div>
       <div class="email">
-      <input type="email" id="email">
+      <input type="email" id="email" name="email">
       </div>
   </td>
 </tr>
@@ -60,12 +62,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   
       <div class="selectBox">
         <div class="select-wrap">
-      <select id="selc">
+      <select id="selc" name="select">
        
-          <option value="a">건의</option>
-          <option value="b">버그</option>
-          <option value="c">신고</option>
-          <option value="d">기타</option>
+          <option value="건의">건의</option>
+          <option value="버그">버그</option>
+          <option value="신고">신고</option>
+          <option value="기타">기타</option>
           <option selected></option>
         
       </select>
