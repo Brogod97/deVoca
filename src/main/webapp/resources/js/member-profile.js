@@ -7,7 +7,7 @@
 
   pwInput.value = "123456789";
   pwcheckInput.value = "123456789";
-
+  
 })();
 
 //--------------------------------------------------------------
@@ -133,10 +133,6 @@ updateImgCancleBtn.addEventListener("click", () => {
 
 
 /*******************************************************/
-
-
-
-
 // 비밀번호 유효성검사
 pwInput.addEventListener("keyup", () => {
   const pwReg = document.getElementById("pw-reg-text");
@@ -192,49 +188,100 @@ nmInput.addEventListener("keyup", () => {
   }
 });
 
-// 경고 출력 + 포커스 + false 반환  함수
-function printAlert(el, message){ // 매개변수 el은 요소
-    alert(message);
-    el.focus();
-    return false;
-}
 
+// 회원 정보변경 유효성검사
 function infoValidate(){
-	const regEx1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
-	 const regEx2 = /[가-힣|a-z|A-Z]{2,10}/;
-	// 닉네임 유효성 검사
-    if(nmInput.value.length == 0){ // 미작성 시 : 닉네임 입력해주세요.
-        return printAlert(nmInput, "닉네임을 입력해주세요.");
-    }
+	
+	const regEx1 =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
+	const regEx2 = /[가-힣|a-z|A-Z]{2,10}/;
+	const pwreg = document.getElementById("pw-reg-text");
+	const pwcheckreg = document.getElementById("pwcheck-reg-text");
+	const nmreg = document.getElementById("nm-reg-text");
 
-    if(!regExp2.test(nmInput.value)){ // 유효하지 않은 경우
-        return false;
-    }
-   // 비밀번호 유효성 검사
-	if(pwInput.value.trim().length == 0){
-
-        return printAlert(pwInput, "비밀번호를 입력해주세요.");
-    }
-    if(!regExp1.test(pwInput.value)){ // 유효하지 않은 경우
-        return false;
-    }
-    
-    
-    if(pwcheckInput.value.trim().length == 0){
-
-        return printAlert(pwcheckInput, "비밀번호 확인을 입력해주세요.");
-    }
-    
-    // 새 비밀번호 != 새 비밀번호 확인
-    if(pwInput.value != pwcheckInput.value){
-        return printAlert(newPwConfirm, " 비밀번호가 일치하지 않습니다.");
-    }
-
-    return true; // true를 반환해서 form 제출 수행
+	
+	if(!regEx1.test(pwInput.value)){
+		pwreg.innerText = "사용불가능한 비밀번호입니다."
+		pwInput.focus();
+		return false;
+	}	
+	
+	// TODO : 작동안함 
+	if(input.value != pwcheckInput.value){
+		pwcheckreg.innerText = "비밀번호가 일치하지 않습니다."
+		pwcheckInput.focus();
+		return false;
+	} 
+	// TODO : 작동안함 
+	if(!regEx2.test(nmInput.value)){
+		nmreg.innerText = "사용불가능한 닉네임입니다."
+		nmInput.focus();
+		return false;
+	}
+		
+	
+    return true; 
 }
 
 
+// 회원 탈퇴 유효성 검사
+function secessionValidate(){
+
+    // 정말 탈퇴할지 확인
+    // - window.confirm("내용") : 대화 상자에 확인/취소 생성
+    //      확인 클릭 시 true / 취소 클릭 시 false
+    //      window는 생략 가능
+    
+    if( !confirm("정말 탈퇴 하시겠습니까?") ){ //  취소를 누른 경우
+        return false;
+    }
+
+    return true;
+}
+
+// 이미지 미리보기 
+const inputImage = document.getElementById("update-img-file-input");
+if(inputImage != null){ // inputImage 요소가 화면에 존재 할 때
+ 
+    // input type="file" 요소는 파일이 선택 될 때 change 이벤트가 발생한다.
+    inputImage.addEventListener("change", function(){
+       
+        // this : 이벤트가 발생한 요소 (input type="file")
+
+        // files : input type="file"만 사용 가능한 속성으로
+        //         선택된 파일 목록(배열)을 반환
+        //console.log(this.files)
+        //console.log(this.files[0]) // 파일목록에서 첫 번째 파일 객체를 선택
+
+        if(this.files[0] != undefined){ // 파일이 선택되었을 때
+
+            const reader = new FileReader();
+            // 자바스크립트의 FileReader
+            // - 웹 애플리케이션이 비동기적으로 데이터를 읽기 위하여 사용하는 객체
+
+            reader.readAsDataURL(this.files[0]);
+            // FileReader.readAsDataURL(파일)
+            // - 지정된 파일의 내용을 읽기 시작함.
+            // - 읽어오는게 완료되면 result 속성 data:에 
+            //   읽어온 파일의 위치를 나타내는 URL이 포함된다.  
+            //  -> 해당 URL을 이용해서 브라우저에 이미지를 볼 수 있다.
 
 
-//TODO: 회원탈퇴 비밀번호 유효성 검사
-// DB회원 비밀번호와 비교 검사 후 alert창 띄우기
+            // FileReader.onload = function(){}
+            // - FileReader가 파일을 다 읽어온 경우 함수를 수행
+            reader.onload = function(e){ // 고전 이벤트 모델
+                // e : 이벤트 발생 객체
+                // e.target : 이벤트가 발생한 요소(객체) -> FileReader
+                // e.target.result : FileReader가 읽어온 파일의 URL
+
+                // 프로필 이미지의 src 속성의 값을 FileReader가 읽어온 파일의 URL로 변경
+                const profileImage = document.getElementById("profile-image");
+
+                profileImage.setAttribute("src", e.target.result);
+                // -> setAttribute() 호출 시 중복되는 속성이 존재하면 덮어쓰기
+
+                
+            }
+
+        }
+    });
+}
