@@ -92,6 +92,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         type="text"
                         id="id-input"
                         name="inputId"
+                        required
                         value="${loginMember.memberId}"
                         disabled
                       />
@@ -108,6 +109,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                           type="password"
                           id="pw-input"
                           name="inputPw"
+                          required
                           disabled
                           placeholder="영어 대소문자,숫자,특수 문자 포함8~20자 "
                         />
@@ -146,6 +148,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         name="inputNm"
                         value="${loginMember.memberNick}"
                         disabled
+                        required
                         placeholder="한글,영문 2~10자 "
                       />
                     </label>
@@ -199,13 +202,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <div id="check-sentence-box">
               <h4 id="check-sentence-text">정말로 탈퇴 하시겠습니까?</h4>
             </div>
-            <form action="#" method="POST">
+            <form action="${contextPath}/member/secession" method="POST" onsubmit="return secessionValidate()">
               <div id="now-pw-box">
                 <div class="icon-position-box-modal">
                   <i class="ic-lock"></i>
                   <input
                     type="password"
                     id="now-pw-input"
+                    name="nowPwInput"
                     placeholder="현재 비밀번호를 입력하세요"
                     required
                   />
@@ -242,17 +246,19 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   <img
                     src="${contextPath}/resources/assets/images/default-user-img.png"
                     alt="변경 프로필 사진"
+                    id="profile-image"
                   />
                 </c:if>
                 <c:if test="${!empty loginMember.profileImage }">
                   <img
                     src="${contextPath}/${loginMember.profileImage}"
                     alt="변경 프로필 사진"
+                    id="profile-image"
                   />
                 </c:if>
               </div>
             </div>
-            <form action="#" method="GET">
+            <form action="${contextPath}/member/memberImg" method="POST" enctype="multipart/form-data">
               <div class="update-img-file-input-box">
                 <label for="update-img-file-input" class="btn-primary-fill"
                   >프로필 변경하기</label
@@ -261,6 +267,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   type="file"
                   id="update-img-file-input"
                   accept="image/jpeg,.png"
+                  name="profileImage"
                   required
                 />
               </div>
@@ -273,7 +280,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   취소
                 </button>
                 <button
-                  type="button"
                   id="update-img-accept-btn"
                   class="btn-primary-fill"
                 >
@@ -286,7 +292,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       </div>
       <!-- 프로필 사진 편집 모달 끝 -->
     </section>
-
     <script src="${contextPath}/resources/js/google-search.js"></script>
     <script src="${contextPath}/resources/js/common/template-2.js"></script>
     <script src="${contextPath}/resources/js/member-profile.js"></script>
