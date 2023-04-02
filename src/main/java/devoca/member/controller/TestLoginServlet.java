@@ -19,7 +19,7 @@ public class TestLoginServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String inputId = "thiszino@gmail.com";
-		String inputPw = "4444";
+		String inputPw = "2222";
 		
 		Member member = new Member();
 		member.setMemberId(inputId);
@@ -53,7 +53,7 @@ public class TestLoginServlet extends HttpServlet{
 			}
 			
 			// redirect
-			resp.sendRedirect(req.getContextPath());
+			resp.sendRedirect(req.getContextPath() + "/voca/voca-main");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
