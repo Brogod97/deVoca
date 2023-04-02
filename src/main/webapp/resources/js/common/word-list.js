@@ -1,10 +1,10 @@
 // 추가 모달창
 const addOpen = () => {
-    document.querySelector(".addModal").classList.remove("hidden");
+  document.querySelector(".addModal").classList.remove("hidden");
 };
 
 const addClose = () => {
-    document.querySelector(".addModal").classList.add("hidden");
+  document.querySelector(".addModal").classList.add("hidden");
 };
 
 document.querySelector(".addOpenBtn").addEventListener("click", addOpen);
@@ -12,11 +12,11 @@ document.querySelector(".addBg").addEventListener("click", addClose);
 
 // 메뉴 모달창
 const menuOpen = () => {
-    document.querySelector(".voca-menu-modal").classList.remove("menu-hidden");
+  document.querySelector(".voca-menu-modal").classList.remove("menu-hidden");
 };
 
 const menuClose = () => {
-    document.querySelector(".voca-menu-modal").classList.add("menu-hidden");
+  document.querySelector(".voca-menu-modal").classList.add("menu-hidden");
 };
 
 document.querySelector(".menu-openBtn").addEventListener("click", menuOpen);
@@ -35,10 +35,6 @@ const vocaDelete = document.querySelector(".voca-delete");
 const vocaDeleteDone = document.getElementById("voca-delete-done");
 
 vocaSave.addEventListener("click", function () {
-  // $.ajax({
-  //   url: "voca/wordAdd",
-
-  //   success: function (result) {
   const div1 = document.createElement("div");
   div1.classList.add("content-main-add-line");
 
@@ -171,64 +167,63 @@ vocaSave.addEventListener("click", function () {
     // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
     let flag = true;
     button1.addEventListener("click", function () {
-        if (flag) {
-            img1.style.filter =
-                "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
-            button2.style.textDecoration = "line-through";
-            flag = false;
-        } else {
-            img1.style.filter =
-                "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
-            button2.style.textDecoration = "none";
-            flag = true;
-        }
+      if (flag) {
+        img1.style.filter =
+          "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
+        button2.style.textDecoration = "line-through";
+        flag = false;
+      } else {
+        img1.style.filter =
+          "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
+        button2.style.textDecoration = "none";
+        flag = true;
+      }
     });
 
     button2.addEventListener("click", function () {
-        open(vocaContent.id);
+      open(vocaContent.id);
     });
     const open = (id) => {
-        document.querySelector(".modal").classList.remove("hidden");
+      document.querySelector(".modal").classList.remove("hidden");
 
-        console.log(id);
-        if (id == vocaContent.id) {
-            console.log("같다");
-            vocaReadTitle.value = vocaContent.title;
-            vocaReadDefinition.value = vocaContent.definition;
-            vocaReadMemo.innerText = vocaContent.memo;
-            modifyDone();
-        } else {
-            console.log("다르다");
-        }
+      console.log(id);
+      if (id == vocaContent.id) {
+        console.log("같다");
+        vocaReadTitle.value = vocaContent.title;
+        vocaReadDefinition.value = vocaContent.definition;
+        vocaReadMemo.innerText = vocaContent.memo;
+        modifyDone();
+      } else {
+        console.log("다르다");
+      }
     };
 
     button3.addEventListener("click", function () {
-        if (flag) {
-            img2.setAttribute("src", "/assets/star-fill.svg");
-            flag = false;
-        } else {
-            img2.setAttribute("src", "/assets/star-empty.svg");
-            flag = true;
-        }
+      if (flag) {
+        img2.setAttribute("src", "/assets/star-fill.svg");
+        flag = false;
+      } else {
+        img2.setAttribute("src", "/assets/star-empty.svg");
+        flag = true;
+      }
     });
 
     button4.addEventListener("click", function () {
-        open(vocaContent.id);
+      open(vocaContent.id);
     });
 
     const close = () => {
-        document.querySelector(".modal").classList.add("hidden");
+      document.querySelector(".modal").classList.add("hidden");
     };
 
     document.querySelector(".openBtn").addEventListener("click", open);
     document.querySelector(".bg").addEventListener("click", close);
 
-  addClose();
-  // ---------코드블럭-------
-  codeOutput.textContent = codeInput.value;
-  hljs.highlightBlock(codeOutput);
-  //   },
-  // });
+    addClose();
+    // ---------코드블럭-------
+    codeOutput.textContent = codeInput.value;
+    hljs.highlightBlock(codeOutput);
+  });
 });
 
 // ---------- 코드블럭 구간 -----------------
@@ -243,11 +238,11 @@ codeInput.setSelectionRange(7, 7);
 codeInput.value = codeInput.value.slice(0, 7) + "\n" + codeInput.value.slice(7);
 
 function focusNextLine() {
-    const lineHeight = parseInt(
-        window.getComputedStyle(codeInput).lineHeight,
-        10
-    );
-    codeInput.scrollTop += lineHeight;
+  const lineHeight = parseInt(
+    window.getComputedStyle(codeInput).lineHeight,
+    10
+  );
+  codeInput.scrollTop += lineHeight;
 }
 
 focusNextLine();

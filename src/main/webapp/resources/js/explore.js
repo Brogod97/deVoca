@@ -20,6 +20,15 @@ memberList.forEach((member) => {
 
         // 2. shared-header-category-area 보이게 설정
         sharedHeaderCategoryArea.style.display = "block";
+
+        // 3. categoryList 요청 및 표시
+        // $.ajax(
+        //     url : "",
+        //     data : "",
+        //     type : "",
+        //     success : "",
+        //     error : ""
+        // );
     });
 });
 

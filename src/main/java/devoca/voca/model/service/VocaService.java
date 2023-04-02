@@ -18,7 +18,7 @@ public class VocaService {
 	 * @throws Exception 
 	 */
 	public List<Category> selectCategoryAll(int loginMemberNo) throws Exception {
-		
+						  
 		Connection conn = getConnection();
 		
 		List<Category> categoryList = dao.selectCategoryAll(conn, loginMemberNo);
