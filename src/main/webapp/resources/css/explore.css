@@ -116,6 +116,11 @@
     flex-direction: column;
 }
 
+/* shared-header-category-area : shared-container 내부 word-list 제외 상단부 */
+#shared-header-category-area {
+    display: none;
+}
+
 .shared-header-area h2 {
     margin: 0;
     padding-top: 35px;

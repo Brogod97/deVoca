@@ -23,7 +23,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
    	<a href="${contextPath}/member/testLogin">로그인</a>
   </section>
   <section>
-    <a href="${contextPath}/index.jsp">
+    <a href="${contextPath}/member/logout">
       <img src="${contextPath}/resources/assets/icon/logout.svg" />
     </a>
   </section>

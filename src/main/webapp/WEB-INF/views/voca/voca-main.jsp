@@ -109,12 +109,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <div class="bg"></div>
           <div class="voca-modalBox">
             <div class="voca-category1">
-              <div class="voca-category-tag">SQL</div>
               <div class="voca-category-btns">
                 <button class="voca-modify">수정</button>
                 <button class="voca-delete">삭제</button>
               </div>
             </div>
+
             <div class="voca-category2">
               <input id="voca-read-title" readonly />
             </div>
@@ -145,6 +145,29 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="voca-code-block-area">
               <pre><code class="language-java"></code></pre>
             </div>
+
+            <!-- 단어 삭제 여부 모달창 -->
+            <div class="voca-delete-modal">
+              <div class="voca-delete-modal-box">
+                <div class="voca-delete-area">
+                  <img
+                    src="${contextPath}/resources/assets/icon/warning.svg"
+                    alt=""
+                  />
+                  <div class="voca-delete-title">단어 삭제</div>
+                </div>
+                <div class="voca-delete-content">정말 삭제 하시겠습니까?</div>
+                <div class="voca-delete-btns">
+                  <button class="btn-primary-line" id="voca-delete-cancell">
+                    아니오
+                  </button>
+                  <button class="btn-primary-fill" id="voca-delete-done">
+                    네, 삭제할게요
+                  </button>
+                </div>
+              </div>
+            </div>
+
             <div>
               <button class="modify-btn">수정완료</button>
             </div>
@@ -160,23 +183,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <div class="addModal hidden">
           <div class="addBg"></div>
           <div class="voca-modalBox">
-            <form action="#" method="post" id="voca-form">
-              <div class="voca-category1">
-                <div class="voca-category-tag">SQL</div>
-              </div>
+            <form action="/voca/wordAdd" method="post" id="voca-form">
               <div class="voca-category2">
                 <input
                   type="text"
                   placeholder="메소드명을 입력해주세요"
                   name="voca-title"
-                  required
-                />
-              </div>
-              <div class="voca-category3">
-                <input
-                  type="text"
-                  placeholder="#태그를 입력하세요"
-                  name="basic"
                   required
                 />
               </div>
@@ -240,5 +252,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
     <script src="${contextPath}/resources/js/common/word-list.js"></script>
     <script src="${contextPath}/resources/js/google-search.js"></script>
+    <script>
+      const contextPath = "${contextPath}";
+    </script>
   </body>
 </html>
