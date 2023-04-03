@@ -47,4 +47,42 @@ public class MemberProfileService {
 		return result;
 	}
 
+	/** 회원탈퇴 
+	 * @param memberNo
+	 * @param nowPwInput
+	 * @return
+	 */
+	public int secession(int memberNo, String nowPwInput) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.updateMember(conn, memberNo, nowPwInput);
+		
+		if(result > 0) commit(conn);
+		else           rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 이미지편집
+	 * @param memberNo
+	 * @param profileImage
+	 * @return
+	 */
+	public int updateProfileImage(int memberNo, String profileImage) throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.updateProfileImage(conn, memberNo, profileImage);
+		
+		// 트랜잭션 제어 처리
+		if(result > 0)	commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
 }
