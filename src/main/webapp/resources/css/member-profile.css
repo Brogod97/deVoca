@@ -4,6 +4,8 @@
 
 .main-content-area {
   display: flex;
+  width: calc(100% - var(--nav-width));
+  margin-left: var(--nav-width);
 }
 .content-container {
   width: 90%;

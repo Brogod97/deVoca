@@ -61,4 +61,24 @@ public class VocaService {
 		
 		return wordList;
 	}
+
+
+	/** 카테고리 추가 
+	 * @param memberNo
+	 * @param categoryTitle 
+	 * @return
+	 */
+	public int insertCategory(int memberNo, String categoryTitle) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertCategory(conn, memberNo, categoryTitle);
+		
+		if(result > 0) commit(conn);
+		else           rollback(conn);
+				
+		return result;
+	}
+	
+	
 }

@@ -152,5 +152,32 @@ public class VocaDAO {
 		
 		return wordList;
 	}
+
+
+	/** 카테고리 추가 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param categoryTitle 
+	 * @return
+	 */
+	public int insertCategory(Connection conn, int memberNo, String categoryTitle) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("insertCategory");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, categoryTitle);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }

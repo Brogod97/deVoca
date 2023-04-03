@@ -15,6 +15,7 @@ categoryAdd.addEventListener("click", function () {
   const addBtn = document.createElement("button");
 
   const categoryInput = document.createElement("input");
+  categoryInput.setAttribute("name", "categoryTitle")
   $(function () {
     categoryInput.focus();
   });
