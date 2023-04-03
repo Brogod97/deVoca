@@ -38,9 +38,12 @@ categoryAdd.addEventListener("click", function () {
   document.querySelector(".category-list > ul").append(categoryLi);
 
   // 카테고리를 누르면 오른쪽에 단어 추가 생성이 일어남
-  categoryLi.addEventListener("click", () => {
+  categoryLi.addEventListener("click", function () {
     const wordList = document.querySelector(".word-list");
     wordList.style.display = "block";
+    const wordTitle = document.querySelector("h2");
+    wordTitle.value = this.firstChild.firstChild.value;
+    wordTitle.innerText = wordTitle.value;
   });
 
   // 인풋창에 엔터키를 누르면 내가 입력한 값이 그대로 나옴

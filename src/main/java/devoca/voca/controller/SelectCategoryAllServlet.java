@@ -26,9 +26,9 @@ public class SelectCategoryAllServlet extends HttpServlet{
 		
 		try {
 			categoryList = service.selectCategoryAll(memberNo);
-			
+
 			new Gson().toJson(categoryList, resp.getWriter());
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

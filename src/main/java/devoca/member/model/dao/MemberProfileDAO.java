@@ -99,5 +99,57 @@ public class MemberProfileDAO {
 		
 		return result;
 	}
+	/** 회원탈퇴 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param nowPwInput
+	 * @return
+	 */
+	public int updateMember(Connection conn, int memberNo, String nowPwInput) throws Exception{
+		
+		int result = 0;
+		
+		
+		try {
+			String sql = prop.getProperty("secession");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, nowPwInput);
+			
+			result = pstmt.executeUpdate();
+		}finally {
+			close(pstmt);
+		
+		}
+		
+		return result;
+	}
+	/** 이미지편집 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param profileImage
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateProfileImage(Connection conn, int memberNo, String profileImage) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updateProfileImage");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, profileImage);
+			pstmt.setInt(2, memberNo);
+
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }

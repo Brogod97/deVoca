@@ -13,7 +13,7 @@ import devoca.member.model.service.MemberProfileService;
 import devoca.member.model.vo.Member;
 
 @WebServlet("/member/memberInfo")
-public class MemberInfoServlet extends HttpServlet{
+public class MemberInfoUpdateServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

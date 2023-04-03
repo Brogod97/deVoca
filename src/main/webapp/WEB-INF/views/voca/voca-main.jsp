@@ -76,7 +76,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
           <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
           <div>
-            <h2>JAVA</h2>
+            <h2></h2>
           </div>
           <div class="content-main-imgs">
             <!-- 즐겨찾기 및 순서정렬 메뉴-->
@@ -183,7 +183,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <div class="addModal hidden">
           <div class="addBg"></div>
           <div class="voca-modalBox">
-            <form action="/voca/wordAdd" method="post" id="voca-form">
+            <form action="#" method="post" id="voca-form">
               <div class="voca-category2">
                 <input
                   type="text"
