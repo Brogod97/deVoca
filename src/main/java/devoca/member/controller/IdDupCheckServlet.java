@@ -7,19 +7,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-@WebServlet("/member/logout")
-public class MemberLogoutServlet extends HttpServlet{
+import devoca.member.model.service.MemberService;
 
-	
+@WebServlet("/member/idDupCheck")
+public class IdDupCheckServlet extends HttpServlet{
+
+
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		HttpSession session = req.getSession();
+		String memberId = req.getParameter("memberId");
 		
-		session.invalidate();
-		
-		resp.sendRedirect(req.getContextPath());
+		try {
+			
+			MemberService service = new MemberService();
+			
+			int result = service.idDupCheck(memberId);
+			
+			resp.getWriter().print(result);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

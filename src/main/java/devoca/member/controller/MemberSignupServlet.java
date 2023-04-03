@@ -2,6 +2,7 @@ package devoca.member.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,52 +18,46 @@ public class MemberSignupServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "/WEB-INF/views/member/signup.jsp";
 		
+		String path = "/WEB-INF/views/member/signup.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
-
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String memberId = req.getParameter("inputId");
+		String memberPw = req.getParameter("inputPw");
+		String memberNick = req.getParameter("memberNick");
 		
+		Member member = new Member();
 		
-		String memberNick = req.getParameter("memberNM");
-		String memberId = req.getParameter("memberId");
-		String memberPw = req.getParameter("memberPw");
+		member.setMemberId(memberId);
+		member.setMemberPw(memberPw);
+		member.setMemberNick(memberNick);
 		
-	
-		
-		Member mem = new Member();
-		
-		mem.setMemberNick(memberNick);
-		mem.setMemberId(memberId);
-		mem.setMemberPw(memberPw);
-		
-			try {
+		try {
 			
 			MemberService service = new MemberService();
 			
-			
-			int result = service.signUp(mem);
-			
-			
+			int result = service.signUp(member);
 			
 			HttpSession session = req.getSession();
 			
 			if(result > 0) { // 성공
-				session.setAttribute("message", memberNick + "님, 환영합니다.");
+				session.setAttribute("message", "회원가입 성공");
 				
 			}else { // 실패
-				session.setAttribute("message", "닉네임, 아이디, 비밀번호를 다시 확인 해 주세요.");
+				session.setAttribute("message", "회원 가입 실패");
 				
 			}
 			
-			resp.sendRedirect( req.getContextPath() );
+			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/member/log-in.jsp");
 			
-		}catch (Exception e) {
+			rd.forward(req, resp);
+			
+		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
 		

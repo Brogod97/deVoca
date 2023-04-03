@@ -93,10 +93,10 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
             <!-- 취소, 확인 버튼-->
             <div id="input-group">
              
-                 <a href="${contextPath}/member/logIn"><input id="btn-reset" type="button" value="취소"
+                 <a href="${contextPath}"><input id="btn-reset" type="button" value="취소"
               /></a>
              
-                <a href="${contextPath}/member/signUp"><input class="btn-primary-fill" type="button" value="동의"
+                <a href="${contextPath}/static/signup.jsp"><input class="btn-primary-fill" type="button" value="동의"
               /></a>
             </div>
           </form>

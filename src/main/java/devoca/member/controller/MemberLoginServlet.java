@@ -2,6 +2,7 @@ package devoca.member.controller;
 
 import java.io.IOException;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,84 +12,90 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Response;
+
 import devoca.member.model.service.MemberService;
 import devoca.member.model.vo.Member;
 
-
-@WebServlet("/member/logIn")
+@WebServlet("/member/login")
 public class MemberLoginServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		
+	
+		// 전달된 파라미터 변수에 저장
 		String inputId = req.getParameter("inputId");
 		String inputPw = req.getParameter("inputPw");
 		
-		Member mem = new Member();
-		mem.setMemberId(inputId);
-		mem.setMemberPw(inputPw);
+		// getParameter() 오버라이딩 확인
+		System.out.println("inputId : " + inputId);
+		System.out.println("inputPw : " + inputPw);
 		
-		
+		// 파라미터를 VO에 세팅
+		Member member = new Member();
+		member.setMemberId(inputId);
+		member.setMemberPw(inputPw);
+	
 		try {
 			
-				MemberService service = new MemberService();
+			// 서비스 객체 생성
+			MemberService service = new MemberService();
+			
+			// 아이디, 비밀번호가 일치하는 회원을 조회하는 서비스 호출 후 결과 반환 받기
+			Member loginMember = service.login(member);
+			
+			// id/pw가 일치하는 회원 정보를 session scope에 세팅할거임
+			
+			// Session 객체 얻어오기
+			HttpSession session = req.getSession();
+			
+			if(loginMember != null ) { // 성공
 				
-				Member loginMember = service.login(mem);
+				// 회원 정보 Session 세팅
+				session.setAttribute("loginMember", loginMember);
 				
-				HttpSession session = req.getSession();
+				// 특정 시간동안 요청이 없으면 세션 만료
+				session.setMaxInactiveInterval(3600);   // 1시간
 				
+				// 아이디 저장 쿠키 생성
+				Cookie c = new Cookie("saveId", inputId );
 				
+				  
 				
-				if(loginMember != null) {   // 로그인 성공
+				// 아이디 저장이 체크 된 경우
+				if(req.getParameter("saveId") != null ) {
 					
-					session.setAttribute("loginMember", loginMember);
+					// 쿠키 파일을 30일 동안 유지
+					c.setMaxAge(60 * 60 * 24 * 30);
 					
-					
-					//TODO 특정시간동안 동작 안하면 세션 만료되는거 일단 10000초로 설정했는데 상의해보고 변경하는게 좋을듯 합니다
-					session.setMaxInactiveInterval(10000);   
-					
-					
-					// 아이디 저장
-					Cookie c = new Cookie("saveId", inputId);
-					
-					
-					if( req.getParameter("saveId") != null) {
-						
-						
-						//TODO 쿠키 유지기간 일단 30일로 설정 이것도 상의하고 변경
-						c.setMaxAge(60 * 60 * 24 * 30);
-						
-						
-					} else {
-						c.setMaxAge(0);
-					}
-					
-					
-					c.setPath(req.getContextPath());
-					
-					resp.addCookie(c);
-					
-					
-					
-				} else { // 로그인 실패
-				
-					session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-					
-				
+				} else {
+					c.setMaxAge(0);;
 				}
+				
+				// 해당 쿠키 파일이 적용될 주소를 저장
+				c.setPath(req.getContextPath());
+				
+				resp.addCookie(c);
+				
+			} else { //실패
+				
+				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			}
+			
+			
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/member/member-profile.jsp");
+			
+			rd.forward(req, resp);
+			
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		resp.sendRedirect( req.getContextPath() );
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/loginResult.jsp") ;
-		
-		dispatcher.forward(req, resp);
-		
-		
 	}
+	
 
 }
