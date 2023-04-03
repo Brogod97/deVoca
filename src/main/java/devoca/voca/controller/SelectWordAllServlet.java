@@ -12,27 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import devoca.voca.model.service.VocaService;
-import devoca.voca.model.vo.Category;
+import devoca.voca.model.vo.Word;
 
-@WebServlet("/voca/selectCategoryAll")
-public class SelectCategoryAllServlet extends HttpServlet{
+@WebServlet("/voca/selectWordAll")
+public class SelectWordAllServlet extends HttpServlet{
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+		int categoryNo = Integer.parseInt(req.getParameter("categoryNo"));
+		List<Word> wordList = null;
+		
 		VocaService service = new VocaService();
 		
-		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
-		List<Category> categoryList = null;
-		
 		try {
-
-			categoryList = service.selectCategoryAll(memberNo);
-
-			new Gson().toJson(categoryList, resp.getWriter());
-
+			wordList = service.selectWordAll(memberNo, categoryNo);
+			
+			System.out.println(wordList);
+			
+			new Gson().toJson(wordList, resp.getWriter());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

@@ -35,6 +35,7 @@ const vocaDelete = document.querySelector(".voca-delete");
 const vocaDeleteDone = document.getElementById("voca-delete-done");
 
 vocaSave.addEventListener("click", function () {
+  console.log("왜안대");
   const div1 = document.createElement("div");
   div1.classList.add("content-main-add-line");
 
@@ -75,7 +76,6 @@ vocaSave.addEventListener("click", function () {
   const vocaContent = {
     id: randomIDGenerate(),
     title: vocaInput.value,
-
     definition: vocadefinition.value,
     memo: vocaMemo.value,
   };
@@ -145,7 +145,6 @@ vocaSave.addEventListener("click", function () {
       vocaReadTitle.value = vocaContent.title;
       vocaReadDefinition.value = vocaContent.definition;
       vocaReadMemo.innerText = vocaContent.memo;
-
       modifyDone();
     } else {
       console.log("다르다");
@@ -154,76 +153,29 @@ vocaSave.addEventListener("click", function () {
 
   button3.addEventListener("click", function () {
     if (flag) {
-      img2.setAttribute(
-        "src",
-        contextPath + "/resources/assets/icon/star-active.svg"
-      );
+      img2.setAttribute("src", "/assets/star-fill.svg");
       flag = false;
     } else {
-      img2.setAttribute("src", contextPath + "/resources/assets/icon/star.svg");
+      img2.setAttribute("src", "/assets/star-empty.svg");
       flag = true;
     }
-
-    // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
-    let flag = true;
-    button1.addEventListener("click", function () {
-      if (flag) {
-        img1.style.filter =
-          "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
-        button2.style.textDecoration = "line-through";
-        flag = false;
-      } else {
-        img1.style.filter =
-          "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
-        button2.style.textDecoration = "none";
-        flag = true;
-      }
-    });
-
-    button2.addEventListener("click", function () {
-      open(vocaContent.id);
-    });
-    const open = (id) => {
-      document.querySelector(".modal").classList.remove("hidden");
-
-      console.log(id);
-      if (id == vocaContent.id) {
-        console.log("같다");
-        vocaReadTitle.value = vocaContent.title;
-        vocaReadDefinition.value = vocaContent.definition;
-        vocaReadMemo.innerText = vocaContent.memo;
-        modifyDone();
-      } else {
-        console.log("다르다");
-      }
-    };
-
-    button3.addEventListener("click", function () {
-      if (flag) {
-        img2.setAttribute("src", "/assets/star-fill.svg");
-        flag = false;
-      } else {
-        img2.setAttribute("src", "/assets/star-empty.svg");
-        flag = true;
-      }
-    });
-
-    button4.addEventListener("click", function () {
-      open(vocaContent.id);
-    });
-
-    const close = () => {
-      document.querySelector(".modal").classList.add("hidden");
-    };
-
-    document.querySelector(".openBtn").addEventListener("click", open);
-    document.querySelector(".bg").addEventListener("click", close);
-
-    addClose();
-    // ---------코드블럭-------
-    codeOutput.textContent = codeInput.value;
-    hljs.highlightBlock(codeOutput);
   });
+
+  button4.addEventListener("click", function () {
+    open(vocaContent.id);
+  });
+
+  const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+  };
+
+  document.querySelector(".openBtn").addEventListener("click", open);
+  document.querySelector(".bg").addEventListener("click", close);
+
+  addClose();
+  // ---------코드블럭-------
+  codeOutput.textContent = codeInput.value;
+  hljs.highlightBlock(codeOutput);
 });
 
 // ---------- 코드블럭 구간 -----------------
