@@ -4,7 +4,7 @@ package devoca.voca.model.vo;
 public class Word {
 	private int wordNo;
 	private int categoryNo;
-	private String wordTitel;
+	private String wordTitle;
 	private String wordDf;
 	private String wordMemo;
 	private String codeBlock;
@@ -18,12 +18,12 @@ public class Word {
 	public Word() {}
 
 
-	public Word(int wordNo, int categoryNo, String wordTitel, String wordDf, String wordMemo, String codeBlock,
+	public Word(int wordNo, int categoryNo, String wordTitle, String wordDf, String wordMemo, String codeBlock,
 			String createDate, String checked, String favorite, String quizOx, String language) {
 		super();
 		this.wordNo = wordNo;
 		this.categoryNo = categoryNo;
-		this.wordTitel = wordTitel;
+		this.wordTitle = wordTitle;
 		this.wordDf = wordDf;
 		this.wordMemo = wordMemo;
 		this.codeBlock = codeBlock;
@@ -55,13 +55,13 @@ public class Word {
 	}
 
 
-	public String getWordTitel() {
-		return wordTitel;
+	public String getwordTitle() {
+		return wordTitle;
 	}
 
 
-	public void setWordTitel(String wordTitel) {
-		this.wordTitel = wordTitel;
+	public void setwordTitle(String wordTitle) {
+		this.wordTitle = wordTitle;
 	}
 
 
@@ -147,7 +147,7 @@ public class Word {
 
 	@Override
 	public String toString() {
-		return "Word [wordNo=" + wordNo + ", categoryNo=" + categoryNo + ", wordTitel=" + wordTitel + ", wordDf="
+		return "Word [wordNo=" + wordNo + ", categoryNo=" + categoryNo + ", wordTitle=" + wordTitle + ", wordDf="
 				+ wordDf + ", wordMemo=" + wordMemo + ", codeBlock=" + codeBlock + ", createDate=" + createDate
 				+ ", checked=" + checked + ", favorite=" + favorite + ", quizOx=" + quizOx + ", language=" + language
 				+ "]";
