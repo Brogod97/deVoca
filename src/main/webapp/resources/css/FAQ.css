@@ -61,7 +61,7 @@ padding-bottom: 40px;
   }
   
   .faq-box__question::after {
-content:url("..assets/icon/arrow-down.svg");
+  content:url("..assets/icon/faq-background.png");
 
     float:right;
   }

@@ -23,7 +23,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
         <div id="blank"></div>
-        <form class="subform" method="POST" deta-email="nastrikelike@gmail.com" 
+        <form class="subform" method="POST" deta-email="nastrikelike@gmail.com" onsubmit="return checkAll()"
         action="https://script.google.com/macros/s/AKfycbx6CiuyImAdQCP78uLCsCXBzYlHlKmuDAByE7Il7NJxKvJdYFg8U_I0t2xE2AJeHZGS/exec" target="frAttachFiles">
         <div class="menu">
           <div class="texttitle"><span id = "quetitle">문의하기</span></div>
@@ -97,6 +97,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
 </div>
 </form>
+<iframe name="frAttachFiles" style="display: none"></iframe>
       </section>
 
       <!-- 푸터 -->
