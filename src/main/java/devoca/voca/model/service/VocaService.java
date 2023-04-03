@@ -8,20 +8,21 @@ import java.util.List;
 import devoca.member.model.vo.Member;
 import devoca.voca.model.dao.VocaDAO;
 import devoca.voca.model.vo.Category;
+import devoca.voca.model.vo.Word;
 
 public class VocaService {
 	private VocaDAO dao = new VocaDAO();
 	
 
-	/** 회원 1명에 저장된 카테고리 전체 조회 Service
+	/** MEMBER_NO가 일치하는 카테고리 리스트 조회 Service
 	 * @return categoryList
 	 * @throws Exception 
 	 */
-	public List<Category> selectCategoryAll(int loginMemberNo) throws Exception {
+	public List<Category> selectCategoryAll(int memberNo) throws Exception {
 						  
 		Connection conn = getConnection();
 		
-		List<Category> categoryList = dao.selectCategoryAll(conn, loginMemberNo);
+		List<Category> categoryList = dao.selectCategoryAll(conn, memberNo);
 		
 		close(conn);
 		
@@ -42,5 +43,22 @@ public class VocaService {
 		close(conn);
 		
 		return memberList;
+	}
+
+
+	/** MEMBER_NO와 CATEGORY_NO가 일치하는 단어 전체 조회 Service
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return wordList
+	 * @throws Exception
+	 */
+	public List<Word> selectWordAll(int memberNo, int categoryNo) throws Exception {
+		Connection conn = getConnection();
+		
+		List<Word> wordList = dao.selectWordAll(conn, memberNo, categoryNo);
+		
+		close(conn);
+		
+		return wordList;
 	}
 }

@@ -30,8 +30,6 @@ public class ExploreServlet extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println(memberList);
 				
 		req.setAttribute("memberList", memberList);
 		
