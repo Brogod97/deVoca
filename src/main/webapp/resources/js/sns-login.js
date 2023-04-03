@@ -36,3 +36,37 @@ function kakaoLogout() {
       Kakao.Auth.setAccessToken(undefined)
     }
   }  
+  
+  
+// 구글 로그인
+function googleLogin() {
+	var profile = gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
+		id = profile.getId();
+		username = profile.getName();
+		img = profile.getImagUrl();
+		
+		post_to_url("http://localhost:8080/voca/voca-main",
+					{'id' : id, 'username' : username, 'email' : email, 'img' : img})
+}
+
+function post_to_url(path, params, method='post') {
+	const form = document.createElement('form');
+	form.method = method;
+	form.action = path;
+	
+	for(const key in params) {
+		if(params.hasOwnProperty(key)) {
+			const hiddenField = document.createElement('input');
+			hiddenField.type = 'hidden';
+			hiddenField.name = key;
+			hiddenField.value = params[key];
+			form.appendChild(hiddenField);
+			}
+		}
+		document.body.appendChild(form);
+		form.submit();
+		}
+		}
+	}
+	
+}

@@ -25,7 +25,7 @@ public class SelectCategoryAllServlet extends HttpServlet{
 		
 		try {
 			
-			categoryList = service.selectCategoryAll();
+		//	categoryList = service.selectCategoryAll();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
