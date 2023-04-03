@@ -61,11 +61,9 @@ function post_to_url(path, params, method='post') {
 			hiddenField.name = key;
 			hiddenField.value = params[key];
 			form.appendChild(hiddenField);
+
+			}
 		}
-	}
-	
-	document.body.appendChild(form);
-	form.submit();
+		document.body.appendChild(form);
+		form.submit();
 }
-	
-	
