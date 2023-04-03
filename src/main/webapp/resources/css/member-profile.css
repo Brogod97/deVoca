@@ -1,0 +1,522 @@
+* {
+  color: var(--dark);
+}
+
+.main-content-area {
+  display: flex;
+}
+.content-container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: antiquewhite; */
+}
+
+/* 페이지 제목 시작*/
+.page-title-area {
+  width: 100%;
+  height: 100px;
+  border-bottom: var(--line);
+  line-height: 100px;
+}
+
+.page-title-area > p {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 0 30px;
+}
+/* 페이지 제목 끝 */
+
+/* 유저 정보 시작 */
+.user-info-outbox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-info-area {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: blueviolet; */
+}
+
+/* 프로필사진 시작  */
+.user-img-area {
+  height: 150px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  /* background-color: blue; */
+  /* border-right: var(--line); */
+}
+/* 프로필사진 프리뷰 */
+#img-thumbnail {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-img-area img {
+  width: 180px;
+}
+
+/* 이미지 편집버튼 */
+#img-edit {
+  width: 35px;
+  height: 35px;
+  border-radius: 40px;
+  background-color: white;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: var(--dark);
+  box-shadow: var(--login-shadow);
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+}
+
+/* 이미지 편집버튼 호버 */
+#img-edit:hover {
+  background-color: var(--primary);
+}
+
+/* 프로필사진 종료 */
+
+/* 정보입력창 시작 */
+.user-info-input-area {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 인풋 플레이스 홀더 사이즈 */
+
+#pw-input::placeholder {
+  font-size: 12px;
+}
+
+#nm-input::placeholder {
+  font-size: 12px;
+}
+
+/* 유효성 검사 */
+
+.pw-input-box {
+  position: relative;
+}
+.pw-reg {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+
+  top: -10px;
+  left: 17%;
+  font-size: 12px;
+}
+
+#pw-reg-text {
+  line-height: 40px;
+  font-size: 12px;
+}
+
+.pwcheck-input-box {
+  position: relative;
+}
+.pwcheck-reg {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+
+  top: -10px;
+  left: 25%;
+  font-size: 12px;
+}
+
+#pwcheck-reg-text {
+  line-height: 40px;
+  font-size: 12px;
+}
+
+.nm-input-area {
+  position: relative;
+}
+.nm-reg {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+
+  top: -10px;
+  left: 13%;
+  font-size: 12px;
+}
+#nm-reg-text {
+  line-height: 40px;
+  font-size: 12px;
+}
+
+/* 영역잡기 div */
+#user-info-input-area-innerbox {
+  width: 100%;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 전체 인풋창 디자인 */
+.user-info-input-area input {
+  margin: 10px 0;
+  width: 400px;
+  height: 40px;
+  border: var(--line);
+  border-radius: 5px;
+  font-size: 16px;
+  text-indent: 10px;
+}
+
+/* 인풋 포커스 */
+.user-info-input-area input:focus {
+  outline: none;
+  border: var(--line-hover);
+}
+
+.user-info-input-area p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.icon-position-box {
+  position: relative;
+}
+
+.ic-lock,
+.ic-lock-active {
+  position: absolute;
+  top: 40px;
+  left: 9px;
+}
+#pw-input {
+  text-indent: 2em;
+}
+
+#pwcheck-input {
+  text-indent: 2em;
+}
+
+/* 회원탈퇴 & 정보편집버튼 영역*/
+.secession-area {
+  display: flex;
+  width: 400px;
+  height: 16px;
+  justify-content: end;
+}
+#secession-btn {
+  margin-left: 20px;
+  font-size: 16px;
+  color: var(--dark);
+  cursor: pointer;
+  display: none;
+}
+
+#secession-btn:hover {
+  color: var(--red);
+}
+#info-change-btn {
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+/* 정보입력 끝 */
+/* 유저 정보 끝 */
+
+/* 완료 버튼 & 편집 취소 버튼*/
+
+.button-area {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: yellow; */
+}
+.button-area > button {
+  margin: 10px;
+}
+
+#update-cancle-btn {
+  border-color: var(--footer-color);
+  color: var(--footer-color);
+  display: none;
+}
+#update-cancle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+#submit-btn {
+  display: none;
+}
+#submit-btn:hover {
+  background-color: var(--secondary);
+}
+
+/* 회원 탈퇴 모달창 */
+.secession-modal {
+  display: none;
+  position: absolute;
+  width: calc(100% - 380px);
+  height: calc(100% - 60px);
+  justify-content: center;
+  align-items: center;
+}
+.secession-modal-window {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+}
+
+.secession-modal-box {
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  box-shadow: var(--word-modal-shadow);
+  border-radius: 10px;
+  display: flex;
+  position: absolute;
+}
+
+/* 박스 내부 영역잡기 div */
+.secession-modal-inner-box {
+  margin: auto;
+  width: 350px;
+  height: 150px;
+}
+
+#secession-modal-title-box {
+  margin-bottom: 10px;
+}
+/* 회원탈퇴 글씨 */
+#secession-modal-title-text {
+  margin: 0 0 0 5px;
+  display: inline;
+}
+
+#check-sentence-box {
+  margin-bottom: 15px;
+}
+/* 정말로 탈퇴 하시겠습니까 글씨 */
+#check-sentence-text {
+  margin: 0 0 5px 0;
+}
+
+/* 현재 비밀번호입력  */
+
+.icon-position-box-modal {
+  position: relative;
+}
+
+.icon-position-box-modal > i {
+  position: absolute;
+  top: 6px;
+}
+#now-pw-text {
+  margin: 0 0 5px 0;
+}
+
+#now-pw-input {
+  width: 350px;
+  height: 30px;
+  border: var(--line);
+  border-radius: 5px;
+  text-indent: 2em;
+}
+
+#now-pw-input:focus {
+  outline: none;
+  border: var(--line-hover);
+}
+/* 버튼 감싼 div */
+#cancle-accept-btn-box {
+  margin-top: 14px;
+  display: flex;
+  justify-content: end;
+}
+
+#cancle-btn {
+  width: 80px;
+  height: 35px;
+  border: var(--line);
+  color: var(--footer-color);
+  line-height: 30px;
+}
+
+#cancle-btn:hover {
+  background-color: var(--footer-color);
+  border-color: var(--footer-color);
+  color: white;
+}
+
+#accept-btn {
+  margin-left: 15px;
+  width: 120px;
+  height: 35px;
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  line-height: 30px;
+}
+
+#accept-btn:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* 프로필 사진 편집 모달 */
+.update-img-modal {
+  width: calc(100% - 380px);
+  height: calc(100% - 60px);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.update-img-modal-window {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+}
+
+.update-img-modal-box {
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  box-shadow: var(--word-modal-shadow);
+  border-radius: 10px;
+  display: flex;
+  position: absolute;
+}
+
+.update-img-modal-inner-box {
+  margin: auto;
+  width: 250px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+#update-img-modal-title-text {
+  margin: 0;
+  font-size: 24px;
+}
+
+.update-img-modal-title-text-box {
+  flex-basis: 10%;
+  border-bottom: var(--line);
+}
+
+.update-img-thumbnail-outerbox {
+  flex-basis: 60%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#update-img-thumbnail-innerbox {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray30);
+}
+
+#update-img-thumbnail-innerbox > img {
+  width: 220px;
+}
+
+.update-img-file-input-box {
+  flex-basis: 10%;
+}
+#update-img-file-input {
+  display: inline-block;
+  border: none;
+}
+.update-img-cancle-accept-btn-box {
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-img-cancle-accept-btn-box > button {
+  display: inline;
+  margin: 20px;
+}
+
+.update-img-file-input-box {
+  margin: auto;
+}
+.update-img-file-input-box > label {
+  cursor: pointer;
+  height: 45px;
+  width: 250px;
+  line-height: 45px;
+  display: block;
+  border: 1px solid var(--footer-color);
+  background-color: white;
+  color: var(--dark);
+}
+
+.update-img-file-input-box > label:hover {
+  color: white;
+  background-color: var(--footer-color);
+}
+#update-img-file-input {
+  display: none;
+}
+
+#update-img-cancle-btn:hover {
+  color: white;
+  background-color: var(--secondary);
+}
+
+/* ******************** */
+/* 유효성검사 클래스 */
+
+.wrong {
+  color: var(--red);
+}
+/* ******************** */
