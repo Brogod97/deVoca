@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import devoca.voca.model.service.VocaService;
 import devoca.voca.model.vo.Category;
 
@@ -19,13 +21,13 @@ public class SelectCategoryAllServlet extends HttpServlet{
 		
 		VocaService service = new VocaService();
 		
-		int loginMemberNo;
+		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
 		List<Category> categoryList = null;
 		
-		
 		try {
+			categoryList = service.selectCategoryAll(memberNo);
 			
-			categoryList = service.selectCategoryAll();
+			new Gson().toJson(categoryList, resp.getWriter());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

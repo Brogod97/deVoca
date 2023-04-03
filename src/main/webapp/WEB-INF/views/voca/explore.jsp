@@ -22,6 +22,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             href="${contextPath}/resources/css/explore.css"
         />
 
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"
+        ></script>
+
         <title>deVoca | 다른 유저들의 공유된 단어 목록을 확인해보세요</title>
     </head>
     <body>
@@ -83,6 +89,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                         <span class="member-nickname">
                                             ${member.memberNick}
                                         </span>
+                                        <span
+                                            class="member-number"
+                                            style="display: none"
+                                        >
+                                            ${member.memberNo}
+                                        </span>
                                     </li>
                                 </c:forEach>
                             </ul>
@@ -113,7 +125,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="line"></div>
 
                     <div class="shared-category-area">
-                        <ul class="shared-category-list">
+                        <ul id="shared-category-list">
                             <li class="shared-category">
                                 <i class="ic-hive-cc"></i>
                                 <span class="category-title">Java</span>
@@ -128,7 +140,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <div class="shared-voca-list-area">
                     <jsp:include page="/WEB-INF/views/common/word-list.jsp" />
 
-                    <div class="content-main-text">
+                    <!-- TODO: 아래 규격대로 조회 데이터를 가지고 들어가야 함 -->
+                    <!-- <div class="content-main-text">
                         <div class="content-main-text-flex">
                             <div>
                                 <button>
@@ -145,14 +158,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             </div>
                         </div>
                         <div class="content-main-add-line"></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
 
         <!-- JS -->
         <script src="${contextPath}/resources/js/google-search.js"></script>
-        <script src="${contextPath}/resources/js/common/word-list.js"></script>
+        <!-- FIXME: js는 각 페이지별로 관리할거면 이거 삭제하기 -->
+        <!-- <script src="${contextPath}/resources/js/common/word-list.js"></script> -->
         <script src="${contextPath}/resources/js/explore.js"></script>
     </body>
 </html>
