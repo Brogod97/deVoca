@@ -2,6 +2,19 @@ main {
   width: 100%;
 }
 
+/* 헤더부분 화면줄어들때 로고가 가운데로 오게끔  */
+@media (max-width: 900px) {
+  header > div:nth-child(1) {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+  header > div:nth-child(2),
+  header > div:nth-child(3) {
+    display: none !important;
+  }
+}
+
 /* 헤더 영역 */
 header {
   width: 100vw;
