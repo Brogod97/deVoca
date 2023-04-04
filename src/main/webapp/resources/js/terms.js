@@ -1,5 +1,9 @@
+
+ 
+
+
 function checkSelectAll() {
-  // 전체 체크박스
+ // 전체 체크박스
   const checkboxes = document.querySelectorAll('input[name="checkbox"]');
 
   // 선택된 체크박스
@@ -21,4 +25,21 @@ function selectAll(selectAll) {
   checkboxes.forEach((checkbox) => {
     checkbox.checked = selectAll.checked;
   });
+}
+
+
+// 모두 동의해야 다음이로 이동
+function signUp() {
+	
+	 const selectAll = document.querySelector('input[name="select-all"]');
+	
+	if(selectAll.checked){
+	
+	window.location.href = "signup.jsp"	
+	
+	} else {
+		
+		alert("모두 동의해주세요");
+	}
+	
 }
