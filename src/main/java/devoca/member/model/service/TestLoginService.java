@@ -1,4 +1,4 @@
-/*package devoca.member.model.service;
+package devoca.member.model.service;
 
 import java.sql.Connection;
 
@@ -25,4 +25,3 @@ public class TestLoginService {
 	}
 
 }
-*/

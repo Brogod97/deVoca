@@ -20,13 +20,13 @@ public class VocaMainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		Member loginMember = (Member)req.getSession().getAttribute("loginMember");
-		int memberNo = loginMember.getMemberNo();
-	
+//		Member loginMember = (Member)req.getSession().getAttribute("loginMember");
+//		int memberNo = loginMember.getMemberNo();
+//	
 		try {
-			VocaService service = new VocaService();
-			
-			List<Category> category = service.selectCategoryAll(memberNo);
+//			VocaService service = new VocaService();
+//			
+//			List<Category> category = service.selectCategoryAll(memberNo);
 			
 			
 			String path = "/WEB-INF/views/voca/voca-main.jsp";
