@@ -179,5 +179,42 @@ public class VocaDAO {
 		}
 		return result;
 	}
+
+
+	/** 단어 상세조회 DAO 
+	 * @param conn
+	 * @param wordNo
+	 * @return
+	 */
+	public Word selectWordOne(Connection conn, int wordNo) {
+		
+		Word word = new Word();
+		
+		try {
+			String sql = prop.getProperty("selectWordOne");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, wordNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				String wordTitle = rs.getString(1);
+				String wordDf = rs.getString(2);
+				String wordMemo = rs.getString(3);
+				String codeBlock = rs.getString(4);
+				
+				word = new Word(wordTitle, wordDf, wordMemo, codeBlock);
+				
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return word;
+	}
 	
 }
