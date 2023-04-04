@@ -68,7 +68,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     </section>
                     <div class="line"></div>
 
-                    <div class="btn-primary-fill btn-long">퀴즈 시작</div>
+                    <button
+                        id="quiz-start-btn"
+                        class="btn-primary-fill btn-long"
+                    >
+                        퀴즈 시작
+                    </button>
 
                     <div class="line"></div>
 

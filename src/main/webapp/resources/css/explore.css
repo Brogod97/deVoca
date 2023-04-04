@@ -17,7 +17,7 @@
 }
 
 /* 퀴즈 시작 버튼*/
-.quiz-start-btn {
+#quiz-start-btn {
     color: var(--white);
     text-decoration: none;
 }

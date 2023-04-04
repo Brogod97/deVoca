@@ -1,4 +1,6 @@
+/* ***************************************************************** */
 /* *************************** 전역 변수 *************************** */
+/* ***************************************************************** */
 
 /** 단어 클릭시 활성화 되는 모달 */
 const vocaModal = document.getElementById("modal");
@@ -31,7 +33,9 @@ const sharedCategoryList = document.getElementById("shared-category-list");
 /** 조회된 단어의 부모 div */
 const sharedVocaListArea = document.querySelector(".shared-voca-list-area");
 
+/* ************************************************************** */
 /* *************************** 이벤트 *************************** */
+/* ************************************************************** */
 
 // 단어 조회 모달창에서 뒷 배경 부분 클릭 시 사라지게 하는 클릭 이벤트
 bgBlur.addEventListener("click", function () {
@@ -69,13 +73,24 @@ clickOneForEach(memberList, function () {
     // shared-header-category-area 보이게 설정 (기본 none)
     sharedHeaderCategoryArea.style.display = "block";
 
-    const memberNo = this.children[2].innerText.trim(); // 현재 회원의 MEMBER_NO
-
     // 현재 회원의 카테고리 생성 Ajax 호출
+    const memberNo = this.children[2].innerText.trim(); // 현재 회원의 MEMBER_NO
+    currentMemberNo = memberNo;
     selectCategoryAllAjax(memberNo);
 });
 
-/* *************************** Ajax *************************** */
+// 퀴즈 버튼 클릭 이벤트
+/** 사이드바 영역 퀴즈 시작 버튼 */
+const quizBtn = document.getElementById("quiz-start-btn");
+
+/** 현재 선택된 MEMBER_NO */
+let currentMemberNo;
+
+quizBtn.addEventListener("click", function () {});
+
+/* *************************************************************** */
+/* *************************** Reqeust *************************** */
+/* *************************************************************** */
 
 /** 전달받은 유저명 검색어와 MEMBER_NM이 일치하는 MEMBER 조회 Ajax
  * @param inputUserName(입력된 유저명)
@@ -100,8 +115,6 @@ function searchUserAjax(inputUserName) {
             const userResultList = document.querySelectorAll(".member");
 
             clickOneForEach(userResultList, function () {
-                const memberNo = this.children[2].innerText.trim();
-
                 // 클릭된 회원 배경색 backgroundPrimary 클래스 추가 + 형제 요소 스타일 제거
                 removeSiblingsClassName(this, "backgroundPrimary");
                 this.classList.add("backgroundPrimary");
@@ -113,6 +126,8 @@ function searchUserAjax(inputUserName) {
                 sharedHeaderCategoryArea.style.display = "block";
 
                 // MEMBER_NO가 일치하는 카테고리 조회
+                const memberNo = this.children[2].innerText.trim();
+                currentMemberNo = memberNo;
                 selectCategoryAllAjax(memberNo);
             });
         },
@@ -156,11 +171,11 @@ function selectCategoryAllAjax(memberNo) {
                     this.firstChild.classList.add("active"); // ** this.firstChild = <i> 태그
 
                     // 카테고리가 클릭되는 순간 해당 memberNo와 categoryNo를 가진 단어들을 조회해와서 출력
-                    // memberNo와 cateogryNo 값과 일치하는 word 전체 조회
+
+                    // MEMBER_NO & CATEGORY_NO가 일치하는 단어들 조회
                     const memberNo = categoryList[0].memberNo; // ** memberNo는 어느 인덱스건 모두 동일함
                     const categoryNo = this.children[2].innerText.trim();
 
-                    // MEMBER_NO & CATEGORY_NO가 일치하는 단어들 조회
                     selectWordAllAjax(memberNo, categoryNo);
                 });
             } else {
@@ -224,7 +239,20 @@ function selectWordAllAjax(memberNum, categoryNum) {
     });
 }
 
+/* ************************************************************** */
 /* **************************** 함수 **************************** */
+/* ************************************************************** */
+
+/** nodeList 저장 값에 forEach로 접근하여 클릭 이벤트를 수행하는 함수
+ * @param {NodeListOf} nodeList (querySelectorAll 저장 변수)
+ * @param {function} f (click 이벤트에 적용될 함수)
+ * @returns void
+ */
+function clickOneForEach(nodeList, f) {
+    nodeList.forEach((node) => {
+        node.addEventListener("click", f);
+    });
+}
 
 /** 전달받은 t의 형제 요소들의 첫번째 자식에 적용된 클래스를 제거하는 함수
  * @param {Element} t
@@ -250,17 +278,6 @@ function removeSiblingsClassName(t, removeClass) {
     for (let i = 0; i < children.length; i++) {
         children[i].classList.remove(removeClass);
     }
-}
-
-/** nodeList 저장 값에 forEach로 접근하여 클릭 이벤트를 수행하는 함수
- * @param {NodeListOf} nodeList (querySelectorAll 저장 변수)
- * @param {function} f (click 이벤트에 적용될 함수)
- * @returns void
- */
-function clickOneForEach(nodeList, f) {
-    nodeList.forEach((node) => {
-        node.addEventListener("click", f);
-    });
 }
 
 /** 전달받은 parent(ul)에 child 객체의 정보(MEMBER_NO, MEMBER_NM, USER_IMG)를 이용해 회원 목록 리스트 생성하는 함수
