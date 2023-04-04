@@ -35,6 +35,15 @@ public class Word {
 	}
 
 
+	public Word(String wordTitle, String wordDf, String wordMemo, String codeBlock) {
+		super();
+		this.wordTitle = wordTitle;
+		this.wordDf = wordDf;
+		this.wordMemo = wordMemo;
+		this.codeBlock = codeBlock;
+	}
+
+
 	public int getWordNo() {
 		return wordNo;
 	}

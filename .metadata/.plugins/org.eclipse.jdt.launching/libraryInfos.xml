@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<libraryInfos>
-    <libraryInfo home="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.5.v20221102-0933" version="17.0.5"/>
-    <libraryInfo home="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.5.v20221102-0933/jre" version="17.0.5"/>
-    <libraryInfo home="C:\Users\gudtl\tools\jdk" version="17.0.6"/>
-    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home" version="11.0.18"/>
-    <libraryInfo home="C:\Program Files\Java\jdk-18.0.2.1" version="18.0.2.1"/>
-</libraryInfos>

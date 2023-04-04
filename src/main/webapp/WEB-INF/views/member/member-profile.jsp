@@ -37,7 +37,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
 
         <!-- 서치&카테고리 -->
-        <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
+       <%--  <jsp:include page="/WEB-INF/views/common/sidebar.jsp" /> --%>
       </section>
     </main>
 
@@ -254,7 +254,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <div id="update-img-thumbnail-innerbox">
                 <c:if test="${empty loginMember.profileImage }">
                   <img
-                    src="${contextPath}/resources/assets/images/default-user-img.png"
+                    src="${contextPath}/resources/assets/images/profileImg/default-user-img.png"
                     alt="변경 프로필 사진"
                     id="profile-image"
                   />

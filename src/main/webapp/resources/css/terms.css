@@ -1,6 +1,6 @@
 /* TODO: 배경화면 색 조절함 */
 body {
-  background-image: url("/assets/background-polygon.svg");
+  background-image: url("../assets/images/login-polygon.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--gray30);
@@ -90,7 +90,7 @@ input[type="checkbox"]:checked + label:before {
   content: "";
   background-color: var(--primary);
   border-color: var(--primary);
-  background-image: url("/assets/checked.svg");
+  background-image: url("../assets/images/checkbox.svg");
   background-repeat: no-repeat;
   background-position: 50%;
 }

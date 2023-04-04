@@ -36,36 +36,48 @@ function kakaoLogout() {
 	  Kakao.Auth.setAccessToken(undefined)
 	}
 }  
-  
-  
-// 구글 로그인
-function googleLogin() {
-	var profile = gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
-		id = profile.getId();
-		username = profile.getName();
-		img = profile.getImagUrl();
-		
-		post_to_url("http://localhost:8080/voca/voca-main",
-					{'id' : id, 'username' : username, 'email' : email, 'img' : img})
-}
+ 
 
-function post_to_url(path, params, method='post') {
-	const form = document.createElement('form');
-	form.method = method;
-	form.action = path;
+// 구글 로그인
 	
-	for(const key in params) {
-		if(params.hasOwnProperty(key)) {
-			const hiddenField = document.createElement('input');
-			hiddenField.type = 'hidden';
-			hiddenField.name = key;
-			hiddenField.value = params[key];
-			form.appendChild(hiddenField);
-		}
+	
+	
+
+        function handleCredentialResponse(response) {
+        	const responsePayload = parseJwt(response.credential);
+        	console.log("ID: " + responsePayload.sub);
+            console.log('Full Name: ' + responsePayload.name);
+            console.log('Given Name: ' + responsePayload.given_name);
+            console.log('Family Name: ' + responsePayload.family_name);
+            console.log("Image URL: " + responsePayload.picture);
+            console.log("Email: " + responsePayload.email);
+        }
+        function parseJwt (token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        };
+        
+        export const GoogleInitialize = (clientId,google,callback)=>{
+		google.accounts.id.initialize({
+			client_id: clientId,
+			callback:callback,
+			context: 'default',
+		})
 	}
 	
-	document.body.appendChild(form);
-	form.submit();
-}
-	
-	
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "1002101588145-kha6vmfi1npbilafojfe5g7hlmscgej5.apps.googleusercontent.com",
+            callback: "http://deVoca/voca/voca-main"
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("google"),
+            {  }  // customization attributes
+          );
+          google.accounts.id.prompt(); // also display the One Tap dialog
+        }

@@ -92,9 +92,12 @@ replay_pid*
 .AppleDouble
 .LSOverride
 
+<<<<<<< HEAD
 # Icon must end with two \r
 Icon
 
+=======
+>>>>>>> 54e8e49492acf32263840ab0827291d3c2d98e82
 
 # Thumbnails
 ._*
@@ -142,3 +145,4 @@ Temporary Items
 
 # devoca
 jspwork/
+.classpath

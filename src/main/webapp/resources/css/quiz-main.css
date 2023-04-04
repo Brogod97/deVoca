@@ -1,5 +1,19 @@
 /* 메인화면 */
 
+@media (max-width: 900px) {
+  .container-main-left,
+  .container-main-right {
+    display: none !important;
+  }
+
+  .container-main-center {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+}
+
 .container-main {
   display: flex;
   text-align: center;

@@ -23,131 +23,187 @@ memberList.forEach((member) => {
         // 2-2. categoryList 요청 및 화면 출력
         let memberNo = this.children[2].innerText.trim(); // 각 회원들은 보이지 않지만, 2번째 자식으로 memberNo를 갖고 있음
 
-        $.ajax({
-            url: "selectCategoryAll",
-            data: { memberNo: memberNo },
-            type: "POST",
-            success: function (categories) {
-                const categoryList = JSON.parse(categories); // JS 객체 리스트
+        selectCategoryAll(memberNo);
+        // $.ajax({
+        //     url: "selectCategoryAll",
+        //     data: { memberNo: memberNo },
+        //     type: "POST",
+        //     success: function (categories) {
+        //         const categoryList = JSON.parse(categories); // JS 객체 리스트
 
-                const ul = document.getElementById("shared-category-list");
+        //         const ul = document.getElementById("shared-category-list");
 
-                if (categoryList.length != 0) {
-                    // ** categoryList의 길이가 0이 아니다 == 최소 1개 이상의 객체를 갖고 있다.
-                    ul.innerHTML = "";
+        //         // ** 회원 li 클릭 시 내부 초기화용으로 상위에 선언
+        //         const sharedVocaListArea = document.querySelector(
+        //             ".shared-voca-list-area"
+        //         );
 
-                    for (let index = 0; index < categoryList.length; index++) {
-                        const li = document.createElement("li");
-                        li.classList.add("shared-category");
+        //         if (categoryList.length != 0) {
+        //             // ** categoryList의 길이가 0이 아니다 == 최소 1개 이상의 객체를 갖고 있다.
+        //             ul.innerHTML = "";
 
-                        const i = document.createElement("i");
-                        i.classList.add("ic-hive-cc");
+        //             for (let index = 0; index < categoryList.length; index++) {
+        //                 const li = document.createElement("li");
+        //                 li.classList.add("shared-category");
 
-                        const span = document.createElement("span");
-                        span.classList.add("category-title");
-                        span.innerText = categoryList[index].categoryTitle;
+        //                 const i = document.createElement("i");
+        //                 i.classList.add("ic-hive-cc");
 
-                        const categoryNumSpan = document.createElement("span");
-                        categoryNumSpan.innerText =
-                            categoryList[index].categoryNo;
-                        categoryNumSpan.style.display = "none";
+        //                 const span = document.createElement("span");
+        //                 span.classList.add("category-title");
+        //                 span.innerText = categoryList[index].categoryTitle;
 
-                        li.append(i, span, categoryNumSpan);
-                        ul.append(li);
-                    }
+        //                 const categoryNumSpan = document.createElement("span");
+        //                 categoryNumSpan.innerText =
+        //                     categoryList[index].categoryNo;
+        //                 categoryNumSpan.style.display = "none";
 
-                    // // ***** 카테고리 목록(shared-category-list)의 li(shared-category) 클릭 시 발생하는 이벤트 *****
+        //                 li.append(i, span, categoryNumSpan);
+        //                 ul.append(li);
+        //             }
 
-                    // ** 클릭된 시점에 재생성된 li들 중 shared-category라는 클래스를 가진 요소들 전체 선택
-                    // 이 변수를 이용해 i.ic-hive의 클릭된 요소에만 .active 추가
-                    const sharedCategoryList =
-                        document.querySelectorAll(".shared-category");
+        //             // // ***** 카테고리 목록(shared-category-list)의 li(shared-category) 클릭 시 발생하는 이벤트 *****
 
-                    let memberNo = null;
-                    let categoryNo = null;
-                    sharedCategoryList.forEach((category) => {
-                        category.addEventListener("click", function () {
-                            // 1. ic-hive 아이콘 컬러 변경
-                            removeCategoryListClassname(
-                                this, // ** this == li
-                                "active"
-                            );
-                            // ** this.firstChild = <i> 태그
-                            this.firstChild.classList.add("active");
+        //             // ** 클릭된 시점에 재생성된 li들 중 shared-category라는 클래스를 가진 요소들 전체 선택
+        //             // 이 변수를 이용해 i.ic-hive의 클릭된 요소에만 .active 추가
+        //             const sharedCategoryList =
+        //                 document.querySelectorAll(".shared-category");
 
-                            // 2. 카테고리가 클릭되는 순간 해당 memberNo와 categoryNo를 가진 단어들을 조회해와서 출력
-                            // memberNo와 cateogryNo 값과 일치하는 word 전체 조회
-                            memberNo = categoryList[0].memberNo; // memberNo는 클릭된 멤버의 것으로, 어느 인덱스건 모두 동일함
-                            categoryNo = this.children[2].innerText;
+        //             sharedVocaListArea.innerHTML = "";
 
-                            $.ajax({
-                                url: "selectWordAll",
-                                data: {
-                                    memberNo: memberNo,
-                                    categoryNo: categoryNo,
-                                },
-                                type: "POST",
-                                success: function (words) {
-                                    console.log(
-                                        "selectWordAll 성공, words : " + words
-                                    );
+        //             let memberNo = null;
+        //             let categoryNo = null;
+        //             sharedCategoryList.forEach((category) => {
+        //                 category.addEventListener("click", function () {
+        //                     // 1. ic-hive 아이콘 컬러 변경
+        //                     removeCategoryListClassname(
+        //                         this, // ** this == li
+        //                         "active"
+        //                     );
+        //                     // ** this.firstChild = <i> 태그
+        //                     this.firstChild.classList.add("active");
 
-                                    const sharedVocaListArea =
-                                        document.querySelector(
-                                            ".shared-voca-list-area"
-                                        );
+        //                     // 2. 카테고리가 클릭되는 순간 해당 memberNo와 categoryNo를 가진 단어들을 조회해와서 출력
+        //                     // memberNo와 cateogryNo 값과 일치하는 word 전체 조회
+        //                     memberNo = categoryList[0].memberNo; // memberNo는 클릭된 멤버의 것으로, 어느 인덱스건 모두 동일함
+        //                     categoryNo = this.children[2].innerText;
 
-                                    const contentMainText =
-                                        document.createElement("div");
-                                    contentMainText.classList.add(
-                                        "content-main-text"
-                                    );
+        //                     $.ajax({
+        //                         url: "selectWordAll",
+        //                         data: {
+        //                             memberNo: memberNo,
+        //                             categoryNo: categoryNo,
+        //                         },
+        //                         type: "POST",
+        //                         success: function (words) {
+        //                             console.log(
+        //                                 "selectWordAll 성공, words : " + words
+        //                             );
 
-                                    const contentMainTextFlex =
-                                        document.createElement("div");
-                                    contentMainTextFlex.classList.add(
-                                        "content-main-text-flex"
-                                    );
+        //                             const wordList = JSON.parse(words);
 
-                                    const div1 = document.createElement("div");
-                                    const titleBtn =
-                                        document.createElement("button");
-                                    titleBtn.innerText = words.wordTitle;
+        //                             sharedVocaListArea.innerHTML = "";
 
-                                    const div2 = document.createElement("div");
-                                    const chevronBtn =
-                                        document.createElement("button");
-                                    const chevronImg =
-                                        document.createElement("img");
-                                    // TODO: 이미지 경로 제대로 설정하기
-                                    chevronImg.setAttribute("src", "");
+        //                             for (
+        //                                 let index = 0;
+        //                                 index < wordList.length;
+        //                                 index++
+        //                             ) {
+        //                                 const contentMainText =
+        //                                     document.createElement("div");
+        //                                 contentMainText.classList.add(
+        //                                     "content-main-text"
+        //                                 );
 
-                                    const contentMainAddLine =
-                                        document.createElement("div");
-                                    contentMainAddLine.classList.add(
-                                        "content-main-add-line"
-                                    );
-                                },
-                                error: function () {
-                                    console.log("selectWordAll 실패");
-                                },
-                            });
-                        });
-                    });
-                } else {
-                    // ** categoryList의 길이가 0이다 == JS 객체는 생성됐으나 비어있다.
-                    // -> 카테고리가 없을 경우 : "저장된 카테고리가 없습니다" 표시
-                    ul.innerHTML = "";
+        //                                 const contentMainTextFlex =
+        //                                     document.createElement("div");
+        //                                 contentMainTextFlex.classList.add(
+        //                                     "content-main-text-flex"
+        //                                 );
 
-                    // FIXME: 임시로 innerHTML 방식으로 작성 + h태그 사용
-                    ul.innerHTML =
-                        "<div style='height: 100px; display: flex; align-items: center;'> <h4 style='color:var(--footer-color);'> 저장된 카테고리가 없습니다 </h4> </div>";
-                }
-            },
-            error: function () {
-                console.log("categoryList 가져오기 실패");
-            },
-        });
+        //                                 const div1 =
+        //                                     document.createElement("div");
+        //                                 const titleBtn =
+        //                                     document.createElement("button");
+        //                                 titleBtn.innerText =
+        //                                     wordList[index].wordTitle;
+        //                                 titleBtn.style.display = "block";
+
+        //                                 const div2 =
+        //                                     document.createElement("div");
+        //                                 const chevronBtn =
+        //                                     document.createElement("button");
+        //                                 chevronBtn.style.display = "block";
+        //                                 const chevronImg =
+        //                                     document.createElement("img");
+        //                                 chevronImg.setAttribute(
+        //                                     "src",
+        //                                     contextPath +
+        //                                         "/resources/assets/icon/chevron.svg"
+        //                                 );
+
+        //                                 const contentMainAddLine =
+        //                                     document.createElement("div");
+        //                                 contentMainAddLine.classList.add(
+        //                                     "content-main-add-line"
+        //                                 );
+
+        //                                 chevronBtn.append(chevronImg);
+        //                                 div2.append(chevronBtn);
+        //                                 div1.append(titleBtn);
+        //                                 contentMainTextFlex.append(div1, div2);
+        //                                 contentMainText.append(
+        //                                     contentMainTextFlex,
+        //                                     contentMainAddLine
+        //                                 );
+        //                                 sharedVocaListArea.append(
+        //                                     contentMainText
+        //                                 );
+        //                             }
+        //                             // 생성된 wordList를 순회하며, content-main-text 클릭 시 modal 클래스에 hidden 삭제
+        //                             const wordListAll =
+        //                                 document.querySelectorAll(
+        //                                     ".content-main-text"
+        //                                 );
+
+        //                             // TODO: FIXME: selectWordOne 서비스 완성되고 나면 연결작업 시작
+        //                             wordListAll.forEach((word) => {
+        //                                 // 단어가 눌렸을 때 해당 단어와 관련된 MEMBER_NO, CATEGORY_NO, WORD_NO를 비교해 일치하는 단어 하나 조회
+        //                                 word.addEventListener(
+        //                                     "click",
+        //                                     function () {
+        //                                         console.log(this);
+        //                                         const modal =
+        //                                             document.getElementById(
+        //                                                 "modal"
+        //                                             );
+        //                                         modal.style.display = "flex";
+        //                                     }
+        //                                 );
+        //                             });
+        //                         },
+        //                         error: function () {
+        //                             console.log("selectWordAll 실패");
+        //                         },
+        //                     });
+        //                 });
+        //             });
+        //         } else {
+        //             // ** categoryList의 길이가 0이다 == JS 객체는 생성됐으나 비어있다.
+        //             // -> 카테고리가 없을 경우 : "저장된 카테고리가 없습니다" 표시
+        //             ul.innerHTML = "";
+
+        //             sharedVocaListArea.innerHTML = "";
+
+        //             // FIXME: 임시로 innerHTML 방식으로 작성 + h태그 사용
+        //             ul.innerHTML =
+        //                 "<div style='height: 100px; display: flex; align-items: center;'> <h4 style='color:var(--footer-color);'> 저장된 카테고리가 없습니다 </h4> </div>";
+        //         }
+        //     },
+        //     error: function () {
+        //         console.log("categoryList 가져오기 실패");
+        //     },
+        // });
     });
 });
 
@@ -173,261 +229,263 @@ function removeMemberListClassname(t, removeClass) {
     }
 }
 
-// ** ----------------------------------------------------------------- **
+// 단어 조회 모달창에서 뒷 배경 부분 클릭 시 사라지게 하는 클릭 이벤트
+const bgBlur = document.querySelector(".bg");
+const vocaModal = document.getElementById("modal");
 
-// word-list 관련 이벤트
-
-// 추가 모달창
-const addOpen = () => {
-    document.querySelector(".addModal").classList.remove("hidden");
-};
-
-const addClose = () => {
-    document.querySelector(".addModal").classList.add("hidden");
-};
-
-document.querySelector(".addOpenBtn").addEventListener("click", addOpen);
-document.querySelector(".addBg").addEventListener("click", addClose);
-
-// 메뉴 모달창
-const menuOpen = () => {
-    document.querySelector(".voca-menu-modal").classList.remove("menu-hidden");
-};
-
-const menuClose = () => {
-    document.querySelector(".voca-menu-modal").classList.add("menu-hidden");
-};
-
-document.querySelector(".menu-openBtn").addEventListener("click", menuOpen);
-document.querySelector(".voca-menu-bg").addEventListener("click", menuClose);
-
-const vocaSave = document.getElementById("voca-save");
-const vocaInput = document.querySelector("input[name='voca-title']");
-const vocadefinition = document.querySelector("input[name='voca-definition']");
-const vocaMemo = document.querySelector("#voca-memo");
-const vocaReadTitle = document.getElementById("voca-read-title");
-const vocaReadDefinition = document.getElementById("voca-read-definition");
-const vocaReadMemo = document.getElementById("voca-read-memo");
-const modifyBtn = document.querySelector(".modify-btn");
-const vocaModify = document.querySelector(".voca-modify");
-const vocaDelete = document.querySelector(".voca-delete");
-const vocaDeleteDone = document.getElementById("voca-delete-done");
-
-vocaSave.addEventListener("click", function () {
-    const div1 = document.createElement("div");
-    div1.classList.add("content-main-add-line");
-
-    const div2 = document.createElement("div");
-    div2.classList.add("content-main-text-flex");
-    const div3 = document.createElement("div");
-
-    const button1 = document.createElement("button");
-    const img1 = document.createElement("img");
-    img1.setAttribute(
-        "src",
-        contextPath + "/resources/assets/icon/check-active.svg"
-    );
-
-    const button2 = document.createElement("button");
-    button2.classList.add("openBtn");
-
-    const div4 = document.createElement("div");
-    const button3 = document.createElement("button");
-    const img2 = document.createElement("img");
-    img2.setAttribute("src", contextPath + "/resources/assets/icon/star.svg");
-
-    const button4 = document.createElement("button");
-    const img3 = document.createElement("img");
-    img3.setAttribute(
-        "src",
-        contextPath + "/resources/assets/icon/chevron.svg"
-    );
-
-    div2.append(div3, div4);
-    div3.append(button1, button2);
-    button1.append(img1);
-    button2.append(vocaInput.value);
-
-    div4.append(button3, button4);
-    button3.append(img2);
-    button4.append(img3);
-    document.querySelector(".content-main-text").append(div2, div1);
-
-    // 객체생성
-    const vocaContent = {
-        id: randomIDGenerate(),
-        title: vocaInput.value,
-
-        definition: vocadefinition.value,
-        memo: vocaMemo.value,
-    };
-
-    // 랜덤아이디 생성
-    function randomIDGenerate() {
-        return "_" + Math.random().toString(36).substring(2, 9);
-    }
-
-    vocaModify.addEventListener("click", function () {
-        vocaReadTitle.focus();
-        vocaReadTitle.removeAttribute("readonly");
-        vocaReadDefinition.removeAttribute("readonly");
-        vocaReadMemo.removeAttribute("readonly");
-        modifyBtn.style.display = "block";
-    });
-
-    function modifyDone() {
-        modifyBtn.addEventListener("click", function () {
-            vocaContent.title = vocaReadTitle.value;
-            vocaContent.definition = vocaReadDefinition.value;
-            vocaContent.memo = vocaMemo.value;
-            vocaReadTitle.setAttribute("readonly", "true");
-            vocaReadDefinition.setAttribute("readonly", "true");
-            vocaReadMemo.setAttribute("readonly", "true");
-            modifyBtn.style.display = "none";
-
-            close();
-        });
-    }
-
-    const vocaDeleteModal = document.querySelector(".voca-delete-modal");
-    const vocaDeleteCancell = document.getElementById("voca-delete-cancell");
-    vocaDelete.addEventListener("click", () => {
-        vocaDeleteModal.style.display = "block";
-    });
-
-    vocaDeleteCancell.addEventListener("click", () => {
-        vocaDeleteModal.style.display = "none";
-    });
-
-    // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
-    let flag = true;
-    button1.addEventListener("click", function () {
-        if (flag) {
-            img1.style.filter =
-                "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
-            button2.style.textDecoration = "line-through";
-            flag = false;
-        } else {
-            img1.style.filter =
-                "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
-            button2.style.textDecoration = "none";
-            flag = true;
-        }
-    });
-
-    button2.addEventListener("click", function () {
-        open(vocaContent.id);
-    });
-    const open = (id) => {
-        document.querySelector(".modal").classList.remove("hidden");
-
-        console.log(id);
-        if (id == vocaContent.id) {
-            console.log("같다");
-            vocaReadTitle.value = vocaContent.title;
-            vocaReadDefinition.value = vocaContent.definition;
-            vocaReadMemo.innerText = vocaContent.memo;
-
-            modifyDone();
-        } else {
-            console.log("다르다");
-        }
-    };
-
-    button3.addEventListener("click", function () {
-        if (flag) {
-            img2.setAttribute(
-                "src",
-                contextPath + "/resources/assets/icon/star-active.svg"
-            );
-            flag = false;
-        } else {
-            img2.setAttribute(
-                "src",
-                contextPath + "/resources/assets/icon/star.svg"
-            );
-            flag = true;
-        }
-
-        // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
-        let flag = true;
-        button1.addEventListener("click", function () {
-            if (flag) {
-                img1.style.filter =
-                    "invert(70%) sepia(89%) saturate(1272%) hue-rotate(91deg) brightness(101%) contrast(104%)";
-                button2.style.textDecoration = "line-through";
-                flag = false;
-            } else {
-                img1.style.filter =
-                    "invert(60%) sepia(5%) saturate(1049%) hue-rotate(176deg) brightness(92%) contrast(96%)";
-                button2.style.textDecoration = "none";
-                flag = true;
-            }
-        });
-
-        button2.addEventListener("click", function () {
-            open(vocaContent.id);
-        });
-        const open = (id) => {
-            document.querySelector(".modal").classList.remove("hidden");
-
-            console.log(id);
-            if (id == vocaContent.id) {
-                console.log("같다");
-                vocaReadTitle.value = vocaContent.title;
-                vocaReadDefinition.value = vocaContent.definition;
-                vocaReadMemo.innerText = vocaContent.memo;
-                modifyDone();
-            } else {
-                console.log("다르다");
-            }
-        };
-
-        button3.addEventListener("click", function () {
-            if (flag) {
-                img2.setAttribute("src", "/assets/star-fill.svg");
-                flag = false;
-            } else {
-                img2.setAttribute("src", "/assets/star-empty.svg");
-                flag = true;
-            }
-        });
-
-        button4.addEventListener("click", function () {
-            open(vocaContent.id);
-        });
-
-        const close = () => {
-            document.querySelector(".modal").classList.add("hidden");
-        };
-
-        document.querySelector(".openBtn").addEventListener("click", open);
-        document.querySelector(".bg").addEventListener("click", close);
-
-        addClose();
-        // ---------코드블럭-------
-        codeOutput.textContent = codeInput.value;
-        hljs.highlightBlock(codeOutput);
-    });
+bgBlur.addEventListener("click", function () {
+    vocaModal.style.display = "none";
 });
 
-// ---------- 코드블럭 구간 -----------------
+// 유저 검색창 이벤트
+const userSearchInput = document.getElementById("voca-search-input");
+const userSearchBtn = document.getElementById("user-search-btn");
 
-const codeInput = document.getElementById("voca-code-block");
-const codeOutput = document.querySelector("pre code");
+userSearchBtn.addEventListener("click", function () {
+    searchUser();
+});
 
-// textarea에서 커서 깜빡임이 다음줄부터 시작하는 코드
-codeInput.focus();
-codeInput.setSelectionRange(7, 7);
+userSearchInput.addEventListener("keyup", function () {
+    if (window.event.keyCode == 13) {
+        searchUser();
+    }
+});
 
-codeInput.value = codeInput.value.slice(0, 7) + "\n" + codeInput.value.slice(7);
+function searchUser() {
+    const inputUserName = userSearchInput.value;
 
-function focusNextLine() {
-    const lineHeight = parseInt(
-        window.getComputedStyle(codeInput).lineHeight,
-        10
-    );
-    codeInput.scrollTop += lineHeight;
+    $.ajax({
+        url: "searchUser",
+        data: { inputUserName: inputUserName },
+        type: "POST",
+        success: function (result) {
+            const userList = JSON.parse(result);
+
+            // ** 회원 li 클릭 시 내부 초기화용으로 상위에 선언
+            const sharedVocaListArea = document.querySelector(
+                ".shared-voca-list-area"
+            );
+            const memberList = document.querySelector(".member-list");
+            memberList.innerHTML = "";
+
+            for (let index = 0; index < userList.length; index++) {
+                const memberLi = document.createElement("li");
+                memberLi.classList.add("member");
+
+                const memberThumbnail = document.createElement("div");
+                memberThumbnail.classList.add("member-thumbnail");
+
+                const thumbnailImg = document.createElement("img");
+                thumbnailImg.setAttribute(
+                    "src",
+                    contextPath + "/" + userList[index].profileImage
+                );
+
+                const memberNickname = document.createElement("span");
+                memberNickname.classList.add("member-nickname");
+                memberNickname.innerText = userList[index].memberNick;
+
+                const memberNo = document.createElement("span");
+                memberNo.classList.add("member-number");
+                memberNo.style.display = "none";
+                memberNo.innerText = userList[index].memberNo;
+
+                memberThumbnail.append(thumbnailImg);
+
+                memberLi.append(memberThumbnail, memberNickname, memberNo);
+
+                memberList.append(memberLi);
+            }
+
+            const userResultList = document.querySelectorAll(".member");
+            console.log(userResultList);
+
+            userResultList.forEach((userResult) => {
+                userResult.addEventListener("click", function () {
+                    console.log(this.children[3].innerText);
+                    // 클릭 시 메인 영역 출력
+                    const memberNum = this.children[3].innerText;
+                    selectCategoryAll(memberNum);
+                });
+            });
+        },
+        error: function () {
+            console.log("searchUser 실패");
+        },
+    });
 }
 
-focusNextLine();
+// -------------------우측 카테고리 조회 및 카테고리 클릭 시 단어 리스트 조회 되는 이후의 모든 것 이벤트
+
+function selectCategoryAll(memberNo) {
+    $.ajax({
+        url: "selectCategoryAll",
+        data: { memberNo: memberNo },
+        type: "POST",
+        success: function (categories) {
+            const categoryList = JSON.parse(categories); // JS 객체 리스트
+
+            const ul = document.getElementById("shared-category-list");
+
+            // ** 회원 li 클릭 시 내부 초기화용으로 상위에 선언
+            const sharedVocaListArea = document.querySelector(
+                ".shared-voca-list-area"
+            );
+
+            if (categoryList.length != 0) {
+                // ** categoryList의 길이가 0이 아니다 == 최소 1개 이상의 객체를 갖고 있다.
+                ul.innerHTML = "";
+
+                for (let index = 0; index < categoryList.length; index++) {
+                    const li = document.createElement("li");
+                    li.classList.add("shared-category");
+
+                    const i = document.createElement("i");
+                    i.classList.add("ic-hive-cc");
+
+                    const span = document.createElement("span");
+                    span.classList.add("category-title");
+                    span.innerText = categoryList[index].categoryTitle;
+
+                    const categoryNumSpan = document.createElement("span");
+                    categoryNumSpan.innerText = categoryList[index].categoryNo;
+                    categoryNumSpan.style.display = "none";
+
+                    li.append(i, span, categoryNumSpan);
+                    ul.append(li);
+                }
+
+                // // ***** 카테고리 목록(shared-category-list)의 li(shared-category) 클릭 시 발생하는 이벤트 *****
+
+                // ** 클릭된 시점에 재생성된 li들 중 shared-category라는 클래스를 가진 요소들 전체 선택
+                // 이 변수를 이용해 i.ic-hive의 클릭된 요소에만 .active 추가
+                const sharedCategoryList =
+                    document.querySelectorAll(".shared-category");
+
+                sharedVocaListArea.innerHTML = "";
+
+                let memberNo = null;
+                let categoryNo = null;
+                sharedCategoryList.forEach((category) => {
+                    category.addEventListener("click", function () {
+                        // 1. ic-hive 아이콘 컬러 변경
+                        removeCategoryListClassname(
+                            this, // ** this == li
+                            "active"
+                        );
+                        // ** this.firstChild = <i> 태그
+                        this.firstChild.classList.add("active");
+
+                        // 2. 카테고리가 클릭되는 순간 해당 memberNo와 categoryNo를 가진 단어들을 조회해와서 출력
+                        // memberNo와 cateogryNo 값과 일치하는 word 전체 조회
+                        memberNo = categoryList[0].memberNo; // memberNo는 클릭된 멤버의 것으로, 어느 인덱스건 모두 동일함
+                        categoryNo = this.children[2].innerText;
+
+                        $.ajax({
+                            url: "selectWordAll",
+                            data: {
+                                memberNo: memberNo,
+                                categoryNo: categoryNo,
+                            },
+                            type: "POST",
+                            success: function (words) {
+                                console.log(
+                                    "selectWordAll 성공, words : " + words
+                                );
+
+                                const wordList = JSON.parse(words);
+
+                                sharedVocaListArea.innerHTML = "";
+
+                                for (
+                                    let index = 0;
+                                    index < wordList.length;
+                                    index++
+                                ) {
+                                    const contentMainText =
+                                        document.createElement("div");
+                                    contentMainText.classList.add(
+                                        "content-main-text"
+                                    );
+
+                                    const contentMainTextFlex =
+                                        document.createElement("div");
+                                    contentMainTextFlex.classList.add(
+                                        "content-main-text-flex"
+                                    );
+
+                                    const div1 = document.createElement("div");
+                                    const titleBtn =
+                                        document.createElement("button");
+                                    titleBtn.innerText =
+                                        wordList[index].wordTitle;
+                                    titleBtn.style.display = "block";
+
+                                    const div2 = document.createElement("div");
+                                    const chevronBtn =
+                                        document.createElement("button");
+                                    chevronBtn.style.display = "block";
+                                    const chevronImg =
+                                        document.createElement("img");
+                                    chevronImg.setAttribute(
+                                        "src",
+                                        contextPath +
+                                            "/resources/assets/icon/chevron.svg"
+                                    );
+
+                                    const contentMainAddLine =
+                                        document.createElement("div");
+                                    contentMainAddLine.classList.add(
+                                        "content-main-add-line"
+                                    );
+
+                                    chevronBtn.append(chevronImg);
+                                    div2.append(chevronBtn);
+                                    div1.append(titleBtn);
+                                    contentMainTextFlex.append(div1, div2);
+                                    contentMainText.append(
+                                        contentMainTextFlex,
+                                        contentMainAddLine
+                                    );
+                                    sharedVocaListArea.append(contentMainText);
+                                }
+                                // 생성된 wordList를 순회하며, content-main-text 클릭 시 modal 클래스에 hidden 삭제
+                                const wordListAll =
+                                    document.querySelectorAll(
+                                        ".content-main-text"
+                                    );
+
+                                // TODO: FIXME: selectWordOne 서비스 완성되고 나면 연결작업 시작
+                                wordListAll.forEach((word) => {
+                                    // 단어가 눌렸을 때 해당 단어와 관련된 MEMBER_NO, CATEGORY_NO, WORD_NO를 비교해 일치하는 단어 하나 조회
+                                    word.addEventListener("click", function () {
+                                        console.log(this);
+                                        const modal =
+                                            document.getElementById("modal");
+                                        modal.style.display = "flex";
+                                    });
+                                });
+                            },
+                            error: function () {
+                                console.log("selectWordAll 실패");
+                            },
+                        });
+                    });
+                });
+            } else {
+                // ** categoryList의 길이가 0이다 == JS 객체는 생성됐으나 비어있다.
+                // -> 카테고리가 없을 경우 : "저장된 카테고리가 없습니다" 표시
+                ul.innerHTML = "";
+
+                sharedVocaListArea.innerHTML = "";
+
+                // FIXME: 임시로 innerHTML 방식으로 작성 + h태그 사용
+                ul.innerHTML =
+                    "<div style='height: 100px; display: flex; align-items: center;'> <h4 style='color:var(--footer-color);'> 저장된 카테고리가 없습니다 </h4> </div>";
+            }
+        },
+        error: function () {
+            console.log("categoryList 가져오기 실패");
+        },
+    });
+}

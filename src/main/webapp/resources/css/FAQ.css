@@ -3,13 +3,16 @@
     background-repeat: no-repeat;
     background-position: center center ;
   background-size: contain;
-
     width: 100%;
     height: 600px;
   /*border: 2px solid black;
     margin: 10px;*/
 }
 
+.main-content-area {
+	overflow-y: scroll;
+	
+}
 /* 자주 묻는 질문(FAQ) */
 #faq-title {
 
@@ -25,7 +28,7 @@ padding-bottom: 40px;
 
     
   }
-
+  
 #center{
   position: absolute;
   top: 50%;
@@ -47,10 +50,11 @@ padding-bottom: 40px;
   .faq-box__question {
 
   padding: 10px;
+  padding-left: 20px;
   width: 100%;
   height: 80px;
   color: #000;
-
+  font-size: 20px;
   line-height: 60px; 
   align-items: center;
   background-color: #ffffff;
@@ -61,27 +65,36 @@ padding-bottom: 40px;
   }
   
   .faq-box__question::after {
-  content:url("..assets/icon/faq-background.png");
+content:url("../assets/icon/arrow-down.svg");
 
     float:right;
   }
   
   .faq-box > ul > li {
     padding:10px;
+    
+  }
+
+  .faq-box > ul > li.hover > .faq-box__question  {
+    background-color:#f9be28b5;
   }
   
-  .faq-box > ul > li.hover > .faq-box__question::after {
-     content:rotate(180deg);
+   .faq-box > ul > li.hover > .faq-box__question::after {
+  
     transition: .4s ease-in-out;
+    rotate: 180deg;
+
   }
-  
+
   .faq-box__answer {
     display:none;
     background-color:white;
-    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0, 10%);
-  border: 0;
-    border-radius:10px;
-    padding:50px;
+    line-height: 1.5em;
+    box-shadow: 0px 1px 1px 1px rgb(0, 0, 0, 10%);
+    border-radius:0px 0px 10px 10px;
+    padding-bottom:50px;
+    padding-top:5%;
+    padding-left:5px;
     
   }
 
@@ -98,3 +111,5 @@ padding-bottom: 40px;
   footer {
   z-index: 5;
 }
+
+

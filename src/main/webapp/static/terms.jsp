@@ -96,8 +96,8 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
                  <a href="${contextPath}"><input id="btn-reset" type="button" value="취소"
               /></a>
              
-                <a href="${contextPath}/static/signup.jsp"><input class="btn-primary-fill" type="button" value="동의"
-              /></a>
+                <input class="btn-primary-fill" type="button" onclick="signUp()" value="동의"
+              />
             </div>
           </form>
         </div>
@@ -106,7 +106,7 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
       <!-- 푸터 -->
       <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-      <script src="${contextPath}/resources/common/js/terms.js"></script>
+      <script src="${contextPath}/resources/js/terms.js"></script>
       <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>
   </body>

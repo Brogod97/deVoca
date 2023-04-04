@@ -2,16 +2,16 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>member-sql.xml</comment>
-
-<!-- 로그인(비밀번호, 탈퇴여부 제외) -->
-<entry key="login">
-    SELECT MEMBER_NO,MEMBER_ID,MEMBER_NM,SNS_FL,
-    TO_CHAR(ENROLL_DATE, 'YYYY-MM-DD hh24:MI:SS') AS ENROLL_DATE,USER_IMG
-    FROM MEMBER
-    WHERE MEMBER_ID = ?
-    AND MEMBER_PW = ?
-    AND SECESSION_FL = 'N'
-</entry>
+	
+	<!-- 로그인(비밀번호, 탈퇴여부 제외) -->
+	<entry key="login">
+	    SELECT MEMBER_NO,MEMBER_ID,MEMBER_NM,SNS_FL,
+	    TO_CHAR( ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DATE,USER_IMG
+	    FROM MEMBER
+	    WHERE MEMBER_ID = ?
+	    AND MEMBER_PW = ?
+	    AND SECESSION_FL = 'N'
+	</entry>
 
 <!-- 회원가입 -->
 	<entry key="signUp">
