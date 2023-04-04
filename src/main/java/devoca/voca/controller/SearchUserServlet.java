@@ -15,7 +15,7 @@ import devoca.member.model.vo.Member;
 import devoca.voca.model.service.VocaService;
 
 @WebServlet("/voca/searchUser")
-public class SearchUser extends HttpServlet{
+public class SearchUserServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
