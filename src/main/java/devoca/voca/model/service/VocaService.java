@@ -62,7 +62,6 @@ public class VocaService {
 		return wordList;
 	}
 
-
 	/** 카테고리 추가 
 	 * @param memberNo
 	 * @param categoryTitle 
@@ -96,5 +95,19 @@ public class VocaService {
 		return voca;
 	}
 	
-	
+	/** 입력받은 회원명과 일치하는 회원들 조회 Service
+	 * @param inputUserName
+	 * @return userList
+	 * @throws Exception
+	 */
+	public List<Member> searchUser(String inputUserName) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Member> userList = dao.searchUser(conn, inputUserName);
+		
+		close(conn);
+		
+		return userList;
+	}
 }

@@ -23,6 +23,12 @@
 		WHERE MEMBER_NO = ?
 		AND CATEGORY_NO = ?
 	</entry>
+	
+	<entry key ="searchUser">
+		SELECT MEMBER_NO, MEMBER_NM, USER_IMG
+		FROM MEMBER
+		WHERE MEMBER_NM LIKE ?
+	</entry>
 
 
 	<entry key="insertCategory">
