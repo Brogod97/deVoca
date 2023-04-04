@@ -15,6 +15,7 @@ import devoca.member.model.vo.Member;
 import devoca.voca.model.service.VocaService;
 import devoca.voca.model.vo.Category;
 
+// 카테고리 추가 서블릿 
 @WebServlet("/voca/insertCategory")
 public class InsertCategoryServlet extends HttpServlet {
 	
@@ -40,6 +41,8 @@ public class InsertCategoryServlet extends HttpServlet {
 			
 			resp.sendRedirect("voca-main");
 			
+			
+			// result 값 가져가서 if( result > 0) 조건 걸어주고 성공 함수 작성하면 될 듯 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
