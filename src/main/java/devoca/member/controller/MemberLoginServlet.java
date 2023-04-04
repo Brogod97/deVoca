@@ -36,6 +36,7 @@ public class MemberLoginServlet extends HttpServlet{
 		member.setMemberId(inputId);
 		member.setMemberPw(inputPw);
 	
+		System.out.println("나오나? : " + member);
 		try {
 			
 			// 서비스 객체 생성
@@ -43,6 +44,8 @@ public class MemberLoginServlet extends HttpServlet{
 			
 			// 아이디, 비밀번호가 일치하는 회원을 조회하는 서비스 호출 후 결과 반환 받기
 			Member loginMember = service.login(member);
+			
+			System.out.println("서블릿 : "+loginMember);
 			
 			// id/pw가 일치하는 회원 정보를 session scope에 세팅할거임
 			
@@ -84,9 +87,8 @@ public class MemberLoginServlet extends HttpServlet{
 			
 			
 			
-			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/member/member-profile.jsp");
-			
-			rd.forward(req, resp);
+			// redirect
+			resp.sendRedirect(req.getContextPath() + "/voca/voca-main");
 			
 			
 			

@@ -18,8 +18,8 @@ public class MemberProfileServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		 
 		 // 세션 로그인한 회원 정보  불러오기 
-		Member loginMenber = (Member)req.getSession().getAttribute("loginMember");
-		int memberNo = loginMenber.getMemberNo();
+		Member member = (Member)req.getSession().getAttribute("loginMember");
+		int memberNo = member.getMemberNo();
 		String path = "/WEB-INF/views/member/member-profile.jsp";
 		
 		// 로그인 멤버 정보 불러오기 

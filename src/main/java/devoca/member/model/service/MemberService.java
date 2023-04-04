@@ -24,7 +24,7 @@ public class MemberService {
 		Connection conn = getConnection();
 		
 		// DAO 수행
-		Member loginMember = dao.login(conn, member);
+		Member loginMember = dao.login(conn,member);
 		
 		// Connection 반환
 		close(conn);

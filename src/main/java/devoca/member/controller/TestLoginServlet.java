@@ -1,4 +1,4 @@
-package devoca.member.controller;
+/*package devoca.member.controller;
 
 import java.io.IOException;
 
@@ -63,3 +63,4 @@ public class TestLoginServlet extends HttpServlet{
 	}
 	
 }
+*/

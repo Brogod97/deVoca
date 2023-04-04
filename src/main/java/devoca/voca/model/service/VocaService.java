@@ -61,4 +61,53 @@ public class VocaService {
 		
 		return wordList;
 	}
+
+	/** 카테고리 추가 
+	 * @param memberNo
+	 * @param categoryTitle 
+	 * @return
+	 */
+	public int insertCategory(int memberNo, String categoryTitle) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertCategory(conn, memberNo, categoryTitle);
+		
+		if(result > 0) commit(conn);
+		else           rollback(conn);
+				
+		return result;
+	}
+
+
+	/** 단어 상세조회
+	 * @param wordNo
+	 * @return
+	 */
+	public Word selectWordOne(int wordNo) {
+		
+		Connection conn = getConnection();
+		
+		Word voca = dao.selectWordOne(conn, wordNo);
+		
+		close(conn);
+		
+		return voca;
+	}
+	
+	/** 입력받은 회원명과 일치하는 회원들 조회 Service
+	 * @param inputUserName
+	 * @return userList
+	 * @throws Exception
+	 */
+	public List<Member> searchUser(String inputUserName) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Member> userList = dao.searchUser(conn, inputUserName);
+		
+		close(conn);
+		
+		return userList;
+	}
 }

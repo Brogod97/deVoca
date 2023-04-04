@@ -55,7 +55,7 @@ public class TestLoginDAO {
 			}
 		}finally {
 			close(rs);
-			close(stmt);
+			close(pstmt);
 		}
 		
 		return loginMember;
