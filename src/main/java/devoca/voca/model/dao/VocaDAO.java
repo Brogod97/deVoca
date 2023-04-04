@@ -152,5 +152,42 @@ public class VocaDAO {
 		
 		return wordList;
 	}
+
+
+	/** 입력받은 회원명과 일치하는 회원들 조회 DAO
+	 * @param conn
+	 * @param inputUserName
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Member> searchUser(Connection conn, String inputUserName) throws Exception {
+		List<Member> userList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("searchUser");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + inputUserName + "%");
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Member member = new Member();
+			
+				member.setMemberNo(rs.getInt("MEMBER_NO"));
+				member.setMemberNick(rs.getString("MEMBER_NM"));
+				member.setProfileImage(rs.getString("USER_IMG"));
+				
+				userList.add(member);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return userList;
+	}
 	
 }
