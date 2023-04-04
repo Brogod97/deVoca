@@ -18,7 +18,7 @@
 	<entry key="selectWordAll">
 		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
 		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX, "LANGUAGE"
-		FROM WORD
+		FROM WORD 
 		JOIN CATEGORY USING (CATEGORY_NO)
 		WHERE MEMBER_NO = ?
 		AND CATEGORY_NO = ?
@@ -30,4 +30,16 @@
 		WHERE MEMBER_NM LIKE ?
 	</entry>
 
+
+	<entry key="insertCategory">
+		INSERT INTO CATEGORY 
+		VALUES (CATEGORY_NO_SEQ.NEXTVAL, ?, ?)
+	</entry>
+	
+	<!-- 단어 상세조회  -->
+	<entry key ="selectWordOne">
+		SELECT WORD_TITLE , WORD_DF ,WORD_MEMO , CODE_BLOCK 
+		FROM WORD 
+		WHERE WORD_NO = ?
+	</entry>
 </properties>

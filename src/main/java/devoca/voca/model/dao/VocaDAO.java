@@ -153,6 +153,68 @@ public class VocaDAO {
 		return wordList;
 	}
 
+	/** 카테고리 추가 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param categoryTitle 
+	 * @return
+	 */
+	public int insertCategory(Connection conn, int memberNo, String categoryTitle) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("insertCategory");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, categoryTitle);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	/** 단어 상세조회 DAO 
+	 * @param conn
+	 * @param wordNo
+	 * @return
+	 */
+	public Word selectWordOne(Connection conn, int wordNo) {
+		
+		Word word = new Word();
+		
+		try {
+			String sql = prop.getProperty("selectWordOne");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, wordNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				String wordTitle = rs.getString(1);
+				String wordDf = rs.getString(2);
+				String wordMemo = rs.getString(3);
+				String codeBlock = rs.getString(4);
+				
+				word = new Word(wordTitle, wordDf, wordMemo, codeBlock);
+				
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return word;
+  }
 
 	/** 입력받은 회원명과 일치하는 회원들 조회 DAO
 	 * @param conn
