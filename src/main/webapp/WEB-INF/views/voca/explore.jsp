@@ -55,7 +55,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                     placeholder="유저명 입력"
                                     autocomplete="off"
                                 />
-                                <button>
+                                <!-- form 태그 내부 input이 1개일 경우 submit 발생 -->
+                                <input style="display: none" type="text" />
+                                <button id="user-search-btn" type="button">
                                     <img
                                         src="${contextPath}/resources/assets/icon/search.svg"
                                         class="voca-search-img"
@@ -137,36 +139,62 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 </div>
 
                 <!-- 카테고리 클릭 시 해당 카테고리의 단어 조회 -->
-                <div class="shared-voca-list-area">
-                    <jsp:include page="/WEB-INF/views/common/word-list.jsp" />
-
-                    <!-- TODO: 아래 규격대로 조회 데이터를 가지고 들어가야 함 -->
-                    <!-- <div class="content-main-text">
-                        <div class="content-main-text-flex">
-                            <div>
-                                <button>
-                                    <img src="/assets/check-empty.svg" />
-                                </button>
-                                <button class="openBtn">TestMethod1</button>
-                            </div>
-                            <div>
-                                <button>
-                                    <img src="/assets/star-empty.svg" /></button
-                                ><button>
-                                    <img src="/assets/chevron.svg" />
-                                </button>
-                            </div>
-                        </div>
-                        <div class="content-main-add-line"></div>
-                    </div> -->
-                </div>
+                <div class="shared-voca-list-area"></div>
             </div>
         </section>
 
+        <!-- 특정 단어 조회 시 출력될 모달 -->
+        <div id="modal">
+            <div class="bg"></div>
+            <div class="voca-modalBox">
+                <div class="voca-category2">
+                    <input id="voca-read-title" readonly />
+                </div>
+                <div class="voca-category3">
+                    <span></span>
+                </div>
+                <div class="voca-category4">
+                    <img
+                        src="${contextPath}/resources/assets/icon/note.svg"
+                        alt=""
+                    />
+                    정의
+                </div>
+                <div class="voca-content1">
+                    <input id="voca-read-definition" readonly />
+                </div>
+                <div class="voca-category5">
+                    <img
+                        src="${contextPath}/resources/assets/icon/pencil.svg"
+                        alt=""
+                    />
+                    메모
+                </div>
+                <div class="voca-content2">
+                    <textarea id="voca-read-memo" readonly></textarea>
+                </div>
+                <div class="voca-category6">
+                    <img
+                        src="${contextPath}/resources/assets/icon/code.svg"
+                        alt=""
+                    />
+                    코드블럭
+                </div>
+                <div class="voca-code-block-area">
+                    <pre><code class="language-java"></code></pre>
+                </div>
+                <div>
+                    <button class="modify-btn">수정완료</button>
+                </div>
+            </div>
+        </div>
+
         <!-- JS -->
+        <script>
+            const contextPath = "${contextPath}";
+        </script>
+
         <script src="${contextPath}/resources/js/google-search.js"></script>
-        <!-- FIXME: js는 각 페이지별로 관리할거면 이거 삭제하기 -->
-        <!-- <script src="${contextPath}/resources/js/common/word-list.js"></script> -->
         <script src="${contextPath}/resources/js/explore.js"></script>
     </body>
 </html>
