@@ -29,4 +29,11 @@
 		INSERT INTO CATEGORY 
 		VALUES (CATEGORY_NO_SEQ.NEXTVAL, ?, ?)
 	</entry>
+	
+	<!-- 단어 상세조회  -->
+	<entry key ="selectWordOne">
+		SELECT WORD_TITLE , WORD_DF ,WORD_MEMO , CODE_BLOCK 
+		FROM WORD 
+		WHERE WORD_NO = ?
+	</entry>
 </properties>
