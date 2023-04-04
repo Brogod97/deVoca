@@ -1,42 +1,39 @@
-function changeBtnName()  {
-    const btnElement = document.getElementById('btn');
-    btnElement.innerText = '완료';
-  }
+  function changeBtnName()  {
+	    var btnElement = document.getElementById('btn');
+	  
+	    var uname = document.getElementById("name");
+	    var email_id = document.getElementById("email");
+	    var select = document.getElementById("selc");
+	    var textarea = document.getElementById("textarea");
+	  
 
-function checkAll() {
-  if(!checkName(form.name.value)) {
-    return false;
-  } else if (!checkemail(form.email.value)) {
-    return false;
-  } else if (!checkselect(form.select.value)) {
-    return false;
-  } else if (!checktextarea(form.textarea.value)) {
-    return false;
-  }
-  return true;
-}  
+	  
+	    if (uname.value == "") {
+	      alert("이름을 입력하세요.");
+	      uname.focus();
+	      return false;
+	    };
+	  
+	    if (email_id.value == "") {
+	      alert("이메일 주소를 입력하세요.");
+	      email_id.focus();
+	      return false;
+	    }
+	  
+	    if (select.value == "") {
+	      alert("건의사항을 입력하세요.");
+	      select.focus();
+	      return false;
+	    }
+
+	    if (textarea.value == "") {
+	      alert("메시지를 입력하세요.");
+	      textarea.focus();
+	      return false;
+	    }
+	    
+	    btnElement.innerHTML = "완료";
 
 
-// 공백함수 확인
-function checkExistData(value, dataName) {
-  if(value == '') {
-    alert(dataName + ' 입력해주세요.');
-    return false;
-  }
-  return true;
-}
-
-function checkemail(email) {
- 
-  if(!checkExistData(email, '이메일을'))
-    return false;
-
-   var emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
-   if(!emailRegExp.test(email)) {
-    alert('이메일 형식이 올바르지 않습니다.');
-    form.email.value = '';
-    form.email.focus();
-    return false;
-   } 
-   return true; 
-}
+	    document.subform.submit(); //유효성 검사의 포인트   
+	  }
