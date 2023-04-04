@@ -75,7 +75,7 @@ input[type="checkbox"]:checked + label:before {
   content: "";
   background-color: var(--primary);
   border-color: var(--primary);
-  background-image: url("${contextPath}/resources/images/checkbox.png");
+  background-image: url("../assets/images/checkbox.png");
   background-repeat: no-repeat;
   background-position: 50%;
 }
