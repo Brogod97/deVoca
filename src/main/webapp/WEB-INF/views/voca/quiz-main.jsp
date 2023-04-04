@@ -69,19 +69,30 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <h2>카테고리를 선택해 주세요</h2>
           </div>
 
-          <form action="quiz-game">
+	<% String quizTitle = request.getParameter("quizTitle"); %>
+	<% String quizMemberNo = request.getParameter("quizMemberNo"); %>
+	<% String quizCategoryNo = request.getParameter("quizCategoryNo"); %>
+	
+	
+          
             <div>
-              <a href="quiz-game.html">
-                <button class="container-main-btn">시작하기</button>
+              <a href="quiz-game">
+                <button type="button" class="container-main-btn">
+                  시작하기
+                </button>
               </a>
             </div>
             <div class="container-main-content">
-              <button>JAVA</button>
-              <button>JavaScript</button>
-              <button>Python</button>
-              <button>DB</button>
+            <c:forEach var="quiz" items="${quizList}">
+            	
+              <button type="button">${quiz.quiztitle}</button>
+            </c:forEach>
+            
+              <button type="button">JavaScript</button>
+              <button type="button">Python</button>
+              <button type="button">DB</button>
             </div>
-          </form>
+          
         </div>
         <div class="container-main-right">
           <img

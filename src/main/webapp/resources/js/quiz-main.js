@@ -23,10 +23,6 @@ function hideLoadingPage() {
 const content = document.querySelectorAll(".container-main-content > button");
 for (let i = 0; i < content.length; i++) {
   content[i].addEventListener("click", (e) => {
-    if (e.target.style.backgroundColor == "white") {
-      e.target.style.backgroundColor = "#ffc759";
-    } else {
-      e.target.style.backgroundColor = "white";
-    }
+    e.target.style.backgroundColor = "#ffc759";
   });
 }

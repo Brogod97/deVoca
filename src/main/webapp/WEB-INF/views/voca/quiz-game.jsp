@@ -38,6 +38,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       </section>
     </main>
 
+<% String quizTitle = request.getParameter("quizTitle"); %>
+<% String quizContent = request.getParameter("quizContent"); %>
+
     <!-- 메인 콘텐츠 영역 -->
     <section class="main-content-area">
       <!-- 메인화면 -->
@@ -47,23 +50,24 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             
             <div class="quiz-content-area">
               <div class="quiz-header">
-                <h1>INSTR(컬럼명 | 문자열, '찾을 문자열' [, 찾기 시작할 위치] [, 순번])</h1>
+                <h1><%= quizTitle %></h1>
                 <div class="quiz-line"></div>
               </div>
               <div class="quiz-content">
+              <c:forEach var="quizContent" items="${paramvalues.content}">
                 <div>
-                  <p>지정한 위치부터 지정한 순번째로 검색되는 문자의 위치를 반환</p>
+                  <p>${quizContent.content[0] }</p>
                 </div>
                 <div>
-                  <p>컬럼이나 문자열에서 지정한 위치부터 지정된 길이만
-                    문자열을 잘라서 반환</p>
+                  <p>${quizContent.content[1] }</p>
                 </div>
                 <div>
-                  <p>주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에 있는 지정된 문자를 제거</p>
+                  <p>${quizContent.content[2] }</p>
                 </div>
                 <div>
-                  <p>소수점 첫째 자리에서 올림 처리</p>
+                  <p>${quizContent.content[3] }</p>
                 </div>
+              </c:forEach>
               </div>
             </div>
             
