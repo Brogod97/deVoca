@@ -105,7 +105,7 @@
     color: var(--white);
 }
 
-/* shared-container : 유저 선택 후 메인 콘텐츠 영역 */
+/* -----------shared-container : 유저 선택 후 메인 콘텐츠 영역-----------*/
 .shared-container {
     width: 85%;
 
@@ -233,7 +233,7 @@
 
 /* ------------------------------------------------------ */
 /* word-list.jsp -> explore.jsp에 맞게 안보일 요소 숨기기 */
-
+/* 
 .word-list {
     display: block;
 }
@@ -241,15 +241,38 @@
 .content-main,
 .content-main-line {
     display: none;
-}
+} */
 
 /* 암기한 단어 체크 버튼 */
-.content-main-text-flex > div:nth-child(1) > button:nth-child(1) {
+/* .content-main-text-flex > div:nth-child(1) > button:nth-child(1) {
+    display: none;
+} */
+
+/* 즐겨찾기 단어 버튼 */
+/* .content-main-text-flex > div:nth-child(2) > button:nth-child(1) {
+    display: none;
+} */
+/* ------------------------------------------------------ */
+
+/* 단어 조회 모달창 cascading */
+#modal {
+    width: calc(100% - (var(--nav-width) + var(--sidebar-width)));
+    height: calc(100% - var(--header-height));
+
+    position: absolute;
+    top: var(--header-height);
+    left: calc(var(--nav-width) + var(--sidebar-width));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     display: none;
 }
 
-/* 즐겨찾기 단어 버튼 */
-.content-main-text-flex > div:nth-child(2) > button:nth-child(1) {
-    display: none;
+#modal .bg {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
 }
-/* ------------------------------------------------------ */

@@ -58,7 +58,7 @@ public class MemberProfileImgUpdateServlet extends HttpServlet {
 			String root = session.getServletContext().getRealPath("/");
 			
 			// 실제 파일이 저장되는 폴더의 경로
-			String folderPath = "resources/assets/images/";
+			String folderPath = "resources/assets/images/profileImg/";
 			
 			// memberProfile 폴더 까지의 절대경로
 			String filePath = root + folderPath;

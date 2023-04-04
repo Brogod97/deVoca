@@ -4,6 +4,8 @@
 
 .main-content-area {
   display: flex;
+  width: calc(100% - var(--nav-width));
+  margin-left: var(--nav-width);
 }
 .content-container {
   width: 90%;
@@ -46,13 +48,16 @@
 
 .user-info-area {
   width: 100%;
-  height: 550px;
+  height: 400px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   /* background-color: blueviolet; */
+}
+
+.user-info-area > div {
+  margin: 50px;
 }
 
 /* 프로필사진 시작  */
@@ -269,6 +274,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
   /* background-color: yellow; */
 }
 .button-area > button {
@@ -295,7 +301,7 @@
 .secession-modal {
   display: none;
   position: absolute;
-  width: calc(100% - 380px);
+  width: calc(100% - 60px);
   height: calc(100% - 60px);
   justify-content: center;
   align-items: center;
@@ -403,7 +409,7 @@
 
 /* 프로필 사진 편집 모달 */
 .update-img-modal {
-  width: calc(100% - 380px);
+  width: calc(100% - 60px);
   height: calc(100% - 60px);
   position: absolute;
   justify-content: center;
