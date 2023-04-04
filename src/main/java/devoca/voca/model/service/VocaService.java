@@ -79,6 +79,22 @@ public class VocaService {
 				
 		return result;
 	}
+
+
+	/** 단어 상세조회
+	 * @param wordNo
+	 * @return
+	 */
+	public Word selectWordOne(int wordNo) {
+		
+		Connection conn = getConnection();
+		
+		Word voca = dao.selectWordOne(conn, wordNo);
+		
+		close(conn);
+		
+		return voca;
+	}
 	
 	
 }
