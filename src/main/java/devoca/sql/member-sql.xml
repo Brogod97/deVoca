@@ -5,19 +5,22 @@
 	
 	<!-- 로그인(비밀번호, 탈퇴여부 제외) -->
 	<entry key="login">
-	    SELECT MEMBER_NO,MEMBER_ID,MEMBER_NM,SNS_FL,
-	    TO_CHAR( ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DATE,USER_IMG
-	    FROM MEMBER
+	    SELECT MEMBER_NO,MEMBER_ID,MEMBER_NM, MEMBER_IMG
+	    TO_CHAR( ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DATE
+	    FROM "MEMBER""
 	    WHERE MEMBER_ID = ?
 	    AND MEMBER_PW = ?
+	    AND SNS_FL = 'N'
 	    AND SECESSION_FL = 'N'
+	
 	</entry>
 
 <!-- 회원가입 -->
 	<entry key="signUp">
 		INSERT INTO MEMBER
-		VALUES(SEQ_MEMBER_NO.NEXTVAL , ? , ? , ? , ? , DEFAULT, DEFAULT, DEFAULT, ?)
+		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , DEFAULT, DEFAULT, DEFAULT, DEFAULT)
 	</entry>
+
 
 <!-- 아이디(이메일) 중복검사 -->
 	<entry key="idDupCheck">
@@ -31,6 +34,14 @@
 		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_NM = ?
 		AND SECESSION_FL = 'N'
+	</entry>
+	
+	<!-- 회원 탈퇴 -->
+	<entry key="secession">
+		UPDATE MEMBER SET
+		SECESSION_FL = 'Y'
+		WHERE MEMBER_NO = ?
+		AND MEMBER_PW = ?
 	</entry>
 	
 </properties>

@@ -27,11 +27,10 @@ pageEncoding="UTF-8" %>
     <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
     <section class="main-content-area">
     
-    	<%-- 로그인이 되어있지 않은 경우 --%>
-       	<c:when test="${ empty sessionScope.loginMember }"> 
+    
        	
       <div id="login-box">
-        <form action="${contextPath}/member/login" method="post" name="loginform" onsubmit="return loginValidate()">
+        <form action="${contextPath}/member/login" method="post" name="loginform">
           <h1 id="title">로그인</h1>
 
           <p>아이디</p>
@@ -39,7 +38,6 @@ pageEncoding="UTF-8" %>
             id="loginId"
             name="inputId"
             type="email"
-            value="${cookie.saveId.value}"
             placeholder="deVoca@email.com"
             
           />
@@ -58,13 +56,7 @@ pageEncoding="UTF-8" %>
               자동로그인
             </label>
 		
-		 <%-- 쿠키에 saveId가 있는 경우--%>
-           <c:if test="${ !empty cookie.saveId.value}">
-
-             <%-- chk 변수 생성(page scope)--%>
-             <c:set var="chk" value="checked"/>
-
-           </c:if>
+		
             <a href="${contextPath}/member/resetPw">비밀번호를 잊으셨나요?</a>
           </div>
           <div id="btn-login">
@@ -81,7 +73,7 @@ pageEncoding="UTF-8" %>
               <i class="ic-kakao"></i>카카오 계정으로 로그인
             </button>
 
-            <button  id="google" onsubmit="initialize()">
+            <button  id="google" >
               <img
                 src="${contextPath}/resources/assets/images/google-logo.png"
               />구글 계정으로 로그인
@@ -96,7 +88,7 @@ pageEncoding="UTF-8" %>
     
        
       </div>
-       </c:when>
+       
     </section>
 
     <!-- 푸터 -->
