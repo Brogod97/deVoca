@@ -45,6 +45,7 @@ public class MemberLoginServlet extends HttpServlet{
 			// 아이디, 비밀번호가 일치하는 회원을 조회하는 서비스 호출 후 결과 반환 받기
 			Member loginMember = service.login(member);
 			
+			System.out.println("서블릿 member : " + member);
 			System.out.println("서블릿 : "+loginMember);
 			
 			// id/pw가 일치하는 회원 정보를 session scope에 세팅할거임

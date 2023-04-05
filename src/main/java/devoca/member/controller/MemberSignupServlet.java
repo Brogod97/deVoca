@@ -21,20 +21,26 @@ public class MemberSignupServlet extends HttpServlet{
 		
 		String path = "/WEB-INF/views/member/signup.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
+		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String memberNick = req.getParameter("memberNick");
 		String memberId = req.getParameter("inputId");
 		String memberPw = req.getParameter("inputPw");
-		String memberNick = req.getParameter("memberNick");
+		
 		
 		Member member = new Member();
+		
+		
 		
 		member.setMemberId(memberId);
 		member.setMemberPw(memberPw);
 		member.setMemberNick(memberNick);
+		
+		
 		
 		try {
 			
@@ -52,9 +58,7 @@ public class MemberSignupServlet extends HttpServlet{
 				
 			}
 			
-			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/member/log-in.jsp");
-			
-			rd.forward(req, resp);
+			resp.sendRedirect("../static/log-in.jsp");
 			
 		} catch (Exception e) {
 			
