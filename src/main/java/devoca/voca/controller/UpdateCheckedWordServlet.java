@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 
 import devoca.voca.model.service.VocaService;
 
-@WebServlet("/voca/updateFavoriteWord")
+@WebServlet("/voca/updateCheckedWord")
 public class UpdateCheckedWordServlet extends HttpServlet{
 	
 	@Override
