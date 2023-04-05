@@ -65,6 +65,10 @@ categoryAdd.addEventListener("click", function () {
           btn.classList.add("invisible");
         });
       }
+
+      if (this.value == "") {
+        this.parentNode.parentNode.remove();
+      }
     }
   });
 
@@ -78,6 +82,10 @@ categoryAdd.addEventListener("click", function () {
     this.style.fontWeight = "700";
     this.style.cursor = "pointer";
     addBtn.append = this.value;
+
+    if (this.value == "") {
+      this.parentNode.parentNode.remove();
+    }
   });
 
   // 편집시 카테고리 제목 바꿀수 있게 하는 이벤트
@@ -87,7 +95,7 @@ categoryAdd.addEventListener("click", function () {
   });
 
   // x 누르면 삭제 하는 이벤트
-  categoryBtn.addEventListener("click", function () {
+  categoryBtn.addEventListener("click", function (event) {
     categoryLi.remove();
 
     // 하나를 지우면 다른 것들은 x표시가 사라짐
@@ -95,6 +103,11 @@ categoryAdd.addEventListener("click", function () {
     btnAll.forEach((btn) => {
       btn.classList.add("invisible");
     });
+
+    const wordList = document.querySelector(".word-list");
+    wordList.style.display = "none";
+
+    event.stopPropagation();
   });
 
   closeCategoryMenu();
