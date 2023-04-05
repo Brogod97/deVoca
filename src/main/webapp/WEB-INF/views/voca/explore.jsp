@@ -149,9 +149,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <div class="voca-category2">
           <input id="voca-read-title" readonly />
         </div>
-        <div class="voca-category3">
-          <span></span>
-        </div>
         <div class="voca-category4">
           <img src="${contextPath}/resources/assets/icon/note.svg" alt="" />
           정의

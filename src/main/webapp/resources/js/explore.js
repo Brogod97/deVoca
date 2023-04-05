@@ -215,12 +215,12 @@ function selectCategoryAllAjax(memberNo) {
  * @param {*} categoryNum (카테고리 번호)
  * @returns void
  */
-function selectWordAllAjax(memberNum, categoryNum) {
+function selectWordAllAjax(memberNo, categoryNo) {
   $.ajax({
     url: "selectWordAll",
     data: {
-      memberNo: memberNum,
-      categoryNo: categoryNum,
+      memberNo: memberNo,
+      categoryNo: categoryNo,
     },
     type: "POST",
     success: function (result) {
@@ -236,18 +236,44 @@ function selectWordAllAjax(memberNum, categoryNum) {
       const wordListAll = document.querySelectorAll(".content-main-text");
 
       clickOneForEach(wordListAll, function () {
-        console.log(this);
         // 특정 단어 클릭 시 modal 활성화
         /** 단어 조회 모달 */
         const modal = document.getElementById("modal");
         modal.style.display = "flex";
 
-        // TODO: FIXME: selectWordOne Ajax 함수 생성하고 작성
         // 단어가 눌렸을 때 해당 단어와 관련된 MEMBER_NO, CATEGORY_NO, WORD_NO를 비교해 일치하는 단어 하나 조회
+        const wordNo = this.firstChild.children[2].innerText.trim();
+        selectWordOneAjax(memberNo, categoryNo, wordNo);
       });
     },
     error: function () {
       console.log("selectWordAll 실패");
+    },
+  });
+}
+
+/** MEMBER_NO와 CATEGORY_NO, WORD_NO가 일치하는 WORD 조회 Ajax
+ * @param {*} memberNum (회원 번호)
+ * @param {*} categoryNum (카테고리 번호)
+ * @returns void
+ */
+function selectWordOneAjax(memberNo, categoryNo, wordNo) {
+  $.ajax({
+    url: "selectWordOne",
+    data: {
+      memberNo: memberNo,
+      categoryNo: categoryNo,
+      wordNo: wordNo,
+    },
+    type: "POST",
+    success: function (result) {
+      const word = JSON.parse(result);
+
+      const vocaModalBox = document.querySelector(".voca-modalBox");
+      setWordInfo(vocaModalBox, word);
+    },
+    error: function () {
+      console.log("selectWordOne 실패");
     },
   });
 }
@@ -389,14 +415,31 @@ function createWordList(parent, child) {
       contextPath + "/resources/assets/icon/chevron.svg"
     );
 
+    const wordNumSpan = document.createElement("span");
+    wordNumSpan.innerText = child[index].wordNo;
+    displayNone(wordNumSpan);
+
     const contentMainAddLine = document.createElement("div");
     contentMainAddLine.classList.add("content-main-add-line");
 
     chevronBtn.append(chevronImg);
     div2.append(chevronBtn);
     div1.append(titleBtn);
-    contentMainTextFlex.append(div1, div2);
+    contentMainTextFlex.append(div1, div2, wordNumSpan);
     contentMainText.append(contentMainTextFlex, contentMainAddLine);
     parent.append(contentMainText);
   }
+}
+
+/** 전달받은 parent(voca-modalBox)에 child 객체의 정보(WORD의 정보)를 이용해 단어 내부 값 교체하는 함수 */
+function setWordInfo(parent, child) {
+  const wordTitle = document.getElementById("voca-read-title");
+  const definition = document.getElementById("voca-read-definition");
+  const memo = document.getElementById("voca-read-memo");
+  const codeBlock = document.querySelector(".voca-code-block-area").firstChild;
+
+  wordTitle.innerText = child.wordTitle;
+  definition.innerText = child.wordDf;
+  memo.innerText = child.wordMemo;
+  codeBlock.innerText = child.codeBlock;
 }

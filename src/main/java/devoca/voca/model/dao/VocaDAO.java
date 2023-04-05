@@ -128,19 +128,12 @@ public class VocaDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				int wordNo = rs.getInt("WORD_NO");
-				String wordTitle = rs.getString("WORD_TITLE");
-				String wordDf = rs.getString("WORD_DF");
-				String wordMemo = rs.getString("WORD_MEMO");
-				String codeBlock = rs.getString("CODE_BLOCK");
-				String createDate = rs.getString("CREATE_DATE");
-				String checked = rs.getString("CHECKED");
-				String favorite = rs.getString("FAVORITE");
-				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+				Word word = new Word();
 				
-				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+				word.setWordNo(rs.getInt("WORD_NO"));
+				word.setWordTitle(rs.getString("WORD_TITLE"));
+				word.setChecked(rs.getString("CHECKED"));
+				word.setFavorite(rs.getString("FAVORITE"));
 				
 				wordList.add(word);
 			}
