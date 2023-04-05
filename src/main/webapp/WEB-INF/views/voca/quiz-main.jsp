@@ -80,12 +80,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           </div>
           <div class="container-main-content">
             <c:forEach var="quiz" items="${quizList}">
-              <button type="button">${quiz.categoryTitle}</button>
-            </c:forEach>
+              <button type="button">
+                ${quiz.categoryTitle}
 
-            <!-- <button type="button">JavaScript</button>
-            <button type="button">Python</button>
-            <button type="button">DB</button> -->
+                <span class="memberNo" style="display: none">
+                  ${quiz.memberNo}
+                </span>
+                <span class="categoryNo" style="display: none">
+                  ${quiz.categoryNo}
+                </span>
+              </button>
+            </c:forEach>
           </div>
         </div>
         <div class="container-main-right">
