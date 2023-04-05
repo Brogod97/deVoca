@@ -30,7 +30,7 @@
 		WHERE MEMBER_NM LIKE ?
 	</entry>
 
-
+	<!-- 카테고리 추가 -->
 	<entry key="insertCategory">
 		INSERT INTO CATEGORY 
 		VALUES (CATEGORY_NO_SEQ.NEXTVAL, ?, ?)
@@ -41,5 +41,90 @@
 		SELECT WORD_TITLE , WORD_DF ,WORD_MEMO , CODE_BLOCK 
 		FROM WORD 
 		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 단어 추가 -->
+	<entry key="insertWord">
+		INSERT INTO WORD 
+		VALUES(WORD_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, DEFAULT, DEFAULT, DEFAULT);
+	</entry>
+	
+	<!-- 단어 업데이트 -->
+	<entry key="updateWord">
+		UPDATE WORD SET
+		WORD_TITLE = ?,
+		WORD_DF = ?,
+		WORD_MEMO = ?,
+		CODE_BLOCK = ?
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 단어삭제 -->
+	<entry key="deleteWord">
+		DELETE FROM WORD 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 카테고리 삭제 -->
+	<entry key="deleteCategory">
+		DELETE FORM CATEGORY
+		WHERE CATEGORY_NO = ?
+	</entry>
+	
+	<!-- 즐겨찾기한 단어 조회 -->
+	<entry key="selectWordFavorite">
+		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
+		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX, "LANGUAGE"
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND CATEGORY_NO = ?
+		AND FAVORITE = 'Y'
+	</entry>
+	
+	<!-- 체크한 단어 조회 -->
+	<entry key="selectWordFavorite">
+		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
+		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX, "LANGUAGE"
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND CATEGORY_NO = ?
+		AND CHECKED = 'Y'
+	</entry>
+	
+	<!-- 체크안한 단어 조회 -->
+	<entry key="selectWordUnchecked">
+		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
+		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX, "LANGUAGE"
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND CATEGORY_NO = ?
+		AND CHECKED = 'N'
+	</entry>
+	
+	
+	<!-- 단어 즐겨찾기  -->
+	<entry key="updateFavorite">
+		UPDATE WORD SET
+		FAVORITE  = 'Y' 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 단어 체크  -->
+	<entry key="updateChecked">
+		UPDATE WORD SET
+		CHECKED = 'Y' 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 단어 검색 -->
+	<entry key="searchWord">
+		SELECT WORD_NO, WORD_TITLE
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND WORD_TITLE LIKE ?
 	</entry>
 </properties>

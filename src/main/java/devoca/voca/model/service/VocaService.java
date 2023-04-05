@@ -62,7 +62,7 @@ public class VocaService {
 		return wordList;
 	}
 
-	/** 카테고리 추가 
+	/** 카테고리 추가 service
 	 * @param memberNo
 	 * @param categoryTitle 
 	 * @return
@@ -80,7 +80,7 @@ public class VocaService {
 	}
 
 
-	/** 단어 상세조회
+	/** 단어 상세조회 service
 	 * @param wordNo
 	 * @return
 	 */
@@ -109,5 +109,182 @@ public class VocaService {
 		close(conn);
 		
 		return userList;
+	}
+
+
+	/** 단어 추가 service
+	 * @param word
+	 * @return
+	 */
+	public int insertword(Word word) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertWord(conn, word);
+		
+		if(result > 0) commit(conn);
+		else           rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	/** 단어 업데이트 service
+	 * @param word
+	 * @return
+	 */
+	public int updateWord(Word word) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.updateWord(conn, word);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	/** 단어삭제 Service
+	 * @param wordNo
+	 * @return
+	 */
+	public int deleteWord(int wordNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.deleteWord(conn, wordNo);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	/** 카테고리삭제 Service
+	 * @param categoryNo
+	 * @return
+	 */
+	public int deleteCategory(int categoryNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.deletCategory(conn, categoryNo);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	
+	/** 즐겨찾기한 단어리스트 조회 Service
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return
+	 */
+	public List<Word> selectWordFavorite(int memberNo, int categoryNo) throws Exception{
+		Connection conn = getConnection();
+		
+		List<Word> wordList = dao.selectWordFavorite(conn, memberNo, categoryNo);
+		
+		close(conn);
+		
+		return wordList;
+	}
+
+
+	/** 체크된 단어리스트 조회 Service
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Word> selectWordChecked(int memberNo, int categoryNo) throws Exception{
+		Connection conn = getConnection();
+		
+		List<Word> wordList = dao.selectWordChecked(conn, memberNo, categoryNo);
+		
+		close(conn);
+		
+		return wordList;
+	}
+
+
+	/** 체크안된 단어리스트 조회 Service
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return
+	 */
+	public List<Word> selectWordUnchecked(int memberNo, int categoryNo) throws Exception{
+		Connection conn = getConnection();
+		
+		List<Word> wordList = dao.selectWordUnchecked(conn, memberNo, categoryNo);
+		
+		close(conn);
+		
+		return wordList;
+	}
+
+
+	/** 단어 즐겨찾기 Service
+	 * @param wordNo
+	 * @return
+	 */
+	public int updateFavorite(int wordNo) throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.updateFavorite(conn, wordNo);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	/** 단어 체크 Service
+	 * @param wordNo
+	 * @return
+	 */
+	public int checkedFavorite(int wordNo) throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.checkedFavorite(conn,wordNo);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	/** 단어 검색 Service
+	 * @param memberNo
+	 * @param searchWord
+	 * @return
+	 */
+	public List<Word> searchWord(int memberNo, String searchWord) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Word> wordList = dao.searchWord(conn, memberNo, searchWord);
+		
+		
+		return null;
 	}
 }
