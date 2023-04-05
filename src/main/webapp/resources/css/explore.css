@@ -1,278 +1,259 @@
 /* cascading */
 .sidebar-search-area {
-    flex-basis: 0;
+  flex-basis: 0;
 }
 
 .category-container {
-    flex-basis: 90vh;
+  flex-basis: 90vh;
 }
 
 .line {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .shared-container .line {
-    margin: 0;
-    margin-bottom: 20px;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 /* 퀴즈 시작 버튼*/
-.quiz-start-btn {
-    color: var(--white);
-    text-decoration: none;
+#quiz-start-btn {
+  color: var(--white);
+  text-decoration: none;
 }
 
 .btn-long {
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
 }
 
 /* 다른 회원 리스트 */
 .member-list-area {
-    overflow-y: auto;
-    width: 100%;
+  overflow-y: auto;
+  width: 100%;
 }
 
 /* 스크롤바 스타일 옵션 - 숨기기 */
 .member-list-area::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 .member-list-area::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 .member-list-area::-webkit-scrollbar-thumb {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .member-list {
-    width: 100%;
+  width: 100%;
 
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 
-    list-style: none;
+  list-style: none;
 }
 
 /* 회원 목록 중 개별 회원에 대한 설정 */
 
 .member {
-    width: 100%;
-    height: 56px;
+  width: 100%;
+  height: 56px;
 
-    background-color: var(--gray30);
-    color: var(--dark);
+  background-color: var(--gray30);
+  color: var(--dark);
 
-    padding-left: 20px;
+  padding-left: 20px;
 
-    border: 2px solid transparent;
-    border-radius: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .member:hover {
-    border: 2px solid var(--primary);
+  border: 2px solid var(--primary);
 
-    transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
 }
 
 .member:not(:first-child) {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
 .member-thumbnail {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .member-thumbnail img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .member-nickname {
-    padding-left: 16px;
+  padding-left: 16px;
 }
 
 /* 카테고리 클릭 시 변경될 스타일 클래스 */
 .backgroundPrimary {
-    background-color: var(--primary);
-    color: var(--white);
+  background-color: var(--primary);
+  color: var(--white);
 }
 
 /* -----------shared-container : 유저 선택 후 메인 콘텐츠 영역-----------*/
 .shared-container {
-    width: 85%;
+  width: 85%;
 
-    margin: auto;
-    /* padding-top: 20px; */
+  margin: auto;
+  /* padding-top: 20px; */
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* shared-header-category-area : shared-container 내부 word-list 제외 상단부 */
 #shared-header-category-area {
-    display: none;
+  display: none;
 }
 
 .shared-header-area h2 {
-    margin: 0;
-    padding-top: 35px;
-    margin-bottom: 20px;
+  margin: 0;
+  padding-top: 35px;
+  margin-bottom: 20px;
 
-    color: var(--dark);
+  color: var(--dark);
 }
 
 .shared-header-area > h2 > span:nth-child(2) {
-    position: relative;
+  position: relative;
 }
 
 .shared-header-area .flying-bee {
-    width: 120px;
+  width: 120px;
 
-    position: absolute;
-    top: -15px;
-    right: -130px;
+  position: absolute;
+  top: -15px;
+  right: -130px;
 }
 
 .shared-header-area .flying-bee img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #shared-user-name {
-    color: var(--primary);
+  color: var(--primary);
 }
 
 /* shared-category-area */
 .shared-category-area {
-    padding: 0 10px 20px 10px;
-    overflow-x: auto;
+  padding: 0 10px 20px 10px;
+  overflow-x: auto;
 }
 
 .shared-category-area::-webkit-scrollbar {
-    height: 6px;
+  height: 6px;
 }
 .shared-category-area::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 .shared-category-area::-webkit-scrollbar-thumb {
-    background-color: var(--gray250);
-    border-radius: 30px;
+  background-color: var(--gray250);
+  border-radius: 30px;
 }
 #shared-category-list {
-    width: fit-content;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  width: fit-content;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .shared-category {
-    width: 150px;
-    height: 100px;
+  width: 150px;
+  height: 100px;
 
-    background-color: var(--white);
+  background-color: var(--white);
 
-    border: 2px solid transparent;
-    border-radius: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    box-shadow: var(--shared-category-shadow);
+  box-shadow: var(--shared-category-shadow);
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .shared-category:not(:first-child) {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
 .shared-category:hover {
-    border: 2px solid var(--primary);
-    transition: all ease-in-out 0.2s;
+  border: 2px solid var(--primary);
+  transition: all ease-in-out 0.2s;
 }
 
 .shared-category .ic-star {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .category-title {
-    font-size: 14px;
-    color: var(--dark);
+  font-size: 14px;
+  color: var(--dark);
 
-    margin-top: 12px;
+  margin-top: 12px;
+}
+
+.ic-hive-cc {
+  font-size: 32px;
+  color: var(--gray200);
+}
+
+.ic-hive-cc.active {
+  color: var(--secondary);
 }
 
 /* shared-voca-list-area */
 
 .word-list {
-    padding: 0;
-    /* TODO: 기본 display:none인 것 내 페이지에서만 block으로 변경 */
+  padding: 0;
+  /* TODO: 기본 display:none인 것 내 페이지에서만 block으로 변경 */
 }
 
-.ic-hive-cc {
-    font-size: 32px;
-    color: var(--gray200);
+.content-main-text-flex {
+  cursor: pointer;
 }
-
-.ic-hive-cc.active {
-    color: var(--secondary);
-}
-
-/* ------------------------------------------------------ */
-/* word-list.jsp -> explore.jsp에 맞게 안보일 요소 숨기기 */
-/* 
-.word-list {
-    display: block;
-}
-
-.content-main,
-.content-main-line {
-    display: none;
-} */
-
-/* 암기한 단어 체크 버튼 */
-/* .content-main-text-flex > div:nth-child(1) > button:nth-child(1) {
-    display: none;
-} */
-
-/* 즐겨찾기 단어 버튼 */
-/* .content-main-text-flex > div:nth-child(2) > button:nth-child(1) {
-    display: none;
-} */
-/* ------------------------------------------------------ */
 
 /* 단어 조회 모달창 cascading */
 #modal {
-    width: calc(100% - (var(--nav-width) + var(--sidebar-width)));
-    height: calc(100% - var(--header-height));
+  width: calc(100% - (var(--nav-width) + var(--sidebar-width)));
+  height: calc(100% - var(--header-height));
 
-    position: absolute;
-    top: var(--header-height);
-    left: calc(var(--nav-width) + var(--sidebar-width));
+  position: absolute;
+  top: var(--header-height);
+  left: calc(var(--nav-width) + var(--sidebar-width));
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    display: none;
+  display: none;
 }
 
 #modal .bg {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
