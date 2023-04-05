@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import static devoca.common.JDBCTemplate.*;
@@ -61,23 +63,24 @@ public class MemberDAO {
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getMemberPw());
 			
+			
 			rs = pstmt.executeQuery();
 			
 			System.out.println("rs 결과 : " + rs.next());
 			
 				if( rs.next() ) {
-				
 				loginMember = new Member();
 				
 				loginMember.setMemberNo(rs.getInt("MEMBER_NO"));
 				loginMember.setMemberId(rs.getString("MEMBER_ID"));
 				loginMember.setMemberNick(rs.getString("MEMBER_NM"));
-				loginMember.setSnsFlag(rs.getNString("SNS_FL"));
+				loginMember.setProfileImage(rs.getString("MEMBER_IMG"));
 				loginMember.setEnrollDate(rs.getString("ENROLL_DATE"));
-				loginMember.setProfileImage(rs.getString("USER_IMG"));
+				
+				
 			}
 			
-			System.out.println("DAO ResultSet 생성 이후 확인 : " + loginMember);
+			System.out.println("DAO ResultSet 생성 이후 확인 : " + loginMember );
 			
 		} finally {
 			close(rs);
@@ -109,6 +112,7 @@ public class MemberDAO {
 			pstmt.setString(3, member.getMemberNick());
 			
 			result = pstmt.executeUpdate();
+			
 		} finally {
 			close(pstmt);
 		}
@@ -178,6 +182,27 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		
+		return result;
+	}
+
+
+	public int secession(Connection conn, int memberNo, String memberPw) throws Exception {
+		int result = 0;
+		
+		try {
+			
+			
+			String sql = prop.getProperty("secession");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1,memberNo);
+			pstmt.setString(1, memberPw);
+			
+			result = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+		}
 		return result;
 	}
 	

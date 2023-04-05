@@ -205,7 +205,7 @@ public class VocaDAO {
 				String wordMemo = rs.getString(3);
 				String codeBlock = rs.getString(4);
 				
-				word = new Word(wordTitle, wordDf, wordMemo, codeBlock);
+				word = new Word( wordNo, wordTitle, wordDf, wordMemo, codeBlock);
 				
 			}
 			
@@ -250,6 +250,341 @@ public class VocaDAO {
 		}
 		
 		return userList;
+	}
+
+
+	/** 단어추가 DAO
+	 * @param conn
+	 * @param word
+	 * @return
+	 */
+	public int insertWord(Connection conn, Word word) throws Exception{
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("insertWord");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, word.getCategoryNo());
+			pstmt.setString(2, word.getWordTitle());
+			pstmt.setString(3, word.getWordDf());
+			pstmt.setString(4, word.getWordMemo());
+			pstmt.setString(5, word.getCodeBlock());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	/** 단어 업데이트 DAO
+	 * @param conn
+	 * @param word
+	 * @return
+	 */
+	public int updateWord(Connection conn, Word word) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updateWord");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, word.getWordTitle());
+			pstmt.setString(2, word.getWordDf());
+			pstmt.setString(3, word.getWordMemo());
+			pstmt.setString(4, word.getCodeBlock());
+			pstmt.setInt(5, word.getWordNo());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 단어 삭제 DAO
+	 * @param conn
+	 * @param wordNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int deleteWord(Connection conn, int wordNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("deleteWord");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, wordNo);
+			
+			result = pstmt.executeUpdate();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 카테고리삭제 DAO
+	 * @param conn
+	 * @param categoryNo
+	 * @return
+	 */
+	public int deletCategory(Connection conn, int categoryNo) throws Exception{
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("deleteCategory");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, categoryNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
+
+	/** 즐겨찾기한 단어 조회 
+	 * @param conn
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Word> selectWordFavorite(Connection conn, int memberNo, int categoryNo) throws Exception{
+		List<Word> wordList = new ArrayList<>(); 
+		
+		try {
+			String sql = prop.getProperty("selectWordFavorite");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int wordNo = rs.getInt("WORD_NO");
+				String wordTitle = rs.getString("WORD_TITLE");
+				String wordDf = rs.getString("WORD_DF");
+				String wordMemo = rs.getString("WORD_MEMO");
+				String codeBlock = rs.getString("CODE_BLOCK");
+				String createDate = rs.getString("CREATE_DATE");
+				String checked = rs.getString("CHECKED");
+				String favorite = rs.getString("FAVORITE");
+				String quizOx = rs.getString("QUIZ_OX");
+				String language = rs.getString("LANGUAGE");
+				
+				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
+					 createDate, checked, favorite, quizOx, language);
+				
+				wordList.add(word);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}		
+		
+		return wordList;
+	}
+
+
+	/** 체크된 단어 리스트 조회 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return
+	 */
+	public List<Word> selectWordChecked(Connection conn, int memberNo, int categoryNo) throws Exception{
+		
+		List<Word> wordList = new ArrayList<>(); 
+		try {
+			String sql = prop.getProperty("selectWordChecked");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int wordNo = rs.getInt("WORD_NO");
+				String wordTitle = rs.getString("WORD_TITLE");
+				String wordDf = rs.getString("WORD_DF");
+				String wordMemo = rs.getString("WORD_MEMO");
+				String codeBlock = rs.getString("CODE_BLOCK");
+				String createDate = rs.getString("CREATE_DATE");
+				String checked = rs.getString("CHECKED");
+				String favorite = rs.getString("FAVORITE");
+				String quizOx = rs.getString("QUIZ_OX");
+				String language = rs.getString("LANGUAGE");
+				
+				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
+					 createDate, checked, favorite, quizOx, language);
+				
+				wordList.add(word);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}		
+		
+		return wordList;
+	}
+
+
+	public List<Word> selectWordUnchecked(Connection conn, int memberNo, int categoryNo) throws Exception{
+		
+		List<Word> wordList = new ArrayList<>(); 
+		try {
+			String sql = prop.getProperty("selectWordUnchecked");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int wordNo = rs.getInt("WORD_NO");
+				String wordTitle = rs.getString("WORD_TITLE");
+				String wordDf = rs.getString("WORD_DF");
+				String wordMemo = rs.getString("WORD_MEMO");
+				String codeBlock = rs.getString("CODE_BLOCK");
+				String createDate = rs.getString("CREATE_DATE");
+				String checked = rs.getString("CHECKED");
+				String favorite = rs.getString("FAVORITE");
+				String quizOx = rs.getString("QUIZ_OX");
+				String language = rs.getString("LANGUAGE");
+				
+				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
+					 createDate, checked, favorite, quizOx, language);
+				
+				wordList.add(word);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}		
+		
+		return wordList;
+	}
+
+
+	/** 단어 즐겨찾기 DAO
+	 * @param conn
+	 * @param wordNo
+	 * @return
+	 */
+	public int updateFavorite(Connection conn, int wordNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateFavorite");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, wordNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	/** 단어 체크 DAO
+	 * @param conn
+	 * @param wordNo
+	 * @return
+	 */
+	public int checkedFavorite(Connection conn, int wordNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateChecked");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, wordNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	/** 단어검색 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param searchWord
+	 * @return
+	 */
+	public List<Word> searchWord(Connection conn, int memberNo, String searchWord) throws Exception{
+		
+		List<Word> wordList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("searchWord");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, "%" + searchWord + "%");
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+			
+				
+				int wordNo = rs.getInt(1);
+				String wordTitle = rs.getString(2);
+				
+				Word word = new Word(wordNo, wordTitle);
+				
+				wordList.add(word);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return wordList;
 	}
 	
 }
