@@ -2,6 +2,9 @@
 /* *************************** 전역 변수 *************************** */
 /* ***************************************************************** */
 
+/** vocaModal, bg를 갖고있는 부모 */
+const modal = document.getElementById("modal");
+
 /** 단어 클릭시 활성화 되는 모달 */
 const vocaModal = document.getElementById("modal");
 
@@ -39,13 +42,16 @@ const sharedVocaListArea = document.querySelector(".shared-voca-list-area");
 
 // 단어 조회 모달창에서 뒷 배경 부분 클릭 시 사라지게 하는 클릭 이벤트
 bgBlur.addEventListener("click", function () {
-  vocaModal.style.display = "none";
+  displayNone(vocaModal);
 });
 
 // 유저 검색창 - 검색 아이콘 클릭 이벤트
 userSearchBtn.addEventListener("click", function () {
   inputUserName = userSearchInput.value;
   searchUserAjax(inputUserName);
+  displayNone(modal);
+  displayNone(sharedHeaderCategoryArea);
+  sharedVocaListArea.innerHTML = "";
 });
 
 // 유저 검색창 - 엔터 입력 클릭 이벤트
@@ -53,6 +59,9 @@ userSearchInput.addEventListener("keyup", function () {
   if (window.event.keyCode == 13) {
     inputUserName = userSearchInput.value;
     searchUserAjax(inputUserName);
+    displayNone(modal);
+    displayNone(sharedHeaderCategoryArea);
+    sharedVocaListArea.innerHTML = "";
   }
 });
 
@@ -117,6 +126,9 @@ function searchUserAjax(inputUserName) {
       const userResultList = document.querySelectorAll(".member");
 
       clickOneForEach(userResultList, function () {
+        // 열려 있는 modal 숨김처리
+        displayNone(modal);
+
         // 클릭된 회원 배경색 backgroundPrimary 클래스 추가 + 형제 요소 스타일 제거
         removeSiblingsClassName(this, "backgroundPrimary");
         this.classList.add("backgroundPrimary");
@@ -255,6 +267,13 @@ function clickOneForEach(nodeList, f) {
   });
 }
 
+/** 전달받은 요소의 style 속성 display를 none으로 변경하는 함수
+ * @param {Element} element
+ */
+function displayNone(element) {
+  element.style.display = "none";
+}
+
 /** 전달받은 t의 형제 요소들의 첫번째 자식에 적용된 클래스를 제거하는 함수
  * @param {Element} t
  * @param {String} removeClass
@@ -306,7 +325,7 @@ function createUserList(parent, child) {
 
     const memberNo = document.createElement("span");
     memberNo.classList.add("member-number");
-    memberNo.style.display = "none";
+    displayNone(memberNo);
     memberNo.innerText = child[index].memberNo;
 
     memberThumbnail.append(thumbnailImg);
@@ -336,7 +355,7 @@ function createCategoryList(parent, child) {
 
     const categoryNumSpan = document.createElement("span");
     categoryNumSpan.innerText = child[index].categoryNo;
-    categoryNumSpan.style.display = "none";
+    displayNone(categoryNumSpan);
 
     li.append(i, span, categoryNumSpan);
     parent.append(li);
