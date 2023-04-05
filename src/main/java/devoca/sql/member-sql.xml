@@ -5,12 +5,10 @@
 	
 	<!-- 로그인(비밀번호, 탈퇴여부 제외) -->
 	<entry key="login">
-	    SELECT MEMBER_NO,MEMBER_ID,MEMBER_NM, MEMBER_IMG
-	    TO_CHAR( ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DATE
-	    FROM "MEMBER""
+	    SELECT *
+	    FROM MEMBER
 	    WHERE MEMBER_ID = ?
 	    AND MEMBER_PW = ?
-	    AND SNS_FL = 'N'
 	    AND SECESSION_FL = 'N'
 	
 	</entry>

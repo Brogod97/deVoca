@@ -47,50 +47,45 @@ public class MemberDAO {
 	 * @return loginMember
 	 * @throws Exception
 	 * */
-		public Member login(Connection conn, Member member) throws Exception{
+	public Member login(Connection conn, Member member) throws Exception {
 		
 		Member loginMember = null;
-		
-		System.out.println("dao :" + member);
 		
 		try {
 			
 			String sql = prop.getProperty("login");
 			
-			// PreparedStatment  생성 및 sql 적재
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, member.getMemberId());
+			pstmt.setString(1,  member.getMemberId());
 			pstmt.setString(2, member.getMemberPw());
-			
 			
 			rs = pstmt.executeQuery();
 			
-			System.out.println("rs 결과 : " + rs.next());
-			
-				if( rs.next() ) {
+			if(rs.next()) {
 				loginMember = new Member();
 				
 				loginMember.setMemberNo(rs.getInt("MEMBER_NO"));
 				loginMember.setMemberId(rs.getString("MEMBER_ID"));
 				loginMember.setMemberNick(rs.getString("MEMBER_NM"));
-				loginMember.setProfileImage(rs.getString("MEMBER_IMG"));
+				loginMember.setProfileImage(rs.getString("USER_IMG"));
 				loginMember.setEnrollDate(rs.getString("ENROLL_DATE"));
 				
 				
 			}
-			
-			System.out.println("DAO ResultSet 생성 이후 확인 : " + loginMember );
-			
 		} finally {
 			close(rs);
 			close(pstmt);
+			
 		}
 		
-		return loginMember;	// null 또는 Member 객체 주소
+		return loginMember;
 		
 		
 	}
+		
+		
+	
 	
 	/** 회원가입 DAO
 	 * @param conn
