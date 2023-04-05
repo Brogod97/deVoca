@@ -61,7 +61,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             class="container-main-img1"
           />
         </div>
-        <div>
+        <div class="container-main-center">
           <div>
             <h1>Quiz</h1>
           </div>
