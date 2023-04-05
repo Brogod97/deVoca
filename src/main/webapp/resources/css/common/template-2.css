@@ -15,6 +15,20 @@ main {
   }
 }
 
+/* 메인화면 줄어들때 사이드바가 사라짐 */
+@media (max-width: 900px) {
+  .side-bar {
+    display: none !important;
+  }
+
+  .main-content-area {
+    width: calc(100% - var(--nav-width)) !important;
+    height: 100%;
+
+    margin-left: var(--nav-width) !important;
+  }
+}
+
 /* 헤더 영역 */
 header {
   width: 100vw;
