@@ -13,39 +13,37 @@ import com.google.gson.Gson;
 
 import devoca.member.model.vo.Member;
 import devoca.voca.model.service.VocaService;
-import devoca.voca.model.vo.Category;
+import devoca.voca.model.vo.Word;
 
-// 카테고리 추가 서블릿 
-@WebServlet("/voca/insertCategory")
-public class InsertCategoryServlet extends HttpServlet {
-	
+// 단어 추가 서블릿
+@WebServlet("/voca/insertWord")
+public class InsertWordServlet extends HttpServlet{
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		VocaService service = new VocaService();
 		
-		String categoryTitle = req.getParameter("categoryTitle");
+		int categoryNo = Integer.parseInt(req.getParameter("categoryNo"));
+		String wordTitle = req.getParameter("wordTitle");
+		String wordDf = req.getParameter("wordDf");
+		String wordMemo = req.getParameter("wordMemo");
+		String codeBlock = req.getParameter("codeBlock");
 		
-		HttpSession session =  req.getSession();
+		Word word = new Word();
 		
-		Member loginMember = (Member)req.getSession().getAttribute("loginMember");
-		
-		int memberNo = loginMember.getMemberNo();
-	
+		word.setCategoryNo(categoryNo);
+		word.setWordTitle(wordTitle);
+		word.setWordDf(wordDf);
+		word.setWordMemo(wordMemo);
+		word.setCodeBlock(codeBlock);
 		
 		try {
 			
-			int result = service.insertCategory(memberNo , categoryTitle);
-			
+			int result = service.insertword(word);
 			new Gson().toJson(result, resp.getWriter());
 			
-			resp.sendRedirect("voca-main");
-			
-			
-			// result 값 가져가서 if( result > 0) 조건 걸어주고 성공 함수 작성하면 될 듯 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

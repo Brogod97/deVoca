@@ -35,13 +35,21 @@ public class Word {
 	}
 
 
-	public Word(String wordTitle, String wordDf, String wordMemo, String codeBlock) {
+	public Word(int wordNo, String wordTitle, String wordDf, String wordMemo, String codeBlock) {
 		super();
+		this.wordNo = wordNo;
 		this.wordTitle = wordTitle;
 		this.wordDf = wordDf;
 		this.wordMemo = wordMemo;
 		this.codeBlock = codeBlock;
 	}
+
+
+	public Word(int wordNo, String wordTitle) {
+		super();
+		this.wordNo = wordNo;
+		this.wordTitle = wordTitle;
+	} 
 
 
 	public int getWordNo() {
@@ -64,12 +72,12 @@ public class Word {
 	}
 
 
-	public String getwordTitle() {
+	public String getWordTitle() {
 		return wordTitle;
 	}
 
 
-	public void setwordTitle(String wordTitle) {
+	public void setWordTitle(String wordTitle) {
 		this.wordTitle = wordTitle;
 	}
 
