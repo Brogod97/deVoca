@@ -21,6 +21,13 @@ import devoca.member.model.vo.Member;
 public class MemberLoginServlet extends HttpServlet{
 	
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String path = "/WEB-INF/views/member/log-in.jsp";
+		req.getRequestDispatcher(path).forward(req, resp);
+	}
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		// 전달된 파라미터 변수에 저장
