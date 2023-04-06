@@ -40,6 +40,11 @@ public class InsertCategoryServlet extends HttpServlet {
 		
 			new Gson().toJson(result, resp.getWriter());
 			
+<<<<<<< HEAD
+=======
+			
+			
+>>>>>>> 7029dbf8079c0f3c2e53d10db9c616f204652e17
 			
 			// result 값 가져가서 if( result > 0) 조건 걸어주고 성공 함수 작성하면 될 듯 
 		}catch(Exception e) {

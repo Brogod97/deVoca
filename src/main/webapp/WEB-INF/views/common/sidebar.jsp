@@ -44,7 +44,22 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </div>
 
     <div class="category-list">
-      <ul></ul>
+      <ul>
+      	<c:forEach var="category" items="${category}">
+      		<li>
+      			<button>
+      				<input name="categoryTitle" value="${category.categoryTitle}" readonly="true" style="border: none; outline: none; background-color: transparent; font-size: 16px; font-weight: 700; cursor: pointer;">
+      			</button>
+      			<button class="invisible category-delete" type="submit">
+      				<i class="ic-close"></i>
+      			</button>
+      			<span class="categoryNo" style="display:none">
+      				${category.categoryNo}
+      			</span>
+      		</li>
+      	</c:forEach>
+      </ul>
+      
     </div>
   </section>
 </section>

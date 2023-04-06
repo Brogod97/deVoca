@@ -28,7 +28,7 @@ categoryAdd.addEventListener("click", function () {
   const categoryBtn = document.createElement("button");
   categoryBtn.classList.add("invisible");
   categoryBtn.classList.add("category-delete");
-  categoryBtn.setAttribute("type", "submit");
+  categoryBtn.setAttribute("type", "button");
   const categoryI = document.createElement("i");
   categoryI.classList.add("ic-close");
 
@@ -38,18 +38,10 @@ categoryAdd.addEventListener("click", function () {
 
   document.querySelector(".category-list > ul").append(categoryLi);
 
-  // 카테고리를 누르면 오른쪽에 단어 추가 생성이 일어남
-  categoryLi.addEventListener("click", function () {
-    const wordList = document.querySelector(".word-list");
-    wordList.style.display = "block";
-    const wordTitle = document.querySelector("h2");
-    wordTitle.value = this.firstChild.firstChild.value;
-    wordTitle.innerText = wordTitle.value;
-  });
-
   // 인풋창에 엔터키를 누르면 내가 입력한 값이 그대로 나옴
-  categoryInput.addEventListener("keyup", function () {
+  categoryInput.addEventListener("keyup", function enterFocusOut(e) {
     if (window.event.keyCode == "13") {
+      e.preventDefault();
       this.setAttribute("readonly", "true");
       this.style.border = "none";
       this.style.outline = "none";
@@ -68,12 +60,33 @@ categoryAdd.addEventListener("click", function () {
 
       if (this.value == "") {
         this.parentNode.parentNode.remove();
+      } else {
+        $.ajax({
+          url: "insertCategory",
+          type: "POST",
+          data: {
+            categoryTitle: categoryInput.value,
+          },
+          dataType: "JSON",
+          success: function (result) {
+            if (result > 0) {
+              alert("새 카테고리가 추가되었습니다.");
+            } else {
+              alert("카테고리 추가에 실패하였습니다.");
+            }
+            // 이벤트 리스너를 제거합니다.
+            categoryInput.removeEventListener("keyup", enterFocusOut);
+          },
+          error: function () {
+            alert("서버 오류가 발생하였습니다.");
+          },
+        });
       }
     }
   });
 
   // 인풋창 focus가 해제 되었을때도 내가 입력한 값이 그대로 나오는 이벤트
-  categoryInput.addEventListener("blur", function () {
+  categoryInput.addEventListener("blur", function focusOut() {
     this.setAttribute("readonly", "true");
     this.style.border = "none";
     this.style.outline = "none";
@@ -85,6 +98,27 @@ categoryAdd.addEventListener("click", function () {
 
     if (this.value == "") {
       this.parentNode.parentNode.remove();
+    } else {
+      $.ajax({
+        url: "insertCategory",
+        type: "POST",
+        data: {
+          categoryTitle: categoryInput.value,
+        },
+        dataType: "JSON",
+        success: function (result) {
+          if (result > 0) {
+            alert("새 카테고리가 추가되었습니다.");
+          } else {
+            alert("카테고리 추가에 실패하였습니다.");
+          }
+          // 이벤트 리스너를 제거합니다.
+          categoryInput.removeEventListener("blur", focusOut);
+        },
+        error: function () {
+          alert("서버 오류가 발생하였습니다.");
+        },
+      });
     }
   });
 
