@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import devoca.voca.model.service.VocaService;
 import devoca.voca.model.vo.Word;
 
@@ -38,7 +40,7 @@ public class UpdateWordServlet extends HttpServlet{
 			
 			int result = service.updateWord(word);
 			
-			
+			new Gson().toJson(result, resp.getWriter());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

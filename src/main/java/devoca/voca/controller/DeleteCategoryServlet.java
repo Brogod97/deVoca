@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import devoca.voca.model.service.VocaService;
 
 @WebServlet("/voca/deleteCategory")
@@ -22,6 +24,8 @@ public class DeleteCategoryServlet extends HttpServlet{
 			VocaService service = new VocaService();
 			
 			int result = service.deleteCategory(categoryNo);
+			
+			new Gson().toJson(result, resp.getWriter());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
