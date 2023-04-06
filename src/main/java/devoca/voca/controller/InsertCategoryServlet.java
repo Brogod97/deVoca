@@ -39,7 +39,7 @@ public class InsertCategoryServlet extends HttpServlet {
 			
 			new Gson().toJson(result, resp.getWriter());
 			
-			resp.sendRedirect("voca-main");
+			
 			
 			
 			// result 값 가져가서 if( result > 0) 조건 걸어주고 성공 함수 작성하면 될 듯 
