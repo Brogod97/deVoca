@@ -21,6 +21,7 @@
 		JOIN CATEGORY USING (CATEGORY_NO)
 		WHERE MEMBER_NO = ?
 		AND CATEGORY_NO = ?
+		ORDER BY CREATE_DATE
 	</entry>
 	
 	<!-- 단어 상세조회  -->
