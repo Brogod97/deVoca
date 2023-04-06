@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import devoca.voca.model.service.VocaService;
 
 // 단어 삭제 서블릿 
@@ -24,6 +26,7 @@ public class DeleteWordServlet extends HttpServlet {
 			
 			int result = service.deleteWord(wordNo);
 			
+			new Gson().toJson(result, resp.getWriter());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
