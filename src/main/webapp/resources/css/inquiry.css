@@ -89,7 +89,7 @@ padding-top: 50px;
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none;
-    text-indent: 5px;
+    text-indent: 10px;
     margin-bottom: 5px;
 }
 
@@ -106,7 +106,7 @@ padding-top: 50px;
     border-radius: 10px;
     background-color: #F5F5F5;
     box-shadow: none;
-    text-indent: 5px;
+    text-indent: 10px;
     margin-bottom: 5px;
 }
 
@@ -194,7 +194,7 @@ justify-self: start;
     background-color: #F5F5F5;
     box-shadow: none;
     border-radius: 10px;
-    text-indent: 5px;
+    text-indent: 10px;
     border:none;
     outline-color: var(--primary);
 }
