@@ -240,6 +240,7 @@
 /* voca-cateogry와 아래 인풋 간격 조정 */
 #voca-read-title {
     padding-bottom: 8px;
+    color: var(--dark);
 }
 
 .voca-content1,
@@ -252,6 +253,7 @@
 #voca-read-memo,
 .language-java.hljs {
     font-size: 16px;
+    color: var(--dark);
 }
 
 .voca-category1 {
@@ -285,6 +287,14 @@
 .voca-category5,
 .voca-category6 {
     padding: 10px;
+
+    display: flex;
+}
+
+.voca-category4 > img,
+.voca-category5 > img,
+.voca-category6 > img {
+    margin-right: 8px;
 }
 
 p {
