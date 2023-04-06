@@ -16,12 +16,19 @@
 	</entry>
 	
 	<entry key="selectWordAll">
-		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
-		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX, "LANGUAGE"
+		SELECT WORD_NO, WORD_TITLE, CHECKED, FAVORITE
 		FROM WORD 
 		JOIN CATEGORY USING (CATEGORY_NO)
 		WHERE MEMBER_NO = ?
 		AND CATEGORY_NO = ?
+		ORDER BY CREATE_DATE
+	</entry>
+	
+	<!-- 단어 상세조회  -->
+	<entry key ="selectWordOne">
+		SELECT WORD_TITLE , WORD_DF ,WORD_MEMO , CODE_BLOCK 
+		FROM WORD 
+		WHERE WORD_NO = ?
 	</entry>
 	
 	<entry key ="searchUser">
@@ -36,12 +43,7 @@
 		VALUES (CATEGORY_NO_SEQ.NEXTVAL, ?, ?)
 	</entry>
 	
-	<!-- 단어 상세조회  -->
-	<entry key ="selectWordOne">
-		SELECT WORD_TITLE , WORD_DF ,WORD_MEMO , CODE_BLOCK 
-		FROM WORD 
-		WHERE WORD_NO = ?
-	</entry>
+	
 	
 	<!-- 단어 추가 -->
 	<entry key="insertWord">

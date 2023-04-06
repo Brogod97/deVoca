@@ -29,8 +29,6 @@ public class SelectWordAllServlet extends HttpServlet{
 		try {
 			wordList = service.selectWordAll(memberNo, categoryNo);
 			
-			System.out.println(wordList);
-			
 			new Gson().toJson(wordList, resp.getWriter());
 			
 		} catch (Exception e) {

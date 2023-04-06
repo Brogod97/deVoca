@@ -1,31 +1,33 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* 클래스명 추가 시 display : none 부여 */
 .displayNone {
-  display: none;
+    display: none;
 }
 
 .invisible {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
 }
 
 /* ------------------------------------ */
 
 /* body 영역에 깔린 연회색 배경 및 규격 + font-family */
 body {
-  width: 100vw;
-  height: 100vh;
+    width: 100vw;
+    height: 100vh;
 
-  margin: 0;
+    margin: 0;
 
-  background-color: var(--gray30);
+    background-color: var(--gray30);
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+}
 
-  font-family: "Pretendard-Regular", "devoca";
+* {
+    font-family: "Pretendard-Regular", "devoca";
 }

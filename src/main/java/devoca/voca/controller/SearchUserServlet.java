@@ -20,9 +20,7 @@ public class SearchUserServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String inputUserName = req.getParameter("inputUserName");
-		
-		System.out.println(inputUserName);
-		
+				
 		try {
 			VocaService service = new VocaService();
 			
