@@ -1,101 +1,117 @@
+/* 로딩페이지 */
+.loading {
+    width: 100vw;
+    height: 100vh;
+}
+
 /* 메인화면 */
 
 @media (max-width: 900px) {
-  .container-main-left,
-  .container-main-right {
-    display: none !important;
-  }
+    .container-main-left,
+    .container-main-right {
+        display: none !important;
+    }
 
-  .container-main-center {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    margin: auto !important;
-  }
+    .container-main-center {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        margin: auto !important;
+    }
 }
 
 .container-main {
-  display: flex;
-  text-align: center;
-  margin-top: 70px;
+    display: flex;
+    text-align: center;
+    margin-top: 70px;
 }
 
 .container-main > div:nth-child(1) {
-  flex-basis: 20%;
+    flex-basis: 20%;
 }
 
 .container-main > div:nth-child(2) {
-  flex-basis: 60%;
+    flex-basis: 60%;
 }
 
 .container-main > div:nth-child(3) {
-  flex-basis: 20%;
+    flex-basis: 20%;
 }
 
 .container-main h1 {
-  font-size: 62px;
-  font-weight: 800;
-  color: var(--dark);
-  margin: 0;
+    font-size: 62px;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0;
 }
 
 .container-main h2 {
-  color: var(--dark);
-  font-size: 30px;
-  margin: 0;
-  padding: 20px 0 40px 0;
+    color: var(--dark);
+    font-size: 30px;
+    margin: 0;
+    padding: 20px 0 40px 0;
 }
 
 .container-main-btn {
-  margin-bottom: 30px;
-  width: 110px;
-  height: 40px;
-  background-color: var(--primary);
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  color: var(--white);
+    margin-bottom: 30px;
+    width: 110px;
+    height: 40px;
+    background-color: var(--primary);
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    color: var(--white);
 }
 
 .container-main-btn:hover {
-  background-color: var(--secondary);
+    background-color: var(--secondary);
 }
 
 .container-main-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .container-main-content > button {
-  width: 190px;
-  height: 130px;
-  border-radius: 20px;
-  margin: 15px;
-  border: none;
-  background-color: white;
-  box-shadow: var(--category-shadow);
-  cursor: pointer;
+    width: 190px;
+    height: 130px;
+    border-radius: 20px;
+    margin: 15px;
+    border: none;
+    background-color: white;
+    box-shadow: var(--category-shadow);
+    cursor: pointer;
 }
 
 .container-main-content > button:hover {
-  border: 1px solid var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .container-main-content > button:active {
-  background-color: var(--primary);
+    background-color: var(--primary);
 }
 
 .container-main-img1 {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  top: 350px;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top: 350px;
 }
 
 .container-main-img2 {
-  width: 380px;
-  height: 380px;
+    width: 380px;
+    height: 380px;
+}
+
+/* 퀴즈 카테고리 버튼 */
+.selected {
+  background-color: #ffc759;
+}
+
+.select-btn:focus {
+  box-shadow: 0 0 0 2px #ffc759;
+  background-color: #ffc759;
 }

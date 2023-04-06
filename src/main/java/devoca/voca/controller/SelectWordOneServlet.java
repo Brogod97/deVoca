@@ -8,15 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import devoca.voca.model.service.VocaService;
 import devoca.voca.model.vo.Word;
 
-@WebServlet("/vaca/mainSelectWordOne")
-public class MainSelectWordOneServlet extends HttpServlet{
+@WebServlet("/voca/selectWordOne")
+public class SelectWordOneServlet extends HttpServlet{
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int wordNo = Integer.parseInt(req.getParameter("wordNo"));
 		
 		try {
@@ -24,16 +25,12 @@ public class MainSelectWordOneServlet extends HttpServlet{
 			VocaService service = new VocaService();
 			
 			Word word = service.selectWordOne(wordNo);
-			
-			String path = "/WEB-INF/views/voca/vaca-main";
-			
-			req.setAttribute("word", word);
-			
-			req.getRequestDispatcher(path).forward(req,resp);
+
+			new Gson().toJson(word, resp.getWriter());
+						
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 }

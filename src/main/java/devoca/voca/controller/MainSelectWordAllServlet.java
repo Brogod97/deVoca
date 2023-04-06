@@ -21,7 +21,7 @@ import devoca.voca.model.vo.Word;
 public class MainSelectWordAllServlet extends HttpServlet{
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Member loginMember = (Member)req.getSession().getAttribute("loginMember");
 		
