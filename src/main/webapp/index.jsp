@@ -161,7 +161,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               </div>
             </div>
             <div>
-              <a href="${contextPath}/WEB-INF/views/member/signup.jsp">
+              <a href="${contextPath}/static/terms.jsp">
                 <button class="sec3-center-btn">회원가입</button>
               </a>
             </div>

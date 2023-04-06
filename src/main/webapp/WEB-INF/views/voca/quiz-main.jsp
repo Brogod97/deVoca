@@ -90,9 +90,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     </div>
                     <div class="container-main-content">
                         <c:forEach var="quiz" items="${quizList}">
-                            <button type="button">
+                            <button type="button" class="select-btn">
                                 ${quiz.categoryTitle}
-
                                 <span class="memberNo" style="display: none">
                                     ${quiz.memberNo}
                                 </span>
