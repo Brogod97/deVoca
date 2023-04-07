@@ -76,31 +76,33 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <h2>카테고리를 선택해 주세요</h2>
                     </div>
 
-                    <% String quizTitle = request.getParameter("quizTitle"); %>
-                    <% String quizMemberNo =
-                    request.getParameter("quizMemberNo"); %> <% String
-                    quizCategoryNo = request.getParameter("quizCategoryNo"); %>
-
-                    <div>
-                        <a href="quiz-game">
-                            <button type="button" class="container-main-btn">
-                                시작하기
-                            </button>
-                        </a>
-                    </div>
+                    <!-- <form action="${contextPath}/voca/quizGame" method="get"> -->
+                    <button type="submit" class="container-main-btn">
+                        시작하기
+                    </button>
                     <div class="container-main-content">
                         <c:forEach var="quiz" items="${quizList}">
-                            <button type="button" class="select-btn">
+                            <button
+                                type="button"
+                                class="select-btn"
+                                onclick="return quizStart('${quiz.memberNo}', '${quiz.categoryNo}')"
+                            >
                                 ${quiz.categoryTitle}
-                                <span class="memberNo" style="display: none">
-                                    ${quiz.memberNo}
-                                </span>
-                                <span class="categoryNo" style="display: none">
-                                    ${quiz.categoryNo}
-                                </span>
+
+                                <!-- <input
+                                    type="hidden"
+                                    value="${quiz.memberNo}"
+                                    name="memberNo"
+                                />
+                                <input
+                                    type="hidden"
+                                    value="${quiz.categoryNo}"
+                                    name="categoryNo"
+                                /> -->
                             </button>
                         </c:forEach>
                     </div>
+                    <!-- </form> -->
                 </div>
                 <div class="container-main-right">
                     <img
@@ -112,6 +114,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </section>
         </section>
 
+        <script>
+            const contextPath = "${contextPath}";
+        </script>
         <script src="${contextPath}/resources/js/google-search.js"></script>
         <script src="${contextPath}/resources/js/quiz-main.js"></script>
     </body>
