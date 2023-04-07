@@ -37,6 +37,11 @@ public class InsertWordServlet extends HttpServlet{
 		word.setWordMemo(wordMemo);
 		word.setCodeBlock(codeBlock);
 		
+		System.out.println(categoryNo);
+		System.out.println(wordTitle);
+		System.out.println(wordDf);
+		System.out.println(wordMemo);
+		System.out.println(codeBlock);
 		try {
 			
 			int result = service.insertword(word);

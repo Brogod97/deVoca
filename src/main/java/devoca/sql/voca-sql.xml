@@ -48,7 +48,7 @@
 	<!-- 단어 추가 -->
 	<entry key="insertWord">
 		INSERT INTO WORD 
-		VALUES(WORD_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, DEFAULT, DEFAULT, DEFAULT);
+		VALUES(WORD_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, DEFAULT, DEFAULT, DEFAULT)
 	</entry>
 	
 	<!-- 단어 업데이트 -->
