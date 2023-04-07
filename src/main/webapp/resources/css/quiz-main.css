@@ -94,6 +94,11 @@
     background-color: var(--primary);
 }
 
+/* 퀴즈 카테고리 버튼 */
+.container-main-content > button.selected {
+    background-color: #ffc759;
+}
+
 .container-main-img1 {
     width: 300px;
     height: 300px;
@@ -104,14 +109,4 @@
 .container-main-img2 {
     width: 380px;
     height: 380px;
-}
-
-/* 퀴즈 카테고리 버튼 */
-.selected {
-  background-color: #ffc759;
-}
-
-.select-btn:focus {
-  box-shadow: 0 0 0 2px #ffc759;
-  background-color: #ffc759;
 }
