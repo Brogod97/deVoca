@@ -228,7 +228,7 @@ margin: auto;
 
 }
 
-@media (max-width: 800px) or (max-height:800px) {
+@media (max-width: 600px) or (max-height:600px) {
 
   .menu {
     border: 1px solid white;

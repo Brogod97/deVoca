@@ -63,11 +63,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <div class="select-wrap">
       <select id="selc" name="select">
        
-          <option value="건의 문의">건의 문의</option>
-          <option value="버그 문의">버그 문의</option>
-          <option value="신고 문의">신고 문의</option>
+          <option value="계정 문의">계정 문의</option>
+          <option value="이용 문의">이용 문의</option>
           <option value="기타 문의">기타 문의</option>
-          <option selected></option>
         
       </select>
       <div class="select__arrow"></div>
