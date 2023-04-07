@@ -20,7 +20,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <a href="${contextPath}/voca/explore">
       <img src="${contextPath}/resources/assets/icon/shared.svg" />
     </a>
-   	<a href="${contextPath}/member/testLogin">로그인</a>
+   	
   </section>
   <section>
     <a href="${contextPath}/about/inquiry">
