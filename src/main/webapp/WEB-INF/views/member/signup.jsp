@@ -27,12 +27,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
         <div id="sign-up-box">
-          <form action="${contextPath}/member/signUp" method="post">
+          <form action="${contextPath}/member/signUp" method="post" onsubmit="return signUpValidate()">
             <h1 id="sign-up-title">회원 가입</h1>
 
             <!-- 인풋창 묶음 -->
             <div id="input-group">
-              <div id="uName">
+              <div class="uName">
                 <i class="ic-login-circle-default"></i>
                 <input
                   id="nn"
@@ -42,17 +42,20 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 />
               </div>
 
+              <span id="nameMessage"></span>
+
               <div id="uId">
                 <i class="ic-login-circle-default"></i>
                 <input
                   id="uid"
                   type="text"
                   name="inputId"
-                  placeholder="아이디를 입력해주세요"
+                  placeholder="이메일을 입력해주세요"
+                  autocomplete="off" required
                 />
               </div>
-
-              <div id="uPw">
+              <span id="idMessage"></span>
+              <div class="uPw">
                 <i class="ic-login-circle-default"></i>
                 <input
                   id="upw"
@@ -60,9 +63,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   name="inputPw"
                   placeholder="비밀번호를 입력해주세요"
                 />
+                <p id="pwMessage"></p>
               </div>
 
-              <div id="uPw2">
+              <div class="uPw2">
                 <i class="ic-login-circle-default"></i>
                 <input
                   id="upw2"
@@ -71,6 +75,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   placeholder="비밀번호를 확인해주세요"
                 />
               </div>
+              <span id="pw2Message"></span>
             </div>
 
             <div id="btn-submit">
@@ -84,7 +89,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 >
               </p>
             </div>
-
+</form>
             <div class="or">OR</div>
 
             <div id="sns">
@@ -99,14 +104,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 &emsp;구글 계정으로 가입
               </button>
             </div>
-          </form>
+          
         </div>
       </section>
 
       <!-- 푸터 -->
       <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
       <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+      <script src="${contextPath}/resources/js/sign_up.js"></script>
       <script src="${contextPath}/resources/js/sns-login.js"></script>
       <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>

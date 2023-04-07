@@ -35,7 +35,7 @@ function signUp() {
 	
 	if(selectAll.checked){
 	
-	window.location.href = "signup.jsp"	
+	window.location.href = contextPath + "/member/signUp";
 	
 	} else {
 		

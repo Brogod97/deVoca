@@ -106,6 +106,7 @@ deVoca에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 
       <!-- 푸터 -->
       <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+		<script> const contextPath = "${contextPath}"; </script>
       <script src="${contextPath}/resources/js/terms.js"></script>
       <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>

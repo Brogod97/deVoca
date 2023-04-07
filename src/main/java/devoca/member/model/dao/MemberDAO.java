@@ -118,12 +118,12 @@ public class MemberDAO {
 	
 	/** 아이디(이메일) 중복 검사 DAO
 	 * @param conn
-	 * @param memberId
+	 * @param uid
 	 * @return result
 	 * @throws Exception
 	 * */
 	
-	public int idDupCheck(Connection conn, String memberId) throws Exception {
+	public int idDupCheck(Connection conn, String nn) throws Exception {
 		
 		int result = 0;
 		
@@ -133,13 +133,16 @@ public class MemberDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, memberId);
+			pstmt.setString(1, nn);
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				
 				result = rs.getInt(1);
+				
+				System.out.println("DAO rs.getInt(1) : " + rs.getInt(1));
+				System.out.println("DAO result : " + result);
 				}
 					
 			
@@ -152,13 +155,16 @@ public class MemberDAO {
 		return result;
 	}
 	
+	
+	
+	// 
 	public int nicknameDupCheck(Connection conn, String memberNick) throws Exception {
 		
 		int result = 0;
 		
 		try {
 			
-			String sql = prop.getProperty("memberNick");
+			String sql = prop.getProperty("nicknameDupCheck");
 			
 			pstmt = conn.prepareStatement(sql);
 			

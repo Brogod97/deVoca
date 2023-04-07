@@ -57,8 +57,7 @@ public class MemberSignupServlet extends HttpServlet{
 				session.setAttribute("message", "회원 가입 실패");
 				
 			}
-			
-			resp.sendRedirect("../static/log-in.jsp");
+			resp.sendRedirect(req.getContextPath() + "/member/login");
 			
 		} catch (Exception e) {
 			

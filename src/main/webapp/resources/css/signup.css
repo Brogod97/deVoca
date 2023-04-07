@@ -1,5 +1,5 @@
 body {
-  background-image: url("/assets/background-polygon.svg");
+  background-image: url("../assets/images/login-polygon.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--gray30);
@@ -52,7 +52,7 @@ input:focus {
 }
 
 #input-group > div {
-  margin-bottom: 15px;
+  margin-bottom: 24px;
 }
 
 #input-group > div:last-child {

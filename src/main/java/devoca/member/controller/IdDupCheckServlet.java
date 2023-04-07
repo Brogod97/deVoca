@@ -18,15 +18,18 @@ public class IdDupCheckServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String memberId = req.getParameter("memberId");
+		String uid = req.getParameter("uid");
 		
 		try {
 			
 			MemberService service = new MemberService();
 			
-			int result = service.idDupCheck(memberId);
+			int result = service.idDupCheck(uid);
 			
 			resp.getWriter().print(result);
+			
+			System.out.println("서블렛 memberId : " + uid);
+			System.out.println("서블렛 result : " + result);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
