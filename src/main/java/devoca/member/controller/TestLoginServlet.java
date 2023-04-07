@@ -18,8 +18,8 @@ public class TestLoginServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String inputId = "thiszino@gmail.com";
-		String inputPw = "2222";
+		String inputId = "bbsm314@gmail.com";
+		String inputPw = "evru0uk3uYAMELM9ClLd1ZJWPLJzmdPdp7N1oDuXRCvgRreIgtkpJdoWifyurUyMHj+x1se2qjlnGUKx6RPdvw==";
 		
 		Member member = new Member();
 		member.setMemberId(inputId);
