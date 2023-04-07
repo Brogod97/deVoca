@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+p {
+  line-height: 2em;
+}
+
 /*이용약관 제목 설정*/
 .term {
   font-size: 3em;
@@ -10,41 +14,34 @@
   text-align: center;
   text-decoration-color: #f9be28;
 
-width: 100%;
-padding-top: 2%;
-
-
-  
+  width: 100%;
+  padding-top: 2%;
+  margin-bottom: 0px;
 }
 
-#navcollection{
+#navcollection {
   width: 1000px;
   height: 1000px;
   display: block;
   margin: auto;
 }
 
-
 #navleft {
-  
- width: auto;
- height: 100px;
+  width: auto;
+  height: 100px;
   display: inline-block;
   flex-basis: 20%;
-  
 }
-
-
 
 /* 버튼 부문*/
 .navCenter {
   height: 100px;
   width: 1000px;
-border-bottom: 1px dashed black;
+  border-bottom: 1px dashed black;
   flex-basis: 80%;
-padding: 30px;
- display: flex;
- flex-direction: row;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
 }
 
 .navCenter > ul {
@@ -61,7 +58,7 @@ padding: 30px;
 }
 
 .navCenter button {
-  display:inline block;
+  display: inline block;
   height: auto;
   line-height: 48px;
   width: auto;
@@ -81,13 +78,11 @@ padding: 30px;
 
 .button:hover,
 .button.active {
-
   text-decoration-thickness: 3px;
 
   color: #f9be28;
 }
 .button:visited {
-
   text-decoration-thickness: 3px;
   text-decoration-color: #fad062;
   color: #f9be28;
@@ -101,43 +96,53 @@ padding: 30px;
   height: 100%;
 
   margin: auto;
-
 }
 
 a {
   text-decoration-line: none;
-/*   text-decoration-line: underline; */
-/*   text-decoration-line: overline; */
-/*   text-decoration-line: line-through; */
-/*   text-decoration-line: underline line-through overline; */
+  /*   text-decoration-line: underline; */
+  /*   text-decoration-line: overline; */
+  /*   text-decoration-line: line-through; */
+  /*   text-decoration-line: underline line-through overline; */
 }
 
-
-#page1{
+#page1 {
   padding-top: 50px;
+  line-height: 2em;
 }
 
-#page2{
+#page2 {
   padding-top: 50px;
+  line-height: 2em;
 }
 
-#page3{
+#page3 {
   padding-top: 50px;
+  line-height: 2em;
+}
+
+#page4 {
+  padding-top: 50px;
+  line-height: 2em;
+}
+
+#page5 {
+  padding-top: 50px;
+  line-height: 2em;
 }
 
 #blank0 {
   width: 10px;
   height: 50px;
   text-align: center;
-  justify-content : center;
+  justify-content: center;
 }
-
 
 #blank {
   width: 50px;
   height: 50px;
   text-align: center;
-  justify-content : center;
+  justify-content: center;
 }
 
 #blank1 {

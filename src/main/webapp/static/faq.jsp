@@ -55,54 +55,76 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               -->
                 <ul>
                   <li>
-                    <div class="faq-box__question"><span>Q.  왜 devoca인가요?</span></div>
+                    <div class="faq-box__question"><span> 왜 devoca인가요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        - 하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+                        개발자의 developer의 de와 단어를 뜻하는 voca의 합성어로 개발자 단어라는 뜻입니다.
                         </div>
-                        <div>
-                         하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
-                                         하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
-                                                         하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
-                        </div>
+                  
                       
                     </div>
                   </li>
                   <li>
-                    <div class="faq-box__question"><span>Q. 어떻게 퀴즈를 시작하나요?</span></div>
+                    <div class="faq-box__question"><span>어떻게 퀴즈를 시작하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        - 캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                       메인화면의 Get Start 버튼을 누릅니다. 그 다음 사이드바의   <img
+                src="${contextPath}/resources/assets/icon/quiz.svg"
+                alt style="height: 20px;"
+              />연필모양을 클릭하시면 퀴즈를 시작할 수 있습니다.
                       </div>
                   
                     </div>
                   </li>
                   <li>
-                    <div class="faq-box__question"><span>Q.   어떻게 단어를 추가하나요?</span></div>
+                    <div class="faq-box__question"><span>어떻게 단어를 추가하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        - 캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                        같은 화면에서 사이드바의  <img
+                src="${contextPath}/resources/assets/icon/word.svg"
+                alt style="height: 20px;"
+              />노트모양을 클릭하시면 단어를 추가하실 수 있습니다.
                       </div>
                   </li>
                   <li>
-                    <div class="faq-box__question"><span>Q. 어떻게 단어를 공유하나요?</span></div>
+                    <div class="faq-box__question"><span>어떻게 단어를 공유하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        - 하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
+                        같은 화면에서 사이드바의  <img
+                src="${contextPath}/resources/assets/icon/shared.svg"
+                alt style="height: 20px;"
+              />모양을 클릭하시면 유저 목록이 나타납니다. 유저 목록을 확인하고 클릭하면 단어를 공유할 수 있습니다.
                       </div>
                      
                     </div>
                   </li>
-                  <li>
-                    <div class="faq-box__question"><span>Q. 추가질문입니다.</span></div>
+                    <li>
+                    <div class="faq-box__question"><span>그 외 궁금한게 있으면 어떻게 하나요?</span></div>
                     <div class="faq-box__answer">
                      <div>
-                      - 캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.
+                    Contact 버튼을 누르면 문의 할 수 있습니다.
                      </div>
-               
-                      <div>
-                        - 하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.
-                      </div>
+
+                    </div>
+                  </li>
+                  
+                  <li>
+                    <div class="faq-box__question"><span>비밀번호가 기억이 나지 않아요?</span></div>
+                    <div class="faq-box__answer">
+                     <div>
+                     로그인 화면에서 비밀번호를 잊으셨나요?를 선택하고 이메일을 입력하시면 이메일로 비밀번호가 전송됩니다.
+                     </div>
+
+                    </div>
+                  </li>
+                     
+                  
+                   <li>
+                    <div class="faq-box__question"><span>어떻게 탈퇴하나요?</span></div>
+                    <div class="faq-box__answer">
+                     <div>
+                    회원 정보 수정을 클릭하신 다음 오른쪽 하단의 회원 탈퇴 버튼을 누르면 탈퇴 할 수 있습니다.
+                     </div>
 
                     </div>
                   </li>
