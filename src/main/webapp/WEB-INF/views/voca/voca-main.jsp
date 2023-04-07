@@ -76,11 +76,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
           <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
           <div>
-          <c:forEach var="category" items="${category}">
-            <h2>
-            	${category.categoryTitle}
-            </h2>
-           </c:forEach>
+            <h2 id="categoryName"></h2>
           </div>
           <div class="content-main-imgs">
             <!-- 즐겨찾기 및 순서정렬 메뉴-->
@@ -146,7 +142,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <img src="${contextPath}/resources/assets/icon/code.svg" alt="" />
               코드블럭
             </div>
-            <div class="voca-code-block-area">
+            <div class="voca-code-block-area" id="voca-read-code">
               <pre><code class="language-java"></code></pre>
             </div>
 
@@ -187,67 +183,55 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <div class="addModal hidden">
           <div class="addBg"></div>
           <div class="voca-modalBox">
-            <form action="#" method="post" id="voca-form">
-              <div class="voca-category2">
-                <input
-                  type="text"
-                  placeholder="메소드명을 입력해주세요"
-                  name="voca-title"
-                  required
-                />
-              </div>
+            <!-- <form action="insertWord" method="post" id="voca-form"> -->
 
-              <div class="voca-category4">
-                <img
-                  src="${contextPath}/resources/assets/icon/note.svg"
-                  alt=""
-                />
-                정의
-              </div>
-              <div class="voca-content1">
-                <input type="text" name="voca-definition" required />
-              </div>
-              <div class="voca-category5">
-                <img
-                  src="${contextPath}/resources/assets/icon/pencil.svg"
-                  alt=""
-                />
-                메모
-              </div>
-              <div class="voca-content2">
-                <textarea name="voca-memo" id="voca-memo"></textarea>
-              </div>
-              <div class="voca-category6">
-                <img
-                  src="${contextPath}/resources/assets/icon/code.svg"
-                  alt=""
-                />
-                코드블럭
-              </div>
-              <div class="voca-code-block-area">
-                <textarea
-                  name="voca-code-block"
-                  id="voca-code-block"
-                ></textarea>
-                <select name="" id="voca-code-select">
-                  <option class="language-java" value="">JAVA</option>
-                  <option class="language-javaScript" value="">
-                    JavaScript
-                  </option>
-                  <option class="language-sql" value="">SQL</option>
-                  <option class="language-c" value="">C</option>
-                  <option class="language-python" value="">Python</option>
-                </select>
-              </div>
-              <div class="voca-modal-btn">
-                <button onclick="addClose()" class="btn-primary-line">
-                  나가기
-                </button>
-                <button type="button" class="btn-save" id="voca-save">
-                  저장
-                </button>
-              </div>
-            </form>
+            <div class="voca-category2">
+              <input
+                type="text"
+                placeholder="메소드명을 입력해주세요"
+                name="voca-title"
+                required
+              />
+            </div>
+
+            <div class="voca-category4">
+              <img src="${contextPath}/resources/assets/icon/note.svg" alt="" />
+              정의
+            </div>
+            <div class="voca-content1">
+              <input type="text" name="voca-definition" required />
+            </div>
+            <div class="voca-category5">
+              <img
+                src="${contextPath}/resources/assets/icon/pencil.svg"
+                alt=""
+              />
+              메모
+            </div>
+            <div class="voca-content2">
+              <textarea name="voca-memo" id="voca-memo"></textarea>
+            </div>
+            <div class="voca-category6">
+              <img src="${contextPath}/resources/assets/icon/code.svg" alt="" />
+              코드블럭
+            </div>
+            <div class="voca-code-block-area">
+              <textarea name="voca-code-block" id="voca-code-block"></textarea>
+              <select name="" id="voca-code-select">
+                <option class="language-java" value="">JAVA</option>
+                <option class="language-javaScript" value="">JavaScript</option>
+                <option class="language-sql" value="">SQL</option>
+                <option class="language-c" value="">C</option>
+                <option class="language-python" value="">Python</option>
+              </select>
+            </div>
+            <div class="voca-modal-btn">
+              <button onclick="addClose()" class="btn-primary-line">
+                나가기
+              </button>
+              <button class="btn-save" id="voca-save">저장</button>
+            </div>
+            <!-- </form> -->
           </div>
         </div>
         <!-- 단어 추가 모달 끝 -->

@@ -46,7 +46,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <div class="category-list">
       <ul>
       	<c:forEach var="category" items="${category}">
-      		<li>
+      		<li class="voca-category-li">
       			<button>
       				<input name="categoryTitle" value="${category.categoryTitle}" readonly="true" style="border: none; outline: none; background-color: transparent; font-size: 16px; font-weight: 700; cursor: pointer;">
       			</button>

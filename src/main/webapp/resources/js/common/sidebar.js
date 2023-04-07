@@ -14,6 +14,8 @@ categoryAdd.addEventListener("click", function () {
   const categoryLi = document.createElement("li");
   const addBtn = document.createElement("button");
 
+  categoryLi.classList.add("voca-category-li");
+
   const categoryInput = document.createElement("input");
   categoryInput.setAttribute("name", "categoryTitle");
   $(function () {
@@ -38,7 +40,41 @@ categoryAdd.addEventListener("click", function () {
 
   document.querySelector(".category-list > ul").append(categoryLi);
 
-  // 인풋창에 엔터키를 누르면 내가 입력한 값이 그대로 나옴
+  inputEnter(categoryInput, addBtn);
+  inputFocus(categoryInput, addBtn);
+  inputEdit(categoryInput);
+  inputDelete(categoryLi);
+
+  closeCategoryMenu();
+});
+
+// 카테고리 메뉴 - 편집 버튼 클릭 시 동작
+categoryEdit.addEventListener("click", function () {
+  closeCategoryMenu(); // 카테고리 메뉴 닫기
+  showDeleteBtn(); // X (삭제) 버튼 표시
+});
+
+// 카테고리 메뉴 외부 영역 클릭 시 닫기
+categoryMenuOveray.addEventListener("click", function () {
+  closeCategoryMenu();
+});
+
+// 카테고리 메뉴 close 함수
+function closeCategoryMenu() {
+  categoryMenuWrapper.classList.add("invisible");
+}
+
+// x 표시 보이게 변경하는 함수
+function showDeleteBtn() {
+  const categoryXbtnAll = document.querySelectorAll(".category-list button");
+
+  for (let i = 0; i < categoryXbtnAll.length; i++) {
+    categoryXbtnAll[i].classList.remove("invisible");
+  }
+}
+
+// 인풋창에 엔터키를 누르면 내가 입력한 값이 그대로 나옴
+function inputEnter(categoryInput, addBtn) {
   categoryInput.addEventListener("keyup", function enterFocusOut(e) {
     if (window.event.keyCode == "13") {
       e.preventDefault();
@@ -84,8 +120,10 @@ categoryAdd.addEventListener("click", function () {
       }
     }
   });
+}
 
-  // 인풋창 focus가 해제 되었을때도 내가 입력한 값이 그대로 나오는 이벤트
+// 인풋창 focus가 해제 되었을때도 내가 입력한 값이 그대로 나오는 이벤트
+function inputFocus(categoryInput, addBtn) {
   categoryInput.addEventListener("blur", function focusOut() {
     this.setAttribute("readonly", "true");
     this.style.border = "none";
@@ -121,14 +159,18 @@ categoryAdd.addEventListener("click", function () {
       });
     }
   });
+}
 
-  // 편집시 카테고리 제목 바꿀수 있게 하는 이벤트
+// 편집시 카테고리 제목 바꿀수 있게 하는 이벤트
+function inputEdit(categoryInput) {
   categoryEdit.addEventListener("click", function () {
     categoryInput.removeAttribute("readonly");
     categoryInput.focus();
   });
+}
 
-  // x 누르면 삭제 하는 이벤트
+// x 누르면 삭제 하는 이벤트
+function inputDelete(categoryLi) {
   categoryBtn.addEventListener("click", function (event) {
     categoryLi.remove();
 
@@ -143,31 +185,4 @@ categoryAdd.addEventListener("click", function () {
 
     event.stopPropagation();
   });
-
-  closeCategoryMenu();
-});
-
-// 카테고리 메뉴 - 편집 버튼 클릭 시 동작
-categoryEdit.addEventListener("click", function () {
-  closeCategoryMenu(); // 카테고리 메뉴 닫기
-  showDeleteBtn(); // X (삭제) 버튼 표시
-});
-
-// 카테고리 메뉴 외부 영역 클릭 시 닫기
-categoryMenuOveray.addEventListener("click", function () {
-  closeCategoryMenu();
-});
-
-// 카테고리 메뉴 close 함수
-function closeCategoryMenu() {
-  categoryMenuWrapper.classList.add("invisible");
-}
-
-// x 표시 보이게 변경하는 함수
-function showDeleteBtn() {
-  const categoryXbtnAll = document.querySelectorAll(".category-list button");
-
-  for (let i = 0; i < categoryXbtnAll.length; i++) {
-    categoryXbtnAll[i].classList.remove("invisible");
-  }
 }

@@ -59,6 +59,7 @@ public class VocaDAO {
 				int categoryNo = rs.getInt("CATEGORY_NO");
 				String categoryTitle = rs.getString("CATEGORY_TITLE");
 				
+				
 				Category category = new Category(categoryNo, memberNo , categoryTitle);
 				
 				categoryList.add(category);
@@ -264,6 +265,12 @@ public class VocaDAO {
 			pstmt.setString(3, word.getWordDf());
 			pstmt.setString(4, word.getWordMemo());
 			pstmt.setString(5, word.getCodeBlock());
+			
+			System.out.println( word.getCategoryNo());
+			System.out.println(word.getWordTitle());
+			System.out.println( word.getWordDf());
+			System.out.println(word.getWordMemo());
+			System.out.println(word.getCodeBlock());
 			
 			result = pstmt.executeUpdate();
 			
