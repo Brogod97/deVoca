@@ -18,7 +18,7 @@ import devoca.common.wrapper.EncryptWrapper;
 // 암호화를 적용해야되는 요청 : 로그인, 회원가입, 비밀번호 변경, 회원 탈퇴
 // 필터가 적용될 url이 여러개인 경우 : String 배열 초기화 형태 {}로 작성
 @WebFilter(filterName = "encryptFilter", urlPatterns = { "/member/login", "/member/signUp", "/member/memberInfo",
-		"/member/myPage/secession" })
+		"/member/secession" })
 
 public class EncryptFilter extends HttpFilter implements Filter {
 

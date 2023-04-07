@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 
 <!DOCTYPE html>
@@ -27,8 +28,7 @@ pageEncoding="UTF-8" %>
     <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
     <section class="main-content-area">
     
-    
-       	
+        	
       <div id="login-box">
         <form action="${contextPath}/member/login" method="post" name="loginform">
           <h1 id="title">로그인</h1>
@@ -65,13 +65,13 @@ pageEncoding="UTF-8" %>
               로그인
             </button>
           </div>
-
+	</form>
           <div class="or">OR</div>
 
           <div id="sns">
-            <button onclick="kakaoLogin();" id="kakao">
+           <a href="javascript:void(0)"> <button onclick="kakaoLogin()" id="kakao">
               <i class="ic-kakao"></i>카카오 계정으로 로그인
-            </button>
+            </button></a>
 
             <button  id="google" >
               <img
@@ -84,11 +84,11 @@ pageEncoding="UTF-8" %>
             아직 회원이 아니신가요?
             <a id="join"> 회원가입</a>
           </div>
-        </form>
+        
     
        
       </div>
-       
+     
     </section>
 
     <!-- 푸터 -->
@@ -103,6 +103,6 @@ pageEncoding="UTF-8" %>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="${contextPath}/resources/js/sns-login.js"></script>
     <script src="${contextPath}/resources/js/google-search.js"></script>
-    <script type="module" src="${contextPath}/resources/js/login.js"></script>
+   
   </body>
 </html>

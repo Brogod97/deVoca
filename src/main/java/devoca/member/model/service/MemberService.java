@@ -59,19 +59,24 @@ public class MemberService {
 	
 	
 	/** 아이디(이메일) 중복 검사 서비스
-	 * @param memberId
+	 * @param uid
 	 * @return result
 	 * @throws Exception
 	 * */
-	public int idDupCheck(String memberId) throws Exception {
+	public int idDupCheck(String uid) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		int result = dao.idDupCheck(conn, memberId);
+		int result = dao.idDupCheck(conn, uid);
 		
 		close(conn);
 		
+		System.out.println("서비스 memberId : " + uid);
+		System.out.println("서비스 result : " + result);
+		
 		return result;
+		
+		
 	}
 	
 	/** 닉네임 중복 검사 Service
@@ -80,11 +85,11 @@ public class MemberService {
 	 * @throws Exception
 	 */
 	
-	public int nicknameDupCheck(String memberNick) throws Exception {
+	public int nicknameDupCheck(String nn) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		int result = dao.nicknameDupCheck(conn, memberNick);
+		int result = dao.nicknameDupCheck(conn, nn);
 		
 		close(conn);
 		

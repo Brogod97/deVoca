@@ -34,12 +34,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
             <div class="reset-text">
               <p>비밀번호를 잊으셨나요?</p>
-              <p>비밀번호를 받을 이메일을 입력해주세요.</p>
+              <p>임시 비밀번호를 받을 이메일을 입력해주세요.</p>
             </div>
 
             <p>이메일 입력 *</p>
-            <input type="email" placeholder="이메일을 입력해주세요" />
-
+            <input id="uid"type="email" placeholder="회원가입 시 사용한 이메일을 입력해주세요" />
+			<span id="idMessage"></span>
             <button type="submit" class="btn-primary-fill send-Pw">
               비밀번호 전송
             </button>
@@ -49,6 +49,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- 푸터 -->
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+		 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="${contextPath}/resources/js/password-reset.js"></script>
       <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>
   </body>
