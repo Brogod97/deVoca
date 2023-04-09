@@ -1,6 +1,8 @@
 package devoca.voca.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,21 +10,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import devoca.voca.model.service.VocaService;
+import devoca.voca.model.vo.Word;
+
 @WebServlet("/voca/quizGame")
 public class VocaQuizGameServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String memberNo = req.getParameter("memberNo");
-		String categoryNo = req.getParameter("categoryNo");
+		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+		int categoryNo = Integer.parseInt(req.getParameter("categoryNo"));
 		
-//		String[] memberNo = req.getParameterValues("memberNo");
-//		String[] categoryNo = req.getParameterValues("categoryNo");
+		VocaService service = new VocaService();
+		List<Word> wordList = null; // 단어 제목, 정답 선택지 생성용 객체
+		
+		try {
+			wordList = service.selectWordAll(memberNo, categoryNo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<String> definitionArr = new ArrayList<>(); // 오답 선택지 생성용 배열
+		
+		for (Word word : wordList) {
+			definitionArr.add(word.getWordDf());
+		}
+		
+		req.setAttribute("wordList", wordList);
+		req.setAttribute("definitionArr", definitionArr);
 		
 		String path = "/WEB-INF/views/voca/quiz-game.jsp";
-		
 		req.getRequestDispatcher(path).forward(req, resp);
-		
 	}
 }

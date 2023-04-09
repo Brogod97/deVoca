@@ -35,7 +35,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             crossorigin="anonymous"
         ></script>
 
-        <title>단어장 서비스 계열 기본 template - header, nav, sidebar</title>
+        <title>quiz-main.jsp</title>
     </head>
     <body>
         <main>
@@ -76,33 +76,31 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <h2>카테고리를 선택해 주세요</h2>
                     </div>
 
-                    <!-- <form action="${contextPath}/voca/quizGame" method="get"> -->
-                    <button type="submit" class="container-main-btn">
-                        시작하기
-                    </button>
-                    <div class="container-main-content">
-                        <c:forEach var="quiz" items="${quizList}">
-                            <button
-                                type="button"
-                                class="select-btn"
-                                onclick="return quizStart('${quiz.memberNo}', '${quiz.categoryNo}')"
-                            >
-                                ${quiz.categoryTitle}
+                    <form action="quizGame" method="get">
+                        <button type="submit" class="container-main-btn">
+                            시작하기
+                        </button>
+                        <div class="container-main-content">
+                            <c:forEach var="quiz" items="${categoryList}">
+                                <button type="button" class="select-btn">
+                                    ${quiz.categoryTitle}
 
-                                <!-- <input
-                                    type="hidden"
-                                    value="${quiz.memberNo}"
-                                    name="memberNo"
-                                />
-                                <input
-                                    type="hidden"
-                                    value="${quiz.categoryNo}"
-                                    name="categoryNo"
-                                /> -->
-                            </button>
-                        </c:forEach>
-                    </div>
-                    <!-- </form> -->
+                                    <input
+                                        type="radio"
+                                        name="memberNo"
+                                        value="${quiz.memberNo}"
+                                        style="display: none"
+                                    />
+                                    <input
+                                        type="radio"
+                                        name="categoryNo"
+                                        value="${quiz.categoryNo}"
+                                        style="display: none"
+                                    />
+                                </button>
+                            </c:forEach>
+                        </div>
+                    </form>
                 </div>
                 <div class="container-main-right">
                     <img

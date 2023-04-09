@@ -133,8 +133,10 @@ public class VocaDAO {
 				
 				word.setWordNo(rs.getInt("WORD_NO"));
 				word.setWordTitle(rs.getString("WORD_TITLE"));
+				word.setWordDf(rs.getString("WORD_DF"));
 				word.setChecked(rs.getString("CHECKED"));
 				word.setFavorite(rs.getString("FAVORITE"));
+				word.setQuizOx(rs.getString("QUIZ_OX"));
 				
 				wordList.add(word);
 			}
