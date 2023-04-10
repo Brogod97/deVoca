@@ -353,7 +353,7 @@ input::-webkit-search-results-decoration {
 
   display: flex;
   flex-direction: column;
-  flex-basis: 65vh;
+  flex-basis: 70vh;
 
   position: relative;
 }
@@ -465,7 +465,7 @@ input::-webkit-search-results-decoration {
 /* 카테고리 리스트 영역 */
 .category-list {
   overflow: auto;
-  height: 55vh;
+  height: 100vh;
 }
 
 /* 스크롤바 스타일*/
