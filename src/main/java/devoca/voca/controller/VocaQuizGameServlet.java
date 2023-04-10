@@ -3,6 +3,7 @@ package devoca.voca.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,10 +33,11 @@ public class VocaQuizGameServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		ArrayList<String> definitionArr = new ArrayList<>(); // 오답 선택지 생성용 배열
-		
-		for (Word word : wordList) {
-			definitionArr.add(word.getWordDf());
+		// 오답 선택지 생성용 배열
+		String[] definitionArr = new String[wordList.size()];
+
+		for(int i = 0; i < wordList.size(); i++) {
+			definitionArr[i] = wordList.get(i).getWordDf();
 		}
 		
 		req.setAttribute("wordList", wordList);

@@ -1,6 +1,8 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" %> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core" %>
+pageEncoding="UTF-8" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,6 +24,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
         />
+
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"
+         ></script>
+
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
         <title>quiz-game.jsp</title>
@@ -40,10 +49,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
         <!-- 메인 콘텐츠 영역 -->
         <section class="main-content-area">
-            <div style="background-color: lightblue">${wordList}</div>
-
-            <div style="background-color: lightcoral">${definitionArr}</div>
-
+        
             <!-- 메인화면 -->
             <div
                 class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden"
@@ -53,121 +59,74 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     id="swiper-wrapper-a6d1108e48cf91028"
                     aria-live="polite"
                 >
-                    <div
-                        class="swiper-slide swiper-slide-active"
-                        role="group"
-                        aria-label="1 / 9"
-                    >
-                        <div class="quiz-content-area">
-                            <div class="quiz-header">
-                                <h1>0</h1>
-                                <div class="quiz-line"></div>
-                            </div>
-                            <div class="quiz-content">
-                                <c:forEach
-                                    var="quizContent"
-                                    items="${paramvalues.content}"
-                                >
-                                    <div>
-                                        <p>${quizContent.content[0] }</p>
+                
+                    <c:forEach var="word" items="${wordList}" varStatus="vs">
+                        <div
+                            class="swiper-slide swiper-slide-active"
+                            role="group"
+                            aria-label="vs.count / ${wordList.size()}"
+                        >
+                        
+                        <!-- JSTL 랜덤 숫자 생성 -->
+						<jsp:useBean id="random" class="java.util.Random" scope="page" />
+		                 
+		                <!-- 정답1과 오답3을 넣고 섞을 ArrayList 생성 -->
+		                <%@page import="java.util.*"%>
+		                <%@page import="devoca.voca.model.vo.Word"%>
+		                
+		                <!-- 현재 word의 wordDf 저장 -->
+						<c:set var="wordDf" value="${word.wordDf}" />
+						<!-- definitionArr 저장 -->
+						<c:set var="definitionArr" value="${definitionArr}" />   
+						
+						<%
+						    ArrayList<String> answerArr = new ArrayList<>();
+						    String wordDf = (String) pageContext.getAttribute("wordDf");
+						    String[] definitionArr = (String[]) pageContext.getAttribute("definitionArr");
+						
+						    // Set을 이용해 중복 제거
+						    Set<String> set = new HashSet<>();
+						
+						    // wordDf가 중복되지 않도록 추가
+						    set.add(wordDf);
+						
+						    // definitionArr 값이 중복되지 않도록 추가
+						    while (set.size() < 4) {
+						        int randomIndex = random.nextInt(definitionArr.length);
+						        set.add(definitionArr[randomIndex]);
+						    }
+						
+						    // set을 answerArr로 변환
+						    answerArr.addAll(set);
+						
+						    pageContext.setAttribute("answerArr", answerArr);
+						
+						    Collections.shuffle(answerArr);
+						%>
+						
+                            <div class="quiz-content-area">
+                                <div class="quiz-header">
+                                    <h1>${word.wordTitle}</h1>
+                                    <div class="quiz-line"></div>
+                                </div>
+                                <div class="quiz-content">
+                                    <div onclick="checkAnswer(this, '${word.wordDf}', '${answerArr[0]}', '${word.wordNo}', '${wordList.size()}')">
+                                        <p>${answerArr[0]}</p>
                                     </div>
-                                    <div>
-                                        <p>${quizContent.content[1] }</p>
+                                    <div onclick="checkAnswer(this, '${word.wordDf}', '${answerArr[1]}', '${word.wordNo}', '${wordList.size()}')" >
+                                        <p>${answerArr[1]}</p>
                                     </div>
-                                    <div>
-                                        <p>${quizContent.content[2] }</p>
+                                    <div onclick="checkAnswer(this, '${word.wordDf}', '${answerArr[2]}', '${word.wordNo}', '${wordList.size()}')" >
+                                        <p>${answerArr[2]}</p>
                                     </div>
-                                    <div>
-                                        <p>${quizContent.content[3] }</p>
+                                    <div onclick="checkAnswer(this, '${word.wordDf}', '${answerArr[3]}', '${word.wordNo}', '${wordList.size()}')">
+                                        <p>${answerArr[3]}</p>
                                     </div>
-                                </c:forEach>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="swiper-slide swiper-slide-next"
-                        role="group"
-                        aria-label="2 / 9"
-                    >
-                        <div class="quiz-content-area">
-                            <div class="quiz-header">
-                                <h1>2 번입니다</h1>
-                                <div class="quiz-line"></div>
-                            </div>
-                            <div class="quiz-content">
-                                <div>
-                                    <p>
-                                        지정한 위치부터 지정한 순번째로 검색되는
-                                        문자의 위치를 반환
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>
-                                        컬럼이나 문자열에서 지정한 위치부터
-                                        지정된 길이만 문자열을 잘라서 반환
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>
-                                        주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에
-                                        있는 지정된 문자를 제거
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>소수점 첫째 자리에서 올림 처리</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="3 / 9">
-                        Slide 3
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="4 / 9">
-                        Slide 4
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="5 / 9">
-                        Slide 5
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="6 / 9">
-                        Slide 6
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="7 / 9">
-                        Slide 7
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="8 / 9">
-                        Slide 8
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="9 / 9">
-                        <div class="quiz-content-area">
-                            <div class="quiz-header">
-                                <h1>마지막 입니다</h1>
-                                <div class="quiz-line"></div>
-                            </div>
-                            <div class="quiz-content">
-                                <div>
-                                    <p>
-                                        지정한 위치부터 지정한 순번째로 검색되는
-                                        문자의 위치를 반환
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>
-                                        컬럼이나 문자열에서 지정한 위치부터
-                                        지정된 길이만 문자열을 잘라서 반환
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>
-                                        주어진 컬럼이나 문자열의 앞, 뒤, 양쪽에
-                                        있는 지정된 문자를 제거
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>소수점 첫째 자리에서 올림 처리</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
+                    
                 </div>
                 <div
                     class="swiper-button-next"
@@ -203,7 +162,24 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     aria-atomic="true"
                 ></span>
             </div>
+
+            <!-- 결과 보기 모달 -->
+            <aside class="result-modal-area invisible">
+                <div class="background-blur">
+                    <div class="result-modal">
+                        <h3>퀴즈 종료</h3>
+                        <span>결과 페이지로 이동합니다</span>
+        
+                        <form action="quizResult" method="get">
+                            <button class="btn-primary-fill">확인</button>
+                        </form>
+                    </div>
+                </div>
+            </aside>
         </section>
+
+        
+
         <script src="${contextPath}/resources/js/google-search.js"></script>
         <script src="${contextPath}/resources/js/quiz-game.js"></script>
     </body>
