@@ -69,7 +69,7 @@
 	
 	<!-- 카테고리 삭제 -->
 	<entry key="deleteCategory">
-		DELETE FORM CATEGORY
+		DELETE FROM CATEGORY
 		WHERE CATEGORY_NO = ?
 	</entry>
 	

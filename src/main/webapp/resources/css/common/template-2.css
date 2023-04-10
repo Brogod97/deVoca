@@ -512,7 +512,7 @@ input::-webkit-search-results-decoration {
   transition: all ease-in-out 0.2s;
 }
 
-.category-list button {
+.category-list input {
   width: 220px;
 
   padding-left: 10px;
@@ -523,7 +523,7 @@ input::-webkit-search-results-decoration {
   text-decoration: none;
 }
 
-.category-list button {
+.category-list input {
   transition: all ease-in-out 0.2s;
 }
 
