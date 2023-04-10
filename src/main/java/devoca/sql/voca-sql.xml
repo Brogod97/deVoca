@@ -121,6 +121,13 @@
 		WHERE WORD_NO = ?
 	</entry>
 	
+	<!-- QuizOx 결과 업데이트  -->
+	<entry key="updateQuizOx">
+		UPDATE WORD SET
+		QUIZ_OX = ? 
+		WHERE WORD_NO = ?
+	</entry>
+	
 	<!-- 단어 검색 -->
 	<entry key="searchWord">
 		SELECT WORD_NO, WORD_TITLE
