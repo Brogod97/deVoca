@@ -186,6 +186,10 @@ input::-webkit-search-results-decoration {
     padding: 0 16px;
 }
 
+.faq-login-signup > a:nth-child(3) {
+  padding:  0 16px 0 0;
+}
+
 .faq-login-signup > a:hover {
     color: var(--gray500);
 

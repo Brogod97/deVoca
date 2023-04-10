@@ -136,6 +136,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- 푸터 -->
       <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+		<script> const contextPath = "${contextPath}"; </script>
       <script src="${contextPath}/resources/js/terms.js"></script>
       <script src="${contextPath}/resources/js/google-search.js"></script>
     </body>

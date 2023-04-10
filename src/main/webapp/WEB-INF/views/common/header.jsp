@@ -14,6 +14,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
    <!-- 헤더 우측 영역 -->
    <div>
      <!-- 구글-검색창 -->
+     <a href="${contextPath}/member/testLogin">test로그인</a>
      <div class="google-search">
        <fieldset>
          <img src="${contextPath}/resources/assets/images/google-logo.png" class="google-img" />
@@ -33,14 +34,22 @@ uri="http://java.sun.com/jsp/jstl/core" %>
          <img src="${contextPath}/resources/assets/icon/search.svg" class="google-search-img" />
        </button>
      </div>
-     <!-- FAQ / 로그인 / 회원가입 -->
-     <div class="faq-login-signup">
-       <a href="${contextPath}/static/faq.jsp">FAQ</a>
-       <a href="${contextPath}/member/login">로그인</a>
-       <a href="${contextPath}/static/terms.jsp">
-         <button class="btn-primary-fill">회원가입</button>
-       </a>
-     </div>
+    <!-- FAQ / 로그인 / 회원가입 -->
+    <c:if test="${not empty sessionScope.loginMember}">
+        <div class="faq-login-signup">
+    
+      </div>
+    </c:if>
+    <c:if test="${empty sessionScope.loginMember}">
+             <div class="faq-login-signup">
+        <a href="${contextPath}/voca/voca-main">HOME</a>
+        <a href="${contextPath}/voca/explore">EXPLORE</a>
+        <a href="${contextPath}/member/login">로그인</a>
+        <a href="${contextPath}/static/terms.jsp">
+          <button class="btn-primary-fill">회원가입</button>
+        </a>
+      </div>
+    </c:if>
    </div>
  </header>
  

@@ -23,7 +23,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
         <div id="blank"></div>
-        <form name="inquiryform" class="subform" method="POST" deta-email="nastrikelike@gmail.com" onsubmit="return checkAll()"
+        <form class="subform" method="POST" deta-email="nastrikelike@gmail.com" onsubmit="return checkAll()"
         action="https://script.google.com/macros/s/AKfycbx6CiuyImAdQCP78uLCsCXBzYlHlKmuDAByE7Il7NJxKvJdYFg8U_I0t2xE2AJeHZGS/exec" target="frAttachFiles">
         <div class="menu">
           <div class="texttitle"><span id = "quetitle">문의하기</span></div>
@@ -39,7 +39,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      <div class="titlename"> 이름</div>
      <div class="name">
       <input type="text" class="name" id="name" name="name">
-    </div>>
     </div>
     </td>
 
@@ -64,11 +63,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <div class="select-wrap">
       <select id="selc" name="select">
        
-          <option value="건의">건의</option>
-          <option value="버그">버그</option>
-          <option value="신고">신고</option>
-          <option value="기타">기타</option>
-          <option selected></option>
+          <option value="계정 문의">계정 문의</option>
+          <option value="이용 문의">이용 문의</option>
+          <option value="기타 문의">기타 문의</option>
         
       </select>
       <div class="select__arrow"></div>
@@ -105,8 +102,51 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
       <script src="${contextPath}/resources/js/google-search.js"></script>
-      <script src="${contextPath}/resources/js/inquiry.js"></script>
+    
       
     </body>
   </body>
+  
+  <script>
+  function changeBtnName()  {
+	    var btnElement = document.getElementById('btn');
+	  
+	    var uname = document.getElementById("name");
+	    var email_id = document.getElementById("email");
+	    var select = document.getElementById("selc");
+	    var textarea = document.getElementById("textarea");
+	  
+
+	  
+	    if (uname.value == "") {
+	      alert("이름을 입력하세요.");
+	      uname.focus();
+	      return false;
+	    };
+	  
+	    if (email_id.value == "") {
+	      alert("이메일 주소를 입력하세요.");
+	      email_id.focus();
+	      return false;
+	    }
+	  
+	    if (select.value == "") {
+	      alert("건의사항을 입력하세요.");
+	      select.focus();
+	      return false;
+	    }
+
+	    if (textarea.value == "") {
+	      alert("메시지를 입력하세요.");
+	      textarea.focus();
+	      return false;
+	    }
+	    
+	    btnElement.innerHTML = "완료";
+
+
+	    document.subform.submit(); //유효성 검사의 포인트   
+	  }
+	  
+</script>
 </html>
