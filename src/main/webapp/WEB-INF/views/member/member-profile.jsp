@@ -24,7 +24,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       crossorigin="anonymous"
     ></script>
 
-    <title>회원 정보 페이지</title>
+    <title>deVoca || 회원 정보</title>
   </head>
   <body>
     <main>
@@ -37,7 +37,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
 
         <!-- 서치&카테고리 -->
-       <%--  <jsp:include page="/WEB-INF/views/common/sidebar.jsp" /> --%>
+        <%-- <jsp:include page="/WEB-INF/views/common/sidebar.jsp" /> --%>
       </section>
     </main>
 
@@ -317,7 +317,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <c:remove var="message" scope="session" />
     </c:if>
     <script src="${contextPath}/resources/js/google-search.js"></script>
-    <script src="${contextPath}/resources/js/common/template-2.js"></script>
     <script src="${contextPath}/resources/js/member-profile.js"></script>
   </body>
 </html>
