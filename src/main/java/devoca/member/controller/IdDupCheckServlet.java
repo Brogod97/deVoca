@@ -28,8 +28,7 @@ public class IdDupCheckServlet extends HttpServlet{
 			
 			resp.getWriter().print(result);
 			
-			System.out.println("서블렛 memberId : " + uid);
-			System.out.println("서블렛 result : " + result);
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -26,8 +26,7 @@ public class MemberService {
 		// DAO 수행
 		Member loginMember = dao.login(conn,member);
 		
-		System.out.println("로그인 서비스 : " + loginMember);
-		System.out.println("로그인 서비스 member : " + member);
+		
 		
 		// Connection 반환
 		close(conn);
@@ -37,6 +36,9 @@ public class MemberService {
 		
 		
 	}
+	
+	
+	
 	
 	/** 회원가입 서비스
 	 * @param member
@@ -71,8 +73,6 @@ public class MemberService {
 		
 		close(conn);
 		
-		System.out.println("서비스 memberId : " + uid);
-		System.out.println("서비스 result : " + result);
 		
 		return result;
 		
@@ -85,11 +85,11 @@ public class MemberService {
 	 * @throws Exception
 	 */
 	
-	public int nicknameDupCheck(String nn) throws Exception {
+	public int nicknameDupCheck(String memberNick) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		int result = dao.nicknameDupCheck(conn, nn);
+		int result = dao.nicknameDupCheck(conn, memberNick);
 		
 		close(conn);
 		
@@ -97,24 +97,6 @@ public class MemberService {
 	}
 	
 	
-	/** 회원탈퇴 Service
-	 * @param memberNo
-	 * @param memberPw
-	 * @return result
-	 * @throws Exception
-	 */
-	public int secession (int memberNo, String memberPw) throws Exception {
-		Connection conn = getConnection();
-		
-		int result = dao.secession(conn, memberNo, memberPw);
-		
-		if(result > 0)	commit(conn);
-		else			rollback(conn);
-		
-		close(conn);
-		
-		return result;
-		
-	}
+
 
 }
