@@ -17,11 +17,21 @@ const categoryList = document.querySelectorAll(
 );
 let btnActiveFlag = 0;
 
-// 카테고리 버튼 클릭 시 스타일 활성화 이벤트
+// 카테고리 버튼 하나 클릭 시
 clickOneForEach(categoryList, function () {
+    //  1. 스타일 활성화 이벤트
     removeSiblingsClassName(this, "selected");
     this.classList.add("selected");
+
+    // 2. 버튼 활성화 체크
     btnActiveFlag = 1;
+
+    // 3. memberNo, categoryNo radio 활성화
+    this.children[0].setAttribute("checked", true);
+    this.children[1].setAttribute("checked", true);
+
+    console.log(this.children[0]);
+    console.log(this.children[1]);
 });
 
 // 시작하기 버튼에 클릭 이벤트 핸들러 등록
@@ -29,7 +39,7 @@ const startBtn = document.querySelector(".container-main-btn");
 
 startBtn.addEventListener("click", function () {
     if (btnActiveFlag == 0) {
-        alert("카테고리 버튼을 눌러주세요"); // 경고 메시지 출력
+        alert("퀴즈를 시작할 카테고리를 선택해주세요 🐝"); // 경고 메시지 출력
     }
 });
 
@@ -80,7 +90,34 @@ function hideLoadingPage() {
     document.querySelector(".container-main").style.display = "flex";
 }
 
-function quizStart(memberNo, categoryNo) {
-    console.log("memberNo::", memberNo);
-    console.log("cate::", categoryNo);
-}
+/** quiz-main에서 카테고리 선택 시 호출 될 onClick 이벤트 함수 */
+// function quizStart(memberNo, categoryNo) {
+//     console.log("memberNo::", memberNo);
+//     console.log("cate::", categoryNo);
+
+//     location.href = "quizGame";
+
+//     // $.ajax({
+//     //     url: "quizGame",
+//     //     data: { memberNo: memberNo, categoryNo: categoryNo },
+//     //     type: "GET",
+//     //     success: function (result) {
+//     //         console.log("서블릿 도달 성공");
+//     //         console.log("받아온 result : " + result);
+
+//     //         location.replace(result);
+//     //     },
+//     //     error: function () {
+//     //         console.log("서블릿 도달 실패");
+//     //     },
+//     // });
+
+//     // $.get(
+//     //     "quizGame",
+//     //     { memberNo: memberNo, categoryNo: categoryNo },
+//     //     function (result) {
+//     //         console.log("서블릿 도달 성공");
+//     //         console.log("받아온 result : " + result);
+//     //     }
+//     // );
+// }

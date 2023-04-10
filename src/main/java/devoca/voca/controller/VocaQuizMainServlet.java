@@ -31,16 +31,16 @@ public class VocaQuizMainServlet extends HttpServlet {
 		}
 		
 		VocaService service = new VocaService();
-		List<Category> quizList = null;
+		List<Category> categoryList = null; 
 		
 		try {
-			quizList = service.selectCategoryAll(memberNo);
+			categoryList = service.selectCategoryAll(memberNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		String path = "/WEB-INF/views/voca/quiz-main.jsp";
-		req.setAttribute("quizList", quizList);
+		req.setAttribute("categoryList", categoryList);
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 }

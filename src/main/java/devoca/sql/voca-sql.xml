@@ -16,7 +16,7 @@
 	</entry>
 	
 	<entry key="selectWordAll">
-		SELECT WORD_NO, WORD_TITLE, CHECKED, FAVORITE
+		SELECT WORD_NO, WORD_TITLE, WORD_DF, CHECKED, FAVORITE, QUIZ_OX
 		FROM WORD 
 		JOIN CATEGORY USING (CATEGORY_NO)
 		WHERE MEMBER_NO = ?
@@ -118,6 +118,13 @@
 	<entry key="updateChecked">
 		UPDATE WORD SET
 		CHECKED = 'Y' 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- QuizOx 결과 업데이트  -->
+	<entry key="updateQuizOx">
+		UPDATE WORD SET
+		QUIZ_OX = ? 
 		WHERE WORD_NO = ?
 	</entry>
 	

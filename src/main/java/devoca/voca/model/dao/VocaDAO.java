@@ -133,8 +133,10 @@ public class VocaDAO {
 				
 				word.setWordNo(rs.getInt("WORD_NO"));
 				word.setWordTitle(rs.getString("WORD_TITLE"));
+				word.setWordDf(rs.getString("WORD_DF"));
 				word.setChecked(rs.getString("CHECKED"));
 				word.setFavorite(rs.getString("FAVORITE"));
+				word.setQuizOx(rs.getString("QUIZ_OX"));
 				
 				wordList.add(word);
 			}
@@ -538,6 +540,32 @@ public class VocaDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, wordNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	/** Quiz 결과 업데이트 DAO
+	 * @param conn
+	 * @param wordNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateQuizOx(Connection conn, int wordNo, String quizOx) throws Exception {
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateQuizOx");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, quizOx);
+			pstmt.setInt(2, wordNo);
 			
 			result = pstmt.executeUpdate();
 			

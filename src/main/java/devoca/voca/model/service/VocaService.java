@@ -271,6 +271,24 @@ public class VocaService {
 		
 		return result;
 	}
+	
+	/** Quiz 결과 업데이트 Service
+	 * @param wordNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateQuizOx(int wordNo, String quizOx) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.updateQuizOx(conn, wordNo, quizOx);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
 
 
 	/** 단어 검색 Service
