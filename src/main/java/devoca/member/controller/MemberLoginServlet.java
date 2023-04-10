@@ -34,6 +34,8 @@ public class MemberLoginServlet extends HttpServlet{
 		String inputId = req.getParameter("inputId");
 		String inputPw = req.getParameter("inputPw");
 		
+		
+		
 		// getParameter() 오버라이딩 확인
 		System.out.println("inputId : " + inputId);
 		System.out.println("inputPw : " + inputPw);
@@ -43,7 +45,7 @@ public class MemberLoginServlet extends HttpServlet{
 		member.setMemberId(inputId);
 		member.setMemberPw(inputPw);
 	
-		System.out.println("나오나? : " + member);
+		
 		try {
 			
 			// 서비스 객체 생성
@@ -52,9 +54,8 @@ public class MemberLoginServlet extends HttpServlet{
 			// 아이디, 비밀번호가 일치하는 회원을 조회하는 서비스 호출 후 결과 반환 받기
 			Member loginMember = service.login(member);
 			
-			System.out.println("서블릿 member : " + member);
-			System.out.println("서블릿 : "+loginMember);
 			
+			String path = null;
 			// id/pw가 일치하는 회원 정보를 session scope에 세팅할거임
 			
 			// Session 객체 얻어오기
@@ -71,7 +72,7 @@ public class MemberLoginServlet extends HttpServlet{
 				// 아이디 저장 쿠키 생성
 				Cookie c = new Cookie("saveId", inputId );
 				
-				  
+				path = req.getContextPath() + "/voca/voca-main";
 				
 				// 아이디 저장이 체크 된 경우
 				if(req.getParameter("saveId") != null ) {
@@ -80,7 +81,7 @@ public class MemberLoginServlet extends HttpServlet{
 					c.setMaxAge(60 * 60 * 24 * 30);
 					
 				} else {
-					c.setMaxAge(0);;
+					c.setMaxAge(0);
 				}
 				
 				// 해당 쿠키 파일이 적용될 주소를 저장
@@ -88,15 +89,21 @@ public class MemberLoginServlet extends HttpServlet{
 				
 				resp.addCookie(c);
 				
-			} else { //실패
+			} else { // 실패
+				
 				
 				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+				
+				path = "login";
+				
+				
 			}
 			
 			
 			
 			// redirect
-			resp.sendRedirect(req.getContextPath() + "/voca/voca-main");
+			resp.sendRedirect(path);
+			
 			
 			
 			

@@ -123,7 +123,7 @@ public class MemberDAO {
 	 * @throws Exception
 	 * */
 	
-	public int idDupCheck(Connection conn, String nn) throws Exception {
+	public int idDupCheck(Connection conn, String uid) throws Exception {
 		
 		int result = 0;
 		
@@ -133,7 +133,7 @@ public class MemberDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, nn);
+			pstmt.setString(1, uid);
 			
 			rs = pstmt.executeQuery();
 			
@@ -141,10 +141,8 @@ public class MemberDAO {
 				
 				result = rs.getInt(1);
 				
-				System.out.println("DAO rs.getInt(1) : " + rs.getInt(1));
-				System.out.println("DAO result : " + result);
-				}
-					
+				
+			}
 			
 		} finally {
 			
@@ -187,24 +185,5 @@ public class MemberDAO {
 	}
 
 
-	public int secession(Connection conn, int memberNo, String memberPw) throws Exception {
-		int result = 0;
-		
-		try {
-			
-			
-			String sql = prop.getProperty("secession");
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1,memberNo);
-			pstmt.setString(1, memberPw);
-			
-			result = pstmt.executeUpdate();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}
-	
+
 }

@@ -1,20 +1,31 @@
 const checkObj = {
-"memberId"	:	false,
-"memberPw"	:	false,
-"memberPw2"	:	false,
-"memberNick":	false
+"memberId"			:	false,
+"memberPw"			:	false,
+"memberPwConfirm"	:	false,
+"memberNick"		:	false
 };
+
+const nickicon = document.querySelector(".uName i");
+const idicon = document.querySelector(".uId i");
+const pwicon = document.querySelector(".uPw i");
+const pw2icon = document.querySelector(".uPw2 i");
 
 
 const memberId = document.getElementById("uid");
 const idMessage = document.querySelector("#idMessage");
 
-memberId.addEventListener("input", function() {
+memberId.addEventListener("keypress", () => {
+	idicon.classList.add("ic-login-circle-active");
+	idicon.classList.remove("ic-login-circle-default");
+});
+
+
+memberId.addEventListener("input", function(){
 	
 	// 입력이 되지 않은 경우
 	if(memberId.value.length == 0) {
 		idMessage.innerText = "메일을 받을 수 있는 이메일을 입력해주세요.";
-		idMessage.classList.remove("confirm", "입력안된 error");
+		idMessage.classList.remove("confirm", "error");
 		
 		checkObj.memberId = false;
 		return;
@@ -34,21 +45,26 @@ memberId.addEventListener("input", function() {
 			
 			type : "GET",
 			
-			success : function(result){
+			 success : function(result){
+			
 				
-				// ajax가 성공한 경우
-				console.log(result);
-				
-				if(result == 1 ) { // 중복 O
+				if(result == 1){ // 중복 O
 					idMessage.innerText = "이미 사용중인 이메일 입니다.";
 					idMessage.classList.add("error");
 					idMessage.classList.remove("confirm");
-					checkObj.memberId = false;
+					memberId.style.borderColor = "var(--red)";
+					idicon.classList.add("ic-login-circle-wrong");
+					
+					 checkObj.memberId = false;
 					
 				} else { // 중복 X
 					idMessage.innerText = "사용 가능한 이메일 입니다.";
 					idMessage.classList.add("confirm");
 					idMessage.classList.remove("error");
+					idicon.classList.remove("ic-login-circle-wrong");
+					idicon.classList.add("ic-login-circle-active");
+					memberId.style.borderColor = "var(--primary)";
+					
 					checkObj.memberId = true;
 					
 				}
@@ -62,20 +78,33 @@ memberId.addEventListener("input", function() {
 		});
 	
 	} else {
-		memberId.innerText = "이메일 형식이 유효하지 않습니다.";
-		memberId.classList.add("error");
-		memberId.classList.remove("confirm");
-		
-		checkObj.memberEmail = false;
+		idMessage.innerText = "이메일 형식이 유효하지 않습니다.";
+		idMessage.classList.add("error");
+		idMessage.classList.remove("confirm");
+		memberId.style.borderColor = "var(--red)";
+		idicon.classList.add("ic-login-circle-wrong");
+		checkObj.memberId = false;
 	}
 });
 
-const memberNick = document.getElementById("nn");
+const memberNick = document.getElementById("nn")
 const nameMessage = document.getElementById("nameMessage");
+
+memberNick.addEventListener("keypress", () => {
+	nickicon.classList.add("ic-login-circle-active");
+	nickicon.classList.remove("ic-login-circle-default");
+});
 
 memberNick.addEventListener("input", function() {
 	
+ // 입력되지 않은 경우
+    if(memberNick.value.length == 0){
+        nameMessage.innerText = "deVoca 내에서 사용할 닉네임을 입력해주세요.";
+        nameMessage.classList.remove("confirm", "error");
 
+        checkObj.memberNick = false; // 유효 X 기록
+        return;
+    }
 	
 	const regExp = /[가-힣|a-z|A-Z]{2,10}$/;
   
@@ -95,13 +124,20 @@ memberNick.addEventListener("input", function() {
 				nameMessage.innerText = "사용 가능한 닉네임 입니다.";
 				nameMessage.classList.add("confirm");
 				nameMessage.classList.remove("error");
+				nickicon.classList.remove("ic-login-circle-wrong");
+				nickicon.classList.add("ic-login-circle-active");
+				memberNick.style.borderColor = "var(--primary)";
 				checkObj.memberNick = true;
+					
+				
 			
 			} else {
 				nameMessage.innerText = "이미 사용중인 닉네임 입니다.";
 				nameMessage.classList.add("error");
 				nameMessage.classList.remove("confirm");
-				checkObj.memberNick = true;
+				memberNick.style.borderColor = "var(--red)";
+				nickicon.classList.add("ic-login-circle-wrong");
+				checkObj.memberNick = false;
 				
 			} 
 			
@@ -120,24 +156,41 @@ memberNick.addEventListener("input", function() {
 	nameMessage.innerText = "닉네임 형식이 유효하지 않습니다";
 	nameMessage.classList.add("error");
 	nameMessage.classList.remove("confirm");
+	memberNick.style.borderColor = "var(--red)";
+	nickicon.classList.add("ic-login-circle-wrong");
+	
+	
 	
 	checkObj.memberNick = false;
 }
 });
 
 
+
+
+
 // 비밀번호 유효성 검사
 const memberPw = document.getElementById("upw");
 const memberPwConfirm = document.getElementById("upw2");
 const pwMessage = document.getElementById("pwMessage");
+const pw2Message = document.getElementById("pw2Message");
+
+
+memberPw.addEventListener("keypress", () => {
+	pwicon.classList.add("ic-login-circle-active");
+	pwicon.classList.remove("ic-login-circle-default");
+});
+
+
 
 memberPw.addEventListener("input", function() {
 	
 	if(memberPw.value.length == 0) {
-		pwMessage.innerText = "";
+		pwMessage.innerText = "영어 대소문자, 숫자, 특수문자 포함 8~20자로 작성해주세요";
 		pwMessage.classList.remove("confirm", "error");
 		
-		checkObj.memberPw = false;
+		checkObj.memberPw = false; // 유효 X 기록
+        return;
 	}
 	
 	const regExp =   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
@@ -150,6 +203,12 @@ memberPw.addEventListener("input", function() {
 			pwMessage.innerText = "유효한 비밀번호 형식입니다.";
 			pwMessage.classList.add("confirm");
 			pwMessage.classList.remove("error");
+			pwicon.classList.remove("ic-login-circle-wrong");
+			pwicon.classList.add("ic-login-circle-active");
+			memberPw.style.borderColor = "var(--primary)";
+			
+		
+			
 		
 		} else {
 			checkPw(); // 비밀번호 일치 검사 함수 호출 ()
@@ -158,27 +217,41 @@ memberPw.addEventListener("input", function() {
 		pwMessage.innerText = "영어 대소문자, 숫자, 특수문자 포함 8~20자로 작성해주세요";
 		pwMessage.classList.add("error");
 		pwMessage.classList.remove("confirm");
+		memberPw.style.borderColor = "var(--red)";
+		pwicon.classList.add("ic-login-circle-wrong");
 		
 		checkObj.memberPw = false;
 	}
 });
 
 // 비밀번호 확인 유효성 검사
+memberPwConfirm.addEventListener("keypress", () => {
+	pw2icon.classList.add("ic-login-circle-active");
+	pw2icon.classList.remove("ic-login-circle-default");
+});
 
 memberPwConfirm.addEventListener("input", checkPw);
+
 
 function checkPw() {
 	// 비밀번호 / 비밀번호 확인이 같을 경우
 	if(memberPw.value == memberPwConfirm.value) {
-		pwMessage.innerText = "비밀번호가 일치합니다,";
-		pwMessage.classList.add("confirm");
-		pwMessage.classList.remove("error");
+		pw2Message.innerText = "비밀번호가 일치합니다.";
+		pw2Message.classList.add("confirm");
+		pw2Message.classList.remove("error");
+		pw2icon.classList.remove("ic-login-circle-wrong");
+		pw2icon.classList.add("ic-login-circle-active");
+		memberPwConfirm.style.borderColor = "var(--primary)";
+	
 		
 		checkObj.memberPwConfirm = true;
+		
 	} else {
-		pwMessage.innerText = "비밀번호가 일치하지 않습니다.";
-		pwMessage.classList.add("error");
-		pwMessage.classList.remove("confirm");
+		pw2Message.innerText = "비밀번호가 일치하지 않습니다.";
+		pw2Message.classList.add("error");
+		pw2Message.classList.remove("confirm");
+		memberPwConfirm.style.borderColor = "var(--red)";
+		pw2icon.classList.add("ic-login-circle-wrong");
 		
 		checkObj.memberPwConfirm = false;
 	}
@@ -187,28 +260,32 @@ function checkPw() {
 
 
 // 회원가입 버튼 클릭 시 유효성 검사가 완료 되었는지 확인하는 함수 
-function signUpValidate() {
+function signUpValidate(){
 	
 	let str;
 	
 	for(let key in checkObj) {
 		
 		// 현재 접근 중인 key의 value가 false인 경우
-		if (!checkObj [key]) {
+		if( !checkObj[key] ){ 
 			
 			switch(key){
-				case "memberId":	str="이메일이"; break;
-				case "memberPw":	str="비밀번호가"; break;
+				case "memberId":		str="이메일이"; break;
+				case "memberPw":		str="비밀번호가"; break;
 				case "memberPwConfirm":	str="비밀번호 확인이"; break;
-				case "memberNick":	str="닉네임이"; break;
-			}
+				case "memberNick":		str="닉네임이"; break;
+			};
 			
 			str += "유효하지 않습니다.";
-		}
-	}
-	
-	return true;
-	
+			
+			alert(str);
+			
+		document.getElementById(key).focus();
+            
+            return false; // form태그 기본 이벤트 제거
+        }
+    }
+
+    return true; // form태그 기본 이벤트 수행
+
 }
-
-

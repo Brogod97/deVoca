@@ -47,7 +47,7 @@ input {
   font-family: "Pretendard-Regular";
 }
 
-input:focus {
+inputyfocus {
   border-bottom: 1.5px solid var(--primary);
 }
 
@@ -203,6 +203,7 @@ input[type="checkbox"]:checked + label:before {
 #join {
   color: var(--primary);
   text-decoration: none;
+  cursor: pointer;
 }
 
 #non-member {

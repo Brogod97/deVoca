@@ -48,16 +48,20 @@ public class MemberSignupServlet extends HttpServlet{
 			
 			int result = service.signUp(member);
 			
+			String path = null;
+			
 			HttpSession session = req.getSession();
 			
 			if(result > 0) { // 성공
 				session.setAttribute("message", "회원가입 성공");
+				path = req.getContextPath() +  "/member/login";
 				
 			}else { // 실패
 				session.setAttribute("message", "회원 가입 실패");
+				path = "signUp";
 				
 			}
-			resp.sendRedirect(req.getContextPath() + "/member/login");
+			resp.sendRedirect(path);
 			
 		} catch (Exception e) {
 			

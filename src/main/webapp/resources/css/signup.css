@@ -25,7 +25,7 @@ body {
 
 /* 제목 */
 #sign-up-title {
-  margin-top: 20px;
+  margin-top: 0;
   margin-bottom: 20px;
   font-size: 30px;
   color: var(--primary);
@@ -33,33 +33,35 @@ body {
 }
 
 /* 인풋 창 */
-input {
+.input-group input {
   width: 90%;
   height: 45px;
-  border: none;
+  border: 1.5px solid #f1f1f1;
   border-radius: 10px;
   outline: none;
   background-color: #f1f1f1;
   font-family: "Pretendard-Regular";
 }
 
-input:focus {
+.input-group input:focus {
   width: 90%;
   height: 45px;
-  border: none;
+ border: 1.5px solid #f1f1f1;
   border-radius: 10px;
   background-color: #f1f1f1;
 }
 
-#input-group > div {
-  margin-bottom: 24px;
+.input-group > div {
+  margin-bottom: 12px;
 }
 
-#input-group > div:last-child {
-  margin-bottom: 16px;
+.input-group > div:last-child {
+  margin-bottom: 12px;
 }
 
-.ic-login-circle-default {
+.ic-login-circle-default,
+ .ic-login-circle-active,
+ .ic-login-circle-wrong{
   margin: 0 10px;
 }
 
@@ -75,20 +77,28 @@ input[type="password"] {
   letter-spacing: 1px;
 }
 
+p {
+	font-size: 14px;
+	padding-left: 50px;
+	margin: 2px 0;
+}
+
 /* 확인 버튼 */
 #btn-submit {
   display: flex;
   justify-content: center;
+  margin-bottom : 15px;
 }
 
-.btn-primary-fill {
-  margin: 10px 0;
-}
+
 
 /* 가입 여부 */
 #already-text {
   color: var(--gray500);
   text-align: center;
+  
+  margin-top : 24px;
+  margin-bottom : 14px;
 }
 
 #already-text > a {
@@ -123,7 +133,7 @@ input[type="password"] {
   justify-content: space-around;
   align-items: center;
 
-  margin: 20px;
+	margin-top : 13px;
 }
 
 /* 카카오 회원가입 */
@@ -180,4 +190,9 @@ input[type="password"] {
 
 #google:active {
   background-color: #eaeaea;
+}
+
+
+.wrong {
+  color: var(--red);
 }
