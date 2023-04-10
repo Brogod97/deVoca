@@ -118,6 +118,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="voca-category2">
               <input id="voca-read-title" readonly />
             </div>
+
             <div class="voca-category3">
               <span></span>
             </div>
@@ -229,7 +230,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <button onclick="addClose()" class="btn-primary-line">
                 나가기
               </button>
-              <button class="btn-save" id="voca-save">저장</button>
+              <button type="button" class="btn-save" id="voca-save">
+                저장
+              </button>
             </div>
             <!-- </form> -->
           </div>

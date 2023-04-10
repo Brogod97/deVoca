@@ -7,7 +7,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <!-- 단어장 서치바 -->
   <section class="sidebar-search-area">
     <div class="sidebar-search">
-      <form action="#" name="voca-search-form">
+      
         <input
           type="search"
           id="voca-search-input"
@@ -21,7 +21,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             class="voca-search-img"
           />
         </button>
-      </form>
+      
     </div>
     <!-- 선1 -->
     <div class="line"></div>
@@ -47,10 +47,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <ul>
       	<c:forEach var="category" items="${category}">
       		<li class="voca-category-li">
-      			<button>
+      			
       				<input name="categoryTitle" value="${category.categoryTitle}" readonly="true" style="border: none; outline: none; background-color: transparent; font-size: 16px; font-weight: 700; cursor: pointer;">
-      			</button>
-      			<button class="invisible category-delete" type="submit">
+      			
+      			<button class="invisible category-delete" type="button">
       				<i class="ic-close"></i>
       			</button>
       			<span class="categoryNo" style="display:none">
