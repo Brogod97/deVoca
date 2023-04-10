@@ -57,7 +57,6 @@ updateCancle.addEventListener("click", () => {
   submitBtn.style.display = "none";
   infoChangeBtn.style.display = "inline";
 
-  //TODO: DB연결되면 기존 회원정보 불러오는거 고려
   window.location.reload();
 });
 
@@ -121,12 +120,14 @@ imgEdit.addEventListener("click", () => {
 // 모달 창 밖에 눌러서 모달 끄기
 updateImgModalWindow.addEventListener("click", () => {
   updateImgModal.style.display = "none";
+  window.location.reload();
 });
 
 // 아니오 버튼 눌러서 프로필 편집 모달창 끄기
 
 updateImgCancleBtn.addEventListener("click", () => {
   updateImgModal.style.display = "none";
+  window.location.reload();
 });
 
 /*******************************************************/
