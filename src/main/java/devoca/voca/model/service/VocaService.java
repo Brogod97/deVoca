@@ -10,6 +10,10 @@ import devoca.voca.model.dao.VocaDAO;
 import devoca.voca.model.vo.Category;
 import devoca.voca.model.vo.Word;
 
+/**
+ * @author gudtl
+ *
+ */
 public class VocaService {
 	private VocaDAO dao = new VocaDAO();
 	
@@ -337,5 +341,21 @@ public class VocaService {
 		close(conn);
 		
 		return correctCount;
+	}
+
+	/** QUIZ_OX가 X인 단어 전체 조회 Service
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return wrongWordList
+	 * @throws Exception
+	 */
+	public List<Word> selectWrongWordAll(int categoryNo) throws Exception {
+		Connection conn = getConnection();
+		
+		List<Word> wrongWordList = dao.selectWrongWordAll(conn, categoryNo);
+		
+		close(conn);
+		
+		return wrongWordList;
 	}
 }
