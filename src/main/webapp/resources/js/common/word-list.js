@@ -76,7 +76,9 @@ categoryAdd.addEventListener("click", function () {
   document.querySelector(".category-list > ul").append(categoryLi);
 
   closeCategoryMenu();
+
   inputEnter(categoryInput);
+
   // inputFocus(categoryInput);
   inputEdit(categoryInput);
 });
@@ -109,17 +111,23 @@ function showDeleteBtn() {
 
 // 인풋창에 엔터키를 누르면 내가 입력한 값이 그대로 나옴
 function inputEnter(categoryInput) {
+  // 인풋 요소에 이벤트 핸들러를 등록합니다.
   categoryInput.addEventListener("keydown", function (event) {
+    // 이벤트가 키다운이고, 눌린 키 코드가 13(엔터키)일 때 실행됩니다.
     if (event.keyCode == "13") {
+      // 입력 요소를 읽기 전용으로 설정하여 수정할 수 없도록 합니다.
       this.setAttribute("readonly", "true");
+      // 입력 요소의 외곽선과 배경을 없애고, 글자 크기와 두께를 설정합니다.
       this.style.border = "none";
       this.style.outline = "none";
       this.style.backgroundColor = "transparent";
       this.style.fontSize = "16px";
       this.style.fontWeight = "700";
       this.style.cursor = "pointer";
+      // 입력 요소의 포커스를 해제합니다.
       this.blur();
 
+      // 삭제 버튼이 보이는 상태라면 모든 삭제 버튼을 숨깁니다.
       if (showDeleteBtn) {
         const btnAll = document.querySelectorAll(".category-delete");
         btnAll.forEach((btn) => {
@@ -127,9 +135,11 @@ function inputEnter(categoryInput) {
         });
       }
 
+      // 입력 값이 비어있다면, 해당 항목을 삭제합니다.
       if (this.value == "") {
         this.parentNode.parentNode.remove();
       } else {
+        // 입력한 값을 서버로 전송하여 새로운 카테고리를 추가합니다.
         $.ajax({
           url: "insertCategory",
           type: "POST",
@@ -138,11 +148,15 @@ function inputEnter(categoryInput) {
           },
           dataType: "JSON",
           success: function (result) {
+            // 카테고리 추가에 성공하면 알림을 띄운다.
             if (result > 0) {
               alert("새 카테고리가 추가되었습니다.");
+
+              window.location.reload();
+              // 카테고리 목록에서 각 항목을 클릭할 때마다
+              // 해당 항목의 이름을 표시하고, 단어 목록을 보여줍니다.
               const categoryList =
                 document.querySelectorAll(".voca-category-li");
-
               for (let i = 0; i < categoryList.length; i++) {
                 categoryList[i].addEventListener("click", function () {
                   const categoryName = document.getElementById("categoryName");
@@ -153,10 +167,12 @@ function inputEnter(categoryInput) {
                 });
               }
             } else {
+              // 카테고리 추가에 실패하면 알림을 띄웁니다.
               alert("카테고리 추가에 실패하였습니다.");
             }
           },
           error: function () {
+            // 서버 오류가 발생하면 알림을 띄웁니다.
             alert("서버 오류가 발생하였습니다.");
           },
         });
@@ -229,59 +245,35 @@ function inputEdit(categoryInput) {
 const categoryList = document.querySelectorAll(".voca-category-li");
 
 // 카테고리 삭제 구현 함수
-// function inputDelete() {
-//   for (let i = 0; i < categoryList.length; i++) {
-//     categoryList[i].addEventListener("click", function () {
-//       const categoryNo = this.lastElementChild.innerText.trim();
+function inputDelete() {
+  for (let i = 0; i < categoryList.length; i++) {
+    categoryList[i].addEventListener("click", function () {
+      const categoryNo = this.lastElementChild.innerText.trim();
 
-//       console.log(this.childNodes[3]);
+      console.log(this.childNodes[3]);
 
-//       // 삭제 버튼 클릭 시 AJAX 요청 전송
-//       this.childNodes[3].addEventListener("click", function () {
-//         $.ajax({
-//           url: "deleteCategory",
-//           type: "POST",
-//           dataType: "JSON",
-//           data: { categoryNo: categoryNo },
-//           success: function () {
-//             $.ajax({
-//               url: "mainSelectWordAll",
-//               type: "POST",
-//               data: { categoryNo: categoryNo },
-//               dataType: "JSON",
-//               success: function (wordList) {
-//                 if (wordList.categoryNo == 0) {
-//                   categoryList[i].remove();
-
-//                   const btnAll = document.querySelectorAll(".category-delete");
-//                   btnAll.forEach((btn) => {
-//                     btn.classList.add("invisible");
-//                   });
-
-//                   const wordList = document.querySelector(".word-list");
-//                   wordList.style.display = "none";
-//                 } else {
-//                   alert("단어를 먼저 삭제 해주세요");
-
-//                   const btnAll = document.querySelectorAll(".category-delete");
-//                   btnAll.forEach((btn) => {
-//                     btn.classList.add("invisible");
-//                   });
-
-//                   const wordList = document.querySelector(".word-list");
-//                   wordList.style.display = "none";
-//                 }
-//               },
-//               error: function () {
-//                 console.log("카테고리 삭제 실패 오류");
-//               },
-//             });
-//           },
-//         });
-//       });
-//     });
-//   }
-// }
+      // 삭제 버튼 클릭 시 AJAX 요청 전송
+      this.childNodes[3].addEventListener("click", function () {
+        $.ajax({
+          url: "deleteCategory",
+          type: "POST",
+          dataType: "JSON",
+          data: { categoryNo: categoryNo },
+          success: function () {
+            categoryList[i].remove();
+            const nextCategory = categoryList[i].nextElementSibling;
+            if (nextCategory) {
+              nextCategory.innerHTML = "";
+            }
+          },
+          error: function () {
+            console.log("카테고리 삭제 실패 오류");
+          },
+        });
+      });
+    });
+  }
+}
 
 // -----------------------------------------------------------------------------
 
@@ -360,19 +352,45 @@ focusNextLine();
 
 //카테고리를 눌렀을때
 let categoryNo;
+
 for (let i = 0; i < categoryList.length; i++) {
   categoryList[i].addEventListener("click", function () {
-    const categoryNo = this.lastElementChild.innerText.trim();
+    categoryNo = this.lastElementChild.innerText.trim();
     const categoryName = document.getElementById("categoryName");
     categoryName.innerText = this.firstElementChild.value;
 
     const wordListStyle = document.querySelector(".word-list");
     wordListStyle.style.display = "block";
 
-    vocaSaveAjax(categoryNo);
     vocaCheckAjax(categoryNo);
   });
 }
+
+// 저장했을때 ajax
+
+vocaSave.addEventListener("click", function () {
+  $.ajax({
+    url: "insertWord",
+    type: "POST",
+    data: {
+      categoryNo: categoryNo,
+      wordTitle: vocaInput.value,
+      wordDf: vocadefinition.value,
+      wordMemo: vocaMemo.value,
+      codeBlock: vocaCodeBlock.innerHTML,
+    },
+    dataType: "JSON",
+
+    success: function () {
+      alert("저장되었습니다");
+      addClose();
+      vocaCheckAjax(categoryNo);
+    },
+    error: function () {
+      alert("저장오류발생");
+    },
+  });
+});
 
 // 단어 조회 ajax
 function vocaCheckAjax(categoryNo) {
@@ -388,6 +406,8 @@ function vocaCheckAjax(categoryNo) {
         contentMain.innerHTML = "";
         for (let i = 0; i < wordList.length; i++) {
           const wordNo = wordList[i].wordNo;
+          const favoriteFlag = wordList[i].favorite;
+          const checkedFlag = wordList[i].checked;
 
           const div1 = document.createElement("div");
           div1.classList.add("content-main-add-line");
@@ -398,18 +418,34 @@ function vocaCheckAjax(categoryNo) {
 
           const button1 = document.createElement("button");
           const img1 = document.createElement("i");
-          img1.classList.add("ic-check-cc");
-
           const button2 = document.createElement("button");
           button2.classList.add("openBtn");
+
+          if (checkedFlag == "Y") {
+            img1.classList.add("ic-check-cc");
+            img1.style.color = "#5bc236";
+            button2.style.textDecoration = "line-through";
+          } else {
+            img1.classList.add("ic-check-cc");
+            img1.style.color = "black";
+            button2.style.textDecoration = "none";
+          }
 
           const div4 = document.createElement("div");
           const button3 = document.createElement("button");
           const img2 = document.createElement("img");
-          img2.setAttribute(
-            "src",
-            contextPath + "/resources/assets/icon/star.svg"
-          );
+
+          if (favoriteFlag == "Y") {
+            img2.setAttribute(
+              "src",
+              contextPath + "/resources/assets/icon/star-active.svg"
+            );
+          } else {
+            img2.setAttribute(
+              "src",
+              contextPath + "/resources/assets/icon/star.svg"
+            );
+          }
 
           const button4 = document.createElement("button");
           const img3 = document.createElement("img");
@@ -444,38 +480,38 @@ function vocaCheckAjax(categoryNo) {
 
           document.querySelector(".openBtn").addEventListener("click", open);
 
+          let flag = true;
+          let favorite = "N";
+
           button3.addEventListener("click", function () {
             if (flag) {
-              img2.setAttribute(
-                "src",
-                contextPath + "/resources/assets/icon/star-active.svg"
-              );
+              favorite = "Y";
+
               flag = false;
+              wordFavoriteUpdate(favorite, wordNo, img2);
             } else {
-              img2.setAttribute(
-                "src",
-                contextPath + "/resources/assets/icon/star.svg"
-              );
+              favorite = "N";
               flag = true;
+              wordFavoriteUpdate(favorite, wordNo, img2);
             }
           });
 
           button4.addEventListener("click", function () {
             open();
+            wordCheckAjax(wordNo, button2, categoryNo);
           });
 
           // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
-
-          let flag = true;
+          let checked = "N";
           button1.addEventListener("click", function () {
             if (flag) {
-              img1.style.color = "#5bc236";
-              button2.style.textDecoration = "line-through";
+              checked = "Y";
               flag = false;
+              wordCheckedUpdate(checked, img1, button2, wordNo);
             } else {
-              img1.style.color = "black";
-              button2.style.textDecoration = "none";
+              checked = "N";
               flag = true;
+              wordCheckedUpdate(checked, img1, button2, wordNo);
             }
           });
 
@@ -495,40 +531,63 @@ function vocaCheckAjax(categoryNo) {
   });
 }
 
-// 저장했을때 ajax
-let saveButtonClicked = false;
-function vocaSaveAjax(categoryNo) {
-  vocaSave.addEventListener("click", function () {
-    if (saveButtonClicked) {
-      return;
-    }
-    for (let i = 0; i < categoryList.length; i++) {
-      categoryList[i].addEventListener("click", function () {
-        const categoryNo = this.lastElementChild.innerText.trim();
-      });
-    }
-    $.ajax({
-      url: "insertWord",
-      type: "POST",
-      data: {
-        categoryNo: categoryNo,
-        wordTitle: vocaInput.value,
-        wordDf: vocadefinition.value,
-        wordMemo: vocaMemo.value,
-        codeBlock: vocaCodeBlock.value,
-      },
-      dataType: "JSON",
+// 즐겨찾기 정렬
+// const favoriteMenu = document.querySelector(".favorite-menu");
+// favoriteMenu.addEventListener("click", function() {
 
-      success: function () {
-        alert("저장되었습니다");
-        addClose();
-        vocaCheckAjax(categoryNo);
-        saveButtonClicked = true;
-      },
-      error: function () {
-        alert("저장오류발생");
-      },
-    });
+// })
+
+// 체크된 단어 정렬
+// const checkMenu = document.querySelector(".check-menu");
+
+// 미체크된 단어 정렬
+// const checkedMenu = document.querySelector(".checked-menu");
+
+// 즐겨찾기 ajax
+function wordFavoriteUpdate(favorite, wordNo, img2) {
+  $.ajax({
+    url: "updateFavoriteWord",
+    type: "POST",
+    data: { wordNo: wordNo, favorite: favorite },
+    dataType: "JSON",
+    success: function () {
+      if (favorite == "Y") {
+        img2.setAttribute(
+          "src",
+          contextPath + "/resources/assets/icon/star-active.svg"
+        );
+      } else {
+        img2.setAttribute(
+          "src",
+          contextPath + "/resources/assets/icon/star.svg"
+        );
+      }
+    },
+    error: function () {
+      alert("단어조회 오류");
+    },
+  });
+}
+
+// 체크 ajax
+function wordCheckedUpdate(checked, img1, button2, wordNo) {
+  $.ajax({
+    url: "updateCheckedWord",
+    type: "POST",
+    data: { wordNo: wordNo, checked: checked },
+    dataType: "JSON",
+    success: function () {
+      if (checked == "Y") {
+        img1.style.color = "#5bc236";
+        button2.style.textDecoration = "line-through";
+      } else {
+        img1.style.color = "black";
+        button2.style.textDecoration = "none";
+      }
+    },
+    error: function () {
+      alert("단어조회 오류");
+    },
   });
 }
 

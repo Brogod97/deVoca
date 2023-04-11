@@ -16,12 +16,14 @@ import devoca.voca.model.service.VocaService;
 public class UpdateCheckedWordServlet extends HttpServlet{
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int wordNo = Integer.parseInt(req.getParameter("wordNo"));
+		
+		String checked = req.getParameter("checked");
 		
 		VocaService service = new VocaService();
 		try {
-			int result = service.checkedFavorite(wordNo);
+			int result = service.updateChecked(wordNo , checked);
 			new Gson().toJson(result, resp.getWriter());
 		}catch(Exception e) {
 			e.printStackTrace();

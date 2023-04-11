@@ -501,9 +501,10 @@ public class VocaDAO {
 	/** 단어 즐겨찾기 DAO
 	 * @param conn
 	 * @param wordNo
+	 * @param favorite 
 	 * @return
 	 */
-	public int updateFavorite(Connection conn, int wordNo) throws Exception{
+	public int updateFavorite(Connection conn, int wordNo, String favorite) throws Exception{
 		
 		int result = 0;
 		
@@ -513,7 +514,8 @@ public class VocaDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, wordNo);
+			pstmt.setString(1, favorite);
+			pstmt.setInt(2, wordNo);
 			
 			result = pstmt.executeUpdate();
 			
@@ -527,9 +529,10 @@ public class VocaDAO {
 	/** 단어 체크 DAO
 	 * @param conn
 	 * @param wordNo
+	 * @param checked 
 	 * @return
 	 */
-	public int checkedFavorite(Connection conn, int wordNo) throws Exception{
+	public int updateChecked(Connection conn, int wordNo, String checked) throws Exception{
 		
 		int result = 0;
 		
@@ -539,7 +542,8 @@ public class VocaDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, wordNo);
+			pstmt.setString(1, checked);
+			pstmt.setInt(2, wordNo);
 			
 			result = pstmt.executeUpdate();
 			
