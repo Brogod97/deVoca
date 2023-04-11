@@ -171,7 +171,11 @@ pageEncoding="UTF-8" %>
                         <span>결과 페이지로 이동합니다</span>
         
                         <form action="quizResult" method="get">
-                            <button class="btn-primary-fill">확인</button>
+                            <button class="btn-primary-fill">
+                                확인
+                            </button>
+                            <input type="hidden" name="memberNo" value="${memberNo}">
+                            <input type="hidden" name="categoryNo" value="${categoryNo}">
                         </form>
                     </div>
                 </div>

@@ -305,4 +305,35 @@ public class VocaService {
 		
 		return null;
 	}
+
+
+	/** categoryNo가 일치하는 회원의 단어 전체 갯수 조회 Service
+	 * @param categoryNo
+	 * @return totalCount
+	 * @throws Exception
+	 */
+	public int selectTotalCount(int categoryNo) throws Exception {
+		Connection conn = getConnection();
+		
+		int totalCount = dao.selectTotalCount(conn, categoryNo);
+		
+		close(conn);
+		
+		return totalCount;
+	}
+
+	/** categoryNo가 일치하는 회원의 정답인 단어 갯수 조회 Service
+	 * @param categoryNo
+	 * @return totalCount
+	 * @throws Exception
+	 */
+	public int selectCorrectCount(int categoryNo) throws Exception {
+		Connection conn = getConnection();
+		
+		int correctCount = dao.selectCorrectCount(conn, categoryNo);
+		
+		close(conn);
+		
+		return correctCount;
+	}
 }

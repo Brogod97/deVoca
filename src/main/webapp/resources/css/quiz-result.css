@@ -1,106 +1,108 @@
 /* 메인화면 */
 
 .quiz-result {
-  margin-top: 70px;
+    margin-top: 70px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* 원형프로그레스바 */
 .wrap {
-  margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .progress {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: #f5f6f7;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #f5f6f7;
 }
 .progress div {
-  position: absolute;
-  left: 100px;
-  top: 0px;
-  display: none;
-  width: 2px;
-  height: 100px;
-  background: var(--primary);
-  transform-origin: 0px 100px;
-  -webkit-transform-origin: 0px 100px;
-  -moz-transform-origin: 0px 100px;
-  -ms-transform-origin: 0px 100px;
+    position: absolute;
+    left: 100px;
+    top: 0px;
+    display: none;
+    width: 2px;
+    height: 100px;
+    background: var(--primary);
+    transform-origin: 0px 100px;
+    -webkit-transform-origin: 0px 100px;
+    -moz-transform-origin: 0px 100px;
+    -ms-transform-origin: 0px 100px;
 }
 
 .progress_value {
-  transform: lotate(0deg);
-  -webkit-transform: lotate(0deg);
-  -moz-transform: lotate(0deg);
-  -ms-transform: lotate(0deg);
+    transform: lotate(0deg);
+    -webkit-transform: lotate(0deg);
+    -moz-transform: lotate(0deg);
+    -ms-transform: lotate(0deg);
 }
 
 .progress-result {
-  position: absolute;
-  z-index: 10;
-  left: 10px;
-  top: 10px;
-  width: 180px;
-  height: 180px;
-  line-height: 140px;
-  text-align: center;
-  background: var(--secondary);
-  border-radius: 50%;
-  border: 20px solid var(--gray30);
-  font-size: 32px;
-  font-weight: bold;
-  color: var(--dark);
+    position: absolute;
+    z-index: 10;
+    left: 10px;
+    top: 10px;
+    width: 180px;
+    height: 180px;
+    line-height: 140px;
+    text-align: center;
+    background: var(--secondary);
+    border-radius: 50%;
+    border: 20px solid var(--gray30);
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--dark);
 }
 
 /* 결과값 */
 .result-set {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .rotate-a {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .rotate-a > a {
-  text-decoration: none;
+    text-decoration: none;
 
-  color: var(--dark);
+    color: var(--dark);
 
-  font-weight: bold;
-  font-size: 18px;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .rotate-a > a:hover {
-  color: var(--gray500);
+    color: var(--gray500);
 
-  transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.2s;
 }
 
 .result-line {
-  border: var(--line);
-  width: 60vw;
+    border: var(--line);
+    width: 60vw;
 
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .result-value {
-  width: 500px;
+    width: 500px;
 
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
+/* ----------------------------------- */
+
 .wrong-list {
-  font-size: 24px;
+    font-size: 24px;
 }
