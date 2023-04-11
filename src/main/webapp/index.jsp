@@ -87,6 +87,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               />
             </div>
           </div>
+
+          <img
+            src="${contextPath}/resources/assets/images/mouse.png"
+            alt=""
+            id="mouseImg"
+          />
+          <img
+            src="${contextPath}/resources/assets/images/mouse2.png"
+            id="mouseImg2"
+          />
         </div>
       </section>
       <section class="section section-2">
