@@ -1,3 +1,26 @@
+// 로딩 페이지 함수 호출
+window.onload = function () {
+  showLoadingPage();
+};
+/** 로딩페이지 호출 함수 */
+function showLoadingPage() {
+  // 로딩 페이지를 화면에 보여줍니다.
+  document.querySelector(".wrap").style.display = "block";
+  document.querySelector(".container").style.display = "none";
+  document.querySelector(".main-content-area").style.display = "none";
+
+  // 3초 후 종료
+  setTimeout(hideLoadingPage, 2000);
+}
+
+/** 로딩페이지 종료 함수 */
+function hideLoadingPage() {
+  // 로딩 페이지를 화면에서 숨깁니다.
+  document.querySelector(".wrap").style.display = "none";
+  document.querySelector(".container").style.display = "flex";
+  document.querySelector(".main-content-area").style.display = "flex";
+}
+
 const categoryBtn = document.getElementById("category-btn");
 const categoryAdd = document.querySelector(".category-add");
 const categoryEdit = document.querySelector(".category-edit");
