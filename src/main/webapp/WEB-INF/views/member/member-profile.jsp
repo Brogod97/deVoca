@@ -64,7 +64,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   <!-- profileImage 비어있을 시 기본 이미지  -->
                   <c:if test="${empty loginMember.profileImage }">
                     <img
-                      src="${contextPath}/resources/assets/images/default-user-img.png"
+                      src="${contextPath}/resources/assets/images/profileImg/default-user-img.png"
                       alt="프로필 사진"
                       id="profile-img"
                     />
