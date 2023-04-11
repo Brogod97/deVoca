@@ -22,6 +22,7 @@
 
 .result-value {
     width: 30%;
+    color: var(--dark);
 
     margin-top: 30px;
 

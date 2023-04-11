@@ -87,6 +87,7 @@
     margin: 15px;
     border: none;
     background-color: white;
+    color: var(--dark);
     box-shadow: var(--category-shadow);
     cursor: pointer;
 }
