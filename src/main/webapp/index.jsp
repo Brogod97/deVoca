@@ -65,7 +65,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <h3>YOUR DEV STUDY!!</h3>
               </div>
             </div>
-            <a href="${contextPath}/voca/voca-main">
+            <a href="${contextPath}/member/login">
               <button class="sec1-container-btn"></button>
             </a>
           </div>
