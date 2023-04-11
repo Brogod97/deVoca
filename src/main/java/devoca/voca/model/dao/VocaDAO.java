@@ -618,5 +618,64 @@ public class VocaDAO {
 		
 		return wordList;
 	}
+
+
+	/** memberNo와 categoryNo가 일치하는 회원의 단어 갯수 조회 DAO
+	 * @param conn
+	 * @param categoryNo
+	 * @return totalCount
+	 * @throws Exception
+	 */
+	public int selectTotalCount(Connection conn, int categoryNo) throws Exception {
+		int totalCount = 0;
+		
+		try {
+			String sql = prop.getProperty("selectTotalCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				totalCount = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return totalCount;
+	}
+
+	/** categoryNo가 일치하는 회원의 정답인 단어 갯수 조회 DAO
+	 * @param conn
+	 * @param categoryNo
+	 * @return correctCount
+	 * @throws Exception
+	 */
+	public int selectCorrectCount(Connection conn, int categoryNo) throws Exception {
+		int correctCount = 0;
+		
+		try {
+			String sql = prop.getProperty("selectCorrectCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				correctCount = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return correctCount;
+	}
 	
 }

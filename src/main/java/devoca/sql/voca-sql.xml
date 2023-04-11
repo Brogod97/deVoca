@@ -136,4 +136,19 @@
 		WHERE MEMBER_NO = ?
 		AND WORD_TITLE LIKE ?
 	</entry>
+	
+	<!-- 저장된 단어 수 조회 -->
+	<entry key="selectTotalCount">
+		SELECT COUNT(*)
+		FROM WORD
+		WHERE CATEGORY_NO = ?
+	</entry>
+	
+	<!-- QUIZ_OX가 O인 단어 수 조회 -->
+	<entry key="selectCorrectCount">
+		SELECT COUNT(*) 
+		FROM WORD
+		WHERE CATEGORY_NO = ?
+		AND QUIZ_OX = 'O'
+	</entry>
 </properties>
