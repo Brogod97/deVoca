@@ -77,7 +77,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     </div>
 
                     <form action="quizGame" method="get">
-                        <button type="submit" class="container-main-btn">
+                        <button
+                            type="submit"
+                            class="container-main-btn"
+                            disabled
+                        >
                             시작하기
                         </button>
                         <div class="container-main-content">

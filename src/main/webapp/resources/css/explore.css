@@ -22,6 +22,14 @@
     text-decoration: none;
 }
 
+#quiz-start-btn:disabled {
+    background-color: var(--secondary);
+}
+
+#quiz-start-btn:disabled:hover {
+    cursor: auto;
+}
+
 .btn-long {
     width: 100%;
     height: 40px;

@@ -84,6 +84,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             class="btn-primary-fill btn-long"
                             name="memberNo"
                             value="0"
+                            disabled
                         >
                             퀴즈 시작
                         </button>
