@@ -16,13 +16,14 @@ import devoca.voca.model.service.VocaService;
 public class UpdateFavoriteWordServlet extends HttpServlet{
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		int wordNo = Integer.parseInt(req.getParameter("wordNo"));
+		String favorite = req.getParameter("favorite");
 		
 		VocaService service = new VocaService();
 		try {
-			int result = service.updateFavorite(wordNo);
+			int result = service.updateFavorite(wordNo, favorite);
 			new Gson().toJson(result, resp.getWriter());
 		}catch(Exception e) {
 			e.printStackTrace();

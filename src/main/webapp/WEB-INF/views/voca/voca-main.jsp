@@ -88,9 +88,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <div class="voca-menu-modal menu-hidden">
                 <div class="voca-menu-bg"></div>
                 <div class="voca-menu-modalBox">
-                  <div>즐겨찾기</div>
-                  <div>체크된 단어</div>
-                  <div>미체크된 단어</div>
+                  <div class="favorite-menu">즐겨찾기</div>
+                  <div class="check-menu">체크된 단어</div>
+                  <div class="checked-menu">미체크된 단어</div>
                 </div>
               </div>
               <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->

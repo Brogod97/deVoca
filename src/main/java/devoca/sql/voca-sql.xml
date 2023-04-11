@@ -85,7 +85,7 @@
 	</entry>
 	
 	<!-- 체크한 단어 조회 -->
-	<entry key="selectWordFavorite">
+	<entry key="selectWordChecked">
 		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
 		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX, "LANGUAGE"
 		FROM WORD 
@@ -110,14 +110,14 @@
 	<!-- 단어 즐겨찾기  -->
 	<entry key="updateFavorite">
 		UPDATE WORD SET
-		FAVORITE  = 'Y' 
+		FAVORITE  = ? 
 		WHERE WORD_NO = ?
 	</entry>
 	
 	<!-- 단어 체크  -->
 	<entry key="updateChecked">
 		UPDATE WORD SET
-		CHECKED = 'Y' 
+		CHECKED = ? 
 		WHERE WORD_NO = ?
 	</entry>
 	

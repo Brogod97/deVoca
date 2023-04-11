@@ -239,12 +239,13 @@ public class VocaService {
 
 	/** 단어 즐겨찾기 Service
 	 * @param wordNo
+	 * @param favorite 
 	 * @return
 	 */
-	public int updateFavorite(int wordNo) throws Exception{
+	public int updateFavorite(int wordNo, String favorite) throws Exception{
 		Connection conn = getConnection();
 		
-		int result = dao.updateFavorite(conn, wordNo);
+		int result = dao.updateFavorite(conn, wordNo, favorite);
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);
@@ -257,12 +258,13 @@ public class VocaService {
 
 	/** 단어 체크 Service
 	 * @param wordNo
+	 * @param checked 
 	 * @return
 	 */
-	public int checkedFavorite(int wordNo) throws Exception{
+	public int updateChecked(int wordNo, String checked) throws Exception{
 		Connection conn = getConnection();
 		
-		int result = dao.checkedFavorite(conn,wordNo);
+		int result = dao.updateChecked(conn,wordNo, checked);
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);
