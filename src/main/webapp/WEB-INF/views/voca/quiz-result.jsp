@@ -15,9 +15,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         />
         <link
             rel="stylesheet"
+            href="${contextPath}/resources/css/common/word-list.css"
+        />
+        <link
+            rel="stylesheet"
             href="${contextPath}/resources/css/quiz-result.css"
         />
-
         <!-- font-awesome -->
         <script
             src="https://kit.fontawesome.com/5d7e6e936d.js"
@@ -25,6 +28,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         ></script>
 
         <script src="https:////cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        <!-- 코드블럭 하이라이트 js -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
 
         <title>quiz-result</title>
     </head>
@@ -42,62 +55,65 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
         <!-- 메인 콘텐츠 영역 -->
         <section class="main-content-area">
-            <div class="quiz-result">
-                <!-- 원형 프로그래스바 -->
-                <div class="wrap">
-                    <div class="progress" data-percent="${rate}">
-                        <span class="progress-result"></span>
+            <div id="quiz-result-container">
+                <!-- 상단 영역 -->
+                <div class="quiz-result">
+                    <!-- 원형 프로그래스바 -->
+                    <div class="wrap">
+                        <div class="progress" data-percent="${rate}">
+                            <span class="progress-result"></span>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- 결과값 -->
-            <div class="result-set">
-                <!-- 
-                <div class="rotate-a">
-                    <i class="ic-reset"></i>
-
-                    /*?memberNo=${memberNo}&categoryNo=${categoryNo} */
-                    <a href="${contextPath}/voca/quizResult">다시 풀기</a>
-                </div>
-                -->
-                <div class="result-value">
-                    <div>
-                        문제개수 :
-                        <span id="total">${totalCount}</span>
-                    </div>
-                    <div>
-                        정답 수 :
-                        <span id="correct">${correctCount}</span>
-                    </div>
-                    <div>
-                        오답 수 :
-                        <span id="wrong">${totalCount - correctCount}</span>
+                    <div class="result-value">
+                        <div>
+                            문제개수 :
+                            <span id="total">${totalCount}</span>
+                        </div>
+                        <div>
+                            정답 수 :
+                            <span id="correct">${correctCount}</span>
+                        </div>
+                        <div>
+                            오답 수 :
+                            <span id="wrong">${totalCount - correctCount}</span>
+                        </div>
                     </div>
                 </div>
                 <div class="result-line"></div>
-                <div class="wrong-list">
-                    <h3>오답 목록</h3>
 
+                <!-- 결과값 -->
+                <div class="result-set">
                     <!-- wordList -->
-                    <div class="shared-voca-list-area">
-                        <div class="content-main-text">
-                            <div class="content-main-text-flex">
-                                <div>
-                                    <button style="display: block">int</button>
+                    <div class="wrong-list-area">
+                        <h3 class="worng-list-title">오답 목록</h3>
+
+                        <div class="wrong-list">
+                            <c:forEach var="word" items="${wrongWordList}">
+                                <div
+                                    class="content-main-text"
+                                    onclick="return selectOneWordAjax('${word.wordNo}')"
+                                >
+                                    <div class="content-main-text-flex">
+                                        <div>
+                                            <button style="display: block">
+                                                ${word.wordTitle}
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <button style="display: block">
+                                                <img
+                                                    src="/deVoca/resources/assets/icon/chevron.svg"
+                                                />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="content-main-add-line"></div>
                                 </div>
-                                <div>
-                                    <button style="display: block">
-                                        <img
-                                            src="/deVoca/resources/assets/icon/chevron.svg"
-                                        />
-                                    </button>
-                                </div>
-                                <span style="display: none">21</span>
-                            </div>
-                            <div class="content-main-add-line"></div>
+                            </c:forEach>
                         </div>
                     </div>
-                    <!-- word 모달 -->
+
+                    <!-- 특정 단어 조회 시 출력될 모달 -->
                     <div id="modal">
                         <div class="bg"></div>
                         <div class="voca-modalBox">

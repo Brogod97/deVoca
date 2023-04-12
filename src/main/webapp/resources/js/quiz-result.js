@@ -49,41 +49,45 @@
     }
 })();
 
-// -------------------------------오답목록-------------------------------
+// -------------------------------------------------------------------
+/** vocaModal, bg를 갖고있는 부모 */
+const modal = document.getElementById("modal");
 
-function selectWordAllAjax(memberNo, categoryNo) {
+/** 모달 활성화 시 뒤에 표시되는 검은 배경 */
+const bgBlur = document.querySelector(".bg");
+
+// 단어 목록 - 단어 onclick 호출 함수
+function selectOneWordAjax(wordNo) {
     $.ajax({
-        url: "selectWordAll",
-        data: {
-            memberNo: memberNo,
-            categoryNo: categoryNo,
-        },
+        url: "selectWordOne",
+        data: { wordNo: wordNo },
         type: "POST",
         success: function (result) {
-            const wordList = JSON.parse(result);
+            const word = JSON.parse(result);
+            setWordInfo(word);
 
-            sharedVocaListArea.innerHTML = ""; // 단어 리스트 부모 초기화
-
-            createWordList(sharedVocaListArea, wordList);
-
-            // 생성된 wordList를 순회하며, content-main-text 클릭 시 modal 클래스에 hidden 삭제
-
-            // 생성된 단어 1줄 전체
-            const wordListAll = document.querySelectorAll(".content-main-text");
-
-            clickOneForEach(wordListAll, function () {
-                // 특정 단어 클릭 시 modal 활성화
-                /** 단어 조회 모달 */
-                const modal = document.getElementById("modal");
-                modal.style.display = "flex";
-
-                // 단어가 눌렸을 때 해당 단어와 관련된 MEMBER_NO, CATEGORY_NO, WORD_NO를 비교해 일치하는 단어 하나 조회
-                const wordNo = this.firstChild.children[2].innerText.trim();
-                selectWordOneAjax(memberNo, categoryNo, wordNo);
-            });
+            modal.style.display = "flex";
         },
         error: function () {
-            console.log("selectWordAll 실패");
+            console.log("서버 요청 실패");
         },
     });
+}
+
+// 모달 외부 영역 클릭 시 비활성화 이벤트
+bgBlur.addEventListener("click", function () {
+    modal.style.display = "none";
+});
+
+/** 전달받은 parent(voca-modalBox)에 child 객체의 정보(WORD의 정보)를 이용해 단어 내부 값 교체하는 함수 */
+function setWordInfo(child) {
+    const wordTitle = document.getElementById("voca-read-title");
+    const definition = document.getElementById("voca-read-definition");
+    const memo = document.getElementById("voca-read-memo");
+    const codeBlock = document.querySelector(".voca-code-block-area");
+
+    wordTitle.value = child.wordTitle;
+    definition.value = child.wordDf;
+    memo.value = child.wordMemo;
+    codeBlock.innerHTML = child.codeBlock;
 }

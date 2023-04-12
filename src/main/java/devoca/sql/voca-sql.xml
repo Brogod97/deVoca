@@ -151,4 +151,13 @@
 		WHERE CATEGORY_NO = ?
 		AND QUIZ_OX = 'O'
 	</entry>
+	
+	<!-- QUIZ_OX가 X인 단어 전체 조회 -->
+	<entry key="selectWrongWordAll">
+		SELECT WORD_NO, WORD_TITLE, WORD_DF, CHECKED, FAVORITE, QUIZ_OX
+		FROM WORD
+		WHERE CATEGORY_NO = ?
+		AND QUIZ_OX = 'X'
+		ORDER BY CREATE_DATE
+	</entry>
 </properties>
