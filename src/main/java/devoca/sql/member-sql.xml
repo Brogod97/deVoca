@@ -18,6 +18,12 @@
 		INSERT INTO MEMBER
 		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , DEFAULT, DEFAULT, DEFAULT, DEFAULT)
 	</entry>
+	
+<!-- 카카오 로그인/회원가입 -->
+<entry key="kakaoLogin">
+		INSERT INTO MEMBER
+		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , 'Y', DEFAULT, DEFAULT, DEFAULT)
+	</entry>
 
 
 <!-- 아이디(이메일) 중복검사 -->
@@ -34,6 +40,12 @@
 		AND SECESSION_FL = 'N'
 	</entry>
 	
+	<!-- 임시 비밀번호 수정 -->
+	<entry key="temporaryPw">
+		UPDATE MEMBER SET
+		MEMBER_PW = ?
+		WHERE MEMBER_ID = ?
+	</entry>
 
 	
 </properties>
