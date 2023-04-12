@@ -7,7 +7,7 @@ $(function () {
     slidesNavigation: true,
     slidesNavPosition: "bottom",
     sectionsColor: ["#fff", "#ffc759", "#fff"],
-    controlArrows: false,
+    controlArrows: true,
     keyboradScrolling: true,
   });
 });
