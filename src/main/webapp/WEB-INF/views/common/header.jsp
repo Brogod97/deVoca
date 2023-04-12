@@ -14,7 +14,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
    <!-- 헤더 우측 영역 -->
    <div>
      <!-- 구글-검색창 -->
-     <a href="${contextPath}/member/testLogin">test로그인</a>
      <div class="google-search">
        <fieldset>
          <img src="${contextPath}/resources/assets/images/google-logo.png" class="google-img" />
