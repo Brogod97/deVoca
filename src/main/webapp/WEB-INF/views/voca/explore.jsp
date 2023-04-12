@@ -197,7 +197,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     />
                     코드블럭
                 </div>
-                <div class="voca-code-block-area"></div>
+                <div class="voca-code-block-area">
+                    <pre><code id="read-code" class="language-java"></code></pre>
+                </div>
             </div>
         </div>
 
