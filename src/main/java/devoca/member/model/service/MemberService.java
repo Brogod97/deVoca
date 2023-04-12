@@ -59,6 +59,23 @@ public class MemberService {
 		return result;
 	}
 	
+/* 카카오 로그인 */	
+
+	public int kakaoLogin(Member member) throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.kakaoLogin(conn, member);
+		
+		if(result > 0)	commit(conn);  
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	
 	
 	/** 아이디(이메일) 중복 검사 서비스
 	 * @param uid
@@ -96,6 +113,83 @@ public class MemberService {
 		return result;
 	}
 	
+	/** 임시 비밀번호 발급 Service
+	 * */
+	public int temporaryPw(String inputEmail, String temporaryPw) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.temporaryPw(conn, inputEmail, temporaryPw);
+		
+		if(result > 0)	commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		return result;
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+	
+
+
+
+/*
+
+	public int kakaoSignUp(Member m2) throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.kakaoSignUp(conn, m2);
+		
+		if(result > 0)	commit(conn);  
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+
+
+	public Member kakaoLogin(Member m3) throws Exception {
+		// Connection 얻어오기
+		Connection conn = getConnection();
+		
+		// DAO 수행
+		Member loginMember = dao.kakaoLogin(conn, m3);
+		
+		
+		
+		// Connection 반환
+		close(conn);
+		
+		// 결과 반환
+		return loginMember;
+	}
+
+
+
+
+	public Member kakaoOne(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+*/
+
+
+	
+
+
 	
 
 
