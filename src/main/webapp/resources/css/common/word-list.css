@@ -7,67 +7,67 @@
 
 /* 스크롤바 스타일*/
 body::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 body::-webkit-scrollbar-track {
-  background-color: transparent;
+    background-color: transparent;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: var(--gray250);
-  border-radius: 30px;
-  background-color: transparent;
+    background-color: var(--gray250);
+    border-radius: 30px;
+    background-color: transparent;
 }
 
 .main-content-area {
-  width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
-  height: 100%;
+    width: calc(100% - ((var(--sidebar-width) + var(--nav-width))));
+    height: 100%;
 
-  margin-top: var(--header-height);
-  margin-left: calc((var(--sidebar-width) + var(--nav-width)));
+    margin-top: var(--header-height);
+    margin-left: calc((var(--sidebar-width) + var(--nav-width)));
 
-  background-color: var(--gray30);
+    background-color: var(--gray30);
 }
 
 /* word-list를 묶은 부모 div */
 .word-list {
-  padding: 20px 80px;
+    padding: 20px 80px;
 
-  display: none;
+    display: none;
 }
 
 /* 메인 컨텐츠 양옆 사이즈를 맞추기 위한 div */
 .content-main-container {
-  width: 100%;
-  margin: auto;
+    width: 100%;
+    margin: auto;
 }
 
 .content-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  margin-top: 25px;
+    margin-top: 25px;
 
-  margin: 30px 10px 0 10px;
+    margin: 30px 10px 0 10px;
 
-  /* padding: 20px 80px 15px 80px; TODO:*/
+    /* padding: 20px 80px 15px 80px; TODO:*/
 }
 
 .content-main-line {
-  border-bottom: var(--line);
+    border-bottom: var(--line);
 }
 
 .content-main h2 {
-  margin: 0;
-  /* margin-top: 30px; TODO: */
+    margin: 0;
+    /* margin-top: 30px; TODO: */
 
-  color: var(--dark);
+    color: var(--dark);
 }
 
 .content-main-imgs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* .content-main-imgs img { TODO:
@@ -77,549 +77,583 @@ body::-webkit-scrollbar-thumb {
 
 /* 정렬 버튼 */
 .content-main-btn1 img {
-  width: 25px;
-  height: 25px;
+    width: 25px;
+    height: 25px;
 
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 /* 추가 버튼 */
 .content-main-btn2 img {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 .content-main-btn1 {
-  /* margin-top: 25px; TODO:*/
+    /* margin-top: 25px; TODO:*/
 
-  border: none;
-  border-radius: 80%;
+    border: none;
+    border-radius: 80%;
 
-  background-color: transparent;
+    background-color: transparent;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .content-main-btn1:hover {
-  background-color: var(--gray50);
+    background-color: var(--gray50);
 }
 
 .content-main-btn2 {
-  border: none;
-  border-radius: 80%;
+    border: none;
+    border-radius: 80%;
 
-  background-color: transparent;
+    background-color: transparent;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .content-main-btn2:hover {
-  background-color: var(--gray50);
+    background-color: var(--gray50);
 }
 
 .content-main-line {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .content-main-add-line {
-  border: 1px solid var(--gray100);
+    border: 1px solid var(--gray100);
 }
 
 .content-main-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  /* padding: 20px 80px 15px 80px; TODO: */
+    /* padding: 20px 80px 15px 80px; TODO: */
 }
 
 .content-main-add-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .content-main-text-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  padding: 0 12px;
-  margin: 16px 0;
+    padding: 0 12px;
+    margin: 16px 0;
 }
 
 .content-main-text-flex button {
-  font-size: 16px;
-  color: var(--dark);
+    font-size: 16px;
+    color: var(--dark);
 }
 
 /* 각 단어 우측 끝에 별모양 옆 > 아이콘 */
 .content-main-text-flex div:nth-child(2) button:nth-child(2) img {
-  width: 10px;
+    width: 10px;
 }
 
 .content-main-text button {
-  border: none;
+    border: none;
 
-  background-color: transparent;
+    background-color: transparent;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .openBtn {
-  font-size: 16px;
-  color: var(--dark);
+    font-size: 16px;
+    color: var(--dark);
 }
 
 /* FIXME: 단어 추가 모달 : 사이드바보다 높은 위치 z-index 수정 */
 .modal,
 .addModal {
-  width: calc(100% - (var(--nav-width) + var(--sidebar-width)));
-  height: calc(100% - var(--header-height));
+    width: calc(100% - (var(--nav-width) + var(--sidebar-width)));
+    height: calc(100% - var(--header-height));
 
-  position: absolute;
-  top: var(--header-height);
-  left: calc(var(--nav-width) + var(--sidebar-width));
+    position: absolute;
+    top: var(--header-height);
+    left: calc(var(--nav-width) + var(--sidebar-width));
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal .bg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .addModal .addBg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .voca-modalBox {
-  width: 900px;
-  /* min-width: 500px; */
-  /* min-height: 800px; */
+    width: 900px;
+    /* min-width: 500px; */
+    /* min-height: 800px; */
 
-  position: absolute;
+    color: var(--dark);
 
-  background-color: #fff;
+    position: absolute;
 
-  border-radius: 15px;
+    background-color: #fff;
 
-  padding: 30px 60px 40px 60px;
+    border-radius: 15px;
 
-  overflow: hidden;
+    padding: 30px 60px 40px 60px;
 
-  /* z-index: var(--modal-background-z-index); */
+    overflow: hidden;
 
-  /* margin: auto; */
+    /* z-index: var(--modal-background-z-index); */
+
+    /* margin: auto; */
 }
 
 .voca-modify {
-  background-color: transparent;
+    background-color: transparent;
 
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--gray200);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray200);
 
-  border: none;
+    border: none;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .voca-delete {
-  border: none;
-  background-color: transparent;
-  font-size: 16px;
-  color: var(--red);
-  font-weight: 700;
-  cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: var(--red);
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .voca-category-tag {
-  border: 1px solid var(--primary);
-  font-size: 10px;
-  color: var(--primary);
-  padding: 4px;
-  border-radius: 5px;
+    border: 1px solid var(--primary);
+    font-size: 10px;
+    color: var(--primary);
+    padding: 4px;
+    border-radius: 5px;
 }
 
 /* voca-cateogry와 아래 인풋 간격 조정 */
 #voca-read-title {
-  padding-bottom: 8px;
-  color: var(--dark);
+    padding-bottom: 8px;
+    color: var(--dark);
 }
 
 .voca-content1,
 .voca-content2,
 .voca-code-block-area {
-  margin: 8px 0;
+    margin: 8px 0;
 }
 
 #voca-read-definition,
 #voca-read-memo,
 .language-java.hljs {
-  font-size: 16px;
-  color: var(--dark);
+    font-size: 16px;
+    color: var(--dark);
 }
 
 .voca-category1 {
-  display: flex;
+    display: flex;
 
-  float: right;
+    float: right;
 }
 
 .voca-category2 {
-  border-bottom: 1px solid var(--primary);
-  width: 100%;
+    border-bottom: 1px solid var(--primary);
+    width: 100%;
 
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .voca-category2 > h1 {
-  margin: 0;
-  padding: 5px 0;
-  font-size: 32px;
-  color: var(--dark);
+    margin: 0;
+    padding: 5px 0;
+    font-size: 32px;
+    color: var(--dark);
 }
 
 .voca-category3 {
-  font-size: 16px;
-  color: var(--gray500);
-  padding: 15px 0 5px 0;
-  display: flex;
+    font-size: 16px;
+    color: var(--gray500);
+    padding: 15px 0 5px 0;
+    display: flex;
 }
 
 .voca-category4,
 .voca-category5,
 .voca-category6 {
-  padding: 10px;
+    padding: 10px;
 
-  display: flex;
+    display: flex;
 }
 
 .voca-category4 > img,
 .voca-category5 > img,
 .voca-category6 > img {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
 .voca-content1 {
-  width: 100%;
-  background-color: var(--gray50);
-  border-radius: 20px;
+    width: 100%;
+    background-color: var(--gray50);
+    border-radius: 20px;
 
-  padding: 15px 25px;
+    padding: 15px 25px;
 }
 
 .voca-content1 > input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--dark);
 }
 
 .voca-content2 {
-  width: 100%;
-  height: 100px;
-  background-color: var(--gray50);
-  border-radius: 20px;
-  padding: 15px 25px;
+    width: 100%;
+    height: 100px;
+    background-color: var(--gray50);
+    border-radius: 20px;
+    padding: 15px 25px;
 }
 
 .voca-category2 > input {
-  margin-top: 10px;
-  border: none;
-  outline: none;
-  font-size: 32px;
-  font-weight: 700;
+    margin-top: 10px;
+
+    color: var(--dark);
+    border: none;
+    outline: none;
+    font-size: 32px;
+    font-weight: 700;
 }
 
 #voca-read-memo {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .voca-category3 > input {
-  margin-top: 8px;
-  border: none;
-  outline: none;
-  font-size: 14px;
+    margin-top: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
 }
 
 /* 삭제 모달창 */
 .voca-delete-modal {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  display: none;
+    display: none;
 }
 
 .voca-delete-modal-box {
-  width: 400px;
-  height: 200px;
+    width: 400px;
+    height: 200px;
 
-  background-color: white;
+    background-color: white;
 
-  box-shadow: var(--word-modal-shadow);
-  border-radius: 10px;
+    box-shadow: var(--word-modal-shadow);
+    border-radius: 10px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  position: absolute;
-  right: 250px;
-  top: 200px;
+    position: absolute;
+    right: 250px;
+    top: 200px;
 
-  padding: 30px;
+    padding: 30px;
 }
 
 .voca-delete-area {
-  display: flex;
+    display: flex;
 }
 
 .voca-delete-title {
-  font-size: 24px;
-  font-weight: 800;
+    font-size: 24px;
+    font-weight: 800;
 
-  color: var(--dark);
+    color: var(--dark);
 
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .voca-delete-btns {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .voca-delete-content {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .btn-primary-line {
-  width: 80px;
+    width: 80px;
 }
 
 .btn-primary-fill {
-  width: 120px;
+    width: 120px;
 }
 
 /* 코드블럭 */
 
 pre code.hljs {
-  /* width: 700px; */
-  overflow-y: auto;
-  background-color: var(--gray50);
-  max-height: 200px;
+    width: 700px;
+    overflow-y: auto;
+    background-color: var(--gray50);
+    max-height: 200px;
 }
 
 .language-java.hljs {
-  padding: 0;
+    padding: 0;
 }
 
 .voca-code-block-area {
-  width: 100%;
+    width: 100%;
+    max-height: 180px;
 
-  display: flex;
+    overflow: auto;
 
-  border-radius: 20px;
+    display: flex;
 
-  padding: 5px 25px 25px 25px;
+    border-radius: 20px;
 
-  background-color: var(--gray50);
+    padding: 5px 25px 25px 25px;
+
+    background-color: var(--gray50);
 }
 
 .voca-code-block-area pre {
-  margin: 0;
+    margin: 0;
 }
 
 #voca-code-select {
-  height: 20px;
+    height: 20px;
 
-  border: none;
+    border: none;
 
-  background-color: transparent;
+    background-color: transparent;
 
-  outline: none;
+    outline: none;
 }
 
 .modify-btn-area {
-  margin: 0;
+    margin: 0;
 }
 
 .modify-btn {
-  width: 100px;
-  height: 35px;
+    width: 100px;
+    height: 35px;
 
-  text-align: center;
+    text-align: center;
 
-  font-size: 16px;
-  font-weight: 700;
+    font-size: 16px;
+    font-weight: 700;
 
-  border: none;
-  border-radius: 5px;
+    border: none;
+    border-radius: 5px;
 
-  color: var(--white);
-  background-color: var(--primary);
+    color: var(--white);
+    background-color: var(--primary);
 
-  transition: all ease-in-out 0.15s;
+    transition: all ease-in-out 0.15s;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  display: none;
+    display: none;
 }
 
 /* 수정 버튼 영역*/
 .voca-modalBox > div:last-child {
-  display: flex;
-  /* justify-content: center; */
+    display: flex;
+    /* justify-content: center; */
 }
 
 .modify-btn:hover {
-  background-color: var(--secondary);
-  color: var(--gray30);
+    background-color: var(--secondary);
+    color: var(--gray30);
 }
 
 #voca-memo,
 #voca-code-block {
-  width: 100%;
-  /* padding-bottom: 100px; TODO: */
-  font-size: 16px;
-  border: none;
-  outline: none;
-  background-color: transparent;
+    width: 100%;
+    /* padding-bottom: 100px; TODO: */
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
 }
 
 #voca-memo {
-  height: 70px;
+    height: 70px;
 }
 
 #voca-code-block {
-  height: 150px;
+    height: 150px;
 }
 
 .voca-modal-btn {
-  text-align: center;
-  padding-top: 30px;
+    text-align: center;
+    padding-top: 30px;
 }
 
 .btn-save {
-  border: none;
-  margin-left: 40px;
-  width: 100px;
-  height: 35px;
+    border: none;
+    margin-left: 40px;
+    width: 100px;
+    height: 35px;
 
-  font-size: 16px;
-  font-weight: 700;
+    font-size: 16px;
+    font-weight: 700;
 
-  border-radius: 5px;
+    border-radius: 5px;
 
-  color: var(--white);
-  background-color: var(--primary);
+    color: var(--white);
+    background-color: var(--primary);
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* 단어장 즐겨찾기 및 순서 정렬 메뉴 */
 textarea {
-  resize: none;
-  outline: none;
-  border: none;
-  background-color: transparent;
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
 }
 
 .voca-menu-modal {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  position: relative;
+    position: relative;
 }
 
 .voca-menu-modal .voca-menu-bg {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 /* FIXME: 정렬 등 메뉴 포지션 재설정 */
 .voca-menu-modalBox {
-  width: 130px;
-  height: 150px;
+    width: 130px;
+    height: 180px;
 
-  position: absolute;
-  top: 3px;
-  right: -45px;
+    position: absolute;
+    top: 3px;
+    right: -45px;
 
-  background-color: #fff;
+    background-color: #fff;
 
-  border-radius: 15px;
+    border-radius: 15px;
 
-  /* margin-bottom: 80px; */
+    /* margin-bottom: 80px; */
 
-  box-shadow: var(--header-shadow);
+    box-shadow: var(--header-shadow);
 
-  text-align: center;
+    text-align: center;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .voca-menu-modalBox > div:nth-child(1) {
-  flex-basis: 34%;
-  padding: 14px;
-  border-bottom: 1px solid var(--gray100);
+    flex-basis: 25%;
+    padding: 14px;
+
+    color: var(--primary);
+
+    border-bottom: 1px solid var(--gray100);
 }
 
 .voca-menu-modalBox > div:nth-child(1):hover {
-  background-color: var(--gray200);
-  cursor: pointer;
-  border-radius: 15px 15px 0 0;
+    background-color: var(--gray200);
+    cursor: pointer;
+
+    color: var(--white);
+
+    border-radius: 15px 15px 0 0;
 }
 
 .voca-menu-modalBox > div:nth-child(2) {
-  flex-basis: 33%;
-  padding: 14px;
+    flex-basis: 25%;
+    padding: 14px;
+
+    color: var(--dark);
+
+    border-bottom: 1px solid var(--gray100);
 }
 
 .voca-menu-modalBox > div:nth-child(2):hover {
-  background-color: var(--gray200);
-  cursor: pointer;
+    background-color: var(--gray200);
+    cursor: pointer;
 }
 
 .voca-menu-modalBox > div:nth-child(3) {
-  flex-basis: 34%;
-  border-top: 1px solid var(--gray100);
-  padding: 14px;
+    flex-basis: 25%;
+
+    color: var(--dark);
+
+    padding: 14px;
 }
 
 .voca-menu-modalBox > div:nth-child(3):hover {
-  background-color: var(--gray200);
-  cursor: pointer;
-  border-radius: 0 0 15px 15px;
+    background-color: var(--gray200);
+    cursor: pointer;
+}
+
+.voca-menu-modalBox > div:nth-child(4) {
+    flex-basis: 25%;
+
+    color: var(--dark);
+
+    border-top: 1px solid var(--gray100);
+    padding: 14px;
+}
+
+.voca-menu-modalBox > div:nth-child(4):hover {
+    background-color: var(--gray200);
+    cursor: pointer;
+    border-radius: 0 0 15px 15px;
 }
 
 .menu-hidden {
-  display: none;
+    display: none;
 }

@@ -10,6 +10,10 @@ import devoca.voca.model.dao.VocaDAO;
 import devoca.voca.model.vo.Category;
 import devoca.voca.model.vo.Word;
 
+/**
+ * @author gudtl
+ *
+ */
 public class VocaService {
 	private VocaDAO dao = new VocaDAO();
 	
@@ -239,12 +243,13 @@ public class VocaService {
 
 	/** 단어 즐겨찾기 Service
 	 * @param wordNo
+	 * @param favorite 
 	 * @return
 	 */
-	public int updateFavorite(int wordNo) throws Exception{
+	public int updateFavorite(int wordNo, String favorite) throws Exception{
 		Connection conn = getConnection();
 		
-		int result = dao.updateFavorite(conn, wordNo);
+		int result = dao.updateFavorite(conn, wordNo, favorite);
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);
@@ -257,12 +262,13 @@ public class VocaService {
 
 	/** 단어 체크 Service
 	 * @param wordNo
+	 * @param checked 
 	 * @return
 	 */
-	public int checkedFavorite(int wordNo) throws Exception{
+	public int updateChecked(int wordNo, String checked) throws Exception{
 		Connection conn = getConnection();
 		
-		int result = dao.checkedFavorite(conn,wordNo);
+		int result = dao.updateChecked(conn,wordNo, checked);
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);
@@ -304,5 +310,52 @@ public class VocaService {
 		
 		
 		return null;
+	}
+
+
+	/** categoryNo가 일치하는 회원의 단어 전체 갯수 조회 Service
+	 * @param categoryNo
+	 * @return totalCount
+	 * @throws Exception
+	 */
+	public int selectTotalCount(int categoryNo) throws Exception {
+		Connection conn = getConnection();
+		
+		int totalCount = dao.selectTotalCount(conn, categoryNo);
+		
+		close(conn);
+		
+		return totalCount;
+	}
+
+	/** categoryNo가 일치하는 회원의 정답인 단어 갯수 조회 Service
+	 * @param categoryNo
+	 * @return totalCount
+	 * @throws Exception
+	 */
+	public int selectCorrectCount(int categoryNo) throws Exception {
+		Connection conn = getConnection();
+		
+		int correctCount = dao.selectCorrectCount(conn, categoryNo);
+		
+		close(conn);
+		
+		return correctCount;
+	}
+
+	/** QUIZ_OX가 X인 단어 전체 조회 Service
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return wrongWordList
+	 * @throws Exception
+	 */
+	public List<Word> selectWrongWordAll(int categoryNo) throws Exception {
+		Connection conn = getConnection();
+		
+		List<Word> wrongWordList = dao.selectWrongWordAll(conn, categoryNo);
+		
+		close(conn);
+		
+		return wrongWordList;
 	}
 }

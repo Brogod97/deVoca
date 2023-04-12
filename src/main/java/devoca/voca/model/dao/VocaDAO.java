@@ -395,10 +395,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -441,10 +441,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -481,10 +481,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -501,9 +501,10 @@ public class VocaDAO {
 	/** 단어 즐겨찾기 DAO
 	 * @param conn
 	 * @param wordNo
+	 * @param favorite 
 	 * @return
 	 */
-	public int updateFavorite(Connection conn, int wordNo) throws Exception{
+	public int updateFavorite(Connection conn, int wordNo, String favorite) throws Exception{
 		
 		int result = 0;
 		
@@ -513,7 +514,8 @@ public class VocaDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, wordNo);
+			pstmt.setString(1, favorite);
+			pstmt.setInt(2, wordNo);
 			
 			result = pstmt.executeUpdate();
 			
@@ -527,9 +529,10 @@ public class VocaDAO {
 	/** 단어 체크 DAO
 	 * @param conn
 	 * @param wordNo
+	 * @param checked 
 	 * @return
 	 */
-	public int checkedFavorite(Connection conn, int wordNo) throws Exception{
+	public int updateChecked(Connection conn, int wordNo, String checked) throws Exception{
 		
 		int result = 0;
 		
@@ -539,7 +542,8 @@ public class VocaDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, wordNo);
+			pstmt.setString(1, checked);
+			pstmt.setInt(2, wordNo);
 			
 			result = pstmt.executeUpdate();
 			
@@ -613,6 +617,104 @@ public class VocaDAO {
 		}
 		
 		return wordList;
+	}
+
+
+	/** memberNo와 categoryNo가 일치하는 회원의 단어 갯수 조회 DAO
+	 * @param conn
+	 * @param categoryNo
+	 * @return totalCount
+	 * @throws Exception
+	 */
+	public int selectTotalCount(Connection conn, int categoryNo) throws Exception {
+		int totalCount = 0;
+		
+		try {
+			String sql = prop.getProperty("selectTotalCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				totalCount = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return totalCount;
+	}
+
+	/** categoryNo가 일치하는 회원의 정답인 단어 갯수 조회 DAO
+	 * @param conn
+	 * @param categoryNo
+	 * @return correctCount
+	 * @throws Exception
+	 */
+	public int selectCorrectCount(Connection conn, int categoryNo) throws Exception {
+		int correctCount = 0;
+		
+		try {
+			String sql = prop.getProperty("selectCorrectCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				correctCount = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return correctCount;
+	}
+
+	/** QUIZ_OX가 X인 단어 전체 조회 DAO
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return wrongWordList
+	 * @throws Exception
+	 */
+	public List<Word> selectWrongWordAll(Connection conn, int categoryNo) throws Exception {
+		List<Word> wrongWordList =  new ArrayList<>(); 
+		
+		try {
+			String sql = prop.getProperty("selectWrongWordAll");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Word word = new Word();
+				
+				word.setWordNo(rs.getInt("WORD_NO"));
+				word.setWordTitle(rs.getString("WORD_TITLE"));
+				word.setWordDf(rs.getString("WORD_DF"));
+				word.setChecked(rs.getString("CHECKED"));
+				word.setFavorite(rs.getString("FAVORITE"));
+				word.setQuizOx(rs.getString("QUIZ_OX"));
+				
+				wrongWordList.add(word);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}		
+		
+		return wrongWordList;
 	}
 	
 }

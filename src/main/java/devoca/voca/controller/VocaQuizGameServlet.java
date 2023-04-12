@@ -42,6 +42,8 @@ public class VocaQuizGameServlet extends HttpServlet {
 		
 		req.setAttribute("wordList", wordList);
 		req.setAttribute("definitionArr", definitionArr);
+		req.setAttribute("memberNo", memberNo);
+		req.setAttribute("categoryNo", categoryNo);
 		
 		String path = "/WEB-INF/views/voca/quiz-game.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
