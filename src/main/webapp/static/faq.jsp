@@ -68,10 +68,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>어떻게 퀴즈를 시작하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                       메인화면의 Get Start 버튼을 누릅니다. 그 다음 사이드바의   <img
+                       로그인을 하고 그 다음 사이드바의   <img
                 src="${contextPath}/resources/assets/icon/quiz.svg"
                 alt style="height: 20px;"
-              />연필모양을 클릭하시면 퀴즈를 시작할 수 있습니다.
+              />연필모양을 클릭하시면 나오는 퀴즈 창에서 원하는 항목을 선택하시고 퀴즈를 시작할 수 있습니다.
                       </div>
                   
                     </div>
@@ -102,7 +102,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>그 외 궁금한게 있으면 어떻게 하나요?</span></div>
                     <div class="faq-box__answer">
                      <div>
-                    Contact 버튼을 누르면 문의 할 수 있습니다.
+                    하단에 있는 Contact 버튼을 누르면 문의 할 수 있습니다.
                      </div>
 
                     </div>
@@ -120,7 +120,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                      
                   
                    <li>
-                    <div class="faq-box__question"><span>어떻게 탈퇴하나요?</span></div>
+                    <div class="faq-box__question"><span>회원 탈퇴 방법은 어떻게 하나요?</span></div>
                     <div class="faq-box__answer">
                      <div>
                     회원 정보 수정을 클릭하신 다음 오른쪽 하단의 회원 탈퇴 버튼을 누르면 탈퇴 할 수 있습니다.
