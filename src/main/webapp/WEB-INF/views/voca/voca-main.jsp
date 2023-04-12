@@ -24,11 +24,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       crossorigin="anonymous"
     ></script>
 
-    <script
-      src="https://kit.fontawesome.com/5d7e6e936d.js"
-      crossorigin="anonymous"
-    ></script>
-
     <!-- tagify - 단어 생성 (태그) -->
     <script src="https://unpkg.com/@yaireo/tagify"></script>
     <!-- 폴리필 (구버젼 브라우저 지원) -->
@@ -44,12 +39,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
     <script>
       hljs.initHighlightingOnLoad();
     </script>
 
-    <title>조회된 단어 리스트 Common</title>
+    <title>단어 추가, 수정, 삭제, 조회</title>
   </head>
   <body>
     <main>
@@ -88,9 +83,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <div class="voca-menu-modal menu-hidden">
                 <div class="voca-menu-bg"></div>
                 <div class="voca-menu-modalBox">
+                  <div class="all-menu">전체보기</div>
                   <div class="favorite-menu">즐겨찾기</div>
                   <div class="check-menu">체크된 단어</div>
-                  <div class="checked-menu">미체크된 단어</div>
+                  <div class="unCheck-menu">미체크된 단어</div>
                 </div>
               </div>
               <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
@@ -144,7 +140,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               코드블럭
             </div>
             <div class="voca-code-block-area" id="voca-read-code">
-              <pre><code class="language-java"></code></pre>
+              <pre><code id="read-code" class="language-java"></code></pre>
             </div>
 
             <!-- 단어 삭제 여부 모달창 -->
@@ -218,12 +214,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </div>
             <div class="voca-code-block-area">
               <textarea name="voca-code-block" id="voca-code-block"></textarea>
-              <select name="" id="voca-code-select">
-                <option class="language-java" value="">JAVA</option>
-                <option class="language-javaScript" value="">JavaScript</option>
-                <option class="language-sql" value="">SQL</option>
-                <option class="language-c" value="">C</option>
-                <option class="language-python" value="">Python</option>
+              <select onchange="changeLanguage()" id="voca-code-select">
+                <option value="java">JAVA</option>
+                <option value="javascript">JavaScript</option>
+                <option value="sql">SQL</option>
+                <option value="c">C</option>
+                <option value="Python">Python</option>
               </select>
             </div>
             <div class="voca-modal-btn">

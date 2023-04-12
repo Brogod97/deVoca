@@ -332,23 +332,14 @@ const vocaDeleteDone = document.getElementById("voca-delete-done");
 // ---------- 코드블럭 구간 -----------------
 
 const codeInput = document.getElementById("voca-code-block");
-const codeOutput = document.querySelector("pre code");
+const codeOutput = document.getElementById("read-code");
 
-// textarea에서 커서 깜빡임이 다음줄부터 시작하는 코드
-codeInput.focus();
-codeInput.setSelectionRange(7, 7);
-
-codeInput.value = codeInput.value.slice(0, 7) + "\n" + codeInput.value.slice(7);
-
-function focusNextLine() {
-  const lineHeight = parseInt(
-    window.getComputedStyle(codeInput).lineHeight,
-    10
-  );
-  codeInput.scrollTop += lineHeight;
+// ---------코드블럭-------
+function changeLanguage() {
+  const readCode = document.getElementById("read-code");
+  const language = document.getElementById("voca-code-select").value;
+  readCode.className = "language-" + language;
 }
-
-focusNextLine();
 
 //카테고리를 눌렀을때
 let categoryNo;
@@ -369,6 +360,9 @@ for (let i = 0; i < categoryList.length; i++) {
 // 저장했을때 ajax
 
 vocaSave.addEventListener("click", function () {
+  // let highlighted = $("#voca-code-block").val();
+  // highlighted = hljs.highlightAuto(highlighted).value;
+
   $.ajax({
     url: "insertWord",
     type: "POST",
@@ -377,7 +371,7 @@ vocaSave.addEventListener("click", function () {
       wordTitle: vocaInput.value,
       wordDf: vocadefinition.value,
       wordMemo: vocaMemo.value,
-      codeBlock: vocaCodeBlock.innerHTML,
+      codeBlock: vocaCodeBlock.value,
     },
     dataType: "JSON",
 
@@ -385,6 +379,7 @@ vocaSave.addEventListener("click", function () {
       alert("저장되었습니다");
       addClose();
       vocaCheckAjax(categoryNo);
+      codeOutput.textContent = codeInput.value;
     },
     error: function () {
       alert("저장오류발생");
@@ -402,8 +397,8 @@ function vocaCheckAjax(categoryNo) {
     success: function (wordList) {
       const contentMain = document.querySelector(".content-main-text");
 
+      contentMain.innerHTML = "";
       if (wordList.categoryNo != 0) {
-        contentMain.innerHTML = "";
         for (let i = 0; i < wordList.length; i++) {
           const wordNo = wordList[i].wordNo;
           const favoriteFlag = wordList[i].favorite;
@@ -423,12 +418,14 @@ function vocaCheckAjax(categoryNo) {
 
           if (checkedFlag == "Y") {
             img1.classList.add("ic-check-cc");
-            img1.style.color = "#5bc236";
+            img1.style.color = "var(--gray200)";
             button2.style.textDecoration = "line-through";
+            button2.style.color = "var(--gray200)";
           } else {
             img1.classList.add("ic-check-cc");
-            img1.style.color = "black";
+            img1.style.color = "var(--dark)";
             button2.style.textDecoration = "none";
+            button2.style.color = "var(--dark)";
           }
 
           const div4 = document.createElement("div");
@@ -516,9 +513,6 @@ function vocaCheckAjax(categoryNo) {
           });
 
           addClose();
-          // ---------코드블럭-------
-          codeOutput.textContent = codeInput.value;
-          hljs.highlightBlock(codeOutput);
         }
       } else {
         alert("단어가 없습니다");
@@ -531,17 +525,529 @@ function vocaCheckAjax(categoryNo) {
   });
 }
 
-// 즐겨찾기 정렬
-// const favoriteMenu = document.querySelector(".favorite-menu");
-// favoriteMenu.addEventListener("click", function() {
+// 전체보기 정렬
+const allMenu = document.querySelector(".all-menu");
+allMenu.addEventListener("click", function () {
+  vocaCheckAjax(categoryNo);
+  menuClose();
+});
 
-// })
+// 즐겨찾기 정렬
+const favoriteMenu = document.querySelector(".favorite-menu");
+favoriteMenu.addEventListener("click", function () {
+  $.ajax({
+    url: "favoriteSort",
+    data: { categoryNo: categoryNo },
+    type: "GET",
+    dataType: "JSON",
+    success: function (wordList) {
+      menuClose();
+      let hasFavorites = false; // 즐겨찾기한 단어가 있는지 확인하기 위한 변수
+
+      for (let i = 0; i < wordList.length; i++) {
+        if (wordList[i].favorite == "Y") {
+          hasFavorites = true; // 즐겨찾기한 단어가 있음을 표시
+
+          $.ajax({
+            url: "mainSelectWordAll",
+            type: "POST",
+            data: { categoryNo: categoryNo },
+            dataType: "JSON",
+            success: function (wordList) {
+              const contentMain = document.querySelector(".content-main-text");
+              contentMain.innerHTML = "";
+              if (wordList.categoryNo != 0) {
+                for (let i = 0; i < wordList.length; i++) {
+                  const wordNo = wordList[i].wordNo;
+                  const favoriteFlag = wordList[i].favorite;
+                  const checkedFlag = wordList[i].checked;
+
+                  if (favoriteFlag == "Y") {
+                    const div1 = document.createElement("div");
+                    div1.classList.add("content-main-add-line");
+
+                    const div2 = document.createElement("div");
+                    div2.classList.add("content-main-text-flex");
+                    const div3 = document.createElement("div");
+
+                    const button1 = document.createElement("button");
+                    const img1 = document.createElement("i");
+                    const button2 = document.createElement("button");
+                    button2.classList.add("openBtn");
+
+                    if (checkedFlag == "Y") {
+                      img1.classList.add("ic-check-cc");
+                      img1.style.color = "var(--gray200)";
+                      button2.style.textDecoration = "line-through";
+                      button2.style.color = "var(--gray200)";
+                    } else {
+                      img1.classList.add("ic-check-cc");
+                      img1.style.color = "var(--dark)";
+                      button2.style.textDecoration = "none";
+                      button2.style.color = "var(--dark)";
+                    }
+
+                    const div4 = document.createElement("div");
+                    const button3 = document.createElement("button");
+                    const img2 = document.createElement("img");
+
+                    if (favoriteFlag == "Y") {
+                      img2.setAttribute(
+                        "src",
+                        contextPath + "/resources/assets/icon/star-active.svg"
+                      );
+                    } else {
+                      img2.setAttribute(
+                        "src",
+                        contextPath + "/resources/assets/icon/star.svg"
+                      );
+                    }
+
+                    const button4 = document.createElement("button");
+                    const img3 = document.createElement("img");
+                    img3.setAttribute(
+                      "src",
+                      contextPath + "/resources/assets/icon/chevron.svg"
+                    );
+
+                    div2.append(div3, div4);
+                    div3.append(button1, button2);
+                    button1.append(img1);
+                    button2.append(wordList[i].wordTitle);
+
+                    div4.append(button3, button4);
+                    button3.append(img2);
+                    button4.append(img3);
+
+                    const span = document.createElement("span");
+                    span.style.display = "none";
+                    span.innerText = wordNo;
+
+                    document
+                      .querySelector(".content-main-text")
+                      .append(div2, div1, span);
+
+                    button2.addEventListener("click", function () {
+                      open();
+                      wordCheckAjax(wordNo, button2, categoryNo);
+                    });
+
+                    const open = () => {
+                      document
+                        .querySelector(".modal")
+                        .classList.remove("hidden");
+                    };
+
+                    document
+                      .querySelector(".openBtn")
+                      .addEventListener("click", open);
+
+                    let flag = true;
+                    let favorite = "N";
+
+                    button3.addEventListener("click", function () {
+                      if (flag) {
+                        favorite = "Y";
+
+                        flag = false;
+                        wordFavoriteUpdate(favorite, wordNo, img2);
+                      } else {
+                        favorite = "N";
+                        flag = true;
+                        wordFavoriteUpdate(favorite, wordNo, img2);
+                      }
+                    });
+
+                    button4.addEventListener("click", function () {
+                      open();
+                      wordCheckAjax(wordNo, button2, categoryNo);
+                    });
+
+                    // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
+                    let checked = "N";
+                    button1.addEventListener("click", function () {
+                      if (flag) {
+                        checked = "Y";
+                        flag = false;
+                        wordCheckedUpdate(checked, img1, button2, wordNo);
+                      } else {
+                        checked = "N";
+                        flag = true;
+                        wordCheckedUpdate(checked, img1, button2, wordNo);
+                      }
+                    });
+
+                    addClose();
+                    // ---------코드블럭-------
+                    codeOutput.textContent = codeInput.value;
+                    hljs.highlightBlock(codeOutput);
+                  }
+                }
+              } else {
+                alert("단어가 없습니다");
+              }
+            },
+
+            error: function () {
+              alert("단어조회 오류");
+            },
+          });
+        }
+      }
+      if (!hasFavorites) {
+        alert("즐겨찾기한 단어가 없습니다.");
+        vocaCheckAjax(categoryNo);
+      }
+    },
+    error: function () {
+      console.log("즐겨찾기 오류");
+    },
+  });
+});
 
 // 체크된 단어 정렬
-// const checkMenu = document.querySelector(".check-menu");
+const checkMenu = document.querySelector(".check-menu");
+checkMenu.addEventListener("click", function () {
+  $.ajax({
+    url: "checkedSort",
+    data: { categoryNo: categoryNo },
+    type: "GET",
+    dataType: "JSON",
+    success: function (wordList) {
+      menuClose();
+      let haschecked = false; // 체크한 단어가 있는지 확인하기 위한 변수
+
+      for (let i = 0; i < wordList.length; i++) {
+        if (wordList[i].checked == "Y") {
+          haschecked = true; // 체크한 단어가 있음을 표시
+
+          $.ajax({
+            url: "mainSelectWordAll",
+            type: "POST",
+            data: { categoryNo: categoryNo },
+            dataType: "JSON",
+            success: function (wordList) {
+              const contentMain = document.querySelector(".content-main-text");
+
+              contentMain.innerHTML = "";
+              if (wordList.categoryNo != 0) {
+                for (let i = 0; i < wordList.length; i++) {
+                  const wordNo = wordList[i].wordNo;
+                  const favoriteFlag = wordList[i].favorite;
+                  const checkedFlag = wordList[i].checked;
+
+                  if (checkedFlag == "Y") {
+                    const div1 = document.createElement("div");
+                    div1.classList.add("content-main-add-line");
+
+                    const div2 = document.createElement("div");
+                    div2.classList.add("content-main-text-flex");
+                    const div3 = document.createElement("div");
+
+                    const button1 = document.createElement("button");
+                    const img1 = document.createElement("i");
+                    const button2 = document.createElement("button");
+                    button2.classList.add("openBtn");
+
+                    if (checkedFlag == "Y") {
+                      img1.classList.add("ic-check-cc");
+                      img1.style.color = "var(--gray200)";
+                      button2.style.textDecoration = "line-through";
+                      button2.style.color = "var(--gray200)";
+                    } else {
+                      img1.classList.add("ic-check-cc");
+                      img1.style.color = "var(--dark)";
+                      button2.style.textDecoration = "none";
+                      button2.style.color = "var(--dark)";
+                    }
+
+                    const div4 = document.createElement("div");
+                    const button3 = document.createElement("button");
+                    const img2 = document.createElement("img");
+
+                    if (favoriteFlag == "Y") {
+                      img2.setAttribute(
+                        "src",
+                        contextPath + "/resources/assets/icon/star-active.svg"
+                      );
+                    } else {
+                      img2.setAttribute(
+                        "src",
+                        contextPath + "/resources/assets/icon/star.svg"
+                      );
+                    }
+
+                    const button4 = document.createElement("button");
+                    const img3 = document.createElement("img");
+                    img3.setAttribute(
+                      "src",
+                      contextPath + "/resources/assets/icon/chevron.svg"
+                    );
+
+                    div2.append(div3, div4);
+                    div3.append(button1, button2);
+                    button1.append(img1);
+                    button2.append(wordList[i].wordTitle);
+
+                    div4.append(button3, button4);
+                    button3.append(img2);
+                    button4.append(img3);
+
+                    const span = document.createElement("span");
+                    span.style.display = "none";
+                    span.innerText = wordNo;
+
+                    document
+                      .querySelector(".content-main-text")
+                      .append(div2, div1, span);
+
+                    button2.addEventListener("click", function () {
+                      open();
+                      wordCheckAjax(wordNo, button2, categoryNo);
+                    });
+
+                    const open = () => {
+                      document
+                        .querySelector(".modal")
+                        .classList.remove("hidden");
+                    };
+
+                    document
+                      .querySelector(".openBtn")
+                      .addEventListener("click", open);
+
+                    let flag = true;
+                    let favorite = "N";
+
+                    button3.addEventListener("click", function () {
+                      if (flag) {
+                        favorite = "Y";
+
+                        flag = false;
+                        wordFavoriteUpdate(favorite, wordNo, img2);
+                      } else {
+                        favorite = "N";
+                        flag = true;
+                        wordFavoriteUpdate(favorite, wordNo, img2);
+                      }
+                    });
+
+                    button4.addEventListener("click", function () {
+                      open();
+                      wordCheckAjax(wordNo, button2, categoryNo);
+                    });
+
+                    // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
+                    let checked = "N";
+                    button1.addEventListener("click", function () {
+                      if (flag) {
+                        checked = "Y";
+                        flag = false;
+                        wordCheckedUpdate(checked, img1, button2, wordNo);
+                      } else {
+                        checked = "N";
+                        flag = true;
+                        wordCheckedUpdate(checked, img1, button2, wordNo);
+                      }
+                    });
+
+                    addClose();
+                    // ---------코드블럭-------
+                    codeOutput.textContent = codeInput.value;
+                    hljs.highlightBlock(codeOutput);
+                  }
+                }
+              }
+            },
+
+            error: function () {
+              alert("단어조회 오류");
+            },
+          });
+        }
+      }
+      if (!haschecked) {
+        alert("체크된 단어가 없습니다.");
+        vocaCheckAjax(categoryNo);
+      }
+    },
+    error: function () {
+      console.log("체크오류");
+    },
+  });
+});
 
 // 미체크된 단어 정렬
-// const checkedMenu = document.querySelector(".checked-menu");
+const unCheckMenu = document.querySelector(".unCheck-menu");
+unCheckMenu.addEventListener("click", function () {
+  $.ajax({
+    url: "uncheckedSort",
+    data: { categoryNo: categoryNo },
+    type: "GET",
+    dataType: "JSON",
+    success: function (wordList) {
+      menuClose();
+      let unchecked = false; // 미체크한 단어가 있는지 확인하기 위한 변수
+
+      for (let i = 0; i < wordList.length; i++) {
+        if (wordList[i].checked == "N") {
+          unchecked = true; // 미체크한 단어가 있음을 표시
+
+          $.ajax({
+            url: "mainSelectWordAll",
+            type: "POST",
+            data: { categoryNo: categoryNo },
+            dataType: "JSON",
+            success: function (wordList) {
+              const contentMain = document.querySelector(".content-main-text");
+
+              contentMain.innerHTML = "";
+              if (wordList.categoryNo != 0) {
+                for (let i = 0; i < wordList.length; i++) {
+                  const wordNo = wordList[i].wordNo;
+                  const favoriteFlag = wordList[i].favorite;
+                  const checkedFlag = wordList[i].checked;
+
+                  if (checkedFlag == "N") {
+                    const div1 = document.createElement("div");
+                    div1.classList.add("content-main-add-line");
+
+                    const div2 = document.createElement("div");
+                    div2.classList.add("content-main-text-flex");
+                    const div3 = document.createElement("div");
+
+                    const button1 = document.createElement("button");
+                    const img1 = document.createElement("i");
+                    const button2 = document.createElement("button");
+                    button2.classList.add("openBtn");
+
+                    if (checkedFlag == "Y") {
+                      img1.classList.add("ic-check-cc");
+                      img1.style.color = "var(--gray200)";
+                      button2.style.textDecoration = "line-through";
+                      button2.style.color = "var(--gray200)";
+                    } else {
+                      img1.classList.add("ic-check-cc");
+                      img1.style.color = "var(--dark)";
+                      button2.style.textDecoration = "none";
+                      button2.style.color = "var(--dark)";
+                    }
+
+                    const div4 = document.createElement("div");
+                    const button3 = document.createElement("button");
+                    const img2 = document.createElement("img");
+
+                    if (favoriteFlag == "Y") {
+                      img2.setAttribute(
+                        "src",
+                        contextPath + "/resources/assets/icon/star-active.svg"
+                      );
+                    } else {
+                      img2.setAttribute(
+                        "src",
+                        contextPath + "/resources/assets/icon/star.svg"
+                      );
+                    }
+
+                    const button4 = document.createElement("button");
+                    const img3 = document.createElement("img");
+                    img3.setAttribute(
+                      "src",
+                      contextPath + "/resources/assets/icon/chevron.svg"
+                    );
+
+                    div2.append(div3, div4);
+                    div3.append(button1, button2);
+                    button1.append(img1);
+                    button2.append(wordList[i].wordTitle);
+
+                    div4.append(button3, button4);
+                    button3.append(img2);
+                    button4.append(img3);
+
+                    const span = document.createElement("span");
+                    span.style.display = "none";
+                    span.innerText = wordNo;
+
+                    document
+                      .querySelector(".content-main-text")
+                      .append(div2, div1, span);
+
+                    button2.addEventListener("click", function () {
+                      open();
+                      wordCheckAjax(wordNo, button2, categoryNo);
+                    });
+
+                    const open = () => {
+                      document
+                        .querySelector(".modal")
+                        .classList.remove("hidden");
+                    };
+
+                    document
+                      .querySelector(".openBtn")
+                      .addEventListener("click", open);
+
+                    let flag = true;
+                    let favorite = "N";
+
+                    button3.addEventListener("click", function () {
+                      if (flag) {
+                        favorite = "Y";
+
+                        flag = false;
+                        wordFavoriteUpdate(favorite, wordNo, img2);
+                      } else {
+                        favorite = "N";
+                        flag = true;
+                        wordFavoriteUpdate(favorite, wordNo, img2);
+                      }
+                    });
+
+                    button4.addEventListener("click", function () {
+                      open();
+                      wordCheckAjax(wordNo, button2, categoryNo);
+                    });
+
+                    // v 버튼 눌렀을때 초록색으로 변하고 옆에 글자 선 그어짐
+                    let checked = "N";
+                    button1.addEventListener("click", function () {
+                      if (flag) {
+                        checked = "Y";
+                        flag = false;
+                        wordCheckedUpdate(checked, img1, button2, wordNo);
+                      } else {
+                        checked = "N";
+                        flag = true;
+                        wordCheckedUpdate(checked, img1, button2, wordNo);
+                      }
+                    });
+
+                    addClose();
+                    // ---------코드블럭-------
+                    codeOutput.textContent = codeInput.value;
+                    hljs.highlightBlock(codeOutput);
+                  }
+                }
+              }
+            },
+
+            error: function () {
+              alert("단어조회 오류");
+            },
+          });
+        }
+      }
+      if (!unchecked) {
+        alert("미체크된 단어가 없습니다.");
+        vocaCheckAjax(categoryNo);
+      }
+    },
+    error: function () {
+      console.log("미체크 오류");
+    },
+  });
+});
 
 // 즐겨찾기 ajax
 function wordFavoriteUpdate(favorite, wordNo, img2) {
@@ -578,11 +1084,13 @@ function wordCheckedUpdate(checked, img1, button2, wordNo) {
     dataType: "JSON",
     success: function () {
       if (checked == "Y") {
-        img1.style.color = "#5bc236";
+        img1.style.color = "var(--gray200)";
         button2.style.textDecoration = "line-through";
+        button2.style.color = "var(--gray200)";
       } else {
-        img1.style.color = "black";
+        img1.style.color = "var(--dark)";
         button2.style.textDecoration = "none";
+        button2.style.color = "var(--dark)";
       }
     },
     error: function () {
@@ -601,10 +1109,36 @@ function wordCheckAjax(wordNo, button2, categoryNo) {
     type: "POST",
     dataType: "JSON",
     success: function (word) {
+      console.log(word.codeBlock);
+
       vocaReadTitle.value = word.wordTitle;
       vocaReadDefinition.value = word.wordDf;
-      vocaReadMemo.value = word.wordMemo;
-      vocaReadCode.value = word.codeBlock;
+      vocaReadMemo.value = word.wordMemo.replace(/\n/g, "<br>");
+      // vocaReadCode.innerText = word.codeBlock.replace(/\n/g, "<br>");
+      // const codeBlockText = word.codeBlock.replace(/\n/g, "<br>");
+      // const preCode = document.querySelector("code");
+      // preCode.innerHTML = "<code>" + codeBlockText + "</code>";
+
+      // vocaReadCode.innerHTML = codeBlockText;
+      // hljs.highlightAll();
+
+      const codeBlockText = word.codeBlock;
+      const pre = document.createElement("pre");
+      pre.innerHTML = "<code>" + codeBlockText + "</code>";
+
+      // 줄바꿈 문자를 <br> 태그로 대체하여 pre 요소에 추가
+      const codeBlockHtml = pre.innerHTML;
+      const codeBlockHtmlWithLineBreak = codeBlockHtml.replace(/\n/g, "<br>");
+      pre.innerHTML = codeBlockHtmlWithLineBreak;
+
+      // highlight.js 적용
+      hljs.highlightBlock(pre);
+
+      // pre 요소를 body에 추가
+      vocaReadCode.appendChild(pre);
+
+      vocaReadCode.value = pre.innerText;
+
       vocaModifyBtnAjax(wordNo, button2);
       vocaDeleteDoneAjax(wordNo, categoryNo);
     },

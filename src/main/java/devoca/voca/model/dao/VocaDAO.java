@@ -395,10 +395,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -441,10 +441,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -481,10 +481,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}

@@ -329,6 +329,7 @@ p {
     border: none;
     outline: none;
     background-color: transparent;
+    color: var(--dark);
 }
 
 .voca-content2 {
@@ -341,6 +342,8 @@ p {
 
 .voca-category2 > input {
     margin-top: 10px;
+
+    color: var(--dark);
     border: none;
     outline: none;
     font-size: 32px;
@@ -419,7 +422,7 @@ p {
 /* 코드블럭 */
 
 pre code.hljs {
-    /* width: 700px; */
+    width: 700px;
     overflow-y: auto;
     background-color: var(--gray50);
     max-height: 200px;
@@ -431,6 +434,9 @@ pre code.hljs {
 
 .voca-code-block-area {
     width: 100%;
+    max-height: 180px;
+
+    overflow: auto;
 
     display: flex;
 
@@ -562,7 +568,7 @@ textarea {
 /* FIXME: 정렬 등 메뉴 포지션 재설정 */
 .voca-menu-modalBox {
     width: 130px;
-    height: 150px;
+    height: 180px;
 
     position: absolute;
     top: 3px;
@@ -584,20 +590,30 @@ textarea {
 }
 
 .voca-menu-modalBox > div:nth-child(1) {
-    flex-basis: 34%;
+    flex-basis: 25%;
     padding: 14px;
+
+    color: var(--primary);
+
     border-bottom: 1px solid var(--gray100);
 }
 
 .voca-menu-modalBox > div:nth-child(1):hover {
     background-color: var(--gray200);
     cursor: pointer;
+
+    color: var(--white);
+
     border-radius: 15px 15px 0 0;
 }
 
 .voca-menu-modalBox > div:nth-child(2) {
-    flex-basis: 33%;
+    flex-basis: 25%;
     padding: 14px;
+
+    color: var(--dark);
+
+    border-bottom: 1px solid var(--gray100);
 }
 
 .voca-menu-modalBox > div:nth-child(2):hover {
@@ -606,12 +622,28 @@ textarea {
 }
 
 .voca-menu-modalBox > div:nth-child(3) {
-    flex-basis: 34%;
-    border-top: 1px solid var(--gray100);
+    flex-basis: 25%;
+
+    color: var(--dark);
+
     padding: 14px;
 }
 
 .voca-menu-modalBox > div:nth-child(3):hover {
+    background-color: var(--gray200);
+    cursor: pointer;
+}
+
+.voca-menu-modalBox > div:nth-child(4) {
+    flex-basis: 25%;
+
+    color: var(--dark);
+
+    border-top: 1px solid var(--gray100);
+    padding: 14px;
+}
+
+.voca-menu-modalBox > div:nth-child(4):hover {
     background-color: var(--gray200);
     cursor: pointer;
     border-radius: 0 0 15px 15px;
