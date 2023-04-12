@@ -89,9 +89,9 @@ pageEncoding="UTF-8" %>
 
           <div id="sns">
          
-           <a href="javascript:void(0)"> <button onclick="kakaoLogin()" id="kakao">
+           <button onclick="kakaoLogin()" id="kakao">
               <i class="ic-kakao"></i>카카오 계정으로 로그인
-            </button></a>
+            </button>
           
 
             <button  id="google" >

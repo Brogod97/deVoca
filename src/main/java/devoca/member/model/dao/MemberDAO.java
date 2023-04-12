@@ -83,6 +83,30 @@ public class MemberDAO {
 		
 		
 	}
+	
+	public int kakaoLogin(Connection conn, Member member) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("kakaoLogin");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberId());
+			pstmt.setString(2,member.getMemberPw());
+			pstmt.setString(3, member.getMemberNick());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+		
+	}
 		
 		
 	
@@ -114,6 +138,27 @@ public class MemberDAO {
 		
 		return result;
 		
+	}
+	
+	public int kakaoMember(Connection conn, Member member) throws Exception{
+int result = 0;
+		
+		try {
+			String sql = prop.getProperty("signUp");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberId());
+			pstmt.setString(2,member.getMemberPw());
+			pstmt.setString(3, member.getMemberNick());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 	
 	/** 아이디(이메일) 중복 검사 DAO
@@ -155,7 +200,7 @@ public class MemberDAO {
 	
 	
 	
-	// 
+	// 닉네임 유효성 검사 DAO 
 	public int nicknameDupCheck(Connection conn, String memberNick) throws Exception {
 		
 		int result = 0;
@@ -183,6 +228,30 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+// 임시 비밀번호 발급 DAO
+	public int temporaryPw(Connection conn, String inputEmail, String temporaryPw) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("temporaryPw");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1,temporaryPw);
+			pstmt.setString(2,inputEmail);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+
+
 
 
 

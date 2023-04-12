@@ -81,6 +81,7 @@ p {
 	font-size: 14px;
 	padding-left: 50px;
 	margin: 2px 0;
+	color: var(--dark);
 }
 
 /* 확인 버튼 */
