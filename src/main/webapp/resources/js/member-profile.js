@@ -132,7 +132,7 @@ updateImgCancleBtn.addEventListener("click", () => {
 
 /*******************************************************/
 // 비밀번호 유효성검사
-pwInput.addEventListener("keyup", () => {
+pwInput.addEventListener("input", () => {
   const pwReg = document.getElementById("pw-reg-text");
   const regEx =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
@@ -153,7 +153,7 @@ pwInput.addEventListener("keyup", () => {
 });
 
 // 비밀번호 확인 유효성검사
-pwcheckInput.addEventListener("keyup", () => {
+pwcheckInput.addEventListener("input", () => {
   const pwCheckReg = document.getElementById("pwcheck-reg-text");
 
   if (pwInput.value == pwcheckInput.value) {
@@ -171,14 +171,35 @@ pwcheckInput.addEventListener("keyup", () => {
 });
 
 // 닉네임 확인 유효성 검사
-nmInput.addEventListener("keyup", () => {
+nmInput.addEventListener("input", () => {
   //TODO: DB 중복 닉네임 확인
-  const regEx = /[가-힣|a-z|A-Z]{2,10}/;
+  const regEx = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,16}$/;
   const nmReg = document.getElementById("nm-reg-text");
   if (regEx.test(nmInput.value)) {
-    nmReg.innerText = "";
-    nmReg.classList.remove("wrong");
-    nmInput.style.borderColor = "var(--primary)";
+    // 닉네임 중복검사
+    
+    $.ajax({
+      url: "nicknameDupCheck",
+      data: { "nn" : nmInput.value },
+      type: "GET",
+
+      success: function (result) {
+		 console.log(result);
+        if (result == 0) {
+          nmReg.innerText = "";
+          nmReg.classList.remove("wrong");
+          nmInput.style.borderColor = "var(--primary)";
+        } else {
+          nmReg.innerText = "이미 사용중인 닉네임 입니다.";
+          nmReg.classList.add("wrong");
+          nmInput.style.borderColor = "var(--red)";
+        }
+      },
+
+      error: function () {
+        console.log("에러 발생");
+      },
+    });
   } else {
     nmReg.innerText = "사용불가능한 닉네임입니다.";
     nmReg.classList.add("wrong");
@@ -190,7 +211,7 @@ nmInput.addEventListener("keyup", () => {
 function infoValidate() {
   const regEx1 =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
-  const regEx2 = /[가-힣|a-z|A-Z]{2,10}/;
+  const regEx2 = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,16}$/;
   const pwreg = document.getElementById("pw-reg-text");
   const pwcheckreg = document.getElementById("pwcheck-reg-text");
   const nmreg = document.getElementById("nm-reg-text");
@@ -201,13 +222,12 @@ function infoValidate() {
     return false;
   }
 
-  // TODO: 작동안함
   if (pwInput.value != pwcheckInput.value) {
     pwcheckreg.innerText = "비밀번호가 일치하지 않습니다.";
     pwcheckInput.focus();
     return false;
   }
-  // TODO: 작동안함
+
   if (!regEx2.test(nmInput.value)) {
     nmreg.innerText = "사용불가능한 닉네임입니다.";
     nmInput.focus();
