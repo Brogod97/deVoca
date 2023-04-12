@@ -84,10 +84,11 @@ function setWordInfo(child) {
     const wordTitle = document.getElementById("voca-read-title");
     const definition = document.getElementById("voca-read-definition");
     const memo = document.getElementById("voca-read-memo");
-    const codeBlock = document.querySelector(".voca-code-block-area");
+    // const codeBlock = document.querySelector(".voca-code-block-area");
+    const codeTag = document.getElementById("read-code");
 
     wordTitle.value = child.wordTitle;
     definition.value = child.wordDf;
     memo.value = child.wordMemo;
-    codeBlock.innerHTML = child.codeBlock;
+    codeTag.innerHTML = child.codeBlock;
 }
