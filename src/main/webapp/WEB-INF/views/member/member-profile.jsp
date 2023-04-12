@@ -316,6 +316,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <%-- message 1회 출력 후 session에서 제거 --%>
       <c:remove var="message" scope="session" />
     </c:if>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/google-search.js"></script>
     <script src="${contextPath}/resources/js/member-profile.js"></script>
   </body>
