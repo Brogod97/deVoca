@@ -65,7 +65,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <h3>YOUR DEV STUDY!!</h3>
               </div>
             </div>
-            <a href="${contextPath}/voca/voca-main">
+            <a href="${contextPath}/member/login">
               <button class="sec1-container-btn"></button>
             </a>
           </div>
@@ -87,6 +87,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               />
             </div>
           </div>
+
+          <img
+            src="${contextPath}/resources/assets/images/mouse.png"
+            alt=""
+            id="mouseImg"
+          />
+          <img
+            src="${contextPath}/resources/assets/images/mouse2.png"
+            id="mouseImg2"
+          />
         </div>
       </section>
       <section class="section section-2">

@@ -1,17 +1,9 @@
-/* ************************************************************** */
-/* ************************* 전역 변수 ************************** */
-/* ************************************************************** */
-
-/* ************************************************************** */
-/* *************************** 이벤트 *************************** */
-/* ************************************************************** */
-
 // 로딩 페이지 함수 호출
 window.onload = function () {
     showLoadingPage();
 };
 
-// TODO: 카테고리 하나를 클릭 했을 때 발생하는 이벤트
+// 카테고리 하나를 클릭 했을 때 발생하는 이벤트
 const categoryList = document.querySelectorAll(
     ".container-main-content > button"
 );
@@ -30,22 +22,23 @@ clickOneForEach(categoryList, function () {
     this.children[0].setAttribute("checked", true);
     this.children[1].setAttribute("checked", true);
 
+    // 4. 시작하기 버튼 활성화
+    activeStartBtn();
+
     console.log(this.children[0]);
     console.log(this.children[1]);
-});
-
-// 시작하기 버튼에 클릭 이벤트 핸들러 등록
-const startBtn = document.querySelector(".container-main-btn");
-
-startBtn.addEventListener("click", function () {
-    if (btnActiveFlag == 0) {
-        alert("퀴즈를 시작할 카테고리를 선택해주세요 🐝"); // 경고 메시지 출력
-    }
 });
 
 /* ************************************************************** */
 /* **************************** 함수 **************************** */
 /* ************************************************************** */
+
+/** 카테고리 클릭 시 시작하기 버튼 활성화 */
+const startBtn = document.querySelector(".container-main-btn");
+
+function activeStartBtn() {
+    startBtn.disabled = false;
+}
 
 /** nodeList 저장 값에 forEach로 접근하여 클릭 이벤트를 수행하는 함수
  * @param {NodeListOf} nodeList (querySelectorAll 저장 변수)

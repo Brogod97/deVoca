@@ -187,7 +187,7 @@ input::-webkit-search-results-decoration {
 }
 
 .faq-login-signup > a:nth-child(3) {
-  padding:  0 16px 0 0;
+    padding: 0 16px 0 0;
 }
 
 .faq-login-signup > a:hover {
@@ -580,4 +580,32 @@ p {
     margin-top: 8px;
     font-size: 14px;
     color: var(--footer-color);
+}
+
+#mouseImg {
+    width: 40px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#mouseImg2 {
+    width: 30px;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: ani5 2s infinite;
+}
+@keyframes ani5 {
+    0% {
+        bottom: 25px;
+    }
+    50% {
+        bottom: 30px;
+    }
+    100% {
+        bottom: 25px;
+    }
 }

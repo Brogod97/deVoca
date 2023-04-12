@@ -395,10 +395,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -441,10 +441,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -481,10 +481,10 @@ public class VocaDAO {
 				String checked = rs.getString("CHECKED");
 				String favorite = rs.getString("FAVORITE");
 				String quizOx = rs.getString("QUIZ_OX");
-				String language = rs.getString("LANGUAGE");
+//				String language = rs.getString("LANGUAGE");
 				
 				Word word = new Word(wordNo, categoryNo, wordTitle, wordDf, wordMemo, codeBlock,
-					 createDate, checked, favorite, quizOx, language);
+					 createDate, checked, favorite, quizOx);
 				
 				wordList.add(word);
 			}
@@ -676,6 +676,45 @@ public class VocaDAO {
 		}
 		
 		return correctCount;
+	}
+
+	/** QUIZ_OX가 X인 단어 전체 조회 DAO
+	 * @param memberNo
+	 * @param categoryNo
+	 * @return wrongWordList
+	 * @throws Exception
+	 */
+	public List<Word> selectWrongWordAll(Connection conn, int categoryNo) throws Exception {
+		List<Word> wrongWordList =  new ArrayList<>(); 
+		
+		try {
+			String sql = prop.getProperty("selectWrongWordAll");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, categoryNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Word word = new Word();
+				
+				word.setWordNo(rs.getInt("WORD_NO"));
+				word.setWordTitle(rs.getString("WORD_TITLE"));
+				word.setWordDf(rs.getString("WORD_DF"));
+				word.setChecked(rs.getString("CHECKED"));
+				word.setFavorite(rs.getString("FAVORITE"));
+				word.setQuizOx(rs.getString("QUIZ_OX"));
+				
+				wrongWordList.add(word);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}		
+		
+		return wrongWordList;
 	}
 	
 }

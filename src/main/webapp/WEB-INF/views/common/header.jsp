@@ -4,17 +4,23 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
  <header>
    <!-- 로고 -->
-   <div>
-     <a href="${contextPath}/index.jsp">
-       <img src="${contextPath}/resources/assets/images/devoca-logo.png" />
-     </a>
-   </div>
+  <div>
+  <a href="<c:choose>
+                <c:when test="${not empty sessionScope.loginMember}">
+                    ${contextPath}/voca/voca-main
+                </c:when>
+                <c:otherwise>
+                    ${contextPath}/index.jsp
+                </c:otherwise>
+              </c:choose>">
+    <img src="${contextPath}/resources/assets/images/devoca-logo.png" />
+  </a>
+</div>
    <!-- 공백 -->
    <div></div>
    <!-- 헤더 우측 영역 -->
    <div>
      <!-- 구글-검색창 -->
-     <a href="${contextPath}/member/testLogin">test로그인</a>
      <div class="google-search">
        <fieldset>
          <img src="${contextPath}/resources/assets/images/google-logo.png" class="google-img" />
@@ -34,7 +40,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
          <img src="${contextPath}/resources/assets/icon/search.svg" class="google-search-img" />
        </button>
      </div>
-    <!-- FAQ / 로그인 / 회원가입 -->
+    <!-- HOME / EXPLORE / 로그인 / 회원가입 -->
     <c:if test="${not empty sessionScope.loginMember}">
         <div class="faq-login-signup">
     
@@ -42,7 +48,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </c:if>
     <c:if test="${empty sessionScope.loginMember}">
              <div class="faq-login-signup">
-        <a href="${contextPath}/voca/voca-main">HOME</a>
+        <a href="${contextPath}/index.jsp">HOME</a>
         <a href="${contextPath}/voca/explore">EXPLORE</a>
         <a href="${contextPath}/member/login">로그인</a>
         <a href="${contextPath}/static/terms.jsp">

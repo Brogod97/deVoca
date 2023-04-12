@@ -35,6 +35,22 @@ public class Word {
 	}
 
 
+	public Word(int wordNo, int categoryNo, String wordTitle, String wordDf, String wordMemo, String codeBlock,
+			String createDate, String checked, String favorite, String quizOx) {
+		super();
+		this.wordNo = wordNo;
+		this.categoryNo = categoryNo;
+		this.wordTitle = wordTitle;
+		this.wordDf = wordDf;
+		this.wordMemo = wordMemo;
+		this.codeBlock = codeBlock;
+		this.createDate = createDate;
+		this.checked = checked;
+		this.favorite = favorite;
+		this.quizOx = quizOx;
+	}
+
+
 	public Word(int wordNo, String wordTitle, String wordDf, String wordMemo, String codeBlock) {
 		super();
 		this.wordNo = wordNo;

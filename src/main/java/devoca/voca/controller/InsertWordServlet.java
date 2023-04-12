@@ -29,6 +29,8 @@ public class InsertWordServlet extends HttpServlet{
 		String wordMemo = req.getParameter("wordMemo");
 		String codeBlock = req.getParameter("codeBlock");
 		
+//		System.out.println("첫번째 :: " + codeBlock);
+		
 		Word word = new Word();
 		
 		word.setCategoryNo(categoryNo);
@@ -37,11 +39,17 @@ public class InsertWordServlet extends HttpServlet{
 		word.setWordMemo(wordMemo);
 		word.setCodeBlock(codeBlock);
 		
-		System.out.println(categoryNo);
-		System.out.println(wordTitle);
-		System.out.println(wordDf);
-		System.out.println(wordMemo);
-		System.out.println(codeBlock);
+//		word.setCodeBlock(word.getCodeBlock().replaceAll("<br>", "\n"));
+		
+//		System.out.println("두번째 :: " + word.getCodeBlock());
+		
+//		System.out.println(categoryNo);
+//		System.out.println(wordTitle);
+//		System.out.println(wordDf);
+//		System.out.println(wordMemo);
+//		System.out.println(codeBlock);
+		
+//		System.out.println("세번째 :: " + codeBlock);
 		try {
 			
 			int result = service.insertword(word);

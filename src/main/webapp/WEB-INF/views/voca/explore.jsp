@@ -84,6 +84,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             class="btn-primary-fill btn-long"
                             name="memberNo"
                             value="0"
+                            disabled
                         >
                             퀴즈 시작
                         </button>
@@ -196,7 +197,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     />
                     코드블럭
                 </div>
-                <div class="voca-code-block-area"></div>
+                <div class="voca-code-block-area">
+                    <pre><code id="read-code" class="language-java"></code></pre>
+                </div>
             </div>
         </div>
 

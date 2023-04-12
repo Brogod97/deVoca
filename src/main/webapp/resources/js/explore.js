@@ -88,6 +88,8 @@ clickOneForEach(memberList, function () {
     // 현재 회원의 카테고리 생성 Ajax 호출
     const memberNo = this.children[2].innerText.trim(); // 현재 회원의 MEMBER_NO
     currentMemberNo = memberNo;
+    // 퀴즈 시작 버튼 활성화
+    activeQuizBtn();
     selectCategoryAllAjax(memberNo);
 });
 
@@ -145,6 +147,8 @@ function searchUserAjax(inputUserName) {
                 // MEMBER_NO가 일치하는 카테고리 조회
                 const memberNo = this.children[2].innerText.trim();
                 currentMemberNo = memberNo;
+                // 퀴즈 버튼 활성화
+                activeQuizBtn();
                 selectCategoryAllAjax(memberNo);
             });
         },
@@ -440,10 +444,14 @@ function setWordInfo(child) {
     const wordTitle = document.getElementById("voca-read-title");
     const definition = document.getElementById("voca-read-definition");
     const memo = document.getElementById("voca-read-memo");
-    const codeBlock = document.querySelector(".voca-code-block-area");
+    const codeTag = document.getElementById("read-code");
 
     wordTitle.value = child.wordTitle;
     definition.value = child.wordDf;
     memo.value = child.wordMemo;
-    codeBlock.innerHTML = child.codeBlock;
+    codeTag.innerHTML = child.codeBlock;
+}
+
+function activeQuizBtn() {
+    quizBtn.disabled = false;
 }
