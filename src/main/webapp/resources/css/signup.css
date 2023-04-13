@@ -36,8 +36,10 @@ body {
 .input-group input {
   width: 90%;
   height: 45px;
+  color : var(--dark);
   border: 1.5px solid #f1f1f1;
   border-radius: 10px;
+  transition: all ease-in-out 0.15s;
   outline: none;
   background-color: #f1f1f1;
   font-family: "Pretendard-Regular";
@@ -139,15 +141,17 @@ p {
 
 /* 카카오 회원가입 */
 .ic-kakao {
-  margin-right: 10px;
+  margin-right: 24px;
+  font-size: 15px;
 }
 #kakao {
-  width: 45%;
+  width: 480px;
   height: 45px;
   border: none;
   border-radius: 10px;
 
   font-weight: bold;
+  font-size: 15px;
   color: var(--dark);
 
   background-color: #fee500;
@@ -162,38 +166,6 @@ p {
   background-color: #e5cf00;
 }
 
-/* 구글 회원가입 */
-
-#google {
-  width: 45%;
-  height: 45px;
-  border: 1px solid var(--gray500);
-  border-radius: 10px;
-  font-weight: bold;
-  color: #3d3d3d;
-  text-align: center;
-  background-color: white;
-  cursor: pointer;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-#google > img {
-  width: 16px;
-  height: 16px;
-}
-#google:hover {
-  background-color: #f3f3f3;
-}
-
-#google:active {
-  background-color: #eaeaea;
-}
-
-
-.wrong {
-  color: var(--red);
+#already-text {
+  padding-left: 0;
 }

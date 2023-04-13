@@ -59,12 +59,12 @@ public class MemberService {
 		return result;
 	}
 	
-/* 카카오 로그인 */	
+/* 카카오 회원가입 */	
 
-	public int kakaoLogin(Member member) throws Exception{
+	public int kakaoMember(Member member) throws Exception{
 		Connection conn = getConnection();
 		
-		int result = dao.kakaoLogin(conn, member);
+		int result = dao.kakaoMember(conn, member);
 		
 		if(result > 0)	commit(conn);  
 		else			rollback(conn);
