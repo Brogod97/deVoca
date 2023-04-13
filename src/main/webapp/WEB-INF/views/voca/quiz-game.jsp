@@ -33,7 +33,7 @@ pageEncoding="UTF-8" %>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-        <title>quiz-game.jsp</title>
+        <title>deVoca | 퀴즈를 즐겁게 풀어보세요</title>
     </head>
     <body>
         <main>

@@ -47,7 +47,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- 경고창 -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <title>단어 추가, 수정, 삭제, 조회</title>
+    <title>deVoca | 나만의 단어장을 만들어 보세요</title>
   </head>
   <body>
     <main>

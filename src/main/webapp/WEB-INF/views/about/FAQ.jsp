@@ -11,7 +11,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
     <link rel="stylesheet" href="${contextPath}/resources/css/common/template-1.css" />
     <link rel="stylesheet" href="${contextPath}/resources/css/FAQ.css" />
-    <title>FAQ</title>
+    <title>deVoca | 자주 묻는 질문들입니다</title>
   </head>
   <body>
     <body>
