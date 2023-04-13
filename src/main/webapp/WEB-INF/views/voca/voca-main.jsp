@@ -4,19 +4,23 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
-    <link
-      rel="stylesheet"
-      href="${contextPath}/resources/css/common/template-2.css"
-    />
-    <link
-      rel="stylesheet"
-      href="${contextPath}/resources/css/common/word-list.css"
-    />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="${contextPath}/resources/css/common/template-2.css"
+        />
+        <link
+            rel="stylesheet"
+            href="${contextPath}/resources/css/loading.css"
+        />
+        <link
+            rel="stylesheet"
+            href="${contextPath}/resources/css/common/word-list.css"
+        />
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
@@ -60,36 +64,52 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- nav바 -->
         <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
 
-        <!-- sidebar -->
-        <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
-      </section>
-    </main>
+        <!-- 로딩 -->
+        <aside class="wrap">
+            <div class="loading">
+                <div class="bounceball"></div>
+                <div class="text">NOW LOADING</div>
+            </div>
+        </aside>
 
-    <!-- FIXME: 여기부터 단어 리스트 시작 -->
-    <!-- 메인 콘텐츠 영역 -->
-    <section class="main-content-area">
-      <div class="word-list">
-        <div class="content-main">
-          <!-- 단어장 조회 헤더 -->
+        <!-- FIXME: 여기부터 단어 리스트 시작 -->
+        <!-- 메인 콘텐츠 영역 -->
+        <section class="main-content-area">
+            <div class="word-list">
+                <div class="content-main">
+                    <!-- 단어장 조회 헤더 -->
 
-          <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
-          <div>
-            <h2 id="categoryName"></h2>
-          </div>
-          <div class="content-main-imgs">
-            <!-- 즐겨찾기 및 순서정렬 메뉴-->
-            <button class="content-main-btn1">
-              <img
-                src="${contextPath}/resources/assets/icon/order.svg"
-                class="menu-openBtn"
-              />
-              <div class="voca-menu-modal menu-hidden">
-                <div class="voca-menu-bg"></div>
-                <div class="voca-menu-modalBox">
-                  <div class="all-menu">전체보기</div>
-                  <div class="favorite-menu">즐겨찾기</div>
-                  <div class="check-menu">체크된 단어</div>
-                  <div class="unCheck-menu">미체크된 단어</div>
+                    <!-- TODO: 선택된 카테고리명에 맞게 js에서 수정될 수 있도록 Title ID 값 부여하기 -->
+                    <div>
+                        <h2 id="categoryName"></h2>
+                    </div>
+                    <div class="content-main-imgs">
+                        <!-- 즐겨찾기 및 순서정렬 메뉴-->
+                        <button class="content-main-btn1">
+                            <img
+                                src="${contextPath}/resources/assets/icon/order.svg"
+                                class="menu-openBtn"
+                            />
+                            <div class="voca-menu-modal menu-hidden">
+                                <div class="voca-menu-bg"></div>
+                                <div class="voca-menu-modalBox">
+                                    <div class="all-menu">전체보기</div>
+                                    <div class="favorite-menu">즐겨찾기</div>
+                                    <div class="check-menu">체크된 단어</div>
+                                    <div class="unCheck-menu">
+                                        미체크된 단어
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
+                        </button>
+                        <!-- 새 단어 추가 버튼 -->
+                        <button class="content-main-btn2 addOpenBtn">
+                            <img
+                                src="${contextPath}/resources/assets/icon/plus.svg"
+                            />
+                        </button>
+                    </div>
                 </div>
               </div>
               <!-- 즐겨찾기 및 순서정렬 메뉴끝 -->
