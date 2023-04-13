@@ -175,6 +175,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 type="button"
                 class="btn-primary-fill"
                 id="info-change-btn"
+                onclick="editActive('${loginMember.snsFlag}')"
               >
                 편집
               </button>
