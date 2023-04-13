@@ -18,7 +18,7 @@ function hideLoadingPage() {
     // 로딩 페이지를 화면에서 숨깁니다.
     document.querySelector(".wrap").style.display = "none";
     document.querySelector(".container").style.display = "flex";
-    document.querySelector(".main-content-area").style.display = "flex";
+    document.querySelector(".main-content-area").style.display = "block";
 }
 
 const categoryBtn = document.getElementById("category-btn");
