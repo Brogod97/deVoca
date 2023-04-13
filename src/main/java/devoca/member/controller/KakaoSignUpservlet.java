@@ -1,7 +1,6 @@
 package devoca.member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +12,15 @@ import javax.servlet.http.HttpSession;
 import devoca.member.model.service.MemberService;
 import devoca.member.model.vo.Member;
 
-@WebServlet("/member/kakaoLogin")
-public class KakaoLoginServlet extends HttpServlet{
+@WebServlet("/member/kakaoSignUp")
+public class KakaoSignUpservlet extends HttpServlet{
 	
 	@Override
 	   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	      
-	      String path = "/WEB-INF/views/member/log-in.jsp";
+	      String path = "/WEB-INF/views/member/signup.jsp";
 	      req.getRequestDispatcher(path).forward(req, resp);
 	   }
-
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,12 +32,15 @@ public class KakaoLoginServlet extends HttpServlet{
         String memberNick = req.getParameter("memberNick");
         String memberImg = req.getParameter("memberImg");
         
-      //이름이 "홍길동" 식으로 넘어오기 때문에 "으로 짤라줌
+        
+        
+        //이름이 "홍길동" 식으로 넘어오기 때문에 "으로 짤라줌
         memberEmail = memberEmail.replaceAll("\"","");
         memberNick = memberNick.replaceAll("\"","");
         memberImg = memberImg.replaceAll("\"","");
        
-       
+        
+
         
         Member member = new Member();
         
@@ -50,43 +51,31 @@ public class KakaoLoginServlet extends HttpServlet{
         
         System.out.println(memberEmail);
         System.out.println(memberNick);
-        System.out.println(memberImg);
-        
+       
 
         try {
         
         	MemberService service = new MemberService();
 			
         	
-        	Member loginMember = service.login(member);
+        	int result = service.kakaoMember(member);
         	
-        	System.out.println("로그인멤버 member :" + member);
-        	System.out.println("로그인멤버 :" + loginMember);
-        	
-			
+        
 			
 			
 			String path = null;
-			resp.setContentType("text/html; charset=UTF-8");
-	          PrintWriter out = resp.getWriter();
-
 			
 			HttpSession session = req.getSession();
 			
-			if(loginMember != null ) { // 성공
+			if(result > 0) { // 성공
+				session.setAttribute("message", "회원가입 성공");
+				path = req.getContextPath() +  "/member/login";
 				
-				// 회원 정보 Session 세팅
-				session.setAttribute("loginMember", loginMember);
+			}else { // 실패
+				session.setAttribute("message", "회원 가입 실패");
+				path = "signUp";
 				
-				// 특정 시간동안 요청이 없으면 세션 만료
-				session.setMaxInactiveInterval(3600);   // 1시간
-			
-				path = req.getContextPath() + "/voca/voca-main";
-				
-				} else {
-					session.setAttribute("message", "실패");
-
-	            }
+			}
 			
 			resp.sendRedirect(path);
 			
