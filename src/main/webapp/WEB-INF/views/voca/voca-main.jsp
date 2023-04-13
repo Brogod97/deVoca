@@ -13,6 +13,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       rel="stylesheet"
       href="${contextPath}/resources/css/common/template-2.css"
     />
+    <link rel="stylesheet" href="${contextPath}/resources/css/loading.css" />
     <link
       rel="stylesheet"
       href="${contextPath}/resources/css/common/word-list.css"
@@ -64,6 +65,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
       </section>
     </main>
+
+    <!-- 로딩 -->
+    <aside class="wrap">
+      <div class="loading">
+        <div class="bounceball"></div>
+        <div class="text">NOW LOADING</div>
+      </div>
+    </aside>
 
     <!-- FIXME: 여기부터 단어 리스트 시작 -->
     <!-- 메인 콘텐츠 영역 -->
