@@ -106,22 +106,22 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <div class="slide">
             <img
               src="${contextPath}/resources/assets/images/randingImg/randing1.jpg"
-              width="800px"
-              height="500px"
+              width="850px"
+              height="550px"
             />
           </div>
           <div class="slide">
             <img
               src="${contextPath}/resources/assets/images/randingImg/randing2.jpg"
-              width="800px"
-              height="500px"
+              width="850px"
+              height="550px"
             />
           </div>
           <div class="slide">
             <img
               src="${contextPath}/resources/assets/images/randingImg/randing3.jpg"
-              width="800px"
-              height="500px"
+              width="850px"
+              height="550px"
             />
           </div>
         </div>
@@ -178,10 +178,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 </p>
               </div>
             </div>
-            <div>
+
+            <div id="beePosition">
               <a href="${contextPath}/static/terms.jsp">
                 <button class="sec3-center-btn">회원가입</button>
               </a>
+              <img
+                src="${contextPath}/resources/assets/images/Bee.png"
+                id="singUpBee"
+              />
             </div>
           </div>
           <div></div>

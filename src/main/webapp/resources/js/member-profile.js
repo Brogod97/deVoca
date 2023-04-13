@@ -35,19 +35,23 @@ const updateImgModal = document.querySelector(".update-img-modal"); // 프로필
 
 // 편집 활성화
 
-infoChangeBtn.addEventListener("click", (e) => {
-  pwInput.removeAttribute("disabled");
-  pwcheckInput.removeAttribute("disabled");
-  nmInput.removeAttribute("disabled");
-  pwInput.value = null;
-  pwcheckInput.value = null;
-  pwInput.focus();
-
-  e.target.style.display = "none";
+function editActive(snsFlag) {
+  if (snsFlag == "N") {
+    pwInput.removeAttribute("disabled");
+    pwcheckInput.removeAttribute("disabled");
+    nmInput.removeAttribute("disabled");
+    pwInput.value = null;
+    pwcheckInput.value = null;
+    pwInput.focus();
+  } else {
+    nmInput.removeAttribute("disabled");
+    nmInput.focus();
+  }
+  infoChangeBtn.style.display = "none";
   secessionBtn.style.display = "inline";
   updateCancle.style.display = "inline";
   submitBtn.style.display = "inline";
-});
+}
 
 // 편집 취소버튼 클릭 시
 
@@ -177,14 +181,14 @@ nmInput.addEventListener("input", () => {
   const nmReg = document.getElementById("nm-reg-text");
   if (regEx.test(nmInput.value)) {
     // 닉네임 중복검사
-    
+
     $.ajax({
       url: "nicknameDupCheck",
-      data: { "nn" : nmInput.value },
+      data: { nn: nmInput.value },
       type: "GET",
 
       success: function (result) {
-		 console.log(result);
+        console.log(result);
         if (result == 0) {
           nmReg.innerText = "";
           nmReg.classList.remove("wrong");

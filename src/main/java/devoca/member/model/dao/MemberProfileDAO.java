@@ -56,6 +56,7 @@ public class MemberProfileDAO {
 				loginMember.setMemberPw(rs.getString(2));
 				loginMember.setMemberNick(rs.getString(3));
 				loginMember.setProfileImage(rs.getString(4));
+				loginMember.setSnsFlag(rs.getString(5));
 				
 			}
 			
