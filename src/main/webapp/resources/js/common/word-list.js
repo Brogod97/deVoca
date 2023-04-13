@@ -169,7 +169,12 @@ function inputEnter(categoryInput) {
           success: function (result) {
             // 카테고리 추가에 성공하면 알림을 띄운다.
             if (result > 0) {
-              alert("새 카테고리가 추가되었습니다.");
+              swal({
+                title: "완료",
+                text: "새카테고리가 추가되었습니다!",
+                icon: "success",
+                button: "확인",
+              });
 
               window.location.reload();
               // 카테고리 목록에서 각 항목을 클릭할 때마다
@@ -187,12 +192,22 @@ function inputEnter(categoryInput) {
               }
             } else {
               // 카테고리 추가에 실패하면 알림을 띄웁니다.
-              alert("카테고리 추가에 실패하였습니다.");
+              swal({
+                title: "실패",
+                text: "카테고리 추가에 실패하였습니다!",
+                icon: "error",
+                button: "확인",
+              });
             }
           },
           error: function () {
             // 서버 오류가 발생하면 알림을 띄웁니다.
-            alert("서버 오류가 발생하였습니다.");
+            swal({
+              title: "실패",
+              text: "서버 오류가 발생하였습니다.!",
+              icon: "error",
+              button: "확인",
+            });
           },
         });
 
@@ -262,11 +277,13 @@ document.querySelector(".addOpenBtn").addEventListener("click", function () {
   vocaCodeBlock.value = "";
   let textarea = document.getElementById("voca-code-block");
 
+  // 다음줄부터 커서 깜빡임
   textarea.addEventListener("focus", function () {
     textarea.value = "\n"; // 텍스트 영역에 새로운 줄을 추가합니다.
     textarea.setSelectionRange(1, 1); // 커서 위치를 다음 줄의 첫 번째 문자로 이동합니다.
   });
 
+  // 탭키 가능
   textarea.addEventListener("keydown", function (e) {
     if (e.key === "Tab") {
       e.preventDefault(); // 기본 동작을 취소합니다.
@@ -362,13 +379,39 @@ vocaSave.addEventListener("click", function () {
     dataType: "JSON",
 
     success: function () {
-      alert("저장되었습니다");
-      addClose();
-      vocaCheckAjax(categoryNo);
-      codeOutput.textContent = codeInput.value;
+      if (vocaInput.value == "") {
+        swal({
+          title: "중요",
+          text: "메소드명을 입력해주세요!",
+          icon: "warning",
+          button: "확인",
+        });
+      } else if (vocadefinition.value == "") {
+        swal({
+          title: "중요",
+          text: "메모를 입력해주세요!",
+          icon: "warning",
+          button: "확인",
+        });
+      } else {
+        swal({
+          title: "저장",
+          text: "완료되었습니다!",
+          icon: "success",
+          button: "확인",
+        });
+        addClose();
+        vocaCheckAjax(categoryNo);
+        codeOutput.textContent = codeInput.value;
+      }
     },
     error: function () {
-      alert("저장오류발생");
+      swal({
+        title: "중요",
+        text: "메소드명을 입력해주세요!",
+        icon: "warning",
+        button: "확인",
+      });
     },
   });
 });
@@ -501,12 +544,17 @@ function vocaCheckAjax(categoryNo) {
           addClose();
         }
       } else {
-        alert("단어가 없습니다");
+        swal({
+          title: "조회 실패",
+          text: "단어가 없습니다!",
+          icon: "error",
+          button: "확인",
+        });
       }
     },
 
     error: function () {
-      alert("단어조회 오류");
+      console.log("단어조회 오류");
     },
   });
 }
@@ -670,7 +718,12 @@ favoriteMenu.addEventListener("click", function () {
                   }
                 }
               } else {
-                alert("단어가 없습니다");
+                swal({
+                  title: "조회 실패",
+                  text: "단어가 없습니다!",
+                  icon: "error",
+                  button: "확인",
+                });
               }
             },
 
@@ -681,7 +734,12 @@ favoriteMenu.addEventListener("click", function () {
         }
       }
       if (!hasFavorites) {
-        alert("즐겨찾기한 단어가 없습니다.");
+        swal({
+          title: "조회 실패",
+          text: "즐겨찾기한 단어가 없습니다!",
+          icon: "warning",
+          button: "확인",
+        });
         vocaCheckAjax(categoryNo);
       }
     },
@@ -853,7 +911,12 @@ checkMenu.addEventListener("click", function () {
         }
       }
       if (!haschecked) {
-        alert("체크된 단어가 없습니다.");
+        swal({
+          title: "조회 실패",
+          text: "체크한 단어가 없습니다!",
+          icon: "warning",
+          button: "확인",
+        });
         vocaCheckAjax(categoryNo);
       }
     },
@@ -1025,7 +1088,12 @@ unCheckMenu.addEventListener("click", function () {
         }
       }
       if (!unchecked) {
-        alert("미체크된 단어가 없습니다.");
+        swal({
+          title: "조회 실패",
+          text: "미체크된 단어가 없습니다!",
+          icon: "warning",
+          button: "확인",
+        });
         vocaCheckAjax(categoryNo);
       }
     },
