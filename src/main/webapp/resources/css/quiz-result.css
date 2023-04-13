@@ -4,6 +4,17 @@
     margin-left: var(--nav-width);
 }
 
+.main-content-area::-webkit-scrollbar {
+    width: 8px;
+}
+.main-content-area::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.main-content-area::-webkit-scrollbar-thumb {
+    background-color: var(--gray250);
+    border-radius: 30px;
+}
+
 .quiz-result-container {
     display: flex;
     flex-direction: column;
