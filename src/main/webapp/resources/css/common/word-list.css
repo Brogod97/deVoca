@@ -667,3 +667,18 @@ textarea {
 .menu-hidden {
   display: none;
 }
+
+/* 경고창 css */
+.swal-button {
+  background-color: var(--primary);
+  outline: none;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: var(--secondary);
+  transition: all ease-in-out 0.15s;
+}
+
+.swal-button:focus {
+  box-shadow: none;
+}
