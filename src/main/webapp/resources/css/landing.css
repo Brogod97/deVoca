@@ -609,3 +609,13 @@ p {
     bottom: 25px;
   }
 }
+#beePosition {
+  position: relative;
+}
+#singUpBee {
+  position: absolute;
+  bottom: -125px;
+  left: 52%;
+  transform: translate(-50%, 0);
+  width: 25px;
+}
