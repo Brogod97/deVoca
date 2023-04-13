@@ -107,16 +107,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="or">OR</div>
 
             <div id="sns">
-              <button onclick="kakaoLogin();" id="kakao">
+              <button onclick="kakaoSignUp()" id="kakao">
                 <i class="ic-kakao"></i>카카오 계정으로 가입
               </button>
 
-              <button id="google">
-                <img
-                  src="${contextPath}/resources/assets/images/google-logo.png"
-                />
-                &emsp;구글 계정으로 가입
-              </button>
+             
             </div>
           
         </div>

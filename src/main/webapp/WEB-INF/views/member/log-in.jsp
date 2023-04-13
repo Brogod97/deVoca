@@ -67,7 +67,7 @@ pageEncoding="UTF-8" %>
         		
         		<div id="remember-searchPw">
             <label>
-              <input type="checkbox" id="saveId" name="saveId" ${chk} />  <label for="saveId"></label>자동로그인
+              <input type="checkbox" id="saveId" name="saveId" ${chk} />  <label for="saveId"></label>아이디 저장
             
             </label>
 		
@@ -88,22 +88,19 @@ pageEncoding="UTF-8" %>
         		<div class="or">OR</div>
 
           <div id="sns">
-         
+         	
            <button onclick="kakaoLogin()" id="kakao">
               <i class="ic-kakao"></i>카카오 계정으로 로그인
             </button>
           
+         
 
-            <button  id="google" >
-              <img
-                src="${contextPath}/resources/assets/images/google-logo.png"
-              />구글 계정으로 로그인
-            </button>
+           
           </div>
 
           <div id="non-member">
             아직 회원이 아니신가요?
-            <a href="${contextPath}/member/signUp" id="join"> 회원가입</a>
+            <a href="${contextPath}/static/terms.jsp" id="join"> 회원가입</a>
           </div>
         		</div>
         		
@@ -131,9 +128,8 @@ pageEncoding="UTF-8" %>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 	
-    
+     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="${contextPath}/resources/js/memberLogin.js"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="${contextPath}/resources/js/sns-login.js"></script>
     <script src="${contextPath}/resources/js/google-search.js"></script>
    

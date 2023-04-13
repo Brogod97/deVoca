@@ -27,7 +27,7 @@ import java.util.Base64;
 import devoca.member.model.service.MemberService;
 
 @WebServlet("/member/resetPw")
-public class MemberPasswordReset extends HttpServlet{
+public class PasswordResetServlet extends HttpServlet{
 	
 	private String getSha512(String pw) {
 		// 매개변수 pw : 암호화 되기 전 비밀번호
