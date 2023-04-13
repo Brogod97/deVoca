@@ -85,7 +85,7 @@ sendBtn.addEventListener("click", function () {
       },
     });
 
-    console.log(checkObj.sendEamil);
+    console.log(checkObj.sendEmail);
 
     if ((checkObj.sendEmail = true)) {
       alert("인증번호가 발송되었습니다. 이메일을 확인해주세요.");
