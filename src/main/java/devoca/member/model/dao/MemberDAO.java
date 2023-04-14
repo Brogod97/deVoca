@@ -152,7 +152,6 @@ public class MemberDAO {
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getMemberPw());
 			pstmt.setString(3, member.getMemberNick());
-			pstmt.setString(4, member.getProfileImage());
 			
 			result = pstmt.executeUpdate();
 			

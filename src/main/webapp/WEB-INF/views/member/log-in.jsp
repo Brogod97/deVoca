@@ -92,11 +92,9 @@ pageEncoding="UTF-8" %>
            <button onclick="kakaoLogin()" id="kakao">
               <i class="ic-kakao"></i>카카오 계정으로 로그인
             </button>
-          
-         
-
            
           </div>
+
 
           <div id="non-member">
             아직 회원이 아니신가요?
@@ -129,8 +127,8 @@ pageEncoding="UTF-8" %>
 
 	
      <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+      <script src="${contextPath}/resources/js/sns-login.js"></script>
     <script src="${contextPath}/resources/js/memberLogin.js"></script>
-    <script src="${contextPath}/resources/js/sns-login.js"></script>
     <script src="${contextPath}/resources/js/google-search.js"></script>
    
   </body>

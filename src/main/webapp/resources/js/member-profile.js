@@ -4,8 +4,8 @@
   const pwInput = document.querySelector("#pw-input");
   const pwcheckInput = document.querySelector("#pwcheck-input");
 
-  pwInput.value = "123456789";
-  pwcheckInput.value = "123456789";
+  pwInput.value = "deVoca123!";
+  pwcheckInput.value = "deVoca123!";
 })();
 
 //--------------------------------------------------------------

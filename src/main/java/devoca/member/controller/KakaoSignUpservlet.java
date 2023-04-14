@@ -30,14 +30,12 @@ public class KakaoSignUpservlet extends HttpServlet{
         
 		String memberEmail = req.getParameter("memberEmail");
         String memberNick = req.getParameter("memberNick");
-        String memberImg = req.getParameter("memberImg");
         
         
         
         //이름이 "홍길동" 식으로 넘어오기 때문에 "으로 짤라줌
         memberEmail = memberEmail.replaceAll("\"","");
         memberNick = memberNick.replaceAll("\"","");
-        memberImg = memberImg.replaceAll("\"","");
        
         
 
@@ -46,8 +44,7 @@ public class KakaoSignUpservlet extends HttpServlet{
         
         member.setMemberId(memberEmail);
         member.setMemberNick(memberNick);
-        member.setMemberPw("z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXcg/SpIdNs6c5H0NE8XYXysP+DGNKHfuwvY7kxvUdBeoGlODJ6+SfaPg==");
-        member.setProfileImage(memberImg);
+        member.setMemberPw("WTnoR2ccoUDdDzXv4SZDyVDkFmA2RZE6MM0ybA7PwNYpD4uuXjUEmu+8ys69diU5j5VBQ3aCYi5M88+aRg0iAw==");
         
         System.out.println(memberEmail);
         System.out.println(memberNick);
@@ -68,11 +65,11 @@ public class KakaoSignUpservlet extends HttpServlet{
 			HttpSession session = req.getSession();
 			
 			if(result > 0) { // 성공
-				session.setAttribute("message", "회원가입 성공");
+				session.setAttribute("message", "deVoca에 오신걸 환영합니다");
 				path = req.getContextPath() +  "/member/login";
 				
 			}else { // 실패
-				session.setAttribute("message", "회원 가입 실패");
+				session.setAttribute("message", "회원가입을 다시 시도 해 주세요");
 				path = "signUp";
 				
 			}

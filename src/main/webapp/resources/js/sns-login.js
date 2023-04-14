@@ -3,7 +3,6 @@ console.log(Kakao.isInitialized());
 
 var memberEmail;
 var memberNick;
-var memberImg;
 
 //카카오로그인
 function kakaoLogin() {
@@ -16,15 +15,11 @@ function kakaoLogin() {
 
                     memberEmail = JSON.stringify(response.kakao_account.email);
                     memberNick = JSON.stringify(response.properties.nickname);
-                    memberImg = JSON.stringify(
-                        response.properties.profile_image
-                    );
 
                     console.log("memberEmail", memberEmail);
                     console.log("memberNick", memberNick);
-                    console.log("memberImg", memberImg);
 
-                    process(memberEmail, memberNick, memberImg);
+                    process(memberEmail, memberNick);
 
                     //접속된 회원의 토큰값 출력됨
                     //alert(JSON.stringify(authObj));
@@ -36,26 +31,27 @@ function kakaoLogin() {
         },
     });
 
-    function process(memberEmail, memberNick, memberImg) {
+    function process(memberEmail, memberNick ) {
         $.ajax({
             url: "kakaoLogin",
             data: {
-                memberEmail: memberEmail,
-                memberNick: memberNick,
-                memberImg: memberImg,
+                "memberEmail": memberEmail,
+                "memberNick": memberNick,
             },
             type: "post",
             //dataType:"JSON",
-            success: function (data) {
+            success: function (memberNo) {
                 //성공적으로 하고나면 이동할 url
 
-                console.log("data", data);
                 console.log("aJax", memberEmail);
                 console.log("aJax", memberNick);
-                console.log("aJax", memberImg);
 
-                alert("성공");
-                location.href = "login";
+                if(memberNo != 0) {
+					location.href = '../voca/voca-main';
+				} else {
+					location.href= '${contextPath}/member/signUp';
+				}
+                
             },
 
             error: function (error, status) {
@@ -77,15 +73,11 @@ function kakaoSignUp() {
 
                     memberEmail = JSON.stringify(response.kakao_account.email);
                     memberNick = JSON.stringify(response.properties.nickname);
-                    memberImg = JSON.stringify(
-                        response.properties.profile_image
-                    );
 
                     console.log("memberEmail", memberEmail);
                     console.log("memberNick", memberNick);
-                    console.log("memberImg", memberImg);
 
-                    process(memberEmail, memberNick, memberImg);
+                    process(memberEmail, memberNick);
 
                     //접속된 회원의 토큰값 출력됨
                     //alert(JSON.stringify(authObj));
@@ -97,13 +89,12 @@ function kakaoSignUp() {
         },
     });
 
-    function process(memberEmail, memberNick, memberImg) {
+    function process(memberEmail, memberNick) {
         $.ajax({
             url: "kakaoSignUp",
             data: {
                 memberEmail: memberEmail,
                 memberNick: memberNick,
-                memberImg: memberImg,
             },
             type: "post",
             //dataType:"JSON",
@@ -113,9 +104,8 @@ function kakaoSignUp() {
                 console.log("data", data);
                 console.log("aJax", memberEmail);
                 console.log("aJax", memberNick);
-                console.log("aJax", memberImg);
 
-                alert("성공");
+                alert("deVoca에 오신걸 환영합니다");
                 location.href = "login";
             },
 
