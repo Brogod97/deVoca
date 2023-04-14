@@ -22,7 +22,7 @@
 <!-- 카카오 회원가입 -->
 <entry key="kakaoLogin">
 		INSERT INTO MEMBER
-		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , 'Y', DEFAULT, DEFAULT, ?)
+		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , 'Y', DEFAULT, DEFAULT,DEFAULT)
 	</entry>
 
 
@@ -38,6 +38,7 @@
 		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_NM = ?
 		AND SECESSION_FL = 'N'
+		AND SNS_FL = 'N'
 	</entry>
 	
 	<!-- 임시 비밀번호 수정 -->
