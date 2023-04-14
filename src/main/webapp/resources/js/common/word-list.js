@@ -1290,7 +1290,7 @@ function vocaModifyBtnAjax(wordNo, button2) {
         url: "updateWord",
         data: {
           wordNo: wordNo,
-          wordTitle: button2.innerText,
+          wordTitle: vocaInput.value,
           wordDf: vocadefinition.value,
           wordMemo: vocaMemo.value,
           codeBlock: highlighted,
@@ -1300,7 +1300,7 @@ function vocaModifyBtnAjax(wordNo, button2) {
         success: function () {
           modifyBtn.style.display = "none";
 
-          //button2.innerText = vocaInput.value;
+          button2.innerText = vocaInput.value;
           addClose();
           vocaCheckAjax(categoryNo);
           codeOutput.textContent = codeInput.value;
