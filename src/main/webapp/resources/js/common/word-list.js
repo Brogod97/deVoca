@@ -1,26 +1,3 @@
-// 로딩 페이지 함수 호출
-window.onload = function () {
-    showLoadingPage();
-};
-/** 로딩페이지 호출 함수 */
-function showLoadingPage() {
-    // 로딩 페이지를 화면에 보여줍니다.
-    document.querySelector(".wrap").style.display = "block";
-    document.querySelector(".container").style.display = "none";
-    document.querySelector(".main-content-area").style.display = "none";
-
-    // 3초 후 종료
-    setTimeout(hideLoadingPage, 2000);
-}
-
-/** 로딩페이지 종료 함수 */
-function hideLoadingPage() {
-    // 로딩 페이지를 화면에서 숨깁니다.
-    document.querySelector(".wrap").style.display = "none";
-    document.querySelector(".container").style.display = "flex";
-    document.querySelector(".main-content-area").style.display = "block";
-}
-
 const categoryBtn = document.getElementById("category-btn");
 const categoryAdd = document.querySelector(".category-add");
 const categoryEdit = document.querySelector(".category-edit");
@@ -77,6 +54,7 @@ categoryAdd.addEventListener("click", function () {
 
     const categoryInput = document.createElement("input");
     categoryInput.setAttribute("name", "categoryTitle");
+
     $(function () {
         categoryInput.focus();
     });
@@ -100,8 +78,6 @@ categoryAdd.addEventListener("click", function () {
     closeCategoryMenu();
 
     inputEnter(categoryInput);
-
-    inputEdit(categoryInput);
 });
 
 // 카테고리 메뉴 - 편집 버튼 클릭 시 동작
@@ -109,6 +85,17 @@ categoryEdit.addEventListener("click", function () {
     closeCategoryMenu(); // 카테고리 메뉴 닫기
     showDeleteBtn(); // X (삭제) 버튼 표시
     inputDelete();
+
+    // 외부영역 클릭시 엑스버튼 사라짐
+    document.addEventListener("mouseup", function (e) {
+        const xBtn = document.querySelectorAll(".category-list button");
+
+        for (let i = 0; i < xBtn.length; i++) {
+            if (!xBtn[i].contains(e.target)) {
+                xBtn[i].classList.add("invisible");
+            }
+        }
+    });
 });
 
 // 카테고리 메뉴 외부 영역 클릭 시 닫기
@@ -226,52 +213,77 @@ function inputEnter(categoryInput) {
                 event.preventDefault();
             }
         }
-
-        if (this.addEventListener == "blur") {
-            console.log(gd);
+    });
+    categoryInput.addEventListener("blur", function () {
+        // 다른 곳을 클릭했을 때의 이벤트 핸들러 코드
+        if (this.value === "") {
+            this.parentNode.remove();
         }
     });
 }
 
-// 편집시 카테고리 제목 바꿀수 있게 하는 이벤트
-function inputEdit(categoryInput) {
-    categoryEdit.addEventListener("click", function () {
-        categoryInput.removeAttribute("readonly");
-        categoryInput.focus();
-    });
-}
-
 const categoryList = document.querySelectorAll(".voca-category-li");
+const categoryDeleteBtn = document.querySelectorAll(".category-delete");
 
 // 카테고리 삭제 구현 함수
 function inputDelete() {
-    for (let i = 0; i < categoryList.length; i++) {
-        categoryList[i].addEventListener("click", function () {
-            const categoryNo = this.lastElementChild.innerText.trim();
+    function handleDeleteButtonClick(event) {
+        event.stopPropagation();
 
-            console.log(this.childNodes[3]);
+        const categoryNo = this.nextElementSibling.innerText.trim();
+        console.log(categoryNo);
 
-            // 삭제 버튼 클릭 시 AJAX 요청 전송
-            this.childNodes[3].addEventListener("click", function () {
-                $.ajax({
-                    url: "deleteCategory",
-                    type: "POST",
-                    dataType: "JSON",
-                    data: { categoryNo: categoryNo },
-                    success: function () {
-                        categoryList[i].remove();
-                        const nextCategory = categoryList[i].nextElementSibling;
-                        if (nextCategory) {
-                            nextCategory.innerHTML = "";
-                        }
-                    },
-                    error: function () {
-                        console.log("카테고리 삭제 실패 오류");
-                    },
+        $.ajax({
+            url: "deleteCategory",
+            type: "POST",
+            dataType: "JSON",
+            data: { categoryNo: categoryNo },
+            success: function () {
+                const listItem = event.target.closest(".voca-category-li");
+                listItem.remove();
+
+                // 다음 카테고리의 단어 목록 초기화
+                const nextCategory = listItem.nextElementSibling;
+                if (nextCategory) {
+                    nextCategory.querySelector(".word-list").innerHTML = "";
+                }
+
+                // 하나를 지우면 다른 것들은 x표시가 사라짐
+                const btnAll = document.querySelectorAll(".category-delete");
+                btnAll.forEach((btn) => {
+                    btn.classList.add("invisible");
                 });
-            });
+
+                const wordList = document.querySelector(".word-list");
+                wordList.style.display = "none";
+            },
+            error: function () {
+                console.log("카테고리 삭제 실패 오류");
+            },
         });
     }
+
+    categoryList.forEach((category) => {
+        category.addEventListener("click", (event) => {
+            if (event.target.closest(".category-delete")) {
+                handleDeleteButtonClick.call(
+                    event.target.closest(".category-delete"),
+                    event
+                );
+            } else {
+                const wordList = category.querySelector(".word-list");
+                const isVisible = wordList.style.display === "block";
+
+                categoryList.forEach((category) => {
+                    category.querySelector(".word-list").style.display = "none";
+                });
+
+                if (!isVisible) {
+                    wordList.style.display = "block";
+                }
+            }
+        });
+    });
 }
 
 // -----------------------------------------------------------------------------
@@ -279,6 +291,8 @@ function inputDelete() {
 // 추가 모달창
 const addOpen = () => {
     document.querySelector(".addModal").classList.remove("hidden");
+    vocaSave.style.display = "block";
+    modifyBtn.style.display = "none";
 };
 
 const addClose = () => {
@@ -287,6 +301,7 @@ const addClose = () => {
 
 document.querySelector(".addOpenBtn").addEventListener("click", function () {
     addOpen();
+
     vocaInput.value = "";
     vocadefinition.value = "";
     vocaMemo.value = "";
@@ -317,11 +332,11 @@ document.querySelector(".addBg").addEventListener("click", addClose);
 
 // 메뉴 모달창
 const menuOpen = () => {
-    document.querySelector(".voca-menu-modal").classList.remove("menu-hidden");
+    document.querySelector(".voca-menu-modal").classList.remove("invisible");
 };
 
 const menuClose = () => {
-    document.querySelector(".voca-menu-modal").classList.add("menu-hidden");
+    document.querySelector(".voca-menu-modal").classList.add("invisible");
 };
 
 document.querySelector(".menu-openBtn").addEventListener("click", menuOpen);
@@ -384,34 +399,34 @@ vocaSave.addEventListener("click", function () {
     let highlighted = $("#voca-code-block").val();
     highlighted = hljs.highlightAuto(highlighted).value;
 
-    $.ajax({
-        url: "insertWord",
-        type: "POST",
-        data: {
-            categoryNo: categoryNo,
-            wordTitle: vocaInput.value,
-            wordDf: vocadefinition.value,
-            wordMemo: vocaMemo.value,
-            codeBlock: highlighted,
-        },
-        dataType: "JSON",
+    if (vocaInput.value == "") {
+        swal({
+            title: "중요",
+            text: "메소드명을 입력해주세요!",
+            icon: "warning",
+            button: "확인",
+        });
+    } else if (vocadefinition.value == "") {
+        swal({
+            title: "중요",
+            text: "메모를 입력해주세요!",
+            icon: "warning",
+            button: "확인",
+        });
+    } else {
+        $.ajax({
+            url: "insertWord",
+            type: "POST",
+            data: {
+                categoryNo: categoryNo,
+                wordTitle: vocaInput.value,
+                wordDf: vocadefinition.value,
+                wordMemo: vocaMemo.value,
+                codeBlock: highlighted,
+            },
+            dataType: "JSON",
 
-        success: function () {
-            if (vocaInput.value == "") {
-                swal({
-                    title: "중요",
-                    text: "메소드명을 입력해주세요!",
-                    icon: "warning",
-                    button: "확인",
-                });
-            } else if (vocadefinition.value == "") {
-                swal({
-                    title: "중요",
-                    text: "메모를 입력해주세요!",
-                    icon: "warning",
-                    button: "확인",
-                });
-            } else {
+            success: function () {
                 swal({
                     title: "저장",
                     text: "완료되었습니다!",
@@ -420,18 +435,19 @@ vocaSave.addEventListener("click", function () {
                 });
                 addClose();
                 vocaCheckAjax(categoryNo);
+                // vocaSave.style.display = "none";
                 codeOutput.textContent = codeInput.value;
-            }
-        },
-        error: function () {
-            swal({
-                title: "중요",
-                text: "메소드명을 입력해주세요!",
-                icon: "warning",
-                button: "확인",
-            });
-        },
-    });
+            },
+            error: function () {
+                swal({
+                    title: "중요",
+                    text: "메소드명을 입력해주세요!",
+                    icon: "warning",
+                    button: "확인",
+                });
+            },
+        });
+    }
 });
 
 // 단어 조회 ajax
@@ -1364,6 +1380,8 @@ function wordCheckedUpdate(checked, img1, button2, wordNo) {
     });
 }
 
+const vocaCodeBlockArea = document.querySelector(".voca-code-block-area");
+
 // 선택한 단어가 조회되는 ajax
 function wordCheckAjax(wordNo, button2, categoryNo) {
     $.ajax({
@@ -1374,16 +1392,23 @@ function wordCheckAjax(wordNo, button2, categoryNo) {
         type: "POST",
         dataType: "JSON",
         success: function (word) {
-            console.log(word.codeBlock);
-
             vocaReadTitle.value = word.wordTitle;
             vocaReadDefinition.value = word.wordDf;
-            // vocaReadMemo.value = word.wordMemo.replace(/\n/g, "<br>");
-            const wordMemoval = word.wordMemo ? word.wordMemo : "";
-            vocaReadMemo.value = wordMemoval;
-            // vocaReadMemo.value = word.wordMemo;
 
-            readCode.innerHTML = word.codeBlock ? word.codeBlock : "";
+            if (word.wordMemo == "undefined") {
+                word.wordMemo = "";
+                vocaReadMemo.value = word.wordMemo;
+            } else {
+                vocaReadMemo.value = word.wordMemo;
+            }
+
+            if (word.codeBlock == "undefined") {
+                word.codeBlock = "";
+
+                readCode.innerHTML = word.codeBlock;
+            } else {
+                readCode.innerHTML = word.codeBlock;
+            }
 
             const codeBlockText = word.codeBlock;
             const pre = document.createElement("pre");
@@ -1400,6 +1425,14 @@ function wordCheckAjax(wordNo, button2, categoryNo) {
             // highlight.js 적용
             hljs.highlightBlock(pre);
 
+            // // readCode 영역에 코드 블록 삽입
+            // readCode.innerHTML = word.codeBlock ? word.codeBlock : "";
+            // hljs.highlightBlock(readCode);
+
+            // // textarea에 코드 블록 삽입
+            // readCode.textContent = word.codeBlock;
+            // enableCodeBlockEditing();
+
             vocaModifyBtnAjax(wordNo, button2);
             vocaDeleteDoneAjax(wordNo, categoryNo);
         },
@@ -1411,44 +1444,104 @@ function wordCheckAjax(wordNo, button2, categoryNo) {
 
 // 단어 수정
 
+// vocaModify.addEventListener("click", function () {
+//   vocaReadTitle.focus();
+//   vocaReadTitle.removeAttribute("readonly");
+//   vocaReadDefinition.removeAttribute("readonly");
+//   vocaReadMemo.removeAttribute("readonly");
+//   modifyBtn.style.display = "block";
+// });
+
 vocaModify.addEventListener("click", function () {
-    vocaReadTitle.focus();
-    vocaReadTitle.removeAttribute("readonly");
-    vocaReadDefinition.removeAttribute("readonly");
-    vocaReadMemo.removeAttribute("readonly");
+    vocaInput.value = vocaReadTitle.value;
+    vocadefinition.value = vocaReadDefinition.value;
+    vocaMemo.value = vocaReadMemo.value;
+    vocaCodeBlock.value = readCode.innerText;
+    addOpen();
+    close();
+    vocaSave.style.display = "none";
     modifyBtn.style.display = "block";
 });
 
 // 단어수정 완료
+// function vocaModifyBtnAjax(wordNo, button2) {
+//   modifyBtn.addEventListener("click", function () {
+//     $.ajax({
+//       url: "updateWord",
+//       data: {
+//         wordNo: wordNo,
+//         wordTitle: vocaReadTitle.value,
+//         wordDf: vocaReadDefinition.value,
+//         wordMemo: vocaMemo.value,
+//         codeBlock: vocaCodeBlock.value,
+//       },
+//       type: "POST",
+//       dataType: "JSON",
+//       success: function () {
+//         vocaReadTitle.setAttribute("readonly", "true");
+//         vocaReadDefinition.setAttribute("readonly", "true");
+//         vocaReadMemo.setAttribute("readonly", "true");
+//         modifyBtn.style.display = "none";
+
+//         button2.innerText = vocaReadTitle.value;
+//         close();
+//       },
+//       error: function () {
+//         console.log("수정실패오류");
+//       },
+//     });
+//   });
+// }
+
 function vocaModifyBtnAjax(wordNo, button2) {
+    const $wordElement = $(`#word-${wordNo}`);
+    const wordTitle = $wordElement.find("input[name='voca-title']").text();
+    const wordDf = $wordElement.find("input[name='voca-definition']").text();
+    const wordMemo = $wordElement.find("#voca-memo").text();
+
     modifyBtn.addEventListener("click", function () {
-        // const contentMain = document.querySelector(".content-main-text");
-        // const wordNo = contentMain.lastElementChild.innerText.trim();
+        let highlighted = $("#voca-code-block").val();
+        highlighted = hljs.highlightAuto(highlighted).value;
 
-        $.ajax({
-            url: "updateWord",
-            data: {
-                wordNo: wordNo,
-                wordTitle: vocaReadTitle.value,
-                wordDf: vocaReadDefinition.value,
-                wordMemo: vocaMemo.value,
-                codeBlock: vocaCodeBlock.value,
-            },
-            type: "POST",
-            dataType: "JSON",
-            success: function () {
-                vocaReadTitle.setAttribute("readonly", "true");
-                vocaReadDefinition.setAttribute("readonly", "true");
-                vocaReadMemo.setAttribute("readonly", "true");
-                modifyBtn.style.display = "none";
+        if (vocaInput.value == "") {
+            swal({
+                title: "중요",
+                text: "메소드명을 입력해주세요!",
+                icon: "warning",
+                button: "확인",
+            });
+        } else if (vocadefinition.value == "") {
+            swal({
+                title: "중요",
+                text: "메모를 입력해주세요!",
+                icon: "warning",
+                button: "확인",
+            });
+        } else {
+            $.ajax({
+                url: "updateWord",
+                data: {
+                    wordNo: wordNo,
+                    wordTitle: vocaInput.value,
+                    wordDf: vocadefinition.value,
+                    wordMemo: vocaMemo.value,
+                    codeBlock: highlighted,
+                },
+                type: "POST",
+                dataType: "JSON",
+                success: function () {
+                    modifyBtn.style.display = "none";
 
-                button2.innerText = vocaReadTitle.value;
-                close();
-            },
-            error: function () {
-                console.log("수정실패오류");
-            },
-        });
+                    button2.innerText = vocaInput.value;
+                    addClose();
+                    vocaCheckAjax(categoryNo);
+                    codeOutput.textContent = codeInput.value;
+                },
+                error: function () {
+                    console.log("수정실패오류");
+                },
+            });
+        }
     });
 }
 

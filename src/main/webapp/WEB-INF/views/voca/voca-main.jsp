@@ -69,14 +69,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </section>
         </main>
 
-        <!-- 로딩 -->
-        <aside class="wrap">
-            <div class="loading">
-                <div class="bounceball"></div>
-                <div class="text">NOW LOADING</div>
-            </div>
-        </aside>
-
         <!-- FIXME: 여기부터 단어 리스트 시작 -->
         <!-- 메인 콘텐츠 영역 -->
         <section class="main-content-area">
@@ -95,7 +87,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                 src="${contextPath}/resources/assets/icon/order.svg"
                                 class="menu-openBtn"
                             />
-                            <div class="voca-menu-modal menu-hidden">
+                            <div class="voca-menu-modal invisible">
                                 <div class="voca-menu-bg"></div>
                                 <div class="voca-menu-modalBox">
                                     <div class="all-menu">전체보기</div>
@@ -201,7 +193,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         </div>
 
                         <div>
-                            <button class="modify-btn">수정완료</button>
+                            <!-- <button class="modify-btn">수정완료</button> -->
                         </div>
                     </div>
                 </div>
@@ -261,10 +253,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             코드블럭
                         </div>
                         <div class="voca-code-block-area">
-                            <textarea
-                                name="voca-code-block"
-                                id="voca-code-block"
-                            ></textarea>
                             <select
                                 onchange="changeLanguage()"
                                 id="voca-code-select"
@@ -275,6 +263,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                 <option value="c">C</option>
                                 <option value="Python">Python</option>
                             </select>
+                            <textarea
+                                name="voca-code-block"
+                                id="voca-code-block"
+                            ></textarea>
                         </div>
                         <div class="voca-modal-btn">
                             <button
@@ -290,6 +282,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             >
                                 저장
                             </button>
+                            <button class="modify-btn">수정완료</button>
                         </div>
                         <!-- </form> -->
                     </div>
