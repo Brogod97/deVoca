@@ -19,7 +19,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       href="${contextPath}/resources/css/password-reset.css"
     />
 
-    <title>deVoca | 비밀번호를 잊으셨나요?</title>
+    <title>deVoca - 비밀번호 찾기</title>
   </head>
   <body>
     <body>
