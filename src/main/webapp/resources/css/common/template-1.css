@@ -140,7 +140,7 @@ input::-webkit-search-results-decoration {
 .faq-login-signup > a {
     font-size: 16px;
     font-weight: 600;
-    color: var(--black);
+    color: var(--dark);
 
     text-decoration: none;
 }
