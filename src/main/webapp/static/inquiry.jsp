@@ -23,7 +23,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
       <section class="main-content-area">
         <div id="blank"></div>
-        <form class="subform" method="POST" deta-email="nastrikelike@gmail.com" onsubmit="return checkAll()"
+        <form class="subform" id = "subform" method="POST" deta-email="nastrikelike@gmail.com" 
         action="https://script.google.com/macros/s/AKfycbx6CiuyImAdQCP78uLCsCXBzYlHlKmuDAByE7Il7NJxKvJdYFg8U_I0t2xE2AJeHZGS/exec" target="frAttachFiles">
         <div class="menu">
           <div class="texttitle"><span id = "quetitle">문의하기</span></div>
@@ -107,46 +107,59 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </body>
   </body>
   
-  <script>
-  function changeBtnName()  {
-	    var btnElement = document.getElementById('btn');
-	  
-	    var uname = document.getElementById("name");
-	    var email_id = document.getElementById("email");
-	    var select = document.getElementById("selc");
-	    var textarea = document.getElementById("textarea");
-	  
-
-	  
-	    if (uname.value == "") {
-	      alert("이름을 입력하세요.");
-	      uname.focus();
-	      return false;
-	    };
-	  
-	    if (email_id.value == "") {
-	      alert("이메일 주소를 입력하세요.");
-	      email_id.focus();
-	      return false;
-	    }
-	  
-	    if (select.value == "") {
-	      alert("건의사항을 입력하세요.");
-	      select.focus();
-	      return false;
-	    }
-
-	    if (textarea.value == "") {
-	      alert("메시지를 입력하세요.");
-	      textarea.focus();
-	      return false;
-	    }
-	    
-	    btnElement.innerHTML = "완료";
+<script>
+document.querySelector('form').addEventListener('submit', function(event) {
 
 
-	    document.subform.submit(); //유효성 검사의 포인트   
+	  // 이름, 이메일, 건의사항, 메시지 내용을 입력했는지 확인
+	  var uname = document.getElementById("name");
+	  var email_id = document.getElementById("email");
+	  var select = document.getElementById("selc");
+	  var textarea = document.getElementById("textarea");
+
+	  if (uname.value == "") {
+	    alert("이름을 입력하세요.");
+	    uname.focus();
+	    return false;
+	  };
+
+	  if (email_id.value == "") {
+	    alert("이메일 주소를 입력하세요.");
+	    email_id.focus();
+	    return false;
 	  }
-	  
+
+	  if (select.value == "") {
+	    alert("건의사항을 입력하세요.");
+	    select.focus();
+	    return false;
+	  }
+
+	  if (textarea.value == "") {
+	    alert("메시지를 입력하세요.");
+	    textarea.focus();
+	    return false;
+	  }
+
+	  // 제출 버튼을 "완료"로 변경
+	  var btnElement = document.getElementById('btn');
+	  btnElement.innerHTML = "완료";
+
+	  // 데이터 전송
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'nastrikelike@gmail.com');
+	  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	  xhr.onload = function() {
+	    // 입력한 데이터 초기화 및 전송 완료 메시지 출력
+	    document.getElementById("name").value = "";
+	    document.getElementById("email").value = "";
+	    document.getElementById("selc").value = "";
+	    document.getElementById("textarea").value = "";
+	    alert("전송이 완료되었습니다!");
+	    // 문의하기 버튼을 다시 "문의하기"로 변경
+	    btnElement.innerHTML = "문의하기";
+	  };
+	  xhr.send(new FormData(document.querySelector('form')));
+	});
 </script>
 </html>
