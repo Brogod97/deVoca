@@ -489,7 +489,7 @@ pre code.hljs {
 
   border-radius: 20px;
 
-  padding: 15px 15px 15px 15px;
+  padding: 0 15px 15px 15px;
 
   background-color: var(--gray50);
 }
