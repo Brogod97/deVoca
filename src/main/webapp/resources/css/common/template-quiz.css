@@ -226,7 +226,7 @@ input::-webkit-search-results-decoration {
 }
 
 .nav-bar > section:nth-child(2) {
-  flex-basis: 10%;
+  flex-basis: 26%;
 
   display: flex;
   flex-direction: column;

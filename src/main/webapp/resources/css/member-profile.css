@@ -258,6 +258,7 @@
   color: var(--dark);
   cursor: pointer;
   display: none;
+  margin: 5px 10px 0 0;
 }
 
 #secession-btn:hover {

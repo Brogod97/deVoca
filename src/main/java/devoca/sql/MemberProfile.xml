@@ -5,7 +5,7 @@
 
 <!-- 내정보 조회 -->
 <entry key="selectOne">
-	SELECT MEMBER_ID , MEMBER_PW ,MEMBER_NM ,USER_IMG 
+	SELECT MEMBER_ID , MEMBER_PW ,MEMBER_NM ,USER_IMG , SNS_FL
 	FROM MEMBER
 	WHERE MEMBER_NO = ?
 </entry>

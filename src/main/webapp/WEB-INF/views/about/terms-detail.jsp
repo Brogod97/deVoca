@@ -12,7 +12,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <link rel="stylesheet" href="${contextPath}/resources/css/common/template-1.css" />
     <link rel="stylesheet" href="${contextPath}/resources/css//term-detail.css" />
 
-    <title>이용약관(dtalil)</title>
+    <title>deVoca | deVoca의 이용약관을 확인해주세요</title>
   </head>
   <body>
     

@@ -6,6 +6,19 @@ p {
   line-height: 2em;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* 헤더를 가장 앞에 표시 */
+}
+
+body {
+  padding-top: 40px; /* 헤더 높이만큼 padding-top 설정 */
+
+}
+
 /*이용약관 제목 설정*/
 .term {
   font-size: 3em;
@@ -15,7 +28,7 @@ p {
   text-decoration-color: #f9be28;
 
   width: 100%;
-  padding-top: 2%;
+
   margin-bottom: 0px;
 }
 
