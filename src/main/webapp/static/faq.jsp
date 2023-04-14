@@ -58,7 +58,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span> 왜 devoca인가요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        개발자의 developer의 de와 단어를 뜻하는 voca의 합성어로 개발자 단어라는 뜻입니다.
+                        개발자의 developer의 dev와 단어를 뜻하는 voca의 합성어로 개발자 단어장이라는 뜻을 담았습니다.
                         </div>
                   
                       
@@ -68,10 +68,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>어떻게 퀴즈를 시작하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                       로그인을 하고 그 다음 사이드바의   <img
+                       로그인 후 좌측 패널의  <img
                 src="${contextPath}/resources/assets/icon/quiz.svg"
                 alt style="height: 20px;"
-              />연필모양을 클릭하시면 나오는 퀴즈 창에서 원하는 항목을 선택하시고 퀴즈를 시작할 수 있습니다.
+              />연필모양을 클릭하면 나오는 선택 페이지에서 원하는 카테고리를 선택하여 퀴즈를 시작할 수 있습니다.
                       </div>
                   
                     </div>
@@ -80,29 +80,19 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>어떻게 단어를 추가하나요?</span></div>
                     <div class="faq-box__answer">
                       <div>
-                        같은 화면에서 사이드바의  <img
+                        로그인 후 좌측 패널의  <img
                 src="${contextPath}/resources/assets/icon/word.svg"
                 alt style="height: 20px;"
-              />노트모양을 클릭하시면 단어를 추가하실 수 있습니다.
+              />노트 모양 아이콘을 클릭하시면 단어를 추가하실 수 있습니다.
                       </div>
                   </li>
-                  <li>
-                    <div class="faq-box__question"><span>어떻게 단어를 공유하나요?</span></div>
-                    <div class="faq-box__answer">
-                      <div>
-                        같은 화면에서 사이드바의  <img
-                src="${contextPath}/resources/assets/icon/shared.svg"
-                alt style="height: 20px;"
-              />모양을 클릭하시면 유저 목록이 나타납니다. 유저 목록을 확인하고 클릭하면 단어를 공유할 수 있습니다.
-                      </div>
-                     
-                    </div>
-                  </li>
+                  
                     <li>
                     <div class="faq-box__question"><span>그 외 궁금한게 있으면 어떻게 하나요?</span></div>
                     <div class="faq-box__answer">
                      <div>
-                    하단에 있는 Contact 버튼을 누르면 문의 할 수 있습니다.
+                     화면 최하단 영역에 있는 Contact를 눌러 저희에게 불편사항을 보내주시면 <br>
+                     최대한 빠른 시일내에 답변 드리겠습니다 !
                      </div>
 
                     </div>
@@ -123,7 +113,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="faq-box__question"><span>회원 탈퇴 방법은 어떻게 하나요?</span></div>
                     <div class="faq-box__answer">
                      <div>
-                    회원 정보 수정을 클릭하신 다음 오른쪽 하단의 회원 탈퇴 버튼을 누르면 탈퇴 할 수 있습니다.
+                    회원 정보 화면에 진입 후 오른쪽 하단의 회원 탈퇴 버튼을 누르면 탈퇴 할 수 있습니다.
                      </div>
 
                     </div>
