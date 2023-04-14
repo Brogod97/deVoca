@@ -19,10 +19,10 @@
 		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , DEFAULT, DEFAULT, DEFAULT, DEFAULT)
 	</entry>
 	
-<!-- 카카오 로그인/회원가입 -->
+<!-- 카카오 회원가입 -->
 <entry key="kakaoLogin">
 		INSERT INTO MEMBER
-		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , 'Y', DEFAULT, DEFAULT, DEFAULT)
+		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , 'Y', DEFAULT, DEFAULT, ?)
 	</entry>
 
 

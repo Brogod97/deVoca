@@ -48,7 +48,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- 경고창 -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <title>단어 추가, 수정, 삭제, 조회</title>
+    <title>deVoca | 나만의 단어장을 만들어 보세요</title>
+
   </head>
   <body>
     <main>
@@ -84,7 +85,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 src="${contextPath}/resources/assets/icon/order.svg"
                 class="menu-openBtn"
               />
+
               <div class="voca-menu-modal invisible">
+
                 <div class="voca-menu-bg"></div>
                 <div class="voca-menu-modalBox">
                   <div class="all-menu">전체보기</div>
@@ -170,7 +173,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </div>
 
             <div>
+
               <!-- <button class="modify-btn">수정완료</button> -->
+
             </div>
           </div>
         </div>
@@ -193,6 +198,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 name="voca-title"
                 required
               />
+
             </div>
 
             <div class="voca-category4">

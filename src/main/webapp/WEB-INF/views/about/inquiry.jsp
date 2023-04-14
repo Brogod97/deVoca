@@ -12,7 +12,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <link rel="stylesheet" href="${contextPath}/resources/css/common/template-1.css" />
     <link rel="stylesheet" href="${contextPath}/resources/css/inquiry.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>문의하기</title>
+    <title>deVoca | 무엇이든 문의해주세요</title>
   </head>
   <body>
     <body>

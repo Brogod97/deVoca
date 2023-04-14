@@ -84,7 +84,7 @@ public class MemberDAO {
 		
 	}
 	
-	public int kakaoLogin(Connection conn, Member member) throws Exception {
+	/*public int kakaoLogin(Connection conn, Member member) throws Exception {
 		
 		int result = 0;
 		
@@ -106,7 +106,7 @@ public class MemberDAO {
 		return result;
 		
 		
-	}
+	}*/
 		
 		
 	
@@ -140,17 +140,19 @@ public class MemberDAO {
 		
 	}
 	
+	/* 카카오 회원가입*/
 	public int kakaoMember(Connection conn, Member member) throws Exception{
-int result = 0;
+		int result = 0;
 		
 		try {
-			String sql = prop.getProperty("signUp");
+			String sql = prop.getProperty("kakaoLogin");
 			
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, member.getMemberId());
-			pstmt.setString(2,member.getMemberPw());
+			pstmt.setString(2, member.getMemberPw());
 			pstmt.setString(3, member.getMemberNick());
+			pstmt.setString(4, member.getProfileImage());
 			
 			result = pstmt.executeUpdate();
 			

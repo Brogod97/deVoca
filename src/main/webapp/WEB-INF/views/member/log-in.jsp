@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-
+pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -9,8 +8,11 @@ pageEncoding="UTF-8" %>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name ="google-signin-client_id" content="199670657184-jg1kr1cpr3f27694ct42g7hdb355ofqd.apps.googleusercontent.com">
-	
+    <meta
+      name="google-signin-client_id"
+      content="199670657184-jg1kr1cpr3f27694ct42g7hdb355ofqd.apps.googleusercontent.com"
+    />
+
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
     <link
       rel="stylesheet"
@@ -18,7 +20,7 @@ pageEncoding="UTF-8" %>
     />
     <link rel="stylesheet" href="${contextPath}/resources/css/log-in.css" />
 
-    <title>deVoca - 로그인</title>
+    <title>deVoca | 로그인을 해주세요</title>
   </head>
   <body>
     <main>
@@ -27,7 +29,7 @@ pageEncoding="UTF-8" %>
     <!-- 바디 -->
     <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
     <section class="main-content-area">
-    
+
         	<c:choose>
         	
         	<%-- 로그인이 되어있지 않은 경우 --%>
@@ -67,7 +69,7 @@ pageEncoding="UTF-8" %>
         		
         		<div id="remember-searchPw">
             <label>
-              <input type="checkbox" id="saveId" name="saveId" ${chk} />  <label for="saveId"></label>자동로그인
+              <input type="checkbox" id="saveId" name="saveId" ${chk} />  <label for="saveId"></label>아이디 저장
             
             </label>
 		
@@ -88,30 +90,23 @@ pageEncoding="UTF-8" %>
         		<div class="or">OR</div>
 
           <div id="sns">
-         
+         	
            <button onclick="kakaoLogin()" id="kakao">
               <i class="ic-kakao"></i>카카오 계정으로 로그인
             </button>
           
+         
 
-            <button  id="google" >
-              <img
-                src="${contextPath}/resources/assets/images/google-logo.png"
-              />구글 계정으로 로그인
-            </button>
+           
           </div>
 
           <div id="non-member">
             아직 회원이 아니신가요?
-            <a href="${contextPath}/member/signUp" id="join"> 회원가입</a>
+            <a href="${contextPath}/static/terms.jsp" id="join"> 회원가입</a>
+
           </div>
-        		</div>
-        		
-        		</c:when>
-        
-        	</c:choose>
-    
-     
+        </c:when>
+      </c:choose>
     </section>
     <c:if test="${ !empty sessionScope.message }">
       <script>
@@ -127,15 +122,11 @@ pageEncoding="UTF-8" %>
 
     <!-- 푸터 -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
 	
-    
+     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
     <script src="${contextPath}/resources/js/memberLogin.js"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="${contextPath}/resources/js/sns-login.js"></script>
     <script src="${contextPath}/resources/js/google-search.js"></script>
-   
   </body>
 </html>

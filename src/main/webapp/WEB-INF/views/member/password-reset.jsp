@@ -19,7 +19,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       href="${contextPath}/resources/css/password-reset.css"
     />
 
-    <title>deVoca - 비밀번호 찾기</title>
+    <title>deVoca | 비밀번호를 잊으셨나요?</title>
   </head>
   <body>
     <body>
@@ -35,6 +35,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <div class="reset-text">
             <p>비밀번호를 잊으셨나요?</p>
             <p>임시 비밀번호를 받을 이메일을 입력해주세요.</p>
+            <p>로그인 후 사용하실 비밀번호로 변경 해 주세요</p>
           </div>
           <form onsubmit="return signUpValidate()">
             <p>이메일 입력 *</p>

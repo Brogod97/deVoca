@@ -7,6 +7,7 @@
 		SELECT CATEGORY_NO, MEMBER_NO, CATEGORY_TITLE
 		FROM CATEGORY
 		WHERE MEMBER_NO = ?
+		ORDER BY CATEGORY_NO
 	</entry>
 	
 	<entry key="selectMemberAll">
