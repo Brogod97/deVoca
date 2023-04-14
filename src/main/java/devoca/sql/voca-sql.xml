@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>voca-sql.xml</comment>
+
+	<entry key ="selectCategoryAll">
+		SELECT CATEGORY_NO, MEMBER_NO, CATEGORY_TITLE
+		FROM CATEGORY
+		WHERE MEMBER_NO = ?
+		ORDER BY CATEGORY_NO
+	</entry>
+	
+	<entry key="selectMemberAll">
+		SELECT MEMBER_NO, MEMBER_NM, USER_IMG
+		FROM MEMBER
+		WHERE SECESSION_FL = 'N'
+	</entry>
+	
+	<entry key="selectWordAll">
+		SELECT WORD_NO, WORD_TITLE, WORD_DF, CHECKED, FAVORITE, QUIZ_OX
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND CATEGORY_NO = ?
+		ORDER BY CREATE_DATE
+	</entry>
+	
+	<!-- 단어 상세조회  -->
+	<entry key ="selectWordOne">
+		SELECT WORD_TITLE , WORD_DF ,WORD_MEMO , CODE_BLOCK 
+		FROM WORD 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<entry key ="searchUser">
+		SELECT MEMBER_NO, MEMBER_NM, USER_IMG
+		FROM MEMBER
+		WHERE MEMBER_NM LIKE ?
+	</entry>
+
+	<!-- 카테고리 추가 -->
+	<entry key="insertCategory">
+		INSERT INTO CATEGORY 
+		VALUES (CATEGORY_NO_SEQ.NEXTVAL, ?, ?)
+	</entry>
+	
+	
+	
+	<!-- 단어 추가 -->
+	<entry key="insertWord">
+		INSERT INTO WORD 
+		VALUES(WORD_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, DEFAULT, DEFAULT, DEFAULT)
+	</entry>
+	
+	<!-- 단어 업데이트 -->
+	<entry key="updateWord">
+		UPDATE WORD SET
+		WORD_TITLE = ?,
+		WORD_DF = ?,
+		WORD_MEMO = ?,
+		CODE_BLOCK = ?
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 단어삭제 -->
+	<entry key="deleteWord">
+		DELETE FROM WORD 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 카테고리 삭제 -->
+	<entry key="deleteCategory">
+		DELETE FROM CATEGORY
+		WHERE CATEGORY_NO = ?
+	</entry>
+	
+	<!-- 즐겨찾기한 단어 조회 -->
+	<entry key="selectWordFavorite">
+		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
+		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND CATEGORY_NO = ?
+		AND FAVORITE = 'Y'
+	</entry>
+	
+	<!-- 체크한 단어 조회 -->
+	<entry key="selectWordChecked">
+		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
+		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND CATEGORY_NO = ?
+		AND CHECKED = 'Y'
+	</entry>
+	
+	<!-- 체크안한 단어 조회 -->
+	<entry key="selectWordUnchecked">
+		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
+		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND CATEGORY_NO = ?
+		AND CHECKED = 'N'
+	</entry>
+	
+	
+	<!-- 단어 즐겨찾기  -->
+	<entry key="updateFavorite">
+		UPDATE WORD SET
+		FAVORITE  = ? 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 단어 체크  -->
+	<entry key="updateChecked">
+		UPDATE WORD SET
+		CHECKED = ? 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- QuizOx 결과 업데이트  -->
+	<entry key="updateQuizOx">
+		UPDATE WORD SET
+		QUIZ_OX = ? 
+		WHERE WORD_NO = ?
+	</entry>
+	
+	<!-- 단어 검색 -->
+	<entry key="searchWord">
+		SELECT WORD_NO, WORD_TITLE
+		FROM WORD 
+		JOIN CATEGORY USING (CATEGORY_NO)
+		WHERE MEMBER_NO = ?
+		AND WORD_TITLE LIKE ?
+	</entry>
+	
+	<!-- 저장된 단어 수 조회 -->
+	<entry key="selectTotalCount">
+		SELECT COUNT(*)
+		FROM WORD
+		WHERE CATEGORY_NO = ?
+	</entry>
+	
+	<!-- QUIZ_OX가 O인 단어 수 조회 -->
+	<entry key="selectCorrectCount">
+		SELECT COUNT(*) 
+		FROM WORD
+		WHERE CATEGORY_NO = ?
+		AND QUIZ_OX = 'O'
+	</entry>
+	
+	<!-- QUIZ_OX가 X인 단어 전체 조회 -->
+	<entry key="selectWrongWordAll">
+		SELECT WORD_NO, WORD_TITLE, WORD_DF, CHECKED, FAVORITE, QUIZ_OX
+		FROM WORD
+		WHERE CATEGORY_NO = ?
+		AND QUIZ_OX = 'X'
+		ORDER BY CREATE_DATE
+	</entry>
+</properties>

@@ -1,0 +1,161 @@
+.swiper {
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: space-around !important;
+    align-items: center !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    padding: 30px 0;
+}
+
+.swiper-button-prev {
+    padding-left: 300px;
+    padding-right: 50px;
+}
+
+.swiper-button-next {
+    padding-left: 50px;
+    padding-right: 300px;
+}
+
+.swiper-button-next {
+    right: 200px;
+}
+
+.quiz-content-area {
+    margin: auto;
+}
+
+.quiz-header {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 70px;
+}
+
+.quiz-header h1 {
+    color: var(--dark);
+}
+
+.quiz-line {
+    width: 548px;
+    border: var(--line);
+}
+
+.quiz-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quiz-content > div {
+    width: 700px;
+    text-align: center;
+
+    border: 1px solid transparent;
+    border-radius: 20px;
+
+    margin: 20px;
+    box-shadow: var(--category-shadow);
+
+    font-size: 18px;
+}
+
+.quiz-content > div:hover {
+    border: 1px solid var(--primary);
+    cursor: pointer;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary) !important;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background-color: var(--primary) !important;
+}
+
+/* 결과 모달 */
+
+.main-content-area {
+    position: relative;
+}
+
+.result-modal-area {
+    width: calc(100vw - var(--nav-width));
+    height: calc(100vh - var(--header-height));
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-blur {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-modal {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    box-shadow: var(--word-modal-shadow);
+    border-radius: 10px;
+    display: flex;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-modal > h3 {
+    margin: 0;
+}
+
+.result-modal > span {
+    margin: 20px 0;
+}
+
+/* 반응형 */
+
+/* 1300px 미만일 때 */
+/* @media (max-width: 1000px) {
+    .swiper-button-prev {
+        left: 0px !important;
+    }
+    .swiper-button-next {
+        right: 0px !important;
+    }
+} */
+
+/* 1300px 이상일 때 */
+/* @media (min-width: 1200px) {
+    .swiper-button-prev {
+        left: 300px !important;
+    }
+    .swiper-button-next {
+        right: 300px !important;
+    }
+} */
