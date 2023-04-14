@@ -2,66 +2,65 @@
 pageEncoding="UTF-8" %> <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-     <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
-    <link
-      rel="stylesheet"
-      href="${contextPath}/resources/css/common/template-1.css"
-    />
-    <link rel="stylesheet" href="${contextPath}/resources/css/terms.css" />
+        <link rel="stylesheet" href="${contextPath}/resources/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="${contextPath}/resources/css/common/template-1.css"
+        />
+        <link rel="stylesheet" href="${contextPath}/resources/css/terms.css" />
 
-    <title>deVoca - 회원 약관 동의</title>
-  </head>
-  <body>
+        <title>deVoca - 회원 약관 동의</title>
+    </head>
     <body>
-      <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
-      </main>
+        <body>
+            <main>
+                <jsp:include page="/WEB-INF/views/common/header.jsp" />
+            </main>
 
-      <!-- 바디 -->
-      <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
-      <section class="main-content-area">
-        <div id="terms-box">
-          <form id="terms-form">
-            <h1 id="terms-title">약관 동의</h1>
+            <!-- 바디 -->
+            <!-- main-content-area는 레이아웃용이므로 해당 태그 하위에서부터 작성할 것 -->
+            <section class="main-content-area">
+                <div id="terms-box">
+                    <form id="terms-form">
+                        <h1 id="terms-title">약관 동의</h1>
 
-            <label>
-              <input
-                type="checkbox"
-                name="select-all"
-                id="all"
-                value="selectall"
-                onclick="selectAll(this)"
-              />
-              <label for="all"></label>
-              deVoca 이용약관, 개인정보 수집 및 이용, 프로모션 정보 수신(선택)에
-              모두 동의합니다.
-            </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="select-all"
+                                id="all"
+                                value="selectall"
+                                onclick="selectAll(this)"
+                            />
+                            <label for="all"></label>
+                            deVoca 이용약관, 개인정보 수집 및 이용, 프로모션
+                            정보 수신(선택)에 모두 동의합니다.
+                        </label>
 
-            <div>
-              <hr id="line" />
-            </div>
-            <div>
-              <label class="terms-derc">
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  id="c1"
-                  onclick="checkSelectAll()"
-                /><label for="c1"></label>
-                deVoca 이용약관 동의(필수)
-              </label>
+                        <div>
+                            <hr id="line" />
+                        </div>
+                        <div>
+                            <label class="terms-derc">
+                                <input
+                                    type="checkbox"
+                                    name="checkbox"
+                                    id="c1"
+                                    onclick="checkSelectAll()"
+                                /><label for="c1"></label>
+                                deVoca 이용약관 동의(필수)
+                            </label>
 
-              <br />
-              <div>
-                <textarea readonly>
+                            <br />
+                            <div>
+                                <textarea readonly>
 제1조(목적)
 본 약관은 deVoca(이하 '갑'이라 한다)가 운영하는 인터넷 관련 서비스(이하 '서비스')라 한다)를 이용함에 있어 관리자와 이용자(이하 '회원'이라 한다)의 권리, 의무 책임사항을 규정함을 목적으로 한다.
 
@@ -77,26 +76,26 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
 3. 회원은 서비스를 이용하여 얻은 정보를 '갑'의 사전 승낙 없이 복사, 복제, 변경, 번역, 출판, 방송 기타의 방법으로 사용하거나 이를 타인에게 제공할 수 없습니다.
                       </textarea
-                >
-              </div>
-            </div>
-            <br />
-            <div>
-              <label class="terms-derc">
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  id="c2"
-                  onclick="checkSelectAll()"
-                />
-                <label for="c2"></label>
+                                >
+                            </div>
+                        </div>
+                        <br />
+                        <div>
+                            <label class="terms-derc">
+                                <input
+                                    type="checkbox"
+                                    name="checkbox"
+                                    id="c2"
+                                    onclick="checkSelectAll()"
+                                />
+                                <label for="c2"></label>
 
-                개인정보 수집 및 이용에 대한 안내(필수)
-              </label>
+                                개인정보 수집 및 이용에 대한 안내(필수)
+                            </label>
 
-              <br />
-              <div>
-                <textarea readonly>
+                            <br />
+                            <div>
+                                <textarea readonly>
 제1 조 (이용계약 체결)
 1. 이용계약은 회원이 되고자 하는 자(이하 가입신청자)가 약관의 내용에 대하여 동의를 한 다음 회원가입신청을 하고 갑이 이러한 신청에 대하여 승낙함으로써 체결됩니다.
 
@@ -123,29 +122,38 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 7. 갑은 회원에 대해 갑정책에 따라 등급별로 구분하여 이용시간, 이용횟수, 서비스 메뉴 등을 세분하여 이용에 차등을 둘 수 있습니다.
 
                       </textarea
-                >
-              </div>
-            </div>
+                                >
+                            </div>
+                        </div>
 
-            <!-- 취소, 확인 버튼-->
-            <div id="input-group">
-             
-                 <a href="${contextPath}"><input id="btn-reset" type="button" value="취소"
-              /></a>
-             
-                <input class="btn-primary-fill" type="button" onclick="signUp()" value="동의"
-              />
-            </div>
-          </form>
-        </div>
-      </section>
+                        <!-- 취소, 확인 버튼-->
+                        <div id="input-group">
+                            <a href="${contextPath}"
+                                ><input
+                                    id="btn-reset"
+                                    type="button"
+                                    value="취소"
+                            /></a>
 
-      <!-- 푸터 -->
-      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+                            <input
+                                class="btn-primary-fill"
+                                type="button"
+                                onclick="signUp()"
+                                value="동의"
+                            />
+                        </div>
+                    </form>
+                </div>
+            </section>
 
-		<script> const contextPath = "${contextPath}"; </script>
-      <script src="${contextPath}/resources/js/terms.js"></script>
-      <script src="${contextPath}/resources/js/google-search.js"></script>
+            <!-- 푸터 -->
+            <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+            <script>
+                const contextPath = "${contextPath}";
+            </script>
+            <script src="${contextPath}/resources/js/terms.js"></script>
+            <script src="${contextPath}/resources/js/google-search.js"></script>
+        </body>
     </body>
-  </body>
 </html>

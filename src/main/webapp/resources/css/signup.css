@@ -1,171 +1,169 @@
 body {
-  background-image: url("../assets/images/login-polygon.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--gray30);
+    background-image: url("../assets/images/login-polygon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--gray30);
 }
 
 .main-content-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* 회원 가입 박스 */
 #sign-up-box {
-  width: 590px;
-  height: 630px;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: var(--login-shadow);
+    width: 590px;
+    height: 630px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: var(--login-shadow);
 
-  padding: 35px 35px;
+    padding: 35px 35px;
 }
 
 /* 제목 */
 #sign-up-title {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 30px;
-  color: var(--primary);
-  text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: var(--primary);
+    text-align: center;
 }
 
 /* 인풋 창 */
 .input-group input {
-  width: 90%;
-  height: 45px;
-  color : var(--dark);
-  border: 1.5px solid #f1f1f1;
-  border-radius: 10px;
-  transition: all ease-in-out 0.15s;
-  outline: none;
-  background-color: #f1f1f1;
-  font-family: "Pretendard-Regular";
+    width: 90%;
+    height: 45px;
+    color: var(--dark);
+    border: 1.5px solid #f1f1f1;
+    border-radius: 10px;
+    transition: all ease-in-out 0.15s;
+    outline: none;
+    background-color: #f1f1f1;
+    font-family: "Pretendard-Regular";
 }
 
 .input-group input:focus {
-  width: 90%;
-  height: 45px;
- border: 1.5px solid #f1f1f1;
-  border-radius: 10px;
-  background-color: #f1f1f1;
+    width: 90%;
+    height: 45px;
+    border: 1.5px solid #f1f1f1;
+    border-radius: 10px;
+    background-color: #f1f1f1;
 }
 
 .input-group > div {
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .input-group > div:last-child {
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .ic-login-circle-default,
- .ic-login-circle-active,
- .ic-login-circle-wrong{
-  margin: 0 10px;
+.ic-login-circle-active,
+.ic-login-circle-wrong {
+    margin: 0 10px;
 }
 
 /* 인풋창 들여쓰기 */
 input[type="text"] {
-  font-size: 15px;
-  text-indent: 10px;
-  letter-spacing: 1px;
+    font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 1px;
 }
 input[type="password"] {
-  font-size: 15px;
-  text-indent: 10px;
-  letter-spacing: 1px;
+    font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 1px;
 }
 
 p {
-	font-size: 14px;
-	padding-left: 50px;
-	margin: 2px 0;
-	color: var(--dark);
+    font-size: 14px;
+    padding-left: 50px;
+    margin: 2px 0;
+    color: var(--dark);
 }
 
 /* 확인 버튼 */
 #btn-submit {
-  display: flex;
-  justify-content: center;
-  margin-bottom : 15px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
-
-
 
 /* 가입 여부 */
 #already-text {
-  color: var(--gray500);
-  text-align: center;
-  
-  margin-top : 24px;
-  margin-bottom : 14px;
+    color: var(--gray500);
+    text-align: center;
+
+    margin-top: 24px;
+    margin-bottom: 14px;
 }
 
 #already-text > a {
-  margin-left: 20px;
-  color: var(--primary);
-  text-decoration: none;
+    margin-left: 20px;
+    color: var(--primary);
+    text-decoration: none;
 }
 
 /*  - or - */
 .or {
-  display: flex;
-  flex-basis: 100%;
-  align-items: center;
-  color: var(--primary);
-  font-size: 16px;
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: var(--primary);
+    font-size: 16px;
 }
 
 .or::before,
 .or::after {
-  content: "";
-  flex-grow: 1;
-  background: var(--primary);
-  height: 1.5px;
-  font-size: 0px;
-  line-height: 0px;
-  margin: 20px 16px;
+    content: "";
+    flex-grow: 1;
+    background: var(--primary);
+    height: 1.5px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 20px 16px;
 }
 
 #sns {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
-	margin-top : 13px;
+    margin-top: 13px;
 }
 
 /* 카카오 회원가입 */
 .ic-kakao {
-  margin-right: 24px;
-  font-size: 15px;
+    margin-right: 24px;
+    font-size: 15px;
 }
 #kakao {
-  width: 480px;
-  height: 45px;
-  border: none;
-  border-radius: 10px;
+    width: 480px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
 
-  font-weight: bold;
-  font-size: 15px;
-  color: var(--dark);
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--dark);
 
-  background-color: #fee500;
-  cursor: pointer;
+    background-color: #fee500;
+    cursor: pointer;
 }
 
 #kakao:hover {
-  background-color: #faeb62;
+    background-color: #faeb62;
 }
 
 #kakao:active {
-  background-color: #e5cf00;
+    background-color: #e5cf00;
 }
 
 #already-text {
-  padding-left: 0;
+    padding-left: 0;
 }
