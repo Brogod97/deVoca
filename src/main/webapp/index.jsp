@@ -105,21 +105,21 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
           <div class="slide">
             <img
-              src="${contextPath}/resources/assets/images/randingImg/randing1.jpg"
+              src="${contextPath}/resources/assets/images/randingImg/randingImg1.png"
               width="850px"
               height="550px"
             />
           </div>
           <div class="slide">
             <img
-              src="${contextPath}/resources/assets/images/randingImg/randing2.jpg"
+              src="${contextPath}/resources/assets/images/randingImg/randingImg2.png"
               width="850px"
               height="550px"
             />
           </div>
           <div class="slide">
             <img
-              src="${contextPath}/resources/assets/images/randingImg/randing3.jpg"
+              src="${contextPath}/resources/assets/images/randingImg/randingImg3.png"
               width="850px"
               height="550px"
             />
