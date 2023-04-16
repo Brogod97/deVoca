@@ -48,7 +48,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </c:if>
     <c:if test="${empty sessionScope.loginMember}">
              <div class="faq-login-signup">
-        <a href="${contextPath}/index.jsp">HOME</a>
+        <!-- <a href="${contextPath}/index.jsp">HOME</a> -->
         <a href="${contextPath}/voca/explore">EXPLORE</a>
         <a href="${contextPath}/member/login">로그인</a>
         <a href="${contextPath}/static/terms.jsp">
