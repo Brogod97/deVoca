@@ -2,43 +2,42 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>member-sql.xml</comment>
-	
-	<!-- 로그인(비밀번호, 탈퇴여부 제외) -->
-	<entry key="login">
-	    SELECT *
-	    FROM MEMBER
-	    WHERE MEMBER_ID = ?
-	    AND MEMBER_PW = ?
-	    AND SECESSION_FL = 'N'
-	
-	</entry>
 
-<!-- 회원가입 -->
+	<!-- 회원가입 -->
 	<entry key="signUp">
-		INSERT INTO MEMBER
-		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , DEFAULT, DEFAULT, DEFAULT, DEFAULT)
+		insert into member
+		values(null, ?, ?, ?, default, default, default, default);
 	</entry>
 	
-<!-- 카카오 회원가입 -->
-<entry key="kakaoLogin">
+	<!-- 카카오 회원가입 -->
+	<entry key="kakaoLogin">
 		INSERT INTO MEMBER
 		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , 'Y', DEFAULT, DEFAULT,DEFAULT)
 	</entry>
-
-
-<!-- 아이디(이메일) 중복검사 -->
+	
+	<!-- 아이디(이메일) 중복검사 -->
 	<entry key="idDupCheck">
 		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_ID = ?
 		AND SECESSION_FL = 'N'
 	</entry>
-
-   <!-- 닉네임 중복 검사 -->
+	
+	<!-- 닉네임 중복 검사 -->
 	<entry key="nicknameDupCheck">
-		SELECT COUNT(*) FROM MEMBER
-		WHERE MEMBER_NM = ?
-		AND SECESSION_FL = 'N'
-		AND SNS_FL = 'N'
+		select count(*) 
+		from member
+		where member_nick = ?
+		and secession_fl = 'N'
+		and sns_fl = 'N';
+	</entry>
+	
+	<!-- 로그인(비밀번호, 탈퇴여부 제외) -->
+	<entry key="login">
+	    select *
+		from member
+		where member_id = ?
+		and member_pw  = ?
+		and secession_fl = 'n';
 	</entry>
 	
 	<!-- 임시 비밀번호 수정 -->
@@ -48,5 +47,4 @@
 		WHERE MEMBER_ID = ?
 	</entry>
 
-	
 </properties>
