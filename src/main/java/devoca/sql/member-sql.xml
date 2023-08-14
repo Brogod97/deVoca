@@ -11,15 +11,16 @@
 	
 	<!-- 카카오 회원가입 -->
 	<entry key="kakaoLogin">
-		INSERT INTO MEMBER
-		VALUES(MEMBER_NO_SEQ.NEXTVAL , ? , ? , ? , 'Y', DEFAULT, DEFAULT,DEFAULT)
+		insert into member
+		values(null, ?, ?, ?, default, default, default, default)
 	</entry>
 	
 	<!-- 아이디(이메일) 중복검사 -->
 	<entry key="idDupCheck">
-		SELECT COUNT(*) FROM MEMBER
-		WHERE MEMBER_ID = ?
-		AND SECESSION_FL = 'N'
+		select count(*)
+		from member
+		where member_id = ?
+		and secession_fl = 'n'
 	</entry>
 	
 	<!-- 닉네임 중복 검사 -->
@@ -42,9 +43,9 @@
 	
 	<!-- 임시 비밀번호 수정 -->
 	<entry key="temporaryPw">
-		UPDATE MEMBER SET
-		MEMBER_PW = ?
-		WHERE MEMBER_ID = ?
+		update member 
+		set member_pw = ?
+		where member_id = ?
 	</entry>
 
 </properties>

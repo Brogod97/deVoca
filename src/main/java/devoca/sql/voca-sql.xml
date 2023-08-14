@@ -3,162 +3,166 @@
 <properties>
 <comment>voca-sql.xml</comment>
 
+	<!-- 카테고리 전체 조회 -->
 	<entry key ="selectCategoryAll">
-		SELECT CATEGORY_NO, MEMBER_NO, CATEGORY_TITLE
-		FROM CATEGORY
-		WHERE MEMBER_NO = ?
-		ORDER BY CATEGORY_NO
+		select category_no, member_no, category_title 
+		from category 
+		where member_no = ?
+		order by category_no
+
 	</entry>
 	
+	<!-- 회원 전체 조회 -->
 	<entry key="selectMemberAll">
-		SELECT MEMBER_NO, MEMBER_NM, USER_IMG
-		FROM MEMBER
-		WHERE SECESSION_FL = 'N'
+		select member_no, member_nick, user_img
+		from member
+		where secession_fl = 'n'
 	</entry>
 	
+	<!-- 단어 전체 조회 -->
 	<entry key="selectWordAll">
-		SELECT WORD_NO, WORD_TITLE, WORD_DF, CHECKED, FAVORITE, QUIZ_OX
-		FROM WORD 
-		JOIN CATEGORY USING (CATEGORY_NO)
-		WHERE MEMBER_NO = ?
-		AND CATEGORY_NO = ?
-		ORDER BY CREATE_DATE
+		select word_no, word_title, word_df, checked, favorite , quiz 
+		from word
+		join category c using(category_no)
+		where member_no = ?
+		and category_no = ?
+		order by create_date
 	</entry>
 	
 	<!-- 단어 상세조회  -->
 	<entry key ="selectWordOne">
-		SELECT WORD_TITLE , WORD_DF ,WORD_MEMO , CODE_BLOCK 
-		FROM WORD 
-		WHERE WORD_NO = ?
+		select word_title, word_df, word_memo, code_block
+		from word
+		where word_no = ?
 	</entry>
 	
 	<entry key ="searchUser">
-		SELECT MEMBER_NO, MEMBER_NM, USER_IMG
-		FROM MEMBER
-		WHERE MEMBER_NM LIKE ?
+		select member_no, member_nick, user_img 
+		from `member` m 
+		where member_nick like ?
 	</entry>
 
 	<!-- 카테고리 추가 -->
 	<entry key="insertCategory">
-		INSERT INTO CATEGORY 
-		VALUES (CATEGORY_NO_SEQ.NEXTVAL, ?, ?)
+		insert into category  
+		values(null, ?, ?)
 	</entry>
 	
 	
 	
 	<!-- 단어 추가 -->
 	<entry key="insertWord">
-		INSERT INTO WORD 
-		VALUES(WORD_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, DEFAULT, DEFAULT, DEFAULT)
+		insert into word 
+		values(null, ?, ?, ?, ?, ?, default, default, default, default)		
 	</entry>
 	
 	<!-- 단어 업데이트 -->
 	<entry key="updateWord">
-		UPDATE WORD SET
-		WORD_TITLE = ?,
-		WORD_DF = ?,
-		WORD_MEMO = ?,
-		CODE_BLOCK = ?
-		WHERE WORD_NO = ?
+		update word set 
+		word_title = ?,
+		word_df = ?,
+		word_memo = ?,
+		code_block = ?
+		where word_no ?
 	</entry>
 	
 	<!-- 단어삭제 -->
 	<entry key="deleteWord">
-		DELETE FROM WORD 
-		WHERE WORD_NO = ?
+		delete from word 
+		where word_no ?
 	</entry>
 	
 	<!-- 카테고리 삭제 -->
 	<entry key="deleteCategory">
-		DELETE FROM CATEGORY
-		WHERE CATEGORY_NO = ?
+		delete from category 
+		where category_no = ?		
 	</entry>
 	
 	<!-- 즐겨찾기한 단어 조회 -->
 	<entry key="selectWordFavorite">
-		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
-		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX
-		FROM WORD 
-		JOIN CATEGORY USING (CATEGORY_NO)
-		WHERE MEMBER_NO = ?
-		AND CATEGORY_NO = ?
-		AND FAVORITE = 'Y'
+		select member_no, category_no , word_no , word_title , word_df , word_memo , code_block 
+		, create_date , checked , favorite , quiz 
+		from word w
+		join category c using (category_no)
+		where member_no = ?
+		and category_no = ?
+		and favorite = 'y'
 	</entry>
 	
 	<!-- 체크한 단어 조회 -->
 	<entry key="selectWordChecked">
-		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
-		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX
-		FROM WORD 
-		JOIN CATEGORY USING (CATEGORY_NO)
-		WHERE MEMBER_NO = ?
-		AND CATEGORY_NO = ?
-		AND CHECKED = 'Y'
+		select member_no, category_no , word_no , word_title , word_df , word_memo , code_block 
+		, create_date , checked , favorite , quiz 
+		from word w
+		join category c using (category_no)
+		where member_no = ?
+		and category_no = ?
+		and checked  = 'y'
 	</entry>
 	
 	<!-- 체크안한 단어 조회 -->
 	<entry key="selectWordUnchecked">
-		SELECT MEMBER_NO, CATEGORY_NO, WORD_NO, WORD_TITLE, WORD_DF, WORD_MEMO, 
-		CODE_BLOCK, CREATE_DATE, CHECKED, FAVORITE, QUIZ_OX
-		FROM WORD 
-		JOIN CATEGORY USING (CATEGORY_NO)
-		WHERE MEMBER_NO = ?
-		AND CATEGORY_NO = ?
-		AND CHECKED = 'N'
+		select member_no, category_no , word_no , word_title , word_df , word_memo , code_block 
+		, create_date , checked , favorite , quiz 
+		from word w
+		join category c using (category_no)
+		where member_no = ?
+		and category_no = ?
+		and checked  = 'n'
 	</entry>
 	
 	
 	<!-- 단어 즐겨찾기  -->
 	<entry key="updateFavorite">
-		UPDATE WORD SET
-		FAVORITE  = ? 
-		WHERE WORD_NO = ?
+		update word set 
+		favorite = ?
+		where word_no = ?
 	</entry>
 	
 	<!-- 단어 체크  -->
 	<entry key="updateChecked">
-		UPDATE WORD SET
-		CHECKED = ? 
-		WHERE WORD_NO = ?
+		update word set 
+		checked = ?
+		where word_no = ?
 	</entry>
 	
 	<!-- QuizOx 결과 업데이트  -->
 	<entry key="updateQuizOx">
-		UPDATE WORD SET
-		QUIZ_OX = ? 
-		WHERE WORD_NO = ?
+		update word set 
+		quiz = ?
+		where word_no = ?
 	</entry>
 	
 	<!-- 단어 검색 -->
 	<entry key="searchWord">
-		SELECT WORD_NO, WORD_TITLE
-		FROM WORD 
-		JOIN CATEGORY USING (CATEGORY_NO)
-		WHERE MEMBER_NO = ?
-		AND WORD_TITLE LIKE ?
+		select word_no, word_title
+		from word w 
+		join category c using(category_no)
+		where member_no = ?
+		and word_title like ?
 	</entry>
 	
 	<!-- 저장된 단어 수 조회 -->
 	<entry key="selectTotalCount">
-		SELECT COUNT(*)
-		FROM WORD
-		WHERE CATEGORY_NO = ?
+		select count(*)
+		from word
+		where category_no = ?
 	</entry>
 	
-	<!-- QUIZ_OX가 O인 단어 수 조회 -->
+	<!-- quiz가 O인 단어 수 조회 -->
 	<entry key="selectCorrectCount">
-		SELECT COUNT(*) 
-		FROM WORD
-		WHERE CATEGORY_NO = ?
-		AND QUIZ_OX = 'O'
+		select count(*)
+		from word w 
+		where category_no = ?
+		and quiz = 'o';
 	</entry>
 	
-	<!-- QUIZ_OX가 X인 단어 전체 조회 -->
+	<!-- quiz가 X인 단어 전체 조회 -->
 	<entry key="selectWrongWordAll">
-		SELECT WORD_NO, WORD_TITLE, WORD_DF, CHECKED, FAVORITE, QUIZ_OX
-		FROM WORD
-		WHERE CATEGORY_NO = ?
-		AND QUIZ_OX = 'X'
-		ORDER BY CREATE_DATE
+		select word_no , word_title , word_df , checked , favorite , quiz 
+		from word w 
+		where category_no = ?
+		and quiz = 'x'
+		order by create_date 
 	</entry>
 </properties>
